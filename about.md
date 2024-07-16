@@ -25,7 +25,9 @@ permalink: /about/
 
 > El semillero de investigación Coders obtuvo el **primer puesto** en la Maratón interna de Programación `UTP Open` que se desarrolló en las instalaciones de la *Universidad Tecnológica de Pereira* el sábado 25 de noviembre de 2023. Los equipos participantes estuvieron conformados por los estudiantes Mario Esteban Marín, Brahian Stiven Gil Arias, Miguel Ángel Gálvez Quintero, Camilo Castañeda Yepes, Juan David García Acevedo, David Duque Vallde Ruten y Laura Echeverry Toro del programa de Ingeniería de Sistemas y Telecomunicaciones, además el estudiante Juan Esteban López López del programa de Tecnología en Desarrollo de Software.
 
+<div>
 <img src="/assets/images/Foto1.jpg" alt="utpopen" oncontextmenu="return false;" width="900">
+</div>
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/semillero-coders-obtiene-primer-puesto-en-utp-open-2023/)
 
@@ -40,7 +42,7 @@ permalink: /about/
 <div>
 <img src="/assets/images/puesto.webp" alt="puesto" oncontextmenu="return false;" width="900">
 </div>
-<br>
+
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/asumen-nuevos-representantes-estudiantiles/)
 
 ---
@@ -54,7 +56,6 @@ permalink: /about/
 <div>
 <img src="/assets/images/Maraton.jpg" alt="Maraton" oncontextmenu="return false;" width="900">
 </div>
-<br>
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/los-programas-ist-y-tds-participan-en-la-xxxvii-maraton-nacional-de-programacion/)
 

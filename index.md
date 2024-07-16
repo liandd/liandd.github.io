@@ -4,7 +4,7 @@ layout: home
 permalink: /
 ---
 
-### Blog de liandd
+### Blog de Juan Garcia (aka liandd)
 
 Publicaciones sobre seguridad, CTFs y redes.
 Estas publicaciones han sido creadas como soporte en mi formación académica y crecimiento profesional.
