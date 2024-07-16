@@ -5,7 +5,8 @@ permalink: /about/
 ---
 
 ## Formación Profesional.
-<img src="/assets/images/uni.png" alt="Universidad" oncontextmenu="return false;" width="600">
+
+<img src="/assets/images/uni.png" alt="Universidad" oncontextmenu="return false;" width="900">
 
 ---
 🌱 Actualmente estudiante de Ingeniería en Sistemas y Telecomunicaciones en la Facultad de Ingeniería de la *Universidad Católica De Pereira*.
@@ -24,7 +25,7 @@ permalink: /about/
 
 > El semillero de investigación Coders obtuvo el **primer puesto** en la Maratón interna de Programación `UTP Open` que se desarrolló en las instalaciones de la *Universidad Tecnológica de Pereira* el sábado 25 de noviembre de 2023. Los equipos participantes estuvieron conformados por los estudiantes Mario Esteban Marín, Brahian Stiven Gil Arias, Miguel Ángel Gálvez Quintero, Camilo Castañeda Yepes, Juan David García Acevedo, David Duque Vallde Ruten y Laura Echeverry Toro del programa de Ingeniería de Sistemas y Telecomunicaciones, además el estudiante Juan Esteban López López del programa de Tecnología en Desarrollo de Software.
 
-<img src="/assets/images/Foto1.jpg" alt="utpopen" oncontextmenu="return false;" width="600">
+<img src="/assets/images/Foto1.jpg" alt="utpopen" oncontextmenu="return false;" width="900">
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/semillero-coders-obtiene-primer-puesto-en-utp-open-2023/)
 
@@ -36,8 +37,10 @@ permalink: /about/
 
 > Para el Consejo Académico, los representantes son `Nicolás Ceballos Brito (principal)` y `Juan David García Acevedo (suplente)` pertenecientes al programa Ingeniería de Sistemas y Telecomunicaciones
 
-<img src="https://www.ucp.edu.co/portal/wp-content/uploads/2023/06/RE_1-1-1024x768.webp" alt="puesto" oncontextmenu="return false;" width="600">
-
+<div>
+<img src="/assets/images/puesto.webp" alt="puesto" oncontextmenu="return false;" width="900">
+</div>
+<br>
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/asumen-nuevos-representantes-estudiantiles/)
 
 ---
@@ -48,7 +51,10 @@ permalink: /about/
 
 > La *Universidad Católica de Pereira* participó a través de la Facultad de Ciencias Básicas e Ingeniería en la **XXXVII Maratón Nacional de Programación ACIS/REDIS 2023**, donde se enfrentaron 108 equipos de distintas universidades de Colombia. La competencia que se llevó a cabo el sábado 2 de septiembre de 2023 en la ciudad de Manizales.
 
-<img src="https://www.ucp.edu.co/portal/wp-content/uploads/2023/09/20230902_121416-1536x865.jpg" alt="Maraton" oncontextmenu="return false;" width="600">
+<div>
+<img src="/assets/images/Maraton.jpg" alt="Maraton" oncontextmenu="return false;" width="900">
+</div>
+<br>
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/los-programas-ist-y-tds-participan-en-la-xxxvii-maraton-nacional-de-programacion/)
 

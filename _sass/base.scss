@@ -218,6 +218,9 @@ td > code{
     border-radius: 4px;
 }
 
+img {
+  pointer-events: none;
+}
 
 .highlight table {
   margin-bottom: 0;
