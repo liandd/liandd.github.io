@@ -1,0 +1,26 @@
+# Example Site settings
+
+#google_analytics: UA-NNNNNNNN-N
+
+header_pages:
+  - index.md
+  - about.md
+  - contact.md
+
+name: ~/lian.conf
+
+author:
+  name: liandd
+  url: http://liandd.github.io
+
+logourl: /assets/images/masthead.png"
+
+footer: 'Red Social <a href="https://x.com/lianndd_">twitter</a>'
+
+#style: light # dark (default) or light
+#listen_for_clients_preferred_style: true # true or false (default)
+
+plugins:
+  - jekyll-seo-tag
+
+
