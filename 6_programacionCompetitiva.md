@@ -49,7 +49,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*)
 <img src="/assets/images/ProgramacionCompetitiva/ev3.jpg" alt="Maraton" oncontextmenu="return false;" width="900">
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/_about_files/Maraton.jpg" alt="Maraton" oncontextmenu="return false;" width="900">
+<img src="/assets/images/ProgramacionCompetitiva/Maraton.jpg" alt="Maraton" oncontextmenu="return false;" width="900">
 </div>
 <br>
 Foto de Coders de la Universidad Católica de Pereira.
