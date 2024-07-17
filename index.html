@@ -1,0 +1,156 @@
+---
+title: /
+layout: post
+permalink: /
+---
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="avid computer engineer" />
+  <title>$home liandd</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      max-width: 650px;
+      background-color: black;
+      color: white;
+      font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+      margin: auto;
+      line-height: 1.2em;
+      align-items: center;
+      text-align: center;
+      cursor: url("wii-pointer-ccw.cur") 16 16, auto;
+
+    }
+    img {
+     pointer-events: none;
+    }
+    body hr {
+      border: 1.5px dotted white;
+    }
+
+    body p:not(:nth-child(2)) {
+      margin-top: 30px;
+    }
+
+    body p:nth-child(2) {
+      margin-top: 0px;
+    }
+
+    body h3:first-child {
+      margin-bottom: 5px;
+    }
+
+    body h4 {
+      margin-top: 30px;
+    }
+
+    body h5 {
+      margin: 0px;
+      font-weight: 100;
+    }
+
+    @media only screen and (max-width: 650px) {
+      html,
+      body {
+        width: 90vw !important;
+      }
+    }
+
+    ul.a {
+      list-style-type: '> ';
+    }
+
+
+    a:link {
+      color: #ee678f;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    /* visited link mi color azul color: #74a4d4;, mi rojo : #ee678f*/
+    a:visited {
+      color: #ee678f;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false">
+  <main>
+
+    <div class="container">
+      <h3>Улыбки фортуны</h3>
+      <h2>~ liandd</h2>
+
+        <hr />
+        <h4>Hice esta página para llevar un registro de mis herramientas, scripts y apuntes, y como pasatiempo nació esta web.
+        
+        </h4>
+        <p>La fortuna sonríe.</p>
+
+
+        <h4>dm me <a href="https://x.com/lianndd_">@lianndd_</a></h4>
+        <img width="295" src="/assets/images/home1.webp">
+
+        <h3>- <a href="/posts">Entrar...</a> -
+        </h3>
+
+        <h4>..blog ? (i686)</h4>
+        <hr />
+        <marquee behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();" direction="left" loop="">
+
+          <a href="#"><img width="35" src="/assets/images/smileface.gif"
+              alt=""></a>
+          <a href="#"><img width="30" src="/assets/images/face21.gif" alt="my button"></a>
+          <a href="#"><img width="35"
+              src="/assets/images/gamecube.gif" alt="zzz"></a>
+
+        </marquee>
+        <script type="text/javascript">
+          function mousehandler(e) {
+              var myevent = (isNS) ? e : event;
+              var eventbutton = (isNS) ? myevent.which : myevent.button;
+              if ((eventbutton == 2) || (eventbutton == 3)) return false;
+          }
+          document.oncontextmenu = mischandler;
+          document.onmousedown = mousehandler;
+          document.onmouseup = mousehandler;
+          function disableCtrlKeyCombination(e) {
+              var forbiddenKeys = new Array("a", "s", "c", "x","u");
+              var key;
+              var isCtrl;
+              if (window.event) {
+                  key = window.event.keyCode;
+                  //IE
+                  if (window.event.ctrlKey)
+                      isCtrl = true;
+                  else
+                      isCtrl = false;
+              }
+              else {
+                  key = e.which;
+                  //firefox
+                  if (e.ctrlKey)
+                      isCtrl = true;
+                  else
+                      isCtrl = false;
+              }
+              if (isCtrl) {
+                  for (i = 0; i < forbiddenKeys.length; i++) {
+                      //case-insensitive comparation
+                      if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                          return false;
+                      }
+                  }
+              }
+              return true;
+          }
+      </script>
+    </div>
+  </main>
+</body>
+
+</html>

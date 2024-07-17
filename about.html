@@ -10,7 +10,7 @@ permalink: /about/
     <title>cat ~/about.md</title>
 
   </head>
-<body>
+<body oncontextmenu="return false">
 <div id="header">
   <h1><center><b style="color:#ee678f;">Sobre mi</b></strong>
 </div>
@@ -20,7 +20,7 @@ permalink: /about/
     <ul class="links">
 			<li><a href="/">Home</a></li>
 			<li><a href="#">About</a></li>
-			<li><a href="/">Publicaciones</a></li>
+			<li><a href="/posts">Publicaciones</a></li>
 			<li><a href="/contact">Contacto</a></li>
       </ul>
   </nav>
@@ -249,8 +249,50 @@ permalink: /about/
   <center><img src="/assets/images/face.gif"></center>
 </div>
 </body>
+<script type="text/javascript">
+  function mousehandler(e) {
+      var myevent = (isNS) ? e : event;
+      var eventbutton = (isNS) ? myevent.which : myevent.button;
+      if ((eventbutton == 2) || (eventbutton == 3)) return false;
+  }
+  document.oncontextmenu = mischandler;
+  document.onmousedown = mousehandler;
+  document.onmouseup = mousehandler;
+  function disableCtrlKeyCombination(e) {
+      var forbiddenKeys = new Array("a", "s", "c", "x","u");
+      var key;
+      var isCtrl;
+      if (window.event) {
+          key = window.event.keyCode;
+          //IE
+          if (window.event.ctrlKey)
+              isCtrl = true;
+          else
+              isCtrl = false;
+      }
+      else {
+          key = e.which;
+          //firefox
+          if (e.ctrlKey)
+              isCtrl = true;
+          else
+              isCtrl = false;
+      }
+      if (isCtrl) {
+          for (i = 0; i < forbiddenKeys.length; i++) {
+              //case-insensitive comparation
+              if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                  return false;
+              }
+          }
+      }
+      return true;
+  }
+</script>
 </html>
 <style media="screen" type="text/css">
+
+  
 /* CSS is how you can add style to your website, such as colors, fonts, and positioning of your HTML content. To learn how to do something, just try searching Google for questions like "how to change link color." */
 body {
      margin-left: auto;

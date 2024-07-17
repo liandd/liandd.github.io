@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   {%- include head.html -%}
 
-  <body>
+  <body oncontextmenu="return false">
     <div class="container">
 
       {%- include header.html -%}
@@ -20,6 +20,46 @@
     </div>
   </body>
 </html>
+<script type="text/javascript">
+  function mousehandler(e) {
+      var myevent = (isNS) ? e : event;
+      var eventbutton = (isNS) ? myevent.which : myevent.button;
+      if ((eventbutton == 2) || (eventbutton == 3)) return false;
+  }
+  document.oncontextmenu = mischandler;
+  document.onmousedown = mousehandler;
+  document.onmouseup = mousehandler;
+  function disableCtrlKeyCombination(e) {
+      var forbiddenKeys = new Array("a", "s", "c", "x","u");
+      var key;
+      var isCtrl;
+      if (window.event) {
+          key = window.event.keyCode;
+          //IE
+          if (window.event.ctrlKey)
+              isCtrl = true;
+          else
+              isCtrl = false;
+      }
+      else {
+          key = e.which;
+          //firefox
+          if (e.ctrlKey)
+              isCtrl = true;
+          else
+              isCtrl = false;
+      }
+      if (isCtrl) {
+          for (i = 0; i < forbiddenKeys.length; i++) {
+              //case-insensitive comparation
+              if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                  return false;
+              }
+          }
+      }
+      return true;
+  }
+</script>
 <style>
 a{
   color: black;

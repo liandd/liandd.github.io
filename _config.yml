@@ -3,7 +3,8 @@
 #google_analytics: UA-NNNNNNNN-N
 
 header_pages:
-  - index.md
+  - index.html
+  - posts.md
   - about.html
   - contact.md
 

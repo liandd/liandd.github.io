@@ -1,7 +1,7 @@
 ---
-title: /
+title: /posts
 layout: home
-permalink: /
+permalink: /posts
 ---
 
 ### Blog de Juan Garcia (aka liandd)
@@ -15,5 +15,3 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ 2023-28-07 ] <a href="\bufferOverflow_1er_Practica">Buffer OverFlow a SLMail 5.5</a>
 - [ 2023-16-07 ] <a href="\dotfiles.html">Archivos de Configuración Bspwm Parrot</a>
 - [ 2023-12-02 ] <a href="\decompressor.html">Bandit Decompressor</a>
-
-
