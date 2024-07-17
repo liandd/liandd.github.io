@@ -4,7 +4,7 @@
 
 header_pages:
   - index.md
-  - about.md
+  - about.html
   - contact.md
 
 name: ~/lian.conf
@@ -15,7 +15,7 @@ author:
 
 logourl: /assets/images/masthead.png"
 
-footer: 'Red Social <a href="https://x.com/lianndd_"><i class="fab fa-twitter">twitter</i></a>, <a href="https://www.linkedin.com/in/juan-garciaa2/"><i class="fab fa-linkedin">linkedin</i></a>, <a href="https://app.hackthebox.com/profile/1098514"><i class="fab fa-hacker-news">HTB</i></a>'
+footer: 'Red Social <a href="https://x.com/lianndd_">twitter</a>, <a href="https://www.linkedin.com/in/juan-garciaa2/">linkedin</a>, <a href="https://app.hackthebox.com/profile/1098514">HTB</a>'
 
 #style: light # dark (default) or light
 #listen_for_clients_preferred_style: true # true or false (default)
