@@ -19,7 +19,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*)
 
 🗳️ Durante el día 25 de noviembre hice mi participación en `UTP Open Contest 2023` en la *Universidad Tecnológica de Pereira*.
 
-<img src="https://www.ucp.edu.co/portal/wp-content/uploads/2023/11/Foto1-1536x1152.jpg" alt="utpopen" oncontextmenu="return false;" width="900">
+<img src="/assets/images/Foto1.jpg" alt="utpopen" oncontextmenu="return false;" width="900">
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/semillero-coders-obtiene-primer-puesto-en-utp-open-2023/)
 
@@ -49,7 +49,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*)
 <img src="/assets/images/ProgramacionCompetitiva/ev3.jpg" alt="Maraton" oncontextmenu="return false;" width="900">
 </div>
 <div style="text-align: center;">
-<img src="https://www.ucp.edu.co/portal/wp-content/uploads/2023/09/20230902_121416-1536x865.jpg" alt="Maraton" oncontextmenu="return false;" width="900">
+<img src="/assets/images/_about_files/Maraton.jpg" alt="Maraton" oncontextmenu="return false;" width="900">
 </div>
 <br>
 Foto de Coders de la Universidad Católica de Pereira.
