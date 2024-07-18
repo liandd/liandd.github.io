@@ -19,7 +19,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*)
 
 🗳️ Durante el día 25 de noviembre hice mi participación en `UTP Open Contest 2023` en la *Universidad Tecnológica de Pereira*.
 
-<img src="/assets/images/Foto1.jpg" alt="utpopen" oncontextmenu="return false;" style="max-width: 100%; height: auto;">
+<img src="/assets/images/Foto1.jpg" alt="utpopen" oncontextmenu="return false;">
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/semillero-coders-obtiene-primer-puesto-en-utp-open-2023/)
 
@@ -34,22 +34,22 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*)
 
 ### Galería fotográfica
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev.jpg" alt="Maraton" oncontextmenu="return false;" style="max-width: 100%; height: auto;">
+<img src="/assets/images/ProgramacionCompetitiva/ev.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev4.jpg" alt="Maraton" oncontextmenu="return false;" style="max-width: 100%; height: auto;">
+<img src="/assets/images/ProgramacionCompetitiva/ev4.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev1.jpg" alt="Maraton" oncontextmenu="return false;" style="max-width: 100%; height: auto;">
+<img src="/assets/images/ProgramacionCompetitiva/ev1.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev2.jpg" alt="Maraton" oncontextmenu="return false;" style="max-width: 100%; height: auto;">
+<img src="/assets/images/ProgramacionCompetitiva/ev2.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev3.jpg" alt="Maraton" oncontextmenu="return false;" style="max-width: 100%; height: auto;">
+<img src="/assets/images/ProgramacionCompetitiva/ev3.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/Maraton.jpg" alt="Maraton" oncontextmenu="return false;" style="max-width: 100%; height: auto;">
+<img src="/assets/images/ProgramacionCompetitiva/Maraton.jpg" alt="Maraton" oncontextmenu="return false;">
 </div>
 <br>
 Foto de Coders de la Universidad Católica de Pereira.

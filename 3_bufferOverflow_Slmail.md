@@ -15,28 +15,28 @@ Lo primero es configurar una maquina Windows para montar el entorno de practica,
 > *Se usara un sistema Windows 7 de 32 bits, la versión starter.*
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/W7.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/W7.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
 Después de instalar la maquina Windows, es muy importante que haya comunicación entre las 2 maquinas mediante trazas **ICMP**, debido a que por defecto estas reglas vienen deshabilitadas, por tanto, para lograr esta configuración debemos ir a la configuración avanzada de firewall de Windows y habilitar las reglas de Entrada/Salida para tener la comunicación por iPv4 y por iPv6.
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/ReglasEntrada.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/ReglasEntrada.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
 > En la imagen se muestran las reglas de entrada donde hay que habilitar las cuatro reglas para poder recibir una comunicación de nuestra maquina de atacante, de esta forma habrá una comunicación, por tanto hay que repetir el proceso para las reglas de salida.
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/ReglasSalida.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/ReglasSalida.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
 Una vez con las reglas habilitadas probamos la comunicación.
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/PruebaPing.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/PruebaPing.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
@@ -51,7 +51,7 @@ bcdedit.exe /set {current} nx AlwaysOff
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/DEP.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/DEP.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
@@ -68,7 +68,7 @@ Para las utilidades se descargaran unas aplicaciones para hacer el trabajo mas c
 Nos vamos a sistema y seguridad, sistema, configuración avanzada del sistema, configuración y prevención de ejecución de datos. Aquí vemos que el *DEP*` (Data Execution Protection)` este deshabilitado.
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/DEPvalidacion.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/DEPvalidacion.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
@@ -79,14 +79,14 @@ Para ver la comunicación hay que crear una nueva regla, donde a nivel de protoc
 Se procede a instalar la utilidad **mona.py** para trabajar con **Inmunity Debuuger**.
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/mona.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/mona.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
 > A continuación la vista del script **mona.py** desde el **Inmunity Debugger**.
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/mona2.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/mona2.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
@@ -95,7 +95,7 @@ Se procede a instalar la utilidad **mona.py** para trabajar con **Inmunity Debuu
 Mediante `nmap -sS --min-rate 5000 --open -vvv -n -Pn` obtendremos los resultados del escaneo.
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/nmap.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/nmap.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
@@ -152,7 +152,7 @@ Para conseguir el shellcode se puede hacer uso de la herramienta **msfvenom**.
 El script esta hecho en python3.
 
 <div style="text-align: center;">
-  <img src="/assets/images/BOF-SLMail/script.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
+  <img src="/assets/images/BOF-SLMail/script.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 ---
