@@ -8,7 +8,7 @@ permalink: /dotfiles
 **Vista Previa**
 
 <div style="text-align: center;">
-  <img src="/assets/images/Dotfiles-en-bspwm/fondo.png" alt="bof" width="900" oncontextmenu="return false;">
+  <img src="/assets/images/Dotfiles-en-bspwm/fondo.png" alt="bof" style="max-width: 100%; height: auto;" oncontextmenu="return false;">
 </div>
 
 ---
