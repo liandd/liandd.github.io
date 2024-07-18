@@ -103,7 +103,7 @@ $intro-transition: intro 0.3s both !default;
  */
 $base-font-family:     'Source Code Pro', monospace !default;
 $base-font-size:       16.5px !default;
-$mobile-font-size:     12px !default;
+$mobile-font-size:     9px !default;
 $base-line-height:     1.5 !default;
 $container-width:      90% !default;
 $container-max-width:  900px !default;
@@ -240,6 +240,8 @@ td > code{
 
 img {
   pointer-events: none;
+  max-width: 100%;
+   height: auto;
 }
 
 .highlight table {
