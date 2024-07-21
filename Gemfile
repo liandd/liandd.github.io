@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-
+gem 'json'
 gem 'jekyll-seo-tag'
 
 # Performance-booster for watching directories on Windows
