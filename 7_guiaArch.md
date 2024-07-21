@@ -13,6 +13,6 @@ permalink: /guiaArch
 
 ---
 
-Esta publicación ha sido creada como soporte en el aprendizaje de OverTheWire:
+Esta publicación ha sido creada como soporte para la instalación de un sistema Arch.
 
 © Juan David Garcia Acevedo (aka liandd)
