@@ -1,9 +1,8 @@
 ---
-title: Estudiando un scanner TCP
+title: Guia Instalacion de Arch Linux  
 layout: page
-permalink: /scannerSh
+permalink: /guiaArch
 ---
-
 ## Bajo construcción 
 
 <br>
@@ -14,6 +13,6 @@ permalink: /scannerSh
 
 ---
 
-Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
+Esta publicación ha sido creada como soporte en el aprendizaje de OverTheWire:
 
 © Juan David Garcia Acevedo (aka liandd)
