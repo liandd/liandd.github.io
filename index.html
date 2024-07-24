@@ -79,6 +79,13 @@ permalink: /
     -webkit-animation: blink-animation 1s steps(5, start) infinite;
     }
 
+    #radialBackground {
+      background-color: #020202;
+      background-image: radial-gradient(circle farthest-corner at center, #b72b8c78 29%, #000000 60%);
+      display: block;
+      margin-top: 20px;
+    }
+
     @keyframes blink-animation {
       to {
         visibility: hidden;
@@ -121,68 +128,65 @@ permalink: /
         
         </h4>
         <p>La fortuna sonríe.</p>
-
-
-        <h4 style="text-shadow: 0 0 5px #e6e6e6;">dm me <a href="https://x.com/lianndd_" style="font-weight: bold;">@lianndd_</a>, <a href="https://www.linkedin.com/in/juan-garciaa2/" style="font-weight: bold;">linkedin</a>, <a href="https://app.hackthebox.com/profile/1098514" style="font-weight: bold;">HTB</a></h4>
-        
+      <h4 style="text-shadow: 0 0 5px #e6e6e6;">dm me <a href="https://x.com/lianndd_" style="font-weight: bold;">@lianndd_</a>, <a href="https://www.linkedin.com/in/juan-garciaa2/" style="font-weight: bold;">linkedin</a>, <a href="https://app.hackthebox.com/profile/1098514" style="font-weight: bold;">HTB</a></h4>
+      <div id="radialBackground">
         <img width="295" src="/assets/images/home1.webp">
+      </div>
+      <h3>- <a href="/posts">Entrar...</a> -
+      </h3>
 
-        <h3>- <a href="/posts">Entrar...</a> -
-        </h3>
+      <h4 >..blog ? (i686)</h4>
+      <hr />
+      <marquee behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();" direction="left" loop="">
 
-        <h4 >..blog ? (i686)</h4>
-        <hr />
-        <marquee behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();" direction="left" loop="">
+        <a href="#"><img width="35" src="/assets/images/smileface.gif"
+            alt=""></a>
+        <a href="#"><img width="30" src="/assets/images/face21.gif" alt="my button"></a>
+        <a href="#"><img width="35"
+            src="/assets/images/gamecube.gif" alt="zzz"></a>
 
-          <a href="#"><img width="35" src="/assets/images/smileface.gif"
-              alt=""></a>
-          <a href="#"><img width="30" src="/assets/images/face21.gif" alt="my button"></a>
-          <a href="#"><img width="35"
-              src="/assets/images/gamecube.gif" alt="zzz"></a>
-
-        </marquee>
-        <script type="text/javascript">
-          function mousehandler(e) {
-              var myevent = (isNS) ? e : event;
-              var eventbutton = (isNS) ? myevent.which : myevent.button;
-              if ((eventbutton == 2) || (eventbutton == 3)) return false;
-          }
-          document.oncontextmenu = mischandler;
-          document.onmousedown = mousehandler;
-          document.onmouseup = mousehandler;
-          function disableCtrlKeyCombination(e) {
-              var forbiddenKeys = new Array("a", "s", "c", "x","u");
-              var key;
-              var isCtrl;
-              if (window.event) {
-                  key = window.event.keyCode;
-                  //IE
-                  if (window.event.ctrlKey)
-                      isCtrl = true;
-                  else
-                      isCtrl = false;
-              }
-              else {
-                  key = e.which;
-                  //firefox
-                  if (e.ctrlKey)
-                      isCtrl = true;
-                  else
-                      isCtrl = false;
-              }
-              if (isCtrl) {
-                  for (i = 0; i < forbiddenKeys.length; i++) {
-                      //case-insensitive comparation
-                      if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
-                          return false;
-                      }
-                  }
-              }
-              return true;
-          }
-      </script>
-    </div>
-  </main>
+      </marquee>
+      <script type="text/javascript">
+        function mousehandler(e) {
+            var myevent = (isNS) ? e : event;
+            var eventbutton = (isNS) ? myevent.which : myevent.button;
+            if ((eventbutton == 2) || (eventbutton == 3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        function disableCtrlKeyCombination(e) {
+            var forbiddenKeys = new Array("a", "s", "c", "x","u");
+            var key;
+            var isCtrl;
+            if (window.event) {
+                key = window.event.keyCode;
+                //IE
+                if (window.event.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            else {
+                key = e.which;
+                //firefox
+                if (e.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            if (isCtrl) {
+                for (i = 0; i < forbiddenKeys.length; i++) {
+                    //case-insensitive comparation
+                    if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    </script>
+  </div>
+</main>
 </body>
-
 </html>
