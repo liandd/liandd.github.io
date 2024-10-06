@@ -6,9 +6,11 @@ permalink: /nlp
 
 # Optativa 1 - NLP
 
-Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductoriodonde se presenta el siguiente temario:
+Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio donde se presenta el siguiente temario:
 
 La materia está enfocada a la inteligencia artificial y se presentará un componente fuerte en investigación. La idea de la Optativa es solucionar problemas y tratar de darle enfoques de calidad, como resultado de aprendizaje el trabajo se centra en desarrollar habilidades teórico prácticas, y la capacidad de poder conceptualizar los temas con calidad.
+
+El procesamiento del lenguaje como su nombre indica, procesar el lenguaje. El ingeniero debe y tiene que saber gramática, saber escribir, leer y redactar textos.
 
 # Índice
 - [Introducción a la Inteligencia Artificial](#introducción-a-la-inteligencia-artificial)
@@ -25,6 +27,7 @@ La materia está enfocada a la inteligencia artificial y se presentará un compo
 - [Topic Modeling](#topic-modeling)
 - [Recommender Systems for Textual Data](#recommender-systems-for-textual-data)
 
+<br>
 
 Para el Procesamiento del lenguaje natural hay que saber de gramática donde la idea es poder combinar el sistema de reglas con Machine Learning usando entrenamientos para hacer seguimientos. Usando reglas y patrones, árboles y semántica se trabaja bastante el tema en el lenguaje de programación Python.
 
