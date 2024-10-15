@@ -5,8 +5,10 @@
 header_pages:
   - index.html
   - posts.md
+  - culture.md
   - about.html
   - contact.html
+  
 
 name: ~/lian.conf
 
@@ -16,7 +18,7 @@ author:
 
 logourl: /assets/images/masthead.png"
 
-footer: 'Red Social <a href="https://x.com/lianndd_">twitter</a>, <a href="https://www.linkedin.com/in/juan-garciaa2/">linkedin</a>, <a href="https://app.hackthebox.com/profile/1098514">HTB</a>'
+footer: 'Red Social <a href="https://x.com/lianndd_">twitter</a>, <a href="https://www.linkedin.com/in/juan-garciaa2/">linkedin</a>, <a href="https://github.com/liandd">GitHub</a>, <a href="https://www.youtube.com/@liandd">YouTube</a>, <a href="https://app.hackthebox.com/profile/1098514">HTB</a>'
 
 #style: light # dark (default) or light
 #listen_for_clients_preferred_style: true # true or false (default)
