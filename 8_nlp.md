@@ -4,7 +4,7 @@ layout: page
 permalink: /nlp
 ---
 
-# Optativa 1 - NLP
+<h2 id="subtitulo-importante">Optativa 1 - NLP</h2>
 
 Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio donde se presenta el siguiente temario:
 
@@ -12,7 +12,8 @@ La materia está enfocada a la inteligencia artificial y se presentará un compo
 
 El procesamiento del lenguaje como su nombre indica, procesar el lenguaje. El ingeniero debe y tiene que saber gramática, saber escribir, leer y redactar textos.
 
-# Índice
+<h2 id="subtitulo-importante">Índice</h2>
+
 - [Introducción a la Inteligencia Artificial](#introducción-a-la-inteligencia-artificial)
 - [NLP En Java](#nlp-en-java)
 - [Introducción a Python](#introducción-a-python)
@@ -32,9 +33,9 @@ El procesamiento del lenguaje como su nombre indica, procesar el lenguaje. El in
 Para el Procesamiento del lenguaje natural hay que saber de gramática donde la idea es poder combinar el sistema de reglas con Machine Learning usando entrenamientos para hacer seguimientos. Usando reglas y patrones, árboles y semántica se trabaja bastante el tema en el lenguaje de programación Python.
 
 ------
-# Introducción a la Inteligencia Artificial
+<h2 id="subtitulo-importante">Introducción a la Inteligencia Artificial</h2>
 
-## Inicios de la IA
+<h1 class="titulo-principal">Inicios de la IA</h1>
 
 Podemos decir que el tema comienza con un **paper** que introduce conceptos sobre el sistema nervioso, el funcionamiento neural y las contribuciones de Alan Turing, así como la programación computacional.
 
@@ -50,7 +51,7 @@ En el *deep learning*, las redes están formadas por muchas neuronas conectadas 
 
 En **1980**, surge el concepto de la *Habitación China*, que es la antítesis del *Test de Turing*. Este argumento refuta la idea de que una máquina que pasa el *Test de Turing* tenga inteligencia real. Se afirma que solo simula la inteligencia, sin comprender el contenido semántico, solo el sintáctico.
 
-### Eventos importantes
+<h1 class="titulo-principal">Eventos importantes</h1>
 
 - **IBM (1997)**: Vence al campeón mundial de ajedrez.
 - **IBM (2011)**: Gana en el programa de televisión *Jeopardy*.
@@ -61,7 +62,7 @@ En la actualidad, los sistemas de *Question Answering* (QA) son una de las compe
 
 La programación funcional, con su uso intensivo de paréntesis, es extremadamente rápida y eficiente en términos de tiempo de ejecución.
 
-### Definiciones y enfoques de la IA
+<h1 class="titulo-principal">Definiciones y enfoques de la IA</h1>
 
 La *Inteligencia Artificial* se define como la rama de la ciencia de la computación que se encarga de automatizar conductas inteligentes. Según Luger (2005), el objetivo de la IA es desarrollar capacidades inteligentes, influenciadas por la filosofía, las matemáticas y la psicología, con un enfoque en la resolución de problemas.
 
@@ -69,7 +70,7 @@ La *Inteligencia Artificial* se define como la rama de la ciencia de la computac
 
 No se limita solo a *Python*, la IA abarca múltiples disciplinas.
 
-### Principales enfoques de la IA:
+<h1 class="titulo-principal">Principales enfoques de la IA</h1>
 
 - Robots que piensan como humanos.
 - Robots que actúan como humanos.
@@ -78,20 +79,20 @@ No se limita solo a *Python*, la IA abarca múltiples disciplinas.
 
 Es importante considerar la palabra "automatización", pero, dado que es un concepto complejo, es mejor hablar de "sistematización" para evitar confusiones.
 
-### Contribuciones desde diversas disciplinas
+<h1 class="titulo-principal">Contribuciones desde diversas disciplinas</h1>
 
-- **Estadística y probabilidad**: La IA se nutre de estas áreas para hablar en términos científicos y lógicos.
-- **Neurociencia**: Aporta a la IA con el estudio de las neuronas, las conexiones y cómo aprenden.
-- **Psicología**: Se conecta con la IA a través del estudio de cómo piensan y actúan las personas, ayudando a replicar la conducta humana.
-- **Economía**: Contribuye en la toma de decisiones, ya que una máquina debe pensar en beneficios, competidores y el balance entre ellos.
+> **Estadística y probabilidad**: La IA se nutre de estas áreas para hablar en términos científicos y lógicos.
+> **Neurociencia**: Aporta a la IA con el estudio de las neuronas, las conexiones y cómo aprenden.
+> **Psicología**: Se conecta con la IA a través del estudio de cómo piensan y actúan las personas, ayudando a replicar la conducta humana.
+> **Economía**: Contribuye en la toma de decisiones, ya que una máquina debe pensar en beneficios, competidores y el balance entre ellos.
 
-### Áreas principales de la IA:
+<h1 class="titulo-principal">Áreas principales de la IA</h1>
 
 - Resolución de problemas.
 - Representación del conocimiento (cómo se muestra la salida en pantalla).
 - Búsquedas.
 
-### Áreas específicas:
+<h1 class="titulo-principal">Áreas específicas</h1>
 
 - Planificación de tareas (ej. *scheduling* para la organización de productos en contenedores).
 - Procesamiento del lenguaje natural.
@@ -101,17 +102,17 @@ Es importante considerar la palabra "automatización", pero, dado que es un conc
 Algoritmos de redes, como los usados en la gestión de tráfico y enrutamiento, son ejemplos de la aplicación de la inteligencia artificial. Conocer y aplicar técnicas adecuadas es esencial.
 
 ------
-# NLP En Java
+<h2 id="subtitulo-importante">NLP En Java</h2>
 
 ------
-# Introducción a Python
+<h2 id="subtitulo-importante">Introducción a Python</h2>
 
 Durante la asignatura, se utilizará *Flask*. Python es un lenguaje poderoso, interpretado y multiparadigma, con características como datos estructurados, no estructurados, diccionarios, y más. Por ejemplo, el uso de índices `[:-2]`, diccionarios clave-valor (bases de NoSQL), y estructuras de procesamiento de lenguaje natural con listas anidadas.
 
 El uso de `set` y `get` en clases de Python, la sobrecarga de métodos (mismo nombre con diferentes parámetros) también son temas importantes que se cubrirán.
 
 ------
-# Bases NLP
+<h2 id="subtitulo-importante">Bases NLP</h2>
 
 El conocimiento del lenguaje y sus estructuras es esencial para trabajar con PLN:
 
@@ -124,7 +125,7 @@ El conocimiento del lenguaje y sus estructuras es esencial para trabajar con PLN
 
 Los elementos clave en una oración son el *sujeto* (quien realiza la acción), el *predicado* (la acción realizada por el sujeto), y el *complemento* (directo, indirecto, circunstancial).
 
-#### Clases de palabras:
+<h1 class="titulo-principal">Clases de palabras</h1>
 
 - **N**: Sustantivo.
 - **V**: Verbo.
@@ -137,7 +138,7 @@ Los elementos clave en una oración son el *sujeto* (quien realiza la acción), 
 Durante el curso se trabajarán las bibliotecas **NLTK** y **Spacy**, dividiendo las frases según la función de cada palabra.
 
 ------
-# NLP - Pipeline
+<h2 id="subtitulo-importante">NLP - Pipeline</h2>
 
 Un *pipeline* de NLP es una serie de pasos que permiten procesar texto de manera estructurada. Estos pasos incluyen la adquisición de datos, limpieza, preprocesamiento, extracción de características, modelado, evaluación y despliegue.
 
@@ -156,7 +157,7 @@ El proceso más extenso de un pipeline es la *ingeniería de características*, 
 Finalmente, la evaluación de modelos se realiza mediante métricas como la precisión (*precision*), el recuerdo (*recall*), y el tiempo de respuesta.
 
 ------
-# Text Representation
+<h2 id="subtitulo-importante">Text Representation</h2>
 
 Es necesario representar el texto de alguna manera. Tradicionalmente, se realizaba un preprocesamiento, separando párrafos y palabras, pero no es tan sencillo. Estas son las formas más comunes que tenemos para representar los textos en vectores.
 
@@ -164,7 +165,7 @@ Existen varias técnicas, y veremos las más conocidas. Los modelos de *deep lea
 
 La representación de texto hace referencia a la transformación de texto escrito en una representación numérica. El objetivo es convertir un texto determinado en forma numérica para que pueda incorporarse a los algoritmos de PLN (Procesamiento de Lenguaje Natural) y *Machine Learning*.
 
-#### Pipeline para la Representación de Texto
+<h1 class="titulo-principal">Pipeline para la Representación de Texto</h1>
 
 Para la representación de texto, existen varias tareas:
 
@@ -175,7 +176,7 @@ Para la representación de texto, existen varias tareas:
 
 El preprocesamiento no siempre es visible, pero es esencial para evaluar el modelo.
 
-#### Extracción del Significado en las Oraciones
+<h1 class="titulo-principal">Extracción del Significado en las Oraciones</h1>
 
 Es fundamental encontrar el sentido de las oraciones, ya que el contexto juega un papel crucial en la comprensión del texto. Es necesario saber en qué lugar está ubicada una palabra para entender de qué se está hablando. Algunos pasos importantes son:
 
@@ -184,16 +185,16 @@ Es fundamental encontrar el sentido de las oraciones, ya que el contexto juega u
 3. Comprender la estructura semántica.
 4. Comprender el contexto en el que aparece la frase.
 
-#### Enfoques para la Clasificación de Texto
+<h1 class="titulo-principal">Enfoques para la Clasificación de Texto</h1>
 
 Existen diversos enfoques válidos para la representación de texto en modelos de *Machine Learning*, y se pueden crear reglas para refinar el modelo.
 
-##### Modelos de Espacio Vectorial
+## Modelos de Espacio Vectorial
 
-- **Similitud del coseno:** Se utiliza para medir la similitud entre dos frases basándose en el ángulo que forman sus vectores.
-- **Distancia euclidiana:** La distancia cuadrada entre palabras se mide utilizando matrices y determinantes para evaluar su similitud.
+> **Similitud del coseno**: Se utiliza para medir la similitud entre dos frases basándose en el ángulo que forman sus vectores.
+> **Distancia euclidiana**: La distancia cuadrada entre palabras se mide utilizando matrices y determinantes para evaluar su similitud.
 
-##### Enfoques de Vectorización
+<h1 class="titulo-principal">Enfoques de Vectorización</h1>
 
 El primer paso es hablar de un corpus, una serie de documentos con un vocabulario. El corpus puede ser un PDF completo, una frase, etc., y se genera un vocabulario a partir de él. Algunos enfoques comunes incluyen:
 
@@ -201,11 +202,11 @@ El primer paso es hablar de un corpus, una serie de documentos con un vocabulari
 - **Bag of Words:** Es un enfoque muy utilizado donde, en lugar de una matriz, se crea una lista en la que cada palabra está encendida (1) o apagada (0).
 - **Bag of N-Grams:** Permite crear N-gramas para buscar en los corpus, logrando entender frases completas.
 
-##### TF-IDF (Term Frequency-Inverse Document Frequency)
+<h1 class="titulo-principal">TF-IDF (Term Frequency-Inverse Document Frequency)</h1>
 
 TF-IDF es una técnica ampliamente usada en NLP. Aplica una fórmula que combina la frecuencia de término con la frecuencia inversa de documentos, multiplicando ambos valores para obtener una representación ponderada del texto.
 
-#### Similitud Distributiva y Representación Distributiva
+<h1 class="titulo-principal">Similitud Distributiva y Representación Distributiva</h1>
 
 Otros conceptos relevantes incluyen:
 
@@ -215,7 +216,7 @@ Otros conceptos relevantes incluyen:
 
 La **representación distributiva** se refiere a la distribución de las palabras en el contexto en el que aparecen, utilizando vectores y matrices.
 
-#### Embeddings
+<h1 class="titulo-principal">Embeddings</h1>
 
 Un *embedding* es una representación numérica de un conjunto de palabras en un corpus. 
 
@@ -223,21 +224,21 @@ Un *embedding* es una representación numérica de un conjunto de palabras en un
 
 > **Continuous Bag of Words (CBOW):** Este modelo busca encontrar la palabra central en una frase que proporciona el contexto de lo que está a su alrededor, midiendo la distancia semántica.
 
-#### Representación Universal
+<h1 class="titulo-principal">Representación Universal</h1>
 
 La representación universal intenta generalizar las palabras para visualizar su significado en diferentes contextos.
 
-#### Esfuerzo y Retorno
+<h1 class="titulo-principal">Esfuerzo y Retorno</h1>
 
 En el desarrollo de aplicaciones como chatbots o sistemas de procesamiento de lenguaje, es necesario invertir esfuerzo. El retorno depende de si hay una necesidad comercial o si la implementación cumple con los objetivos planteados.
 
-#### Limitaciones de Infraestructura
+<h1 class="titulo-principal">Limitaciones de Infraestructura</h1>
 
 Es importante considerar las limitaciones de la infraestructura al implementar estos modelos, ya que pueden requerir grandes cantidades de recursos computacionales.
 
 
 ------
-## Referencias
+<h3 class="titulo-secundario">Referencias</h3>
 
 [^1]: **Turing, A. M.** (1950). *Computing Machinery and Intelligence*  
 [^2]: **Turing, A. M.** (1950). *Ibid*. 
