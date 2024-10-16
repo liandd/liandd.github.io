@@ -158,6 +158,84 @@ Finalmente, la evaluación de modelos se realiza mediante métricas como la prec
 ------
 # Text Representation
 
+Es necesario representar el texto de alguna manera. Tradicionalmente, se realizaba un preprocesamiento, separando párrafos y palabras, pero no es tan sencillo. Estas son las formas más comunes que tenemos para representar los textos en vectores.
+
+Existen varias técnicas, y veremos las más conocidas. Los modelos de *deep learning* utilizan redes neuronales para realizar ingeniería de características o para tratar con el lenguaje.
+
+La representación de texto hace referencia a la transformación de texto escrito en una representación numérica. El objetivo es convertir un texto determinado en forma numérica para que pueda incorporarse a los algoritmos de PLN (Procesamiento de Lenguaje Natural) y *Machine Learning*.
+
+#### Pipeline para la Representación de Texto
+
+Para la representación de texto, existen varias tareas:
+
+1. Texto crudo
+2. Limpieza y preprocesamiento
+3. Tokenización
+4. Representación matemática en vectores
+
+El preprocesamiento no siempre es visible, pero es esencial para evaluar el modelo.
+
+#### Extracción del Significado en las Oraciones
+
+Es fundamental encontrar el sentido de las oraciones, ya que el contexto juega un papel crucial en la comprensión del texto. Es necesario saber en qué lugar está ubicada una palabra para entender de qué se está hablando. Algunos pasos importantes son:
+
+1. Dividir en unidades léxicas las palabras (*lexemas*).
+2. Deducir el significado.
+3. Comprender la estructura semántica.
+4. Comprender el contexto en el que aparece la frase.
+
+#### Enfoques para la Clasificación de Texto
+
+Existen diversos enfoques válidos para la representación de texto en modelos de *Machine Learning*, y se pueden crear reglas para refinar el modelo.
+
+##### Modelos de Espacio Vectorial
+
+- **Similitud del coseno:** Se utiliza para medir la similitud entre dos frases basándose en el ángulo que forman sus vectores.
+- **Distancia euclidiana:** La distancia cuadrada entre palabras se mide utilizando matrices y determinantes para evaluar su similitud.
+
+##### Enfoques de Vectorización
+
+El primer paso es hablar de un corpus, una serie de documentos con un vocabulario. El corpus puede ser un PDF completo, una frase, etc., y se genera un vocabulario a partir de él. Algunos enfoques comunes incluyen:
+
+- **One-Hot Encoding:** Se crea una matriz donde cada palabra es representada como un vector, y la frase se representa con una lista de vectores.
+- **Bag of Words:** Es un enfoque muy utilizado donde, en lugar de una matriz, se crea una lista en la que cada palabra está encendida (1) o apagada (0).
+- **Bag of N-Grams:** Permite crear N-gramas para buscar en los corpus, logrando entender frases completas.
+
+##### TF-IDF (Term Frequency-Inverse Document Frequency)
+
+TF-IDF es una técnica ampliamente usada en NLP. Aplica una fórmula que combina la frecuencia de término con la frecuencia inversa de documentos, multiplicando ambos valores para obtener una representación ponderada del texto.
+
+#### Similitud Distributiva y Representación Distributiva
+
+Otros conceptos relevantes incluyen:
+
+- **Connotación:** El significado según el contexto de la palabra.
+- **Denotación:** El significado literal de la palabra.
+- **Hipótesis Distributiva:** En lingüística, esta hipótesis sugiere que las palabras que ocurren en contextos similares tienen significados similares. Por ejemplo: "perro" y "gato".
+
+La **representación distributiva** se refiere a la distribución de las palabras en el contexto en el que aparecen, utilizando vectores y matrices.
+
+#### Embeddings
+
+Un *embedding* es una representación numérica de un conjunto de palabras en un corpus. 
+
+> **Word2Vec:** Esta técnica entrena un sistema con redes neuronales para relacionar palabras. Básicamente, toma una palabra, la combina con otras y crea una nueva palabra basada en relaciones semánticas. El objetivo es capturar las relaciones entre las palabras para entender mejor el texto.
+
+> **Continuous Bag of Words (CBOW):** Este modelo busca encontrar la palabra central en una frase que proporciona el contexto de lo que está a su alrededor, midiendo la distancia semántica.
+
+#### Representación Universal
+
+La representación universal intenta generalizar las palabras para visualizar su significado en diferentes contextos.
+
+#### Esfuerzo y Retorno
+
+En el desarrollo de aplicaciones como chatbots o sistemas de procesamiento de lenguaje, es necesario invertir esfuerzo. El retorno depende de si hay una necesidad comercial o si la implementación cumple con los objetivos planteados.
+
+#### Limitaciones de Infraestructura
+
+Es importante considerar las limitaciones de la infraestructura al implementar estos modelos, ya que pueden requerir grandes cantidades de recursos computacionales.
+
+
 ------
 ## Referencias
 
