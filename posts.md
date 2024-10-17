@@ -6,15 +6,28 @@ permalink: /posts
 
 ### Blog de Juan Garcia (aka liandd)
 
-Publicaciones sobre seguridad, CTFs y redes.
+Publicaciones sobre CTFs en HTB y VulnHub, apuntes de NLP + ML, notas prácticas sobre (Python3, C, Java, Bash). Apuntes sobre redes de datos y temas de interes.
+Traza de apuntes abordados en las temáticas tanto código y comandos.
 Estas publicaciones han sido creadas como soporte en mi formación académica y crecimiento profesional.
 
 <p class="beb">↓ more soon</p>
 
-- [ 2024_21_07 ] <a  href="\guiaArch.html">Guía Instalación Arch BSPWM</a>
+- [ ? ] <a  href="">x86 Assembly - Notes</a>
+- [ ? ] <a  href="">IvNLP - Asesorias</a>
+- [ ? ] <a  href="\nlp.html">NLP Python3 - Notes</a>
+- [ ? ] <a  href="">Python3 Ofensivo - Notes/Scripting</a>
+- [ ? ] <a  href="">Introducción a Linux - Notes/Scripting</a>
+- [ ? ] <a  href="">Over The Wire Bandit - Bash</a>
+- [ ? ] <a  href="">Cisco PacketTracer</a>
+- [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
+- [ ? ] <a  href="">Estructuras de datos - UTP</a>
+- [ ? ] <a  href="">Java POO</a>
+- [ ? ] <a  href="">C++ Programación Estructurada</a>
+<br><br>
+- [ 2024_21_07 ] <a  href="\guiaArch.html">Guía Instalación Arch Linux Bspwm</a>
 - [ 2024_28_03 ] <a  href="\programacionCompetitiva.html">Programación Competitiva 1er año</a>
 - [ 2023_30_11 ] <a  href="\calcularSubnet.html">Calcular Subnet - Script</a>
-- [ 2023_19_11 ] <a  href="\scannerSh.html">Estudiando un scanner TCP</a>
+- [ ? ] <a  href="\scannerSh.html">Estudiando un scanner TCP</a>
 - [ 2023_28_07 ] <a  href="\bufferOverflow_1er_Practica">Buffer OverFlow a SLMail 5.5</a>
-- [ 2023_16_07 ] <a  href="\dotfiles.html">Archivos de Configuración Bspwm Parrot</a>
-- [ 2023_12_02 ] <a  href="\decompressor.html">Bandit Decompressor</a>
+- [ 2023_16_07 ] <a  href="\dotfiles.html">Archivos de Configuración Parrot Bspwm</a>
+- [ 2023_12_02 ] <a  href="\decompressor.html">Bandit Decompressor - Script</a>
