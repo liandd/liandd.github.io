@@ -15,6 +15,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">x86 Assembly - Notes</a>
 - [ ? ] <a  href="">IvNLP - Asesorias</a>
 - [ ? ] <a  href="\nlp.html">NLP Python3 - Notes</a>
+- [ ? ] <a  href="">Sistemas Operativos - Notes</a>
 - [ ? ] <a  href="">Python3 Ofensivo - Notes/Scripting</a>
 - [ ? ] <a  href="">Introducción a Linux - Notes/Scripting</a>
 - [ ? ] <a  href="">Over The Wire Bandit - Bash</a>
