@@ -22,6 +22,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">Cisco PacketTracer</a>
 - [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
 - [ ? ] <a  href="">Estructuras de datos - UTP</a>
+- [ ? ] <a  href="">SQL</a>
 - [ ? ] <a  href="">Java POO</a>
 - [ ? ] <a  href="">C++ Programación Estructurada</a>
 <br><br>
