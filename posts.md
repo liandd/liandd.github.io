@@ -12,6 +12,10 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 
 <p class="beb">↓ more soon</p>
 
+- [ ? ] <a  href="">Programación en Linux uso de comandos y shell scripting</a>
+- [ ? ] <a  href="">Powershell para Administración de Servidores y Seguridad</a>
+- [ ? ] <a  href="">Linux Security and Hardening</a>
+- [ ? ] <a  href="">Fundamentos de Windows Scripting</a>
 - [ ? ] <a  href="">x86 Assembly - Notes</a>
 - [ ? ] <a  href="">IvNLP - Asesorias</a>
 - [ ? ] <a  href="\nlp.html">NLP Python3 - Notes</a>
