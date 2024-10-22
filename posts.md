@@ -23,6 +23,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">Python3 Ofensivo - Notes/Scripting</a>
 - [ ? ] <a  href="">Introducción a Linux - Notes/Scripting</a>
 - [ ? ] <a  href="">Over The Wire Bandit - Bash</a>
+- [ ? ] <a  href="">CCNA1v7</a>
 - [ ? ] <a  href="">Cisco PacketTracer</a>
 - [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
 - [ ? ] <a  href="">Estructuras de datos - UTP</a>
