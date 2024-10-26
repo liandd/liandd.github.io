@@ -3,7 +3,7 @@ title: Guia Instalacion de Arch Linux
 layout: page
 permalink: /guiaArch
 ---
-# Entorno Arch
+<h2 id="subtitulo-importante">Entorno Arch</h2>
 
 <div style="text-align: center;">
   <img src="/assets/images/GuiaArch/imagen.png" alt="under" oncontextmenu="return false;">
@@ -13,7 +13,7 @@ Esta publicación tiene la guía de instalación de Arch Linux, suponiendo que y
 
 Se han configurado atajos de teclado optimizados para agilizar el flujo de trabajo, asignando comandos a combinaciones de teclas para realizar acciones rápidas y sencillas.
 
-# Índice
+<h2 id="subtitulo-importante">Índice</h2>
 
 - [Introducción](#introducción)
 - [Bootear la iso de Arch Linux](#bootear-la-iso-de-arch-linux)
@@ -47,7 +47,7 @@ Se han configurado atajos de teclado optimizados para agilizar el flujo de traba
 - [Ufetch -> (neofetch alternative)](#ufetch-neofetch-alternative)
 
 ------
-## Introducción
+<h1 class="titulo-principal">Introducción</h1>
 
 Para la instalación de nuestro sistema Arch Linux debemos contemplar el entorno donde se instalará el sistema, bien sea una máquina virtual o de forma nativa. 
 
@@ -56,7 +56,7 @@ Para la instalación de nuestro sistema Arch Linux debemos contemplar el entorno
 Una vez arrancado el sistema estaremos frente a una consola interactiva, ahí sabremos que podremos comenzar con la instalación.
 
 ----
-## Bootear la iso de Arch Linux
+<h1 class="titulo-principal">Bootear la iso de Arch Linux</h1>
 
 Este apartado es único en caso de querer instalar Arch Linux de forma nativa. De no ser el caso, lo aconsejable es continuar con la [Distribución de teclado](#distribución-de-teclado). 
 
@@ -85,7 +85,7 @@ Los pasos para la creación de la maquina virtual son los siguientes:
 Después de configurar el entorno para máquina virtual o de forma nativa, o siguiente sera encender el sistema. Esperamos a que arranque ya que nos otorgara una consola interactiva para comenzar la instalación a nivel de sistema.
 
 -----
-## Distribución de teclado
+<h1 class="titulo-principal">Distribución de teclado</h1>
 
 Muy bien, lo primero a configurar es la distribución de teclado debido a que Arch Linux en su configuración por defecto usa el teclado inglés `US LAYOUT`, sí usamos una distribución de teclado en español tenemos las siguientes opciones:
 
@@ -100,7 +100,7 @@ De manera que para aplicar los cambios debemos de escribir el siguiente comando:
 loadkeys la-latin1
 ```
 -----
-## Conectarse a Internet
+<h1 class="titulo-principal">Conectarse a Internet</h1>
 
 Hay 2 formas de conectarse a Internet, la primera es mediante un cable Ethernet y la segunda haciendo uso de nuestra tarjeta Wifi.
 
@@ -108,7 +108,7 @@ Hay 2 formas de conectarse a Internet, la primera es mediante un cable Ethernet 
 
 > Si disponemos de una conexión mediante cable Ethernet, no tendremos que hacer mucho, simplemente conectar el cable a la máquina y podremos continuar con la instalación en [Tips para la terminal](#tips-para-la-terminal).
 
-## IWD
+<h1 class="titulo-principal">IWD</h1>
 
 Si no contamos con una conexión mediante cable Ethernet, tendremos que conectarnos manualmente.
 
@@ -136,14 +136,14 @@ Passphrase or password: _
 9. Una vez ingresada la contraseña de nuestra red Wifi y todo este en orden, podemos salir escribiendo `exit` y regresar a la consola de la instalación de Arch.
 
 ----
-## Tips para la terminal
+<h1 class="titulo-principal">Tips para la terminal</h1>
 
 Quizás en la pantalla de nuestra instalación haya mucho texto debido a que recién configuramos nuestro acceso a internet, por tanto, una buena forma de "limpiar" nuestra terminal es usando el comando `clear` o hacer la combinación de teclas `ctrl + l`.
 
 Otro comando que puede resultar útil al momento de usar nuestra terminal, es cuando nos encontramos en una consola interactiva por un comando. Un claro ejemplo es al momento de conectarnos a una red Wifi utilizando el comando **iwd**[^1], que nos abre un intérprete de color verde donde se nos da la capacidad de escribir comandos. Para salir de este intérprete podemos hacer uso de la combinación de teclas `ctrl + d`.
 
 -----
-## Probando la conexión a internet
+<h1 class="titulo-principal">Probando la conexión a internet</h1>
 
 Para probar que realmente disponemos de conexión a Internet, haremos uso del comando **ping**[^2] y la flag *-c 5*.
 
@@ -172,7 +172,7 @@ rtt min/avg/max/mdev = 181.933/183.224/184.902/1.108 ms
 > Podemos ver como 5 paquetes fueron transmitidos y 5 fueron recibidos, esto significa que ya contamos con la conexión a Internet.
 
 -----
-## Partición de discos con cfdisk
+<h1 class="titulo-principal">Partición de discos con cfdisk</h1>
 
 Bien, ahora hemos llegado a una de las partes más importantes durante la instalación y por supuesto, esta es la fase de partición de disco. Es sin duda alguna de las partes más tediosas, pero la abarcaremos como campeones.
 
@@ -304,7 +304,7 @@ sr0     11:0    1  1024M  0 rom /run/archiso/bootmnt
 ```
 
 ------
-## Formatear las particiones
+<h1 class="titulo-principal">Formatear las particiones</h1>
 
 Lo primero a realizar es formatear la partición `/dev/sda3` donde estarán alojados todos nuestros archivos de sistema y documentos propios.
 
@@ -347,7 +347,7 @@ El orden para realizar el formateo de cada una de las particiones no es relevant
 3. Por último la partición *sda2* es la correspondiente a la *memoria virtual*[^9] conocida como *swap*[^9]. Para darle formato haremos uso del comando `mkswap /dev/sda2`.
 
 -----
-## Montar el sistema de archivos
+<h1 class="titulo-principal">Montar el sistema de archivos</h1>
 
 Lo siguiente a realizar es montar nuestro *sistema de archivos*[^10] empezando por la partición `/dev/sda3`. Para ello utilizamos los siguientes pasos:
 
@@ -371,7 +371,7 @@ Como hemos utilizado el sistema *BIOS/Boot*[^7] no tendremos que montar el siste
 > Después de montar el sistema de archivos, solo queda pendiente activar nuestra partición *swap*[^9]. Activar la partición *swap*[^9] es mediante el comando `swapon /dev/sda2`.
 
 ------
-## Instalar el sistema base
+<h1 class="titulo-principal">Instalar el sistema base</h1>
 
 Lo siguiente en nuestra instalación de Arch Linux será instalar el sistema base, nuestras aplicaciones y utilidades en la ruta donde montamos el sistema, en este caso la ruta sería `/dev/sda3`.
 
@@ -384,7 +384,7 @@ Estos serían nuestros paquetes base para la instalación. Puede tardar un poco,
 **Importante** debemos esperar a que termine la descarga, y que nos regrese una terminal. Recordar hacer uso [[#Tips para la terminal]] en especial para "limpiar" pantalla.
 
 --------------
-## Fstab
+<h1 class="titulo-principal">Fstab</h1>
 
 > El comando *Fstab* es el encargado de **almacenar información descriptiva acerca de los diferentes sistemas de ficheros** del equipo. Siendo los archivos Fstab aquellos que contienen las informaciones que conciernen al montaje de las particiones del sistema.
 
@@ -409,7 +409,7 @@ Para verificar que el comando se ha realizado correctamente podemos usar **cat**
 
 ------
 
-## Migración a root (Entrar en nuestro sistema instalado)
+<h1 class="titulo-principal">Migración a root (Entrar en nuestro sistema instalado)</h1>
 
 Hemos terminado con gran parte del proceso de instalación de Arch Linux, se podría decir que para este punto en adelante serán más configuraciones propias al sistema, que instalar. Ya que el sistema en su medida ya está más que instalado.
 
@@ -423,7 +423,7 @@ A partir de este punto comenzaremos a configurar nuestro sistema.
 
 -----
 
-## Zona horaria
+<h1 class="titulo-principal">Zona horaria</h1>
 
 > Utilizaremos la herramienta **ln**[^21] para crear un enlace simbólico.
 
@@ -437,7 +437,7 @@ Debemos asegurarnos que la hora se haya establecido correctamente, para ello usa
 
 ----
 
-## Localización
+<h1 class="titulo-principal">Localización</h1>
 
 La parte de configurar la localización suele ser un poco compleja debido a que se deben crear manualmente los archivos. El paso a paso será el siguiente:
 
@@ -464,7 +464,7 @@ Para salir de *vim* y guardar nuestro archivo **locale.conf** pulsaremos la tecl
 
 -----------
 
-## Keymap
+<h1 class="titulo-principal">Keymap</h1>
 
 Este paso es más opcional que otra cosa, pero dado que la mayoría de teclados no están en la distribución inglés que es lo predeterminado en Arch Linux, lo cambiaremos a español. Hacer el cambio requiere que abramos un nuevo archivo `vim /etc/vconsole.conf` y al igual que los pasos anteriores entraremos en el modo *Insert* de *vim* y escribimos:
 
@@ -476,7 +476,7 @@ Para salir de *vim* y guardar nuestro archivo **vconsole.conf** pulsaremos la te
 
 -----
 
-## Hostname
+<h1 class="titulo-principal">Hostname</h1>
 
 > Vamos a crear el archivo de **hostname** el cual será el nombre con el que identificaremos nuestro equipo en la red.
 
@@ -490,7 +490,7 @@ Para salir de *vim* y guardar nuestro archivo **hostname** pulsaremos la tecla `
 
 ------
 
-## Contraseña de root
+<h1 class="titulo-principal">Contraseña de root</h1>
 
 Uno de los aspectos más importantes al momento de utilizar un sistema Linux son los **Usuarios**[^22] del sistema, donde el usuario más importante es el *root*. 
 Por defecto, durante nuestra instalación del sistema Arch Linux el *usuario root*[^23] no tiene una contraseña. Por tanto, debemos de asignarle una. Podemos lograrlo con el comando `passwd` y presionamos *Enter*. 
@@ -511,7 +511,7 @@ Posterior tendremos este menú donde debemos escribir por segunda vez nuestra co
 
 -----
 
-## Agregar un usuario (Con privilegios de root)
+<h1 class="titulo-principal">Agregar un usuario (Con privilegios de root)</h1>
 
 Ya hemos configurado previamente al *usuario root*[^23] quien tendrá las mayores capacidades para modificar y hacer cambios en el sistema, pero aún debemos crear nuestro propio usuario (Utilizar el *usuario root*[^23] para todas las tareas no es recomendable por cuestiones de seguridad[^24]). En la terminal ejecutaremos el comando `useradd -m -G wheel -s /bin/bash *username*`. 
 
@@ -519,7 +519,7 @@ Ya hemos configurado previamente al *usuario root*[^23] quien tendrá las mayore
 
 -----
 
-## Contraseña de nuestro usuario
+<h1 class="titulo-principal">Contraseña de nuestro usuario</h1>
 
 Al igual que el paso a paso anterior donde configuramos [Contraseña de root](#contraseña-de-root), debemos hacer lo mismo para nuestro usuario. Entonces tenemos lo siguiente: 
 
@@ -541,7 +541,7 @@ Posterior tendremos este menú donde debemos escribir por segunda vez nuestra co
 
 ------
 
-## Configuración de sudo
+<h1 class="titulo-principal">Configuración de sudo</h1>
 
 Es importante la configuración de **sudo**[^27] para realizar tareas básicas como instalar paquetes o actualizar nuestro sistema.
 
@@ -609,7 +609,7 @@ De esta forma ya estará lista la configuración para nuestro usuario, y que est
 
 ----
 
-## Habilitar los servicios/demonios
+<h1 class="titulo-principal">Habilitar los servicios/demonios</h1>
 
 Este es uno de los pasos fundamentales en el proceso de instalación de Arch Linux, hablamos de la habilitación de los *servicios/demonios*[^29].
 
@@ -628,7 +628,7 @@ Vamos a comenzar habilitando el demonio de red con el comando `systemctl enable 
 
 ----
 
-## Configuración de Grub
+<h1 class="titulo-principal">Configuración de Grub</h1>
 
 Este es el último paso fundamental antes de reiniciar la máquina y es la configuración de nuestro *gestor de arranque/boot*[^8]. Lograremos su configuración con ayuda de la utilidad `grub-install /dev/sda`. Ejecutamos este comando en la terminal como *usuario root*[^23]. 
 
@@ -638,7 +638,7 @@ Para la configuración de nuestro *gestor de arranque/boot*[^8] escribiremos el 
 
 -----
 
-## Saliendo del instalador de Archiso
+<h1 class="titulo-principal">Saliendo del instalador de Archiso</h1>
 
 Después de configurar el *gestor de arranque/boot*[^8] ejecutaremos el comando `exit` para volver a la consola interactiva de nuestra instalación. Recordar que en el paso [Migración a root (Entrar en nuestro sistema instalado)](#migración-a-root-entrar-en-nuestro-sistema-instalado) ejecutamos el comando `arch-chroot /mnt`. Por ende, hemos salido de esa terminal de nuestro propio sistema instalado para volver al contexto de la instalación de Arch Linux.
 
@@ -650,7 +650,7 @@ Para concluir la instalación reiniciaremos el sistema con el comando `reboot`. 
 
 ----
 
-## Arrancando/Booting en nuestra instalación
+<h1 class="titulo-principal">Arrancando/Booting en nuestra instalación</h1>
 
 Después del comando `reboot` estaremos nuevamente en una consola pero ya habremos instalado el sistema base de Arch.
 
@@ -676,7 +676,7 @@ Antes de instalar entorno grafico, aplicaciones y herramientas debemos configura
 5. Una vez estemos en el modo *Normal*, haremos la siguiente combinación de teclas para guardar nuestro archivo de localización `shift : wq`. Lo que logramos con la combinación *wq* es *write file, quit file*. Y el archivo `/etc/hosts` estará listo.
 
 ---
-## Probando la conexión a internet 2
+<h1 class="titulo-principal">Probando la conexión a internet 2</h1>
 
 Una vez iniciemos sesión en nuestro nuevo sistema Arch lo primero es verificar la conexión a Internet, podemos hacer uso de la herramienta `ping -c 5 8.8.8.8`. Pero al ejecutar el comando nos encontramos con el error:
 
@@ -737,7 +737,7 @@ Nos encontraremos con que debemos habilitar el segundo *servicio/demonio*[^29], 
 **Recomendación** crear una snapshot para guardar el proceso de instalación hasta ahora.
 
 ---
-## Instalación parcial de nuestro gestor de ventanas BSPWM
+<h1 class="titulo-principal">Instalación parcial de nuestro gestor de ventanas BSPWM</h1>
 
 Para este entorno se utiliza el gestor de ventanas Bspwm, que se basa en el concepto de _ventanas flotantes_[^36]. Es altamente personalizable, lo que permite organizar y controlar las ventanas de forma efectiva.
 
@@ -946,7 +946,7 @@ Para instalar lightdm y sus complementos haremos lo siguiente `sudo pacman -S li
 Y reiniciamos nuestro equipo con `reboot`.
 
 ---
-## Instalación de paquetes adicionales
+<h1 class="titulo-principal">Instalación de paquetes adicionales</h1>
 
 Simplemente paquetes adicionales que utilizaremos en un futuro.
 
@@ -969,7 +969,7 @@ Simplemente paquetes adicionales que utilizaremos en un futuro.
 15. Neovim será el paquete base para posteriormente instalar los plugins *Lazy, Astro o NvChad*.
 
 ---
-## Arrancar entorno gráfico
+<h1 class="titulo-principal">Arrancar entorno gráfico</h1>
 
 Después de arrancar nuestro sistema veremos un Login, significa que lightdm ha sido correctamente instalado. Tendremos todo en negro pero es normal puesto no tenemos fondo de pantalla y aun no hemos desplegado la Polybar, Picom, ni la configuración apropiada de nuestra *kitty*.
 
@@ -1259,7 +1259,7 @@ Para arreglar el error del cursor incorporamos posteriormente las siguientes lí
 ```
 
 ---
-## ufetch neofetch alternative
+<h1 class="titulo-principal">ufetch neofetch alternative</h1>
 
 Como *neofetch* fue descontinuado usaremos la alternativa ufetch:
 
@@ -1356,7 +1356,7 @@ EOF
 ```
  
 ------
-## Referencias
+<h3 class="titulo-secundario">Referencias</h3>
 
 [^1]: iNet Wireless Daemon (iwd) project aims to provide a comprehensive Wi-Fi connectivity solution for Linux based devices. The core goal of the project is to optimize resource utilization: storage, runtime memory and link-time costs. This is accomplished **by not depending on any external libraries and utilizes features provided by the Linux Kernel to the maximum extent possible.** The result is a self-contained environment that only depends on the Linux Kernel and the runtime C library.
 

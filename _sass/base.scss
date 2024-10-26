@@ -131,6 +131,19 @@ body {
 }
 h1, h2, h3, h4, h5, h6 { font-size: $base-font-size;  margin: 0px;  margin-top: 22px;  font-weight: bold;  color: var(--text-color); }
 p, ul, ol { margin: 0px;  color: var(--text-color); }
+.titulo-principal {
+  color: #ddb950; /* Este estilo reemplazará el h1 */
+  text-shadow: 0 0 1px #e82e2e;
+}
+
+#subtitulo-importante {
+  
+  text-shadow: 0 0 3px #e82e2e; /* Este estilo reemplazará el h2 */
+}
+
+.titulo-secundario {
+  color:#69c041; /* Este estilo se aplicará solo a h3*/
+}
 a { text-decoration: none;  color: #e75e5e } /* publicaciones*/
 a:hover { color: var(--background-color); background-color: var(--base-color); }
 @media only screen and (max-device-width: 500px) { * { font-size: $mobile-font-size !important; } }
