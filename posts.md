@@ -24,7 +24,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">Introducción a Linux - Notes/Scripting</a>
 - [ ? ] <a  href="">Over The Wire Bandit - Bash</a>
 - [ ? ] <a  href="">CCNA1v7</a>
-- [ ? ] <a  href="">Cisco PacketTracer</a>
+- [ ? ] <a  href="">Cisco PacketTracer - Notes</a>
 - [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
 - [ ? ] <a  href="">Estructuras de datos - UTP</a>
 - [ ? ] <a  href="">SQL</a>
@@ -33,8 +33,8 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 <br><br>
 - [ 2024_21_07 ] <a  href="\guiaArch.html">Guía Instalación Arch Linux Bspwm</a>
 - [ 2024_28_03 ] <a  href="\programacionCompetitiva.html">Programación Competitiva 1er año</a>
-- [ 2023_30_11 ] <a  href="\calcularSubnet.html">Calcular Subnet - Script</a>
+- [ 2023_30_11 ] <a  href="\calcularSubnet.html">SubNet.sh - Script</a>
 - [ ? ] <a  href="\scannerSh.html">Estudiando un scanner TCP</a>
 - [ 2023_28_07 ] <a  href="\bufferOverflow_1er_Practica">Buffer OverFlow a SLMail 5.5</a>
-- [ 2023_16_07 ] <a  href="\dotfiles.html">Archivos de Configuración Parrot Bspwm</a>
-- [ 2023_12_02 ] <a  href="\decompressor.html">Bandit Decompressor - Script</a>
+- [ 2023_16_07 ] <a  href="\dotfiles.html">Configuración Parrot Bspwm - Dotfiles</a>
+- [ 2023_12_02 ] <a  href="\decompressor.html">Decompressor.sh - Script</a>
