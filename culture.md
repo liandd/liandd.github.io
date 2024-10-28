@@ -34,8 +34,9 @@ permalink: /culture
 
 <h1 class="titulo-principal">non fiction</h1>
 
+-> Don Quijote Tomo 1 - Miguel de Cervantes
 -> El sueño de las escalinatas - Jorge Zalamea 
--> Como conocer a las personas por su lenguaje - Leonardo Ferrari
+-> Cómo conocer a las personas por su lenguaje - Leonardo Ferrari
 -> Vigilar y castigar - Focault
 
 <h3 class="titulo-secundario">## todo...</h3>
