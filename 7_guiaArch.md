@@ -792,123 +792,149 @@ Para los shortcuts o atajos de teclado usaremos *sxhkd*, así que lo instalaremo
 Compartiré un archivo de prueba con configuraciones del *sxhkd*:
 
 ```bash
+# terminal emulator
 super + Return
-  kitty
+	kitty
 
+# program launcher
 super + d
-  rofi
+	rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/blocks/scripts/rofi/launcher.rasi
 
+# make sxhkd reload its configuration files:
 super + Escape
-  pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
 
 # quit/restart bspwm
 super + alt + {q,r}
-  bspc {quit,wm -r}
+	bspc {quit,wm -r}
 
 # close and kill
 super + {_,shift + }w
-  bspc node -{c,k}
+	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
 super + m
-  bspc desktop -l next
+	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
 super + y
-  bspc node newest.marked.local -n newest.!automatic.local
+	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest window
 super + g
-  bspc node -s biggest.window
+	bspc node -s biggest.window
+
+#
+# state/flags
+#
 
 # set the window state
 super + {t,shift + t,s,f}
-  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
-  bspc node -g {marked,locked,sticky,private}
+	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
 
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
-  bspc node -{f,s} {west,south,north,east}
+	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
-  bspc node -f @{parent,brother,first,second}
+	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
-  bspc node -f {next,prev}.local.!hidden.window
+	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-  bspc desktop -f {prev,next}.local
+	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
 super + {grave,Tab}
-  bspc {node,desktop} -f last
+	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
-  bspc wm -h off; \
-  bspc node {older,newer} -f; \
-  bspc wm -h on
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-  bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
+#
+# preselect
+#
 
 # preselect the direction
 super + ctrl + alt + {Left,Down,Up,Right}
-  bspc node -p {west,south,north,east}
+	bspc node -p {west,south,north,east}
 
 # preselect the ratio
 super + ctrl + {1-9}
-  bspc node -o 0.{1-9}
+	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
-  bspc node -p cancel
+	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
 super + ctrl + alt + space
-  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel 
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+#super + alt + {h,j,k,l}
+#	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+#super + alt + shift + {h,j,k,l}
+#	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
 super + ctrl + {Left,Down,Up,Right}
-  bspc node -v {-20 0,0 20,0 -20,20 0}
-  
-# Custom
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Custom move/resize
 alt + super + {Left,Down,Up,Right}
-  /home/*username*/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
-  
-# firefox
+	/home/qw4qe/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+# Firefox
 shift + l
-  /usr/bin/firefox
-  
+	/usr/bin/firefox
+
 # Lightdm
 super + shift + x
-  dm-tool lock 
-  
-# Capturas 
-super + shift + g 
-    /usr/bin/flameshot gui
+	dm-tool lock
 
-# Burpsuite
-#shift + b
-#	/usr/bin/burpsuite
+# Capturas de pantalla
+super + shift + g
+	/usr/bin/flameshot gui
 
-#prueba audio, este se puede ignorar
+#pruebas de audio
 XF86AudioLowerVolume
-  exec pulseaudio-ctl down
-
+   exec pulseaudio-ctl down
+#exec pactl set-sink-volume @DEFAULT_SINK@ -5% 
 XF86AudioMute
-  exec pulseaudio-ctl mute
+   exec pulseaudio-ctl mute #exec pactl set-sink-mute @DEFAULT_SINK@ toggle #exec pulseaudio-ctl mute
 
 XF86AudioRaiseVolume
-  exec pulseaudio-ctl up
+   exec pulseaudio-ctl up #exec pactl set-sink-volume @DEFAULT_SINK@ +5% #exec pulseaudio-ctl up
 ```
 
 Seguido crearemos el siguiente archivo y ejecutamos los comandos:
@@ -998,8 +1024,9 @@ enable_audio_bell no
 
 include color.ini
 
-font_family      HackNerdFont
-font_size 12
+font_family	CaskaydiaCove Nerd Font
+#font_family HackNerdFont
+font_size 10
 
 disable_ligatures never
 
@@ -1008,26 +1035,25 @@ url_color #61afef
 url_style curly
 
 map ctrl+left neighboring_window left
-map ctrl+right neighboring_window right 
+map ctrl+right neighboring_window right
 map ctrl+up neighboring_window up
-map ctrl+down neighboring_window down
 
 cursor_shape beam
-cursor_beam_thickness 1.8
+cursor_beam_thickness 1.0
 
 mouse_hide_wait 3.0
 detect_urls yes
-repaint_delay 10 
-input_delay 3 
+repaint_delay 10
+input_delay 3
 sync_to_monitor yes
 
 inactive_tab_background #e06c75
 active_tab_background #98c379
 inactive_tab_foreground #000000
 tab_bar_margin_color black
-background_opacity 0.90
+background_opacity 0.88
 
-shell zsh
+
 tab_bar_style powerline
 ```
 
@@ -1040,7 +1066,8 @@ window_padding_width  20
 
 # Special
 foreground #a9b1d6
-background #1a1b26
+;background #1a1b26
+background #000000
 
 # Black
 color0 #414868
@@ -1093,33 +1120,37 @@ Compartiré un archivo de prueba con configuraciones del *picom.conf*:
 corner-radius = 20;
 rounded-corners-exclude = [
   #"window_type = 'normal'",
-  "class_g = 'Polybar'",
+  #"class_g = 'firefox'",
+   "class_g = 'Polybar'"
 ];
+
 round-borders = 20;
 round-borders-exclude = [
   #"class_g = 'TelegramDesktop'",
 ];
+
 round-borders-rule = [];
-shadow = true
+
+shadow = false
 shadow-radius = 15
 shadow-opacity = .5
 shadow-offset-x = -15
 shadow-offset-y = -15
+
 shadow-exclude = [
-    "class_g = 'firefox' && argb"
+    "class_g = 'firefox' && argb",
+    "class_g = 'discord'"
 ];
+
 fade-in-step = 0.01;
 fade-out-step = 0.01;
+
 inactive-opacity = 1.0
 frame-opacity = 1.0
 opacity = 1.0
 inactive-opacity-override = false;
 active-opacity = 1.0
 focus-exclude = [ "class_g = 'Cairo-clock'" ];
-blur-method = "dual_kawase"
-blur-size = 2
-blur-strength = 3
-blur-background = true
 backend = "glx";
 vsync = false
 mark-wmwin-focused = true;
@@ -1131,6 +1162,7 @@ detect-transient = true
 detect-client-leader = true
 use-damage = false
 log-level = "warn";
+
 wintypes:
 {
   tooltip = { fade = true; shadow = true; shadow-radius = 0; shadow-opacity = 1.0; shadow-offset-x = -20; shadow-offset-y = -20; opacity = 0.8; full-shadow = true; }; 
@@ -1256,6 +1288,151 @@ Para arreglar el error del cursor incorporamos posteriormente las siguientes lí
     zle -N zle-keymap-select
 # Start with beam shape cursor on zsh startup and after every command.
 -zle-line-init() { zle-keymap-select 'beam'}
+```
+
+#Archivo zshrc
+
+```bash
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+
+# Created by newuser for 5.9
+#source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/pure.json)"
+# Fix the Java Problem
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+
+# enable completion features
+autoload -Uz compinit
+compinit -d ~/.cache/zcompdump
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=2000
+setopt histignorealldups sharehistory
+
+
+# Custom Aliases
+# -----------------------------------------------
+# bat
+alias cat='bat'
+alias catn='bat --style=plain'
+alias catnp='bat --style=plain --paging=never'
+
+# ls
+alias ll='lsd -lh --group-dirs=first'
+alias la='lsd -a --group-dirs=first'
+alias l='lsd --group-dirs=first'
+alias lla='lsd -lha --group-dirs=first'
+alias ls='lsd --group-dirs=first'
+
+# Functions
+function mkt(){
+	mkdir {nmap,content,exploits}
+}
+
+function burp(){
+  burpsuite &>/dev/null & disown
+}
+
+# Extract nmap information
+function extractPorts(){
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
+	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
+	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
+	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
+	echo $ports | tr -d '\n' | xclip -sel clip
+	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
+	cat extractPorts.tmp; rm extractPorts.tmp
+}
+function limpiar(){
+	echo '' > ~/.zsh_history
+	echo -e "[!] Se ha limpiado el historial" > limpiarlog.tmp
+	cat limpiarlog.tmp; rm limpiarlog.tmp
+}
+function rim(){
+	rm ~/.zsh_history
+	echo -e "[!] Se ha eliminado el historial" > rimlog.tmp
+	cat rimlog.tmp; rm rimlog.tmp
+}
+
+source /usr/share/zsh-plugins/sudo.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+function musb(){
+	sudo mount -t ntfs-3g /dev/sdb1 /mnt/usb
+	echo -e "[!] Se ha montado la usb" > montlog.tmp
+	cat montlog.tmp; rm montlog.tmp
+}
+
+function dusb(){
+	sudo umount /mnt/usb
+	echo -e "[!] Se ha desmontado la usb" > montlog.tmp
+	cat montlog.tmp; rm montlog.tmp
+}
+
+function settarget(){
+    ip_address=$1
+    machine_name=$2
+    echo "$ip_address $machine_name" > /home/qw4qe/.config/polybar/scripts/.target.tmp
+}
+
+function cleartarget(){
+	echo '' > /home/qw4qe/.config/polybar/scripts/.target.tmp
+}
+
+#Eliminar negrita de la zsh con ultimas versiones de powerlevel10k
+export LS_COLORS="rs=0:di=34:ln=36:mh=00:pi=40;33:so=35:do=35:bd=40;33:cd=40;33:or=40;31:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=32:*.tar=31:*.tgz=31:*.arc=31:*.arj=31:*.taz=31:*.lha=31:*.lz4=31:*.lzh=31:*.lzma=31:*.tlz=31:*.txz=31:*.tzo=31:*.t7z=31:*.zip=31:*.z=31:*.dz=31:*.gz=31:*.lrz=31:*.lz=31:*.lzo=31:*.xz=31:*.zst=31:*.tzst=31:*.bz2=31:*.bz=31:*.tbz=31:*.tbz2=31:*.tz=31:*.deb=31:*.rpm=31:*.jar=31:*.war=31:*.ear=31:*.sar=31:*.rar=31:*.alz=31:*.ace=31:*.zoo=31:*.cpio=31:*.7z=31:*.rz=31:*.cab=31:*.wim=31:*.swm=31:*.dwm=31:*.esd=31:*.jpg=35:*.jpeg=35:*.mjpg=35:*.mjpeg=35:*.gif=35:*.bmp=35:*.pbm=35:*.pgm=35:*.ppm=35:*.tga=35:*.xbm=35:*.xpm=35:*.tif=35:*.tiff=35:*.png=35:*.svg=35:*.svgz=35:*.mng=35:*.pcx=35:*.mov=35:*.mpg=35:*.mpeg=35:*.m2v=35:*.mkv=35:*.webm=35:*.webp=35:*.ogm=35:*.mp4=35:*.m4v=35:*.mp4v=35:*.vob=35:*.qt=35:*.nuv=35:*.wmv=35:*.asf=35:*.rm=35:*.rmvb=35:*.flc=35:*.avi=35:*.fli=35:*.flv=35:*.gl=35:*.dl=35:*.xcf=35:*.xwd=35:*.yuv=35:*.cgm=35:*.emf=35:*.ogv=35:*.ogx=35:*.aac=36:*.au=36:*.flac=36:*.m4a=36:*.mid=36:*.midi=36:*.mka=36:*.mp3=36:*.mpc=36:*.ogg=36:*.ra=36:*.wav=36:*.oga=36:*.opus=36:*.spx=36:*.xspf=36:"
+
+export GEM_HOME=~/.ruby/
+export PATH="$PATH:/usr/sbin:/opt:~/.ruby/bin:/home/qw4qe/.local/share/gem/ruby/3.2.0/bin/"
+#export PATH="$PATH:/usr/sbin:/opt"
+
+export ZSH_DISABLE_COMPFIX=true
 ```
 
 ---
