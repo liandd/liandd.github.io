@@ -31,6 +31,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">Java POO</a>
 - [ ? ] <a  href="">C++ Programación Estructurada</a>
 <br><br>
+- [ 2024_28_10 ] <a  href="\vpnScript.html">VpnScript.sh - unkn0wn1122/script</a>
 - [ 2024_21_07 ] <a  href="\guiaArch.html">Guía Instalación Arch Linux Bspwm</a>
 - [ 2024_28_03 ] <a  href="\programacionCompetitiva.html">Programación Competitiva 1er año</a>
 - [ 2023_30_11 ] <a  href="\calcularSubnet.html">SubNet.sh - Script</a>
