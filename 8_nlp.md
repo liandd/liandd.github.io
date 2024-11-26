@@ -32,7 +32,7 @@ El procesamiento del lenguaje como su nombre indica, procesar el lenguaje. El in
 Para el Procesamiento del lenguaje natural hay que saber de gramática donde la idea es poder combinar el sistema de reglas con Machine Learning usando entrenamientos para hacer seguimientos. Usando reglas y patrones, árboles y semántica se trabaja bastante el tema en el lenguaje de programación Python.
 
 ------
-<h2 id="subtitulo-importante">Introducción a la Inteligencia Artificial</h2>
+<h2 id="introducción-a-la-inteligencia-artificial"><h2 id="subtitulo-importante">Introducción a la Inteligencia Artificial</h2></h2>
 
 <h1 class="titulo-principal">Inicios de la IA</h1>
 
@@ -145,7 +145,7 @@ Desde la computación podemos hablar de Hardware y herramientas para el desarrol
 ¿Puede una máquina tener sentimientos?
 
 ------
-<h2 id="subtitulo-importante">Introducción a Python</h2>
+<h2 id="introducción-a-python"><h2 id="subtitulo-importante">Introducción a Python</h2></h2>
 
 Durante la asignatura, se utilizará *Flask*. Python es un lenguaje poderoso, interpretado y multiparadigma, con características como datos estructurados, no estructurados, diccionarios, y más. Por ejemplo, el uso de índices `[:-2]`, diccionarios clave-valor (bases de NoSQL), y estructuras de procesamiento de lenguaje natural con listas anidadas.
 
@@ -575,6 +575,101 @@ while True:
 
 ## Ciclos 1
 
+```python
+# CICLO FOR
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+for num in numeros:
+    if num % 2 != 0:
+        print(num)
+
+# ITERAR LISTAS
+palabras = ['CARRO', 'CELULAR', 'TV', 'NEVERA', 'MÉDICO', 'ESCRITORIO', 'VENTILADOR']
+for caracteres in palabras:
+    print((caracteres), ('---->LONGITUD:'), (len(caracteres)))
+
+```
+
+## Ciclos 2
+
+```python
+# ITERAR DICCIONARIOS
+agenda = {
+'MARIA' : '25899999',
+'PABLO' : '3443456992',
+'JOSE' : '1596358',
+'ANGELA' : '789657',
+'CARLOS' : '75698788'
+}
+
+for (k, v) in agenda.items():
+    print(k, v)
+
+# ITERAR STRINGS
+entrada = "HOLA ESTAMOS EMPEZANDO SEMESTRE"
+contador = 0
+cuentaletra = 'E'
+for letra in entrada:
+    if letra == cuentaletra:
+        contador = contador + 1
+
+print(('CANTIDAD DE LETRAS'), (cuentaletra), (':'), (contador))
+```
+
+## Ciclos 3
+
+```python
+# CICLO WHILE
+i = 0
+while (i <= 9):
+    i += 1
+    print(i)
+
+# CICLO INFINITO
+while True:
+    opcion = (input("""ELIJA UNA FRUTA:
+    1- NARANJA
+    2- MANDARINA
+    3- NINGUNA
+    """)
+    if opcion == '1':
+        print('SELECCIONÓ NARANJAS')
+        break
+    elif opcion == '2':
+        print('SELECCIONÓ MANDARINA')
+        break
+    elif opcion == '3':
+        print('SELECCIONÓ NINGUNA')
+        break
+    else:
+        print('DEBE SELECCIONAR UNA OPCION (1, 2 o 3)')
+```
+
+## Ciclos 4
+
+```python
+# CONTINUE
+cadena = 'python3'
+for letra in cadena:
+    if letra == '3':
+        continue
+    print(letra)
+
+# PASS
+for num in range(10):
+    if num == 8:
+        pass
+    print(f'EL NÚMERO ACTUAL ES: {num}')
+print('LA CUENTA HA TERMINADO')
+
+counter = 0
+while counter < 5:
+    print(f'EL NÚMERO {counter} ES INFERIOR A 5')
+    counter = counter + 1
+else:
+    pass
+```
+
+## Excepciones 1
 ------
 <h2 id="subtitulo-importante">Bases NLP</h2>
 

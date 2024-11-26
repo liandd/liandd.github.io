@@ -18,7 +18,6 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">Fundamentos de Windows Scripting</a>
 - [ ? ] <a  href="">x86 Assembly - Notes</a>
 - [ ? ] <a  href="">IvNLP - Asesorias</a>
-- [ ? ] <a  href="\nlp.html">NLP Python3 - Notes</a>
 - [ ? ] <a  href="">Sistemas Operativos - Notes</a>
 - [ ? ] <a  href="">Python3 Ofensivo - Notes/Scripting</a>
 - [ ? ] <a  href="">Introducción a Linux - Notes/Scripting</a>
@@ -31,6 +30,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">Java POO</a>
 - [ ? ] <a  href="">C++ Programación Estructurada</a>
 <br><br>
+- [ 2024_25_11 ] <a  href="\nlp.html">NLP Python3 - Notes</a>
 - [ 2024_28_10 ] <a  href="\vpnScript.html">VpnScript.sh - unkn0wn1122/script</a>
 - [ 2024_21_07 ] <a  href="\guiaArch.html">Guía Instalación Arch Linux Bspwm</a>
 - [ 2024_28_03 ] <a  href="\programacionCompetitiva.html">Programación Competitiva 1er año</a>
