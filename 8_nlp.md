@@ -504,6 +504,76 @@ else:
 | property() | Crea y administra propiedades | `property(fget, fset)` | Objeto propiedad |
 | type() | Devuelve el tipo de un objeto o crea una nueva clase | `type(5)` | `<class 'int'>` |
 
+## Funciones Propias 1
+
+```python
+# FUNCIONES
+def sumar(a, b):
+    x = a + b
+    print(('Resultado'), (x))
+
+sumar(5, 7) ## LLAMAR LA FUNCIÓN
+
+#################################
+def func(param1, param2):
+    res = param1 ** param2
+    return res
+
+variable = func(8, 2)
+print(variable)
+```
+
+## Funciones Propias 2
+
+```python
+def sumar():
+    x = a + b
+    print(('Resultado:'), (x))
+
+def restar():
+    x = a - b
+    print(('Resultado:'), (x))
+
+def multiplicar():
+    x = a * b
+    print(('Resultado:'), (x))
+
+def dividir():
+    x = a / b
+    print(('Resultado:'), (x))
+
+while True:
+    try:
+        a = int(input('INGRESE EL PRIMER NÚMERO: \n'))
+        b = int(input('INGRESE EL SEGUNDO NÚMERO: \n'))
+        print(('QUÉ CALCULO ENTRE'), (a), ('Y'), (b), ('?\n'))
+        op = str(input("""
+            1- Sumar
+            2- Restar
+            3- Multiplicar
+            4- Dividir \n"""
+        ))
+    except: # EN CASO DE ERROR
+        print('ERROR')
+        op = '?'
+    
+    if op == '1':
+        sumar()
+        break
+    elif op == '2':
+        restar()
+        break
+    elif op == '3':
+        multiplicar()
+        break
+    elif op == '4':
+        dividir()
+        break
+    else:
+        print('NÚMERO NO VALIDO')
+```
+
+## Ciclos 1
 
 ------
 <h2 id="subtitulo-importante">Bases NLP</h2>
