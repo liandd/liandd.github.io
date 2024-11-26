@@ -235,6 +235,57 @@ print(a)
 a = [x for x in range(9) if x % 2 == 0]
 print(a)
 ```
+
+## Tuplas 1
+```python
+things = ('casa', 'puerta', 'reloj', 'mesa', 'silla', 'banco', 'cuadro', 'alfombra')
+numbers = (1, 2, 3, 4, 5, 6)
+
+print(numbers[0:3]) # MUESTRA (1, 2, 3), DESDE LA POS 0 HASTA LA ULTIMA INDICADA DESPUES DEL : -1, DEL 0 HASTA EL 3-1 IMPRIME EL LA POS: 0,1,2 OSEA (1,2,3)
+
+print(numbers[:-2]) # MUESTRA (1, 2, 3) SIN LOS ÚLTIMOS 3 DIGITOS
+```
+
+<h1 class="titulo-principal">Diferencias entre Listas y Tuplas</h1>
+
+| Listas | Tuplas |
+| Son Dinámicas | Son Estáticas |
+| Utilizamos Corchetes [] | Utilizamos Paréntesis () |
+| Elementos separados por coma | Elementos separados por coma |
+| List = [1, 2] | Tuple = (1, 2) |
+| Acceso a elementos por [Índice] | Acceso a elementos por [Índice] |
+
+<h1 class="titulo-principal">Diccionarios - Estructura</h1>
+
+| Clave | Key |
+| Nombre | Margarita |
+| Edad | 23 |
+| Genero | Femenino |
+
+## Diccionarios 1
+```python
+# DECLARACIÓN
+miDiccionario = {
+'Nombre' : 'Mario',
+'Edad' : 25',
+'Genero' : 'Masculino'
+}
+
+# ACCEDER A UN DICCIONARIO
+persona = {
+'Nombre' : 'MANUEL',
+'Apellido' : 'ARIAS',
+'Padres' : ['MARIO ARIAS', 'CATALINA ROJAS'],
+'Edad' : 24,
+'Genero' : 'MASCULINO',
+'Estado Civil' : 'CASADO',
+'Hijos' : 'NO REGISTRA',
+'Mascotas' : 'GATOS',
+'Nombres de mascotas' : 'COPITO'
+}
+
+```
+
 ------
 <h2 id="subtitulo-importante">Bases NLP</h2>
 
