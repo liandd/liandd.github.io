@@ -283,9 +283,135 @@ persona = {
 'Mascotas' : 'GATOS',
 'Nombres de mascotas' : 'COPITO'
 }
-
 ```
 
+## Diccionarios 2
+```python
+print(persona['Apellido']) # ACCEDER AL APELLIDO
+print(persona['Padres']) # ACCEDER A LA LISTA DE PADRES
+
+persona['Ingresos'] = '1600000' # AGREGAR CAMPOS
+persona['Ingresos'] = '2200000' # AGREGAR CAMPOS. SI EXISTE CAMBIA EL VALOR
+
+persona['Salario'] = persona.pop('Ingresos') # CAMBIAR INGRESOS POR SALARIOS
+
+del(persona['Nombre']) # BORRAR EL CAMPO NOMBRE DEL DICCIONARIO
+
+objeto = persona.get('Nombre', 'N.A') # OBTENER EL NOMBRE. SI ENCUENTRA IMPRIME N.A
+
+claves = persona.keys() # IMPRIME TODAS LAS CLAVES
+valores = persona.values() # IMPRIME LOS VALORES
+```
+
+## Condicionales 1
+```python
+# IF / ELSE
+a = 2 + 3
+if a == 4:
+    print('A ES IGUAL A CUATRO') # IMPRIMIR
+else:
+    print('NO SE CUMPLE LA CONDICIÓN')
+
+# IF / ELIF / ELSE
+a = 2 + 3
+if a == 4:
+    print('A ES IGUAL A CUATRO')
+elif a == 5:
+    print('A ES IGUAL A CINCO')
+elif a == 6:
+    print('A ES IGUAL A SEIS')
+else:
+    print('NO SE CUMPLE LA CONDICIÓN')
+```
+
+## Condicionales 2
+```python
+# EJEMPLO
+dinero = 50000
+if (dinero >= 25000):
+    print('HAS COMPRADO UN LIBRO')
+    dinero = dinero - 25000
+    print(('TU SALDO ES:'), (dinero))
+else:
+    print('USTED NO TIENE DINERO NECESARIO!!')
+```
+
+<h1 class='titulo-principal'>Lista de operadores Aritméticos</h1>
+
+| Operador | Función | Ejemplos |
+| + | Sumar | 2 + 2 |
+| - | Restar | 3 - 2 |
+| * | Multiplicar | 2 * 2 |
+| / | Dividir | 4 / 2 |
+| % | Módulo | 4 % 2 |
+| ** | Exponente | 3 ** 2 |
+| // | División Entera | 8 // 4 |
+
+<h1 class='titulo-principal'>Lista de operadores Especiales</h1>
+
+| Operador | Función | Ejemplos | Resultado |
+| In | El operador **In** devuelve True si un elemento se encuentra dentro de otro | a = [3,4] 3 in a | True Porque 3 se encuentra en a |
+| Not in | El operador **Not In** devuelve True si un elemento no se encuentra dentro de otro | a = [3,4] 5 in a | True Porque 5 no se encuentra en a |
+| Is | El operador **Is** devuelve True si los elementos son exactamente iguales | x = 10, y = 10, x is y | True Porque ambas variables tienen 10 |
+| Not Is | El operador **Not Is** devuelve True si los elementos no son exactamente iguales | x = 10, y = 111, x not is y | True Porque estas variables no tienen el mismo valor |
+
+## Operadores 1
+```python
+# OPERADORES ARITMÉTICOS
+print((12), ('+'), (14))
+print(('resultado1:'), (12 + 14))
+a = 12
+b = 145
+print((a), ('+'), (b))
+print(('resultado2:'), (a + b))
+
+# COMPARACIÓN
+dinero = 100000
+if (dinero >= 25000):
+    print('HAS COMPRADO UN LIBRO')
+    dinero = dinero - 25
+    print(('TU SALDO ES:'), (dinero))
+else:
+    print('USTED NO TIENE DINERO')
+```
+
+## Operadores 2
+```python
+# ASIGNACIÓN
+year = 1993
+month = 10
+current_year = 2024
+current_month = 1
+
+if current_year == 2024 and current_month < year:
+    edad = current_year - year
+    print(('LA EDAD ES:'), (edad))
+
+if current_year == 2024 and current_month > month:
+    edad = current_years - years
+    edad += 1
+    print(('LA EDAD ES:'), (edad), ('NACIO EN MES '), (month), ('Y ES MES'), (current_month))
+
+# LÓGICOS
+edad_minH = 21
+edad_minM = 18
+pablo_edad = 23
+mario_edad = 18
+sofia_edad = 29
+
+# COMPROBAMOS SI LOS 3 CUMPLEN LA EDAD MÍNIMA
+if pablo_edad > edad_minH and mario_edad > edad_minH and sofia_edad > edad_minM:
+    print('LOS TRES CUMPLEN')
+# COMPROBAMOS SI ALGUNO NO LA CUMPLE
+if pablo_edad < edad_minH or mario_edad < edad_minH or sofia_edad < edad_minM:
+    print('ALGUNO NO CUMPLE')
+
+# ESPECIALES
+lista_invitados = ['Angelica', 'Matias', 'Sofia', 'Juan', 'Antonio', 'Marcelo', 'Diana', 'Ruben']
+x = 'Andres'
+if x in lista_invitados:
+    print('SI ESTA EN LA LISTA')
+```
 ------
 <h2 id="subtitulo-importante">Bases NLP</h2>
 
