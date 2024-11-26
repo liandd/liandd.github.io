@@ -411,7 +411,100 @@ lista_invitados = ['Angelica', 'Matias', 'Sofia', 'Juan', 'Antonio', 'Marcelo', 
 x = 'Andres'
 if x in lista_invitados:
     print('SI ESTA EN LA LISTA')
+else:
+    print('NO SE ENCONTRO')
 ```
+
+<h1 class='titulo-principal'>Funciones de Cadenas 1</h1>
+
+| Función | Utilidad | Ejemplo | Resultado |
+|---------|----------|---------|-----------|
+| print() para imprimir todo | Imprime en pantalla el argumento | print('Hola') | Hola |
+| len() | Determina la longitud en caracteres de una cadena | len('HOLA') | 4 |
+| join() | Convierte en cadena utilizando una separación | Lista = ['Python','es'] '-'.join(Lista) | 'Python-es' |
+| split() | Convierte una cadena con un separador en una lista | a = ('HOLA') Lista2 = a.split() print(Lista2) | HOLA |
+
+<h1 class='titulo-principal'>Funciones de Cadenas 2</h1>
+
+| Función | Utilidad | Ejemplo | Resultado |
+|---------|----------|---------|-----------|
+| replace() en strings | Remplaza una cadena por otra | texto = 'Manuel es mi amigo' print(texto.replace('es','era')) | Manuel era mi amigo |
+| upper() | Convierte una cadena en Mayúscula | texto = 'Manuel es mi amigo' texto.upper() | MANUEL ES MI AMIGO |
+| lower() | Convierte una cadena en Minúscula | texto = 'MANUEL ES MI AMIGO' texto.lower() | manuel es mi amigo |
+
+<h1 class='titulo-principal'>Funciones Numéricas 1</h1>
+
+| Función | Utilidad | Ejemplo | Resultado |
+|---------|----------|---------|-----------|
+| range() para iterables | Crea un rango de números, se usa para crear listas o para iterables | x = range(5) | [0, 1, 2, 3, 4] |
+| str() | Convierte un valor numérico a texto | str(22) | '22' |
+| int() | Convierte a valor entero | int('22') | 22 |
+| float() | Convierte un valor a decimal | float('2.22') | 2.22 |
+
+<h1 class='titulo-principal'>Funciones Numéricas 2</h1>
+
+| Función | Utilidad | Ejemplo | Resultado |
+|---------|----------|---------|-----------|
+| max() para números| Determina el máximo entre un grupo de números | `x = [0, 1, 2] print(max(x))` | `2` |
+| min() | Determina el mínimo entre un grupo de números | `x = [0, 1, 2] print(min(x))` | `0` |
+| sum() | Suma el total de una lista de números | `x = [0, 1, 2] print(sum(x))` | `3` |
+
+
+<h1 class='titulo-principal'>Funciones Útiles 1</h1>
+
+| Función | Utilidad | Ejemplo | Resultado |
+|---------|----------|---------|-----------|
+| all() | Verifica si todos los elementos de un iterable son verdaderos | `all([True, True, False])` | `False` |
+| any() | Verifica si algún elemento de un iterable es verdadero | `any([False, False, True])` | `True` |
+| zip() | Combina iterables en tuplas | `list(zip([1, 2], ['a', 'b']))` | `[(1, 'a'), (2, 'b')]` |
+| map() | Aplica una función a cada elemento de un iterable | `list(map(str.upper, ['hola', 'mundo']))` | `['HOLA', 'MUNDO']` |
+| filter() | Filtra elementos de un iterable usando una función | `list(filter(lambda x: x > 0, [-1, 2, -3, 4]))` | `[2, 4]` |
+| enumerate() | Devuelve elementos y sus índices | `list(enumerate(['a', 'b', 'c']))` | `[(0, 'a'), (1, 'b'), (2, 'c')]` |
+| reversed() | Invierte un iterable | `list(reversed([1, 2, 3]))` | `[3, 2, 1]` |
+| isinstance() | Comprueba si un objeto es de un tipo específico | `isinstance(5, int)` | `True` |
+| getattr() | Obtiene un atributo de un objeto | `getattr(obj, 'nombre', 'default')` | Valor del atributo o `'default'` |
+| setattr() | Establece un atributo en un objeto | `setattr(obj, 'nombre', 'valor')` | Atributo actualizado |
+| delattr() | Elimina un atributo de un objeto | `delattr(obj, 'nombre')` | Atributo eliminado |
+| eval() | Evalúa una expresión como código | `eval('2 + 2')` | `4` |
+| exec() | Ejecuta un bloque de código | `exec("x = 5; print(x)")` | `5` |
+| vars() | Devuelve un diccionario de atributos de un objeto | `vars(obj)` | Diccionario de atributos |
+| __import__() | Importa un módulo en tiempo de ejecución | `mod = __import__('math')` | Módulo importado |
+
+<h1 class='titulo-principal'>Funciones Útiles 2</h1>
+
+| Función | Utilidad | Ejemplo | Resultado |
+|---------|----------|---------|-----------|
+| abs() | Devuelve el valor absoluto de un número | `abs(-10)` | `10` |
+| round() | Redondea un número al entero más cercano o a decimales | `round(3.14159, 2)` | `3.14` |
+| sorted() | Devuelve una lista ordenada de un iterable | `sorted([3, 1, 2])` | `[1, 2, 3]` |
+| frozenset() | Crea un conjunto inmutable | `frozenset([1, 2, 3])` | `frozenset({1, 2, 3})` |
+| chr() | Devuelve el carácter Unicode para un código dado | `chr(65)` | `'A'` |
+| ord() | Devuelve el código Unicode para un carácter dado | `ord('A')` | `65` |
+| bin() | Convierte un número a su representación binaria | `bin(10)` | `'0b1010'` |
+| hex() | Convierte un número a su representación hexadecimal | `hex(255)` | `'0xff'` |
+| oct() | Convierte un número a su representación octal | `oct(8)` | `'0o10'` |
+| next() | Obtiene el siguiente elemento de un iterador | `it = iter([1, 2]); next(it)` | `1` |
+| pow() | Calcula la potencia de un número | `pow(2, 3)` | `8` |
+| sum() | Suma los elementos de un iterable | `sum([1, 2, 3])` | `6` |
+| hasattr() | Verifica si un objeto tiene un atributo | `hasattr(obj, 'nombre')` | `True` o `False` |
+| callable() | Verifica si un objeto es llamable como función | `callable(print)` | `True` |
+
+<h1 class='titulo-principal'>Funciones Especiales 1</h1>
+
+| Función | Utilidad | Ejemplo | Resultado |
+|---------|----------|---------|-----------|
+| compile() | Compila una cadena en un objeto de código ejecutable | `code = compile('x = 5', '<string>', 'exec')` | Objeto compilado |
+| eval() | Evalúa una expresión como código | `eval('2 + 2')` | `4` |
+| complex() | Crea un número complejo | `complex(1, 2)` | `(1+2j)` |
+| globals() | Devuelve un diccionario de variables globales | `globals()` | Diccionario de variables globales |
+| locals() | Devuelve un diccionario de variables locales | `locals()` | Diccionario de variables locales |
+| memoryview() | Crea un objeto de vista de memoria de un objeto de bytes | `memoryview(b'abc')` | Vista de memoria |
+| super() | Devuelve una referencia al padre de una clase | `super().metodo()` | Referencia al método del padre |
+| slice() | Crea un objeto de segmento | `slice(1, 5)` | Segmento |
+| property() | Crea y administra propiedades | `property(fget, fset)` | Objeto propiedad |
+| type() | Devuelve el tipo de un objeto o crea una nueva clase | `type(5)` | `<class 'int'>` |
+
+
 ------
 <h2 id="subtitulo-importante">Bases NLP</h2>
 
