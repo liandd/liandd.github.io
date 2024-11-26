@@ -267,7 +267,7 @@ print(numbers[:-2]) # MUESTRA (1, 2, 3) SIN LOS ÚLTIMOS 3 DIGITOS
 # DECLARACIÓN
 miDiccionario = {
 'Nombre' : 'Mario',
-'Edad' : 25',
+'Edad' : '25',
 'Genero' : 'Masculino'
 }
 
