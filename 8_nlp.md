@@ -670,6 +670,59 @@ else:
 ```
 
 ## Excepciones 1
+
+```python
+def sumar():
+    x = a + b
+    print(('Resultado:'), (x))
+
+def restar():
+    x = a - b
+    print(('Resultado:'), (x))
+
+def multiplicar():
+    x = a * b
+    print(('Resultado:'), (x))
+
+def dividir():
+    x = a / b
+    print(('Resultado:'), (x))
+
+while True:
+    try:
+        a = int(input('INGRESE EL PRIMER NÚMERO: \n'))
+        b = int(input('INGRESE EL SEGUNDO NÚMERO: \n'))
+        print(('QUÉ CALCULO ENTRE'), (a), ('Y'), (b), ('?\n'))
+        op = str(input("""
+            1- Sumar
+            2- Restar
+            3- Multiplicar
+            4- Dividir \n"""
+        ))
+    
+        if op == '1':
+            sumar()
+            break
+        elif op == '2':
+            restar()
+            break
+        elif op == '3':
+            multiplicar()
+            break
+        elif op == '4':
+            dividir()
+            break
+        else:
+            print('NÚMERO NO VALIDO')
+    except ZeroDivisionError:
+        print('NO SE PERMITE LA DIVISIÓN ENTRE CERO. ERROR')
+    except:
+        print('ERROR EN EL PROGRAMA')
+    finally:
+        print('GRACIAS POR UTILIZAR EL PROGRAMA CALCULADORA')
+```
+
+
 ------
 <h2 id="subtitulo-importante">Bases NLP</h2>
 
