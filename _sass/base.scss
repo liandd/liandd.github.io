@@ -133,18 +133,18 @@ h1, h2, h3, h4, h5, h6 { font-size: $base-font-size;  margin: 0px;  margin-top: 
 p, ul, ol { margin: 0px;  color: var(--text-color); }
 .titulo-principal {
   color: #ddb950; /* Este estilo reemplazará el h1 */
-  text-shadow: 0 0 1px #e82e2e;
+  text-shadow: 0 0 1px #74a7d4;
 }
 
 #subtitulo-importante {
   
-  text-shadow: 0 0 3px #e82e2e; /* Este estilo reemplazará el h2 */
+  text-shadow: 0 0 3px #74a7d4; /* Este estilo reemplazará el h2 */
 }
 
 .titulo-secundario {
   color:#69c041; /* Este estilo se aplicará solo a h3*/
 }
-a { text-decoration: none;  color: #e75e5e } /* publicaciones*/
+a { text-decoration: none;  color: #74a7f9 } /* publicaciones*/
 a:hover { color: var(--background-color); background-color: var(--base-color); }
 @media only screen and (max-device-width: 500px) { * { font-size: $mobile-font-size !important; } }
 
@@ -156,9 +156,9 @@ p { word-wrap: break-word;  word-break: break-word;  white-space: pre-wrap; marg
 footer { color: var(--text-color);  border-top: var(--border);  margin: 20px auto 15px;  padding-top: 10px;  text-align: right; }
 header { margin-top: 25px;  margin-bottom: 10px; }
 header p { text-align: left;  margin: 0; }
-footer a { text-shadow: 0 0 5px #fc0000; font-weight: bold;}
+footer a { text-shadow: 0 0 5px #74a7ff; font-weight: bold;}
 footer { margin-bottom: 20px; }
-p.beb {color: #e75e5e} //comment
+p.beb {color: #74afff} //comment
 
 /**
  * Highlight/Markup
@@ -180,9 +180,9 @@ p.beb {color: #e75e5e} //comment
 .menu ul { margin-top: 12px;  margin-bottom: 12px;  padding-left: 0px;  list-style-type: none;  text-align: right; }
 .menu ul li { display: inline;  margin-left: 10px;  }
 .menu ul li a { text-decoration: none;  color: var(--text-color);  }
-.menu ul li a.bob {text-shadow: 0 0 5px #fc0000;}
+.menu ul li a.bob {text-shadow: 0 0 5px #74a7ff;}
 .menu ul li a:hover { text-decoration: none; color: var(--background-color); background-color: var(--base-color); }
-ul li a.beb { text-shadow: 0 0 5px #c05b5b;}
+ul li a.beb { text-shadow: 0 0 5px #77c6cf;}
 /**
  * Form
  */
@@ -205,7 +205,7 @@ blockquote {
     padding-right: 1em;
     padding-inline: 1em;
     font-style: italic;
-    border-left: 0.25em solid #ee678f;
+    border-left: 0.25em solid #77c6cf;
     background: mix(#000, #15181c, 50%);
     cite {
       font-style: italic;
