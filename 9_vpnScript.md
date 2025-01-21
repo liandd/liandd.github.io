@@ -1,5 +1,5 @@
 ---
-title: vpnScript por unkn0wn122
+title: vpnScript por unkn0wn1122
 layout: page
 permalink: /vpnScript
 ---
@@ -10,7 +10,7 @@ Visita a <a href="https://unkn0wn1122.github.io/" target="_blank">Unkn0wn1122</a
 
 **Descripción**
 
-Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.
+Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN para Hack The Box. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.
 
 ### Funcionalidades del Script
 
