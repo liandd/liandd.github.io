@@ -197,7 +197,7 @@ elif [ $parameter_counter -eq 2 ]; then
   disconnect
 elif [ $parameter_counter -eq 3 ]; then
   copyIp
-elif [ $parameter_counter -eq 4]; then
+elif [ $parameter_counter -eq 4 ]; then
   helpPanel
 else
   helpPanel
