@@ -7,7 +7,7 @@ header_pages:
   - posts.md
   - culture.md
   - about.html
-  - contact.html
+  - contact.md
   
 
 name: ~/liandd.cfg
