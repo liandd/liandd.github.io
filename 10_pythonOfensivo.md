@@ -547,5 +547,128 @@ producto = reduce(lambda x, y: x*y, numeros)
 print(f"El ultimo producto de la lista es: {producto}")
 ```
 
+<h1 class="titulo-principal">Listas y Tuplas</h1>
+
+Las listas permiten almacenar secuencias ordenadas de elementos (mutables), lo que significa que podemos modificar las listas después de su creación, y son dinámicas, permitiéndonos añadir o quitar elementos de ellas
+
+<strong>Operaciones con listas</strong>:
+```python
+Añadir elementos -> .append(), .extend()
+Eliminar elementos -> .remove(), .pop()
+Ordenar elementos -> .sort(), .sorted(), .reverse(), [::-1]
+```
+
+```python
+#!/usr/bin/env python3
+
+# Repaso listas
+cve_list = ['CVE-2023', 'CVE-2021', 'CVE-2024']
+puertos_tcp = [21, 22, 25, 80, 443, 8080, 445, 69]
+print(puertos_tcp)
+print(len(puertos_tcp))
+puertos_tcp.append(80)
+print(len(puertos_tcp))
+
+for puerto in puertos_tcp:
+    print("Este es el puerto: {}".format(puerto))
+
+print(cve_list)
+cve_list.remove('CVE-2023')
+print(cve_list)
+
+# ordenar
+puertos_tcp.sort()
+print(f"Los puertos ordenados son: {puertos_tcp}")
+puertos_tcp.reverse()
+print("Se han revertido los puertos: {}".format(puertos_tcp))
+
+# Poner listas en mayuscula
+# animales = ["perro", "gato", "pez"]
+# animales_mayus = [animal.upper() for animal in animales]
+# animales_minus = [animal.lower() for animal in animales]
+
+# Zip para combinatorias de listas
+frutas = ["manzanas", "uvas", "mangos", "kiwis"]
+cantidades = [3, 5, 6, 10]
+
+for fruta, cantidad in zip(frutas, cantidades):
+    print("cantidad %d de %s" % (cantidad, fruta))
+```
+
+```python
+#!/usr/bin/env python3
+
+tupla = (1, 2, 3, 4, 5)
+print(tupla)
+print(type(tupla))
+print(tupla[1:3])
+print(tupla[:4])
+# No podemos modificar la tupla, son inmutables -> estaticas
+
+# asignar
+a, b, c, d, e = tupla
+print("Valores de %d, %d, %d, %d, %d" % (a, b, c, d, e))
+tupla = tupla + (6, 7, 8, 9, 10)
+print(tupla)
+tupla_pares = tuple(i for i in tupla if i % 2 == 0)
+print(tupla_pares)
+```
+
+# Conjuntos (Sets)
+
+No tienen orden ni elementos repetidos.
+
+• Adición y eliminación:
+```python
+.add(), .remove(), .discard(), .update({})
+# Para evitar errores con .remove(), usar .discard()
+```
+
+• Intersección:
+```python
+.intersection() # Para elementos repetidos en 2 conjuntos, ambos
+.union() # Compacta y quita repeticiones, todas
+```
+
+```python
+#!/usr/bin/env python3
+
+#Conjutos sets {}, -> no guarda repetidos usando el typeCast set(mi_lista)
+# Busquedas rapidas -> print(1234 in mi_conjunto) -> retorna true o falseo
+# ambas -> intersection
+# todas -> union
+# diferente -> difference los que no estas en intersection
+
+mi_conjunto = {1, 2, 3}
+print(mi_conjunto)
+print(type(mi_conjunto))
+mi_conjunto.add(4)
+mi_conjunto.add(5)
+print(mi_conjunto)
+
+mi_conjunto.update({6, 7, 8, 9, 10})
+print(mi_conjunto)
+mi_conjunto.remove(6)
+print(mi_conjunto)
+
+# Alternativa a borrado sin error
+mi_conjunto.discard(11)
+print(mi_conjunto)
+
+# podemos crear intersecciones -> repetidos
+mi_conjunto2 = {4, 5, 6, 11, 12, 13, 14, 15}
+resultado = mi_conjunto.intersection(mi_conjunto2)
+print(resultado)
+
+# unir conjuntos con union
+resultado2 = mi_conjunto.union(mi_conjunto2)
+print(resultado2)
+
+# subconjutos
+p1_set = {1, 2, 3, 4}
+p2_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+print(p1_set.issubset(p2_set)) # para todos los elementos True
+# Basta con que UN SOLO elemento no esté presente, retorna False
+```
 
 
