@@ -614,17 +614,19 @@ tupla_pares = tuple(i for i in tupla if i % 2 == 0)
 print(tupla_pares)
 ```
 
-# Conjuntos (Sets)
+<h1 class="titulo-principal">Conjuntos (Sets)</h1>
 
 No tienen orden ni elementos repetidos.
 
-• Adición y eliminación:
+>• Adición y eliminación:
+
 ```python
 .add(), .remove(), .discard(), .update({})
 # Para evitar errores con .remove(), usar .discard()
 ```
 
-• Intersección:
+>• Intersección:
+
 ```python
 .intersection() # Para elementos repetidos en 2 conjuntos, ambos
 .union() # Compacta y quita repeticiones, todas
