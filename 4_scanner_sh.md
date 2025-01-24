@@ -4,7 +4,7 @@ layout: page
 permalink: /scannerSh
 ---
 
-## Bajo construcción 
+<h2 id="subtitulo-importante">Bajo construcción</h2>
 
 <br>
 

@@ -39,4 +39,4 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ 2023_05_21 ] <a  href="">Estructuras de datos - UTP</a>
 - [ 2023_27_01 ] <a  href="">SQL</a>
 - [ 2023_27_01 ] <a  href="">Java POO</a>
-- [ 2022_01_07 ] <a  href="">C++ Programación Estructurada</a>
+- [ 2022_01_07 ] <a  href="\c_programacionEstructurada.html">C++ Programación Estructurada</a>
