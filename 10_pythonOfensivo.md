@@ -704,6 +704,53 @@ Tony = Persona("Tony", 28)
 print(Tony.saludo())
 ```
 
+
+```python
+#!/usr/bin/env python3
+
+class Animal:
+
+	# En caso de necesitar variables se establecen aquí arriba, antes del constructor
+	
+	def __init__(self, nombre, tipo):
+		self.nombre = nombre
+		self.tipo = tipo
+
+	def descripcion(self):
+		return f"{self.nombre} es un {self.tipo}"
+
+
+gato = Animal("Sasha", "Gato")
+perro = Animal("Toby", "Perro")
+
+print(gato.descripcion())
+```
+
+```python
+#!/usr/bin/env python3
+
+class CuentaBancaria:
+	def __init__(self, cuenta, nombre, dinero=0): # Si no se le pasa ningun argumento, valdrá 0
+		self.cuenta = cuenta
+		self.nombre = nombre
+		self.dinero = dinero
+
+	def depositar_dinero(self, dinero):
+		self.dinero += dinero # Se le suma el dinero que ya tenia '1000' + '500'
+		print(f"[i] Se han depositado {dinero}, el dinero total es {self.dinero}")
+
+	def retirar_dinero(self, retiro):
+		if self.dinero > retiro:
+			self.dinero -= retiro
+			print(f"[i] Se han retirado {retiro}, el dinero total es {self.dinero}")
+		else:
+			print(f"[!] No se puede retirar, ¡Negado!")
+
+sanchez = CuentaBancaria("1293182093", "Manuel Sanchez", 1000) 
+sanchez.depositar_dinero(500)
+sanchez.retirar_dinero(900)
+```
+
 # Métodos estáticos  y de clase
 
 # Uso de Self
