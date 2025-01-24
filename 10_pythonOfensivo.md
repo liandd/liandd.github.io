@@ -673,4 +673,115 @@ print(p1_set.issubset(p2_set)) # para todos los elementos True
 # Basta con que UN SOLO elemento no esté presente, retorna False
 ```
 
+<h1 class="titulo-principal">Clases y objetos</h1>
 
+La programación orientada a objetos es un paradigma, empleando clases y objetos permitiendo la modularidad para hacer un código más estructurado.
+
+OOP (Object Oriented Programming)
+
+¿Qué es una clase?
+
+> Podemos verlo como una plantilla base en la cual hay definida una serie de atributos y métodos para definir un objeto.
+
+Estos 'objetos' son instancias de la clase, o la plantilla para ser representada.
+
+```python
+#!/usr/bin/env python3
+
+class Persona:
+    # Los métodos son funciones internas de la clase, el primero que se crea se llama constructor,
+    esto se hace para que se inicialice el objeto con los atributos de la clase.
+
+    def __init__(self, nombre, edad): # El uso de self hace referencia al objeto que se le pasa
+        self.nombre = nombre
+        self.edad = edad
+
+    def saludo(self):
+        return f"Hola, soy{self.nombre} y tengo {self.edad}.\n"
+
+# Después de tener la clase, se crea un objeto Persona
+Tony = Persona("Tony", 28)
+print(Tony.saludo())
+```
+
+# Métodos estáticos  y de clase
+
+# Uso de Self
+
+# Herencia y Polimorfismo
+
+# Encapsalámiento
+
+# Decoradores y propiedades especiales
+
+# Organización de Código en Módulos
+
+# Importación y uso de Módulos
+
+# Creación y distribución de paquetes
+
+# Entrada y salida por teclado
+
+# Lectura y escritura de archivos
+
+# Formateo de cadenas
+
+# Proyecto - Gestión de Biblioteca
+
+# Proyecto - Tienda de animales
+
+# Proyecto - Administración de vehículos
+
+# Proyecto - Gestión de notas
+
+# Manejo de fechas y horas
+
+# Expresiones Regulares
+
+# Manejo de archivos y directorios
+
+# Conexiones de red y protocolos
+
+# Librería OS y SYS
+
+# Librería REQUEST
+
+# Librería URLLIB
+
+# Librería Threading y Multiprocessing
+
+# Interfaz gráfica de usuario
+
+# Tkinter - Desarrollo de aplicaciones
+
+# CustomTkinter - Desarrollo de aplicaciones
+
+# Chat Multiusuario con GUI y Cifrado E2E
+
+# Scripting - Escaner de Puertos
+
+# Scripting - Macchanger
+
+# Scripting - Escaner de red ICMP
+
+# Scripting -  Escaner de red ARP con Scapy
+
+# Scripting - ARP Spoofer con Scapy
+
+# Scripting - DNS Sniffer
+
+# Scripting - HTTP Sniffer
+
+# Scripting - HTTPS_Image Sniffer con mitmdump
+
+# Scripting -  DNS Spoofer con Scapy y NetfilterQueue
+
+# Scripting - Traffic Hijacking
+
+# Scripting - Keylogger
+
+# Scripting - Creación de Malware
+
+# Scripting -  Creación de Backdoors y Command_and_Control
+
+# Scripting - Forward Shell
