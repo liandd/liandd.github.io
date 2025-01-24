@@ -751,6 +751,73 @@ sanchez.depositar_dinero(500)
 sanchez.retirar_dinero(900)
 ```
 
+```python
+#!/usr/bin/env python3
+
+class Rectangulo:
+	def __init__(self, ancho, alto):
+		self.ancho = ancho
+		self.alto = alto
+
+	# Método normal
+	def calcular_area(self):
+		return self.ancho * self.alto
+
+	# Usando decoradores
+	@property
+	def area(self): # Acceder al resultado directamente
+		return self.ancho * self.alto
+
+	# Otro método especial es __str__ # Para indicar que quiero que muestre
+	def __str__(self):
+		return f"\n[i] Propiedades del rectángulo: [Ancho: {self.ancho}][Alto: {self.alto}]"
+
+	# Otro método especial es __eq__ de igualdad, para saber si los objetos son iguales
+	def __eq__(self, otro):
+		return self.ancho == otro.ancho and self.alto == otro.alto
+	
+rectangulo1 = Rectangulo(20, 80)
+rectangulo2 = Rectangulo(15, 60)
+print(f"[+] El área es {rectangulo1.area}") # Sin colocar los parentesis, para acceder al valor del atributo como tal
+print(f"[+] ¿Son iguales? -> {rectangulo1 == rectangulo2}")
+```
+
+```python
+#!/usr/bin/env python3
+
+class Libro:
+		IVA = 0.51
+	best_seller = 5000
+	def __init__(self, titulo, autor, precio):
+		self.titulo = titulo
+		self.autor = autor
+		self.precio = precio
+
+	def es_best_seller(self, ventas):
+		return ventas > Libro.best_seller
+
+	# Operaciones puntuales, y no pueden acceder a los atributos a menos que le pase como argumento la instancia del objeto
+	@staticmethod
+	def es_best_seller(total):
+		return total > Libro.best_seller
+
+	# Precio con iva
+	# Con @staticmethod
+	@staticmethod
+	def precio_con_iva(precio):
+		return precio + precio * Libro.IVA
+
+	# Con @classmethod -> recibe como argumento la clase con 'cls'
+	def precio_con_iva(cls, precio):
+		return precio + precio * cls.IVA
+
+mi_libro = Libro("Aves Negras", "Juan García", 15000)
+print(mi_libro.es_best_seller(6000)) # Normal
+print({Libro.es_best_seller(6000)}) # @staticmethod
+print({Libro.precio_con_iva(mi_libro.precio)})
+print({Libro.precio_con_iva(mi_libro.precio)})
+```
+
 # Métodos estáticos  y de clase
 
 # Uso de Self
