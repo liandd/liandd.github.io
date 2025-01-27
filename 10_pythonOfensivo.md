@@ -13,10 +13,10 @@ La materia tiene un enfoque orientado a seguridad informática para desplegar sc
 <h2 id="subtitulo-importante">Índice</h2>
 
 - [Introducción a Python](#introducción-a-python)
-- [Conceptos Básicos]
-- [Colecciones y Estructuras de Datos]
-- [Programación Orientada a Objetos]
-- [Módulos y Paquetes]
+- [Conceptos Básicos](#conceptos-básicos)
+- [Colecciones y Estructuras de Datos](#colecciones-y-estructuras-de-datos)
+- [Programación Orientada a Objetos](#programación-orientada-a-objetos)
+- [Módulos y Paquetes](#módulos-y-paquetes)
 - [Entrada y Salida de Datos]
 - [Proyectos de POO para reforzar]
 - [Biblioteca Estándar y Herramientas]
@@ -127,6 +127,8 @@ pip3 install pwntools
 ```bash
 pip2 install pwntools
 ```
+<hr />
+<h2 id="conceptos-básicos"><h2 id="subtitulo-importante">Conceptos Básicos</h2></h2>
 
 <h1 class="titulo-principal">El intérprete de Python</h1>
 
@@ -546,6 +548,8 @@ numeros = [1, 2, 3, 4, 5]
 producto = reduce(lambda x, y: x*y, numeros)
 print(f"El ultimo producto de la lista es: {producto}")
 ```
+<hr />
+<h2 id="colecciones-y-estructuras-de-datos"><h2 id="subtitulo-importante">Colecciones y estructuras de datos</h2></h2>
 
 <h1 class="titulo-principal">Listas y Tuplas</h1>
 
@@ -672,6 +676,62 @@ p2_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 print(p1_set.issubset(p2_set)) # para todos los elementos True
 # Basta con que UN SOLO elemento no esté presente, retorna False
 ```
+
+<h3 class="titulo-secundario">Repaso proyecto</h3>
+
+```python
+#!/usr/bin/env python3
+
+juegos = ["Word of Warcraft", "Diablo 2", "Terraria"]
+
+#Géneros
+generos = {
+	"Word of Warcraft":"RPG",
+	"Diablo 2":"MMO",
+	"Terraria":"Aventura"
+}
+
+#Ventas y unidades
+ventas = {
+	"Word of Warcraft":(800,200),
+	"Diablo 2": (500,10),
+	"Terraria": (200:700)
+}
+
+#Clientes
+clientes = {
+	"Word of Warcraft": {"zylem", "zokkz", "camcy", "liandd"},
+	"Diablo 2": {"pypByter", "unkn0wn"},
+	"Terraria": {"paloloco", "alexispropvp", "minfi"}
+}
+
+mi_juego = "Word of Warcraft"
+
+def sumario(juego):
+	#Sumario
+	print(f"\n[i] Resumen del juego {juego}\n")
+	print(f"\t[+] Género del juego: {generos[juego]}")
+	print(f"\t[+] Total de ventas para este juego: {ventas[juego][0]} unidades")
+	print(f"\t[+] Total de unidades disponibles para este juego: {ventas[juego[1]]}")
+	print(f"\t[+] Clientes que han adquirido el juego: {', '.join(clientes[juego])}")
+
+
+for juego in juegos:
+	sumario(juego)
+
+# Ventas mayores a 500
+for juego in juegos:
+	if ventas[juego][0] > 500:
+		sumario(juego)
+		ventas_mayores_a_500 = lambda: sum(units for juego, (sells,_) in ventas.items() if ventas[juego] > 500)
+		
+# Lambda para representar un conteo total de ventas
+ventas_totales = lambda: sum(sells for sells, _ in ventas.values())
+
+print(f"[i] El total de ventas de todos los productos es {ventas_totales()}")
+```
+<hr />
+<h2 id="programación-orientada-a-objetos"><h2 id="subtitulo-importante">Programación Orientada a Objetos</h2></h2>
 
 <h1 class="titulo-principal">Clases y objetos</h1>
 
@@ -944,8 +1004,7 @@ class Calculadora:
 calc = Calculadora(5)
 ```
 
-
-# Herencia y Polimorfismo
+<h1 class="titulo-principal">Herencia y Polimorfismo</h1>
 
 # Encapsalámiento
 
