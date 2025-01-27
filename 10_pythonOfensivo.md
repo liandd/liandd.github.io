@@ -818,7 +818,97 @@ print({Libro.precio_con_iva(mi_libro.precio)})
 print({Libro.precio_con_iva(mi_libro.precio)})
 ```
 
-# Métodos estáticos  y de clase
+<h1 class="titulo-principal">Métodos estáticos  y de clase</h1>
+
+Refuerzo sobre los métodos <strong>@staticmethod</strong> y <strong>@classmethod.</strong>
+
+```python
+#!/usr/bin/env python
+# Acceder directamente a los métodos sin crear objetos
+#@staticmethod
+class Calculadora:
+
+	@staticmethod
+	def suma(num1, num2):
+		return num1 + num2
+
+	@staticmethod
+	def resta(num1, num2):
+		return num1 - num2
+
+	@staticmethod
+	def multiplicar(num1, num2):
+		return num1 * num2
+
+	@staticmethod
+	def division(num1, num2):
+		return num1 / num2 if num2 != 0 else "[!] Error Division por cero."
+		
+print(Calculadora.suma(2, 8))
+print(Calculadora.resta(8, 4))
+print(Calculadora.multiplicar(7, 12))
+print(Caculadora.division(13, 0))
+```
+
+```python
+#!/usr/bin/env python3
+
+class Automovil:
+	def __init__(self, marca, modelo):
+		self.marca = marca
+		self.modelo = modelo
+
+	@classmethod
+	def deportivo(cls, marca):
+		return cls(marca, "Deportivo")
+	# Es lo mismo que Automovil("Ferrari", "Deportivo"), es igual que usar un constructor con parametros
+
+	# Se requiere el __str__
+	def __str__(self):
+		return f"La marca {self.marca} es un modelo {self.modelo}"
+
+vehiculo1 = print(Automovil.deportivos("Ferrari")
+```
+
+> Usando variables de clase:
+
+```python
+#!/usr/bin/env python3
+
+class Estudiante:
+
+	estudiantes = []
+
+	def __init__(self, nombre, edad):
+		self.nombre = nombre
+		self.edad = edad
+
+		Estudiantes.estudiantes.append(self)
+
+	@staticmethod
+	def es_mayor_de_edad(edad):
+		return edad > 18
+		
+	@classmethod
+	def crear_estudiante(cls, nombre, edad):
+		if cls.es_mayor_de_edad(edad):
+			return cls(nombre, edad) # Es como llamar al constructor con parametros, es igual que crear objetos locales dentro de la clase
+		else:
+			print(f"[!] Error, el estudiante {nombre}, es menor de edad")
+
+	@staticmethod
+	def mostrar_estudiante():
+		for i, estudiante in enumerate(Estudiantes.estudiante):
+			print(f"[+] El estudiante [{i+1}]: {estudiante.nombre}")
+
+# Para usar con @classmethod
+Estudiantes.crear_estudiante("zylem", 23)
+Estudiantes.crear_estudiante("zokks", 18)
+Estudiantes.crear_estudiante("unkn0nw", 1122)
+Estudiantes.crear_estudiante("bochim", 22)
+
+Estudiantes.mostrar_estudiantes()
+```
 
 # Uso de Self
 
