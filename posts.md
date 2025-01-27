@@ -26,6 +26,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">Cisco PacketTracer - Notes</a>
 - [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
 <br><br>
+- [ 2025_28_01 ] <a  href="\ciberseguridadUcp.html">Ciberseguridad - UCP</a>
 - [ 2025_22_01 ] <a  href="\pythonOfensivo.html">Python3 Ofensivo - Notes/Scripting</a>
 - [ 2024_25_11 ] <a  href="\nlp.html">NLP Python3 - Notes</a>
 - [ 2024_28_10 ] <a  href="\vpnScript.html">VpnScript.sh - unkn0wn1122/script</a>
@@ -37,6 +38,6 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ 2023_16_07 ] <a  href="\dotfiles.html">Configuración Parrot Bspwm - Dotfiles</a>
 - [ 2023_12_02 ] <a  href="\decompressor.html">Decompressor.sh - Script</a>
 - [ 2023_05_21 ] <a  href="">Estructuras de datos - UTP</a>
-- [ 2023_27_01 ] <a  href="">SQL</a>
-- [ 2023_27_01 ] <a  href="">Java POO</a>
-- [ 2022_01_07 ] <a  href="\c_programacionEstructurada.html">C++ Programación Estructurada</a>
+- [ 2023_27_01 ] <a  href="">SQL - UCP</a>
+- [ 2023_27_01 ] <a  href="">Java POO - UCP</a>
+- [ 2022_01_07 ] <a  href="\c_programacionEstructurada.html">C++ - UCP</a>

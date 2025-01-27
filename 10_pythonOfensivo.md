@@ -1006,6 +1006,121 @@ calc = Calculadora(5)
 
 <h1 class="titulo-principal">Herencia y Polimorfismo</h1>
 
+Estos son nuevos conceptos, siendo a muy resumidas cuentas la Herencia una clase que hereda de otra clase ya existente:
+
+```python
+#!/usr/bin/env python3
+
+class Animal:
+
+	def __init__(self, nombre):
+		self.nombre = nombre
+
+	def hablar(self):
+		pass # Se convierte en un método abstracto, para utilizarlos después en una subclase que incluya este método
+		# Otra forma es:
+		raise NotImplementedError("Las subclases definidas deben implentar este método")
+	
+class Gato(Animal):
+# "Se sobreescribe" el método
+	def hablar(self):
+		return f"{self.nombre} dice !Miau¡"
+
+class Perro(Animal):
+# "Se sobreescribe" el método, pero esto no significa que el método de la clase Gato se cambie para perros.
+	def hablar(self):
+		return f"{self.nombre} dice !Woof¡"
+	
+gato = Gato("kiki")
+perro = Perro("candy")
+print(gato.hablar())
+print(perro.hablar())
+```
+
+Ahora, para polimorfismo estamos llamando directamente al método, fuera de las clases se hace una función, recibe el objeto:
+
+```python
+#!/usr/bin/env python3
+
+class Animal:
+
+	def __init__(self, nombre):
+		self.nombre = nombre
+
+	def hablar(self):
+		pass # Se convierte en un método abstracto, para utilizarlos después en una subclase que incluya este método
+		# Otra forma es:
+		raise NotImplementedError("Las subclases definidas deben implentar este método")
+	
+class Gato(Animal):
+# "Se sobreescribe" el método
+	def hablar(self):
+		return f"!Miau¡"
+
+class Perro(Animal):
+# "Se sobreescribe" el método, pero esto no significa que el método de la clase Gato se cambie para perros.
+	def hablar(self):
+		return f"!Woof¡"
+	
+gato = Gato("kiki")
+perro = Perro("candy")
+print(gato.hablar())
+print(perro.hablar())
+
+def hacer_hablar(objeto):
+	print(f"{objeto.nombre} dice {objeto.hablar()}")
+
+hacer_hablar(gato)
+hacer_hablar(perro)
+```
+
+```python
+#!/usr/bin/env python3
+
+class Automovil:
+
+	def __init__(self, marca, modelo):
+		self.marca = marca
+		self.modelo = modelo
+
+	def describir(self):
+		return f"Vehiculo:{self.marca}, {self.modelo}"
+
+coche = Automovil("Nissan", "GTR")
+moto = Automovil("AKT", "NKD")
+
+print(coche.describir())
+print(moto.describir())
+
+# Ambas diran lo mismo, aunque un objeto sea un coche y el otro una moto. 
+# Aplicando polimorfismo se hace mucho más modular
+
+class Automovil:
+
+	def __init__(self, marca, modelo):
+		self.marca = marca
+		self.modelo = modelo
+
+	def describir(self):
+		raise NotImplementedError("Los vehículos deben implementar este método!")
+		
+class Coche(Automovil):
+
+	def describir(self):
+		return f"Vehículo: {self.marca}, {self.modelo}"
+
+class Moto(Automovil):
+
+	def describir(self):
+		return f"Moto: {self.marca}, {self.modelo}"
+
+coche = Coche("NISSAN", "GTR")
+moto = Moto("AKT", "NKD")
+
+print(coche.describir())
+print(moto.describir())
+```
+
 # Encapsalámiento
 
 # Decoradores y propiedades especiales
