@@ -910,7 +910,40 @@ Estudiantes.crear_estudiante("bochim", 22)
 Estudiantes.mostrar_estudiantes()
 ```
 
-# Uso de Self
+<h1 class="titulo-principal">Uso de Self</h1>
+
+Refuerzo para comprender mejor el uso de *self*.
+
+> Retocar y editar objetos requiere el uso de *self*
+
+```python
+#!/usr/bin/env python
+
+class Persona:
+
+	# Self hace referencia al objeto que se está creando
+	def __init__(self, nombre, edad):
+		self.nombre = nombre
+		self.edad = edad
+
+	def presentacion(self):
+		return f"{self.nombre} te ha saludado!"
+ekaterina = Persona("Ekaterina", 26)
+# Se está haciendo: Persona.__init__(ekaterina: obj, "Ekaterina" : str, 26 : int)
+print(ekaterina.presentacion())
+```
+
+```python
+#!/usr/bin/env python3
+
+class Calculadora:
+
+	def __init__(self, numero):
+		self.numero = numero
+
+calc = Calculadora(5)
+```
+
 
 # Herencia y Polimorfismo
 
