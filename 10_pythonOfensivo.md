@@ -1258,6 +1258,247 @@ convolk = Empleado("convolk", 23, 75000)
 print(convolk.saludo())
 ```
 
+<h1 class="titulo-principal">Encapsulamiento y métodos especiales</h1>
+
+En el paradigma de la programación orientada a objetos, el encapsulamiento es un método o una estrategia que permite restringir el acceso o ciertas partes de un objeto fuera de la clase.
+
+```python
+self.__dinero -> Atributo privado
+
+self._dinero -> Atributo protegido
+```
+
+```python
+#!/usr/bin/env python3
+
+class Ejemplo:
+
+	def __init__(self):
+		# No visible hacia afuera, se crean una Atributo protegido
+		self._atributo_protegido = "Soy un atributo protegido, y no deberías poder verme"
+
+		# Atributo privado
+		self.__atributo_privado = "Soy un atributo privado"
+
+ejemplo = Ejemplo()
+print(ejemplo._atributo_protegido) # El convenio de python dice que no debe referenciar de está manera los atributos protegido o privados
+
+```
+
+Esto es conocido como *name mangling* y lo que hace es retocar un poco el nombre _self._atributo_privado:
+
+```python
+
+# Para ver un atributo privado
+print(ejemplo._Ejemplo__atributo_privado)
+```
+
+```python
+#!/usr/bin/env python3
+
+class Coche:
+
+	def __init__(self, marca, modelo):
+		self.marca = marca
+		self.modelo = modelo
+		self.__kilometraje = 0 # Atributo privado
+
+	def conducir(self, kilometros):
+		if kilometros >= 0:
+			self.__kilometraje += kilometros
+		else:
+			print("[!] Los kilometros deben ser mayores a 0\n")
+
+	def mostrar_kilometros(self):
+		return self.__kilometros
+
+coche = Coche("Toyota", "AE86")
+coche.conducir(150)
+print(coche.mostrar_kilometros())
+```
+
+Breve refuerzo sobre los métodos especiales:
+
+```python
+#!/usr/bin/env python3
+
+class Libro:
+
+	def __init__(self, autor, titulo):
+		self.autor = autor
+		self.titulo = titulo
+
+	def __str__(self):
+		return f"El libro {self.titulo} ha sido escrito por {self.autor}"
+
+	def __eq__(self, otro):
+		return self.autor == otro.autor and self.titulo == otro.titulo
+
+mi_libro = Libro("Juan García", "Aves Negras")
+libro_dos = Libro("Miguel García", "Cadaveres de Gato")
+
+print(mi_libro)
+print(f"¿Son iguales ambos libros? -> {mi_libro == libro_dos}")
+```
+
+```python
+#!/usr/bin/env python3
+
+class CuentaBancaria:
+
+	def __init__(self, num_cuenta, titular, saldo_inicial=0):
+		self.num_cuenta = num_cuenta
+		self.titular = titular
+		self.__saldo = saldo_inicial
+
+	def depositar_dinero(self, cantidad):
+		if cantidad > 0:
+			self.__saldo += cantidad
+		else:
+			return "El monto a depositar debe ser mayor a cero"
+
+	def retirar_dinero(self, retiro):
+		if self.__saldo > 0:
+			if self.__saldo > retiro:
+				self.__saldo -= retiro
+			else:
+				return "No tienes fondos suficientes para retirar"
+		else:
+			return "No tienes ni un duro!"
+
+	def mostrar_dinero(self):
+		return f"El saldo actual en la cuenta es {self.__saldo}"
+
+nastya = CuentaBancaria("27346", "Nastya Aovna")
+print(nastya.mostrar_dinero())
+```
+
+```python
+#!/usr/bin/env python3
+
+class Caja:
+
+	#def __init__(self, ) # ¿De qué manera podemos recibir multiples frutas en una sola variable sin usar listas?
+
+	# Se crea una tupla, idependiente de la cantidad de elemetos
+	def __init__(self, *frutas):
+		self.frutas = frutas
+
+	def mostrar_frutas(self):
+		for i in self.frutas:
+			print(i)
+
+	# Saber la longitud de la caja sin usar len()
+	def __len__(self):
+		return len(self.frutas)
+
+caja = Caja("Manzana", "Kiwi", "Uva", "Fresa")
+```
+
+```python
+#!/usr/bin/env python3
+
+class Pizza:
+
+	def __init__(self, size, *ingredientes):
+		self.size = size
+		self.ingredientes = ingredientes
+
+	def descripcion(self):
+		print(f"La pizza tiene {self.size} y los ingredientes son: {", ".join(self.ingredientes)}")
+
+pizza = Pizza(12, "Chorizo", "Jamón", "Tocineta", "Queso")
+```
+
+```python
+#!/usr/bin/env python3
+
+class MiLista:
+
+	def __init__(self):
+		self.data = [1, 2, 3, 4, 5]
+
+	# Para traer un elemento de una lista representada como atributo
+	def __getitem__(self, idx):
+		return self.data[idx]
+
+lista = MiLista()
+print(lista)
+```
+
+```python
+#!/usr/bin/env python3
+
+class Saludo:
+
+	def __init__(self, saludo):
+		self.saludo = saludo
+
+	# Hay un método especial llamado call
+	def __call__(self):
+		return f"{self.saludo} {nombre}!"
+
+hola = Saludo("¡Hola")
+print(hola("Katya"))
+```
+
+```python
+#!/usr/bin/env python3
+
+class Punto:
+
+p1 = Punto(2, 8)
+p2 = Punto(4, 9)
+
+print(p1 + p2) # Aquí se rompe python porque no sabe que es.
+
+# 2+4=6, 9+8=17
+
+class Punto:
+
+	def __init__(self, x, y):
+		self.x = x
+		self.y = y
+
+	def __add__(self, otro):
+		# Crear un objeto temporal
+		return Punto(self.x + otro.x, self.y + otro.y)
+
+	def __str__(self):
+		return f"({self.x}, {self.y})"
+
+p1 = Punto(2, 8)
+p2 = Punto(4, 9)
+
+print(p1 + p2)
+```
+
+```python
+#!/usr/bin/env python3
+
+class Contador:
+
+	def __init__(self, limite):
+		self.limite = limite
+
+	# Crear un iterador sobre un objeto
+	def __iter__(self):
+		self.contador = 0
+		return self
+
+	def __next__(self): # Igual que al bucle while, devolver el iterador y definir que pasa cada iteración
+		if self.contador < self.limite:
+			self.contador += 1
+			return self.contador
+		else:
+			raise StopIteration
+
+c = Contador(5)
+
+for i in c:
+	print(i)
+```
+
 # Organización de Código en Módulos
 
 # Importación y uso de Módulos
