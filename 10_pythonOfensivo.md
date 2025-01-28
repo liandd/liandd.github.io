@@ -1093,7 +1093,7 @@ print(coche.describir())
 print(moto.describir())
 
 # Ambas diran lo mismo, aunque un objeto sea un coche y el otro una moto. 
-# Aplicando polimorfismo se hace mucho más modular
+# Aplicando herencia se hace mucho más modular
 
 class Automovil:
 
@@ -1119,11 +1119,144 @@ moto = Moto("AKT", "NKD")
 
 print(coche.describir())
 print(moto.describir())
+
+# Ahora aplicando polimorfismo
+
+def describirse(objeto):
+	return f"{objeto.describir()}"
+
+print(describirse(moto))
+print(describirse(coche))
 ```
 
-# Encapsalámiento
+```python
+#!/usr/bin/env python3
 
-# Decoradores y propiedades especiales
+class Dipositivo:
+
+	def __init__(self, modelo):
+		self.modelo = modelo
+
+	def escanear_vulnerabilidades(self):
+		raise NotImplementedError("Este método debe ser definido para el resto de subclases existentes")
+
+class Ordenador(Dispositivo):
+
+	def escanear_vulnerabilidades(self):
+		return f"[+] Análisis de vulnerabilidades concluido: Actualización de software necesaria"
+
+class Router(Dispositivo):
+
+	def escanear_vulnerabilidades(self):
+		return f"[+] Análisis de vulnerabilidades concluido: Múltiples puertos críticos detectados abiertos"
+
+class TelefonoMovil(Dispositivo):
+
+	def escanear_vulnerabilidades(self):
+		return f"[+] Análisis de vulnerabilidades concluido: Múltiples aplicaciones detectadas con permisos excesivos"
+
+def realizar_escaneo(objeto):
+	return f"{objeto.escanear_vulnerabilidades}"
+
+pc = Ordenador("Vaio Sony")
+router = Router("Tenda F3")
+movil = TelefonoMovil("POCO")
+
+print(realizar_escaneo(pc))
+print(realizar_escaneo(router))
+print(realizar_escaneo(movil))
+```
+
+> Hay ocasiones donde queremos que el método en la clase padre no se sobrescriba y es usando constructores:
+
+```python
+#!/usr/bin/env python3
+
+class A:
+
+	def __init__(self):
+		print("Inicializando A")
+
+class B(A):
+
+	def __init__(self):
+		print("Inicializando B")
+		super.__init__() # Evita sobrescribir el método de la clase A, la cual el constructor es heredado por B
+
+a = A()
+#---
+b = B() # Aquí se ha sobrescrito el constructor de A, y prevalece el de B
+# Cuando nos interese no sobrescribir usamos *super*
+```
+
+```python
+#!/usr/bin/env python3
+
+class A:
+
+	def __init__(self, x):
+		self.x = x
+		print("El valor de x: {self.x}")
+
+class B(A):
+
+	def __init__(self, x, y):
+		self.y = y
+		super.__init__(x)
+		print("El valor de y: {self.y}")
+
+b = B(2, 10)
+```
+
+```python
+#!/usr/bin/env python3
+
+class A:
+
+	def saludo(self):
+		return "Saludo desde A"
+
+class B(A):
+
+	def saludo(self):
+		original = super().saludo()
+		return f"{original}, pero también saludo desde B"
+
+saludo = A()
+print(saludo.saludo())
+
+saludo_b = B()
+print(saludo.saludo())
+```
+
+```python
+#!/usr/bin/env python
+
+class Persona:
+
+	def __init__(self, nombre, edad):
+		self.nombre = nombre
+		self.edad = edad
+
+	def saludo(self):
+		return f"Hola soy {self.nombre}, y tengo {self.edad} años"
+
+katya = Persona("Katya", 23)
+print(katya.saludo())
+
+class Empleado(Persona):
+
+	def __init__(self, nombre, edad, salario):
+		super().__init__(nombre, edad)
+		self.salario = salario
+
+	def saludo(self):
+		original = super().saludo()
+		return f"{original}, y mi salario es: {self.saludo}"
+
+convolk = Empleado("convolk", 23, 75000)
+print(convolk.saludo())
+```
 
 # Organización de Código en Módulos
 
