@@ -1499,6 +1499,66 @@ for i in c:
 	print(i)
 ```
 
+<h1 class="titulo-principal">Decoradores y propiedades</h1>
+
+Hasta ahora se han visto algunos decoradores 
+
+```python
+@property
+```
+
+Para no alterar el código de una función o método de una clase, pero si puede hacer muchas cosas más.
+
+```python
+#!/usr/bin/env python3
+
+def saludo():
+	print("Hola, estoy saludando desde la función")
+
+
+# Para expandir la función se crea una función de orden superior
+def mi_decorador
+# Necesitamos una envoltura, para apartir de ahora la función saludo se convierte en envoltura, es como una alteración, y retornarla
+
+def mi_decorador(funcion):
+	def envoltura():
+		print("Estoy saludando en la envoltura antes de llamar a la función")
+		funcion()
+		print("Estoy saludando en la envoltura después de llamar a la función")
+	return envoltura
+
+@mi_decorador
+def saludo():
+	print("Hola, estoy saludando desde la funcióm")
+
+salud()
+#----
+
+@property # Trabaja con Setters y Getters
+
+class Persona:
+
+	def __init__(self, nombre, edad):
+		# Atributos protegidos, externamente no se ven pero si se pueden manipular
+		self._nombre = nombre
+		self._edad = edad
+
+	# Cómo desde fuera se puede actualizar los valores?
+	@property # Crear una nueva propiedad
+	# Aquí se trabaja set y get: 
+	def edad(self): # GET
+		return self._edad
+
+	@edad.setter # CON DECORADOR ES SET
+	def edad(self, edad):
+		if edad > 0:
+			self._edad = edad
+		else:
+			raise ValueError("No puedes poner la edad")
+
+sasha = Persona("Sasha", 21)
+```
+
 # Organización de Código en Módulos
 
 # Importación y uso de Módulos
