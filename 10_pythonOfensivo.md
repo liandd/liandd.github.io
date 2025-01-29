@@ -42,6 +42,8 @@ Python debía centrarse en hacer más fácil las tareas del programador, la filo
 
 Es un lenguaje de alto nivel e interpretado, ya que se ejecuta mediante un interprete sin ser compilado, se traduce a código máquina en tiempo real mientras se ejecuta el programa, por eso Python es interpretado. Python es fácil de leer y escribir incluso para los principiantes permitiendo `Programación orientada a objetos, Programación Imperativa y Programación Funcional`. La imperativa es un estilo de programación centrado en escribir como se deben hacer las operaciones para obtener un resultado.
 
+## Programación Imperativa
+
 ```python
 def suma_imperativa(lista):
 	total = 0
@@ -55,6 +57,8 @@ print(suma_imperativa([1, 2, 3, 4, 5]))
 Se compone de una serie de instrucciones que modifican el estado del programa, *La variable va cambiando mediante avanza el programa*.
 
 La Programación Funcional se compone de una serie de evaluaciones de funciones que no modifican el estado del programa.
+
+## Programación Funcional
 
 ```python
 from functools import reduce
@@ -174,6 +178,8 @@ Los convenios de codificación son las recomendaciones que guían para escribir 
 > • <strong>Longitud de las líneas</strong>: Limitar a 79 caracteres y 72 para comentarios
 > • <strong>Indentación</strong>: Usar 4 espacios por nivel de indentación
 
+## Convenio PEP8
+
 ```python
 #!/usr/bin/env python3
 #clase5_shebang
@@ -224,6 +230,8 @@ Strings, Enteros, Floats, Protegidos, Privados
 
 Listas son colecciones ordenadas y mutables que pueden contener elementos de diferentes tipos
 
+## Listas
+
 ```python
 my_ports = []
 my_ports.append(22)
@@ -235,6 +243,8 @@ for port in my_ports:
 
 > Para trabajar los tamaños tenemos la función len().
 
+## Algunos métodos para listas
+
 ```
 .count(num) -> Contar ocurrencias
 .insert(pos, valor_numero) -> Agregar un número
@@ -244,11 +254,15 @@ for port in my_ports:
 
 <h1 class="titulo-principal">String Formatting</h1>
 
+## String Formatting
+
 ```python
 print(f"Hola{variable}")
 print(f"[+] El puerto {my_ports[0]} está abierto")
 my_ports += sorted(my_ports)
 ```
+
+## Listas y formateo de cadenas
 
 ```python
 #!/usr/bin/env python3
@@ -303,6 +317,8 @@ Suma, Resta, Multiplicación, División, residuos y el exponente es usando **
 2 ** 3 = 8
 ```
 
+## Operadores básicos
+
 ```python
 #!/usr/bin/env python3
 #clase 8 Operadores Basicos
@@ -342,6 +358,8 @@ for element in result:
 
 <h1 class="titulo-principal">Operaciones con Cadenas</h1>
 
+## Cadenas 1
+
 ```python
 #!/usr/bin/env python3
 
@@ -368,6 +386,8 @@ print(f"Hola mi nombre es {name} soy un {rol}. Actualmente tengo {edad}")
 ```
 
 <h1 class="titulo-principal">Operaciones para Listas</h1>
+
+## Listas 1
 
 ```python
 #!/usr/bin/env python3
@@ -485,6 +505,8 @@ El ámbito o scope se refiere a si una variable es local o global. Internamente 
 
 Por otro lado, las funciones lambda anónimas permite simplificar código mediante expresiones.
 
+## Funciones 1
+
 ```python
 #!/usr/bin/env python3
 from functools import reduce
@@ -561,6 +583,7 @@ Añadir elementos -> .append(), .extend()
 Eliminar elementos -> .remove(), .pop()
 Ordenar elementos -> .sort(), .sorted(), .reverse(), [::-1]
 ```
+## Listas 2
 
 ```python
 #!/usr/bin/env python3
@@ -599,6 +622,8 @@ for fruta, cantidad in zip(frutas, cantidades):
     print("cantidad %d de %s" % (cantidad, fruta))
 ```
 
+## Tuplas
+
 ```python
 #!/usr/bin/env python3
 
@@ -635,6 +660,8 @@ No tienen orden ni elementos repetidos.
 .intersection() # Para elementos repetidos en 2 conjuntos, ambos
 .union() # Compacta y quita repeticiones, todas
 ```
+
+## Conjuntos 1
 
 ```python
 #!/usr/bin/env python3
@@ -745,6 +772,8 @@ OOP (Object Oriented Programming)
 
 Estos 'objetos' son instancias de la clase, o la plantilla para ser representada.
 
+## Clases 1
+
 ```python
 #!/usr/bin/env python3
 
@@ -764,6 +793,7 @@ Tony = Persona("Tony", 28)
 print(Tony.saludo())
 ```
 
+## Clases 2
 
 ```python
 #!/usr/bin/env python3
@@ -785,6 +815,8 @@ perro = Animal("Toby", "Perro")
 
 print(gato.descripcion())
 ```
+
+## Clases 3
 
 ```python
 #!/usr/bin/env python3
@@ -810,6 +842,8 @@ sanchez = CuentaBancaria("1293182093", "Manuel Sanchez", 1000)
 sanchez.depositar_dinero(500)
 sanchez.retirar_dinero(900)
 ```
+
+## Clases y Decoradores 1
 
 ```python
 #!/usr/bin/env python3
@@ -841,6 +875,8 @@ rectangulo2 = Rectangulo(15, 60)
 print(f"[+] El área es {rectangulo1.area}") # Sin colocar los parentesis, para acceder al valor del atributo como tal
 print(f"[+] ¿Son iguales? -> {rectangulo1 == rectangulo2}")
 ```
+
+## Clases y Decoradores 2
 
 ```python
 #!/usr/bin/env python3
@@ -882,6 +918,8 @@ print({Libro.precio_con_iva(mi_libro.precio)})
 
 Refuerzo sobre los métodos <strong>@staticmethod</strong> y <strong>@classmethod.</strong>
 
+## Clases y Decoradores 3
+
 ```python
 #!/usr/bin/env python
 # Acceder directamente a los métodos sin crear objetos
@@ -910,6 +948,8 @@ print(Calculadora.multiplicar(7, 12))
 print(Caculadora.division(13, 0))
 ```
 
+## Clases y Decoradores 4
+
 ```python
 #!/usr/bin/env python3
 
@@ -931,6 +971,8 @@ vehiculo1 = print(Automovil.deportivos("Ferrari")
 ```
 
 > Usando variables de clase:
+
+## Clases y Decoradores 5
 
 ```python
 #!/usr/bin/env python3
@@ -976,6 +1018,8 @@ Refuerzo para comprender mejor el uso de *self*.
 
 > Retocar y editar objetos requiere el uso de *self*
 
+## Self 1
+
 ```python
 #!/usr/bin/env python
 
@@ -993,6 +1037,8 @@ ekaterina = Persona("Ekaterina", 26)
 print(ekaterina.presentacion())
 ```
 
+## Self 2
+
 ```python
 #!/usr/bin/env python3
 
@@ -1007,6 +1053,8 @@ calc = Calculadora(5)
 <h1 class="titulo-principal">Herencia y Polimorfismo</h1>
 
 Estos son nuevos conceptos, siendo a muy resumidas cuentas la Herencia una clase que hereda de otra clase ya existente:
+
+## Herencia
 
 ```python
 #!/usr/bin/env python3
@@ -1038,6 +1086,8 @@ print(perro.hablar())
 ```
 
 Ahora, para polimorfismo estamos llamando directamente al método, fuera de las clases se hace una función, recibe el objeto:
+
+## Herencia y Polimorfismo
 
 ```python
 #!/usr/bin/env python3
@@ -1073,6 +1123,8 @@ def hacer_hablar(objeto):
 hacer_hablar(gato)
 hacer_hablar(perro)
 ```
+
+## Herencia y Polimorfismo 2
 
 ```python
 #!/usr/bin/env python3
@@ -1129,6 +1181,8 @@ print(describirse(moto))
 print(describirse(coche))
 ```
 
+## Herencia y Polimorfismo 3
+
 ```python
 #!/usr/bin/env python3
 
@@ -1169,6 +1223,8 @@ print(realizar_escaneo(movil))
 
 > Hay ocasiones donde queremos que el método en la clase padre no se sobrescriba y es usando constructores:
 
+## Herencia 2
+
 ```python
 #!/usr/bin/env python3
 
@@ -1189,6 +1245,8 @@ b = B() # Aquí se ha sobrescrito el constructor de A, y prevalece el de B
 # Cuando nos interese no sobrescribir usamos *super*
 ```
 
+## Herencia 3
+
 ```python
 #!/usr/bin/env python3
 
@@ -1207,6 +1265,7 @@ class B(A):
 
 b = B(2, 10)
 ```
+## Herencia 4
 
 ```python
 #!/usr/bin/env python3
@@ -1228,6 +1287,8 @@ print(saludo.saludo())
 saludo_b = B()
 print(saludo.saludo())
 ```
+
+## Herencia 5
 
 ```python
 #!/usr/bin/env python
@@ -1268,6 +1329,8 @@ self.__dinero -> Atributo privado
 self._dinero -> Atributo protegido
 ```
 
+## Encapsulamiento 1
+
 ```python
 #!/usr/bin/env python3
 
@@ -1286,6 +1349,8 @@ print(ejemplo._atributo_protegido) # El convenio de python dice que no debe refe
 ```
 
 Esto es conocido como *name mangling* y lo que hace es retocar un poco el nombre _self._atributo_privado:
+
+## Encapsulamiento 2
 
 ```python
 
@@ -1319,6 +1384,8 @@ print(coche.mostrar_kilometros())
 
 Breve refuerzo sobre los métodos especiales:
 
+## Métodos especiales 1
+
 ```python
 #!/usr/bin/env python3
 
@@ -1340,6 +1407,8 @@ libro_dos = Libro("Miguel García", "Cadaveres de Gato")
 print(mi_libro)
 print(f"¿Son iguales ambos libros? -> {mi_libro == libro_dos}")
 ```
+
+## Encapsulamiento 3
 
 ```python
 #!/usr/bin/env python3
@@ -1373,6 +1442,8 @@ nastya = CuentaBancaria("27346", "Nastya Aovna")
 print(nastya.mostrar_dinero())
 ```
 
+## Métodos especiales 2
+
 ```python
 #!/usr/bin/env python3
 
@@ -1395,6 +1466,8 @@ class Caja:
 caja = Caja("Manzana", "Kiwi", "Uva", "Fresa")
 ```
 
+## Métodos especiales (*args) 1
+
 ```python
 #!/usr/bin/env python3
 
@@ -1409,6 +1482,8 @@ class Pizza:
 
 pizza = Pizza(12, "Chorizo", "Jamón", "Tocineta", "Queso")
 ```
+
+## Métodos especiales 3
 
 ```python
 #!/usr/bin/env python3
@@ -1426,6 +1501,8 @@ lista = MiLista()
 print(lista)
 ```
 
+## Métodos especiales 4
+
 ```python
 #!/usr/bin/env python3
 
@@ -1441,6 +1518,8 @@ class Saludo:
 hola = Saludo("¡Hola")
 print(hola("Katya"))
 ```
+
+## Métodos especiales 5
 
 ```python
 #!/usr/bin/env python3
@@ -1472,6 +1551,8 @@ p2 = Punto(4, 9)
 
 print(p1 + p2)
 ```
+
+## Métodos especiales 6
 
 ```python
 #!/usr/bin/env python3
@@ -1508,6 +1589,8 @@ Hasta ahora se han visto algunos decoradores
 ```
 
 Para no alterar el código de una función o método de una clase, pero si puede hacer muchas cosas más.
+
+## Decoradores 1
 
 ```python
 #!/usr/bin/env python3
@@ -1558,6 +1641,7 @@ class Persona:
 
 sasha = Persona("Sasha", 21)
 ```
+## Propiedades 1
 
 ```python
 #!/usr/bin/env python3
@@ -1634,6 +1718,7 @@ def pausa_larga(numero):
 pausa_corta(2, 3, 4, 5, 6) # Pasar una serie de elementos y se transforman como tupla
 pausa_larga(nombre = "Kizaru", edad = 17, profesion = "Rapper") # Aquí la envoltura recibe su segundo argumento
 ```
+## Métodos especiales (*args) 2
 
 ```python
 #!/usr/bin/env python3
@@ -1644,6 +1729,8 @@ def suma(*args):
 
 print(suma(2, 3, 5, 6, 9, 10))
 ```
+
+## Métodos especiales (**kwargs) 1
 
 ```python
 #!/usr/bin/env python3
@@ -1657,6 +1744,8 @@ def presentacion(**kwargs):
 
 print(presentacion(nombre = "Asya", edad = 23, ciudad = "Vladivostok", profecion = "Programmer"))
 ```
+## Propiedades 2
+
 ```python
 #!/usr/bin/env python3
 
@@ -1689,8 +1778,8 @@ print(c.area)
 
 c.radio = 10
 ```
-
-# Organización de Código en Módulos
+<hr />
+<h2 id="organización-de-código-en-módulos"><h2 id="subtitulo-importante">Organización de Código en Módulos</h2></h2>
 
 # Importación y uso de Módulos
 
