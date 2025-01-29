@@ -1559,6 +1559,137 @@ class Persona:
 sasha = Persona("Sasha", 21)
 ```
 
+```python
+#!/usr/bin/env python3
+
+import time
+
+def pausa_corta():
+	time.sleep(1)
+
+def pausa_larga():
+	time.sleep(5)
+
+# Usando propiedades especiales custom
+
+def cronometro(funcion):
+	def envoltura():
+		inicio = time.time()
+		funcion()
+		final = time.time()
+		print(f"El tiempo total transcurrido en la función {funcion.__name__} es: {final - inicio}") 
+		# -> Para saber el nombre de la función {funcion.__name__}
+	return envoltura
+
+@cronometro
+def pausa_corta():
+	time.sleep(1)
+
+@cronometro
+def pausa_larga():
+	time.sleep(2)
+
+pausa_corta()
+pausa_larga()
+
+#---- 
+# Cuidado porque pueden haber errores
+
+def cronometro(funcion):
+	def envoltura(num): # -> La envoltura debe contemplar los parametros que recibe la función original
+		inicio = time.time()
+		funcion(num) # -> Aquí tambien
+		final = time.time()
+		print(f"El tiempo total transcurrido en la función {funcion.__name__} es: {final - inicio}") 		
+		return envoltura
+
+@cronometro
+def pausa_corta(numero):
+	time.sleep(numero)
+
+@cronometro
+def pausa_larga(numero):
+	time.sleep(numero)
+
+pausa_corta(2)
+pausa_larga(3)
+#----
+
+def cronometro(funcion):
+	def envoltura(*args, **kwargs): # Argumentos posicionales, o argumentos de pares clave/valor
+		inicio = time.time()
+		funcion(num)
+		final = time.time()
+		print(f"El tiempo total transcurrido en la función {funcion.__name__} es: {final - inicio}") 
+	return envoltura
+
+@cronometro
+def pausa_corta(numero):
+	time.sleep(numero)
+
+@cronometro
+def pausa_larga(numero):
+	time.sleep(numero)
+
+pausa_corta(2, 3, 4, 5, 6) # Pasar una serie de elementos y se transforman como tupla
+pausa_larga(nombre = "Kizaru", edad = 17, profesion = "Rapper") # Aquí la envoltura recibe su segundo argumento
+```
+
+```python
+#!/usr/bin/env python3
+
+def suma(*args):
+	print(type(args))
+	return sum(args)
+
+print(suma(2, 3, 5, 6, 9, 10))
+```
+
+```python
+#!/usr/bin/env python3
+
+def presentacion(**kwargs):
+	print(type(kwargs))
+	print(kwargs)
+
+	for clave, valor in kwargs.items():
+		print(f"{clave}: {valor}")
+
+print(presentacion(nombre = "Asya", edad = 23, ciudad = "Vladivostok", profecion = "Programmer"))
+```
+```python
+#!/usr/bin/env python3
+
+class Circunferencia:
+
+	def __init__(self, radio):
+		self._radio = radio
+
+	@property
+	def radio(self): # Getter
+		return self._radio
+
+	@radio.setter
+	def radio(self, num): # Setter
+		self._radio = num
+
+	@property
+	def diametro(self):
+		return 2 * self._radio
+
+	@property
+	def area(self):
+		return 3.1416 * (self._radio ** 2)
+
+c = Circunferencia(5)
+
+print(c.radio)
+print(c.diametro)
+print(c.area)
+
+c.radio = 10
+```
+
 # Organización de Código en Módulos
 
 # Importación y uso de Módulos
