@@ -1781,7 +1781,171 @@ c.radio = 10
 <hr />
 <h2 id="organización-de-código-en-módulos"><h2 id="subtitulo-importante">Organización de Código en Módulos</h2></h2>
 
-# Importación y uso de Módulos
+En este punto se ha trabajado muy bien la Programación Orientada a Objetos, y la organización de nuestros programas ha sido mucho mas estructurada. Ahora podemos dar el salto a los Módulos.
+
+> Un módulo es un archivo de python que tiene sus clases, funciones, importaciones y permite un código limpio mucho mejor a lo que se ha venido trabajando.
+
+Para entender el concepto tenemos el siguiente ejemplo: Hay un archivo llamado math_operations.py:
+
+## Math_operations.py
+
+```python
+#!/usr/bin/env python3
+
+def suma(x, y):
+	return x + y
+
+def resta(x, y):
+	return x - y
+
+def multiplicacion(x, y):
+	return x * y 
+
+def division(x, y):
+	if y == 0:
+		raise ValueError("No es posible dividir un número entre cero")
+	else:
+		return x / y
+```
+
+Vamos a reutilizar estas funciones desde main.py:
+
+## Main.py
+
+```python
+#!/usr/bin/env python3
+
+# Importamos el código de math_operations y mucho más limpio nos queda
+import math_operations
+from math_operations import suma, resta, multiplicacion, division
+
+print(math_operations.suma(5, 2))
+print(suma(6, 4))
+```
+
+Así mismo python nos brinda un par de estos módulos, para nosotros poder importarlos:
+
+```
+import math -> Para importar operaciones matemáticas
+```
+
+Para saber que funciones tiene declarado el módulo:
+
+```python
+import math
+print(dir(math)
+```
+
+Así como el módulo math, python cuenta con una serie de módulos que podemos importar y que no requieren de un script:
+
+```python
+python3
+>>> import sys
+>>> print(sys.builtin_module_names)
+>>> ('_abc', '_ast', '_codecs', '_collections', '_functools', '_imp', '_io', '_locale', '_operator', '_signal', '_sre', '_stat', '_string', '_suggestions', '_symtable', '_sysconfig', '_thread', '_tokenize', '_tracemalloc', '_typing', '_warnings', '_weakref', 'atexit', 'builtins', 'errno', 'faulthandler', 'gc', 'itertools', 'marshal', 'posix', 'pwd', 'sys', 'time')
+```
+
+Por otro lado, es bueno saber la diferencia entre estos módulos que el propio python tiene integrados, a los diferentes módulos que requieren de un script por ejemplo en Procesamiento de Lenguaje Natural tenemos python-keras, nltk, spicy, numpy que requieren de un script para poder ser importados.
+
+<h1 class="titulo-principal">Importación y uso de Módulos</h1>
+
+Esta sección es un breve repaso a la anterior. Hay un ataque llamado Library Hijacking ya que hay una forma de secuestrar librerias/módulos de python.
+
+```python
+import math
+
+print(math.sqrt(49))
+
+#---
+# Lo que se suele hacer es
+from math import sqrt
+
+print(sqrt(16))
+```
+
+Algunas veces algunos módulos que importamos tienen nombres muy largos y complejos, para que sea más manejable en el código se hace:
+
+```python
+import math as m # El módulo math ahora se llama m, por tanto ahora se usa:
+
+print(m.sqrt(91))
+```
+
+El concepto de Library Hijacking  se puede ver de la siguiente manera:
+
+```python
+python3
+>>> import hashlib
+>>> # ¿Cómo sabe el sistema si este módulo existe como tal?, Cómo realiza las búsquedas?
+```
+
+> Es similar al PATH, en bash:
+
+```bash
+echo $PATH
+```
+
+Por tanto, un módulo es un archivo python con funciones, clases y definiciones. Y entra el concepto de 'Librería' que es un poco más extenso ya que contiene muchos más módulos y brindan una funcionalidad.
+
+```python
+python3
+>>> import sys
+>>> print(sys.path)
+>>> ['', '/usr/lib/python313.zip', '/usr/lib/python3.13', '/usr/lib/python3.13/lib-dynload', '/usr/lib/python3.13/site-packages']
+>>> # Al importar hashlib, ¿Qué pasa por detras?
+>>> import hashlib
+>>> # Podemos ver un par de rutas y lo que se hace, es mirar si en cada una de estás rutas se encuentra hashlib como módulo
+>>> # ['', '/usr/lib/python313.zip', -> No lo encuentra
+>>> # '/usr/lib/python3.13', -> Lo encuentra
+>>> # Aquí se carga y podemos usar hashlib, pero cuidado con el path, especificamente : ['',
+>>> # Viene así por defecto, y nos permite un library hijacking
+>>> # Se puede crear un archivo hashlib.py en el directorio actual de trabajo y definir nosotros la funcionalidad
+```
+
+```python
+import os
+
+os.system("whoami")
+```
+
+No estamos modificando el archivo original, estamos creando uno completamente nuevo en el directorio actual de trabajo. 
+
+El archivo hashlib.py que hemos creado le cambiamos el nombre a test.py:
+
+```bash
+mv hashlib.py test.py
+```
+
+```python
+import hashlib
+
+cadena = b"Hola" # La b siginifica que estamos pasando los cadena como bytes
+
+hashlib.md5(cadena).hexdigest() # -> Convierte la cadena a md5
+```
+
+> MD5 es un algoritmo de reducción criptográfico de 128 bits, utilizado para comprobar la integridad de los archivos y saber que no han sido modificados
+
+Ahora vamos a renombrar test.py  a hashlib.py:
+
+```bash
+mv test.py hashlib.py
+```
+
+Y recordando que el contenido de nuestro hashlib.py es:
+```python
+import os
+
+os.system("whoami")
+```
+
+Al momento de ejecutar main.py:
+
+```bash
+root
+```
+
+Esto se debe a que python, empieza a buscar desde el directorio actual de trabajo. Esto es critico ya que nos permite la inyección de comandos en caso de tener permisos de escritura y ejecutar archivos como root.
 
 # Creación y distribución de paquetes
 
