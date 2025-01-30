@@ -1983,11 +1983,101 @@ contraseña = getpass("Ingresa tu contraseña: ")
 print(f"La contraseña es {contraseña}")
 ```
 
-# Lectura y escritura de archivos
+<h1 class="titulo-principal">Lectura y escritura de archivos</h1>
 
-# Formateo de cadenas
+Se pueden abrir archivos y leer su contenido, editarlo y es algo sencillo:
 
-# Proyecto - Gestión de Biblioteca
+```python
+# example.txt ("¡Hola mundo!")
+
+f = open("example.txt", "w") # w: escribir pero si habia contenido antes se borrara, r: leer, a: te agrega al final del archivo
+
+f.write("¡Hola mundo!")
+
+f.close() # Para cerrar el archivo
+```
+
+```python
+with open("example.txt", "w") as f:
+	f.write("Hola mundo")
+
+# De está manera python cierra el archivo de forma automática
+
+with open("/etc/hosts", "r") as f: # Algunas ocasiones por error utf8, hay que poner rb rawbinary
+	file_content = f.read()
+	# Leer linea por linea
+	for line in f:
+		print(line.strip())
+
+print(file_content)
+```
+
+```python
+with open("/ruta/imagen.png", "rb") as f_in, open("imagen.png", w) as f_out:
+	file_content = f_in.read()
+	f_out.write(file_content)
+
+```
+
+<h1 class="titulo-principal">Formateo de cadenas</h1>
+
+```python
+nombre = "Tanya"
+
+print("Hola, me llamo {}, y tengo {} años".format(nombre, 29))
+
+print("Hola, me llamo {1}, y tengo {0} años".format(29, nombre))
+
+print(f"Hola, me llamo {nombre}, y tengo {29} años")
+
+#-----
+
+cadena = "            hola"
+
+print(cadena.strip()) # hola
+
+cadena = "Hola Mundo"
+print(cadena.lower()) # Minúsculas
+print(cadena.upper()) # Mayúsculas
+
+print(cadena.replace('0', 'x'))
+
+print(cadena.split()) # Crea una lista
+cadena = "hola:mundo, test"
+print(cadena.split(':'))
+print(cadena[0]) ## 1, 2 ... es un iterable
+
+#-----
+cadena = "hola mundo"
+
+print(cadena.startswith('h')) # Devuelve True o False
+print(cadena.endswith('g'))
+#-----
+
+print(cadena.find("mundo")) # la posición donde comienza la cadena a buscar, si no existe retorna -1
+print(cadena.index("silla")) # si no existe, retorna una excepción
+```
+
+```
+.count() -> para contar
+.swapcase() -> minúsculas a mayúsculas y vice
+.isalpha() -> "123123" -> True
+.isspace() -> " " -> True
+cadena = ["hola", "mundo"]
+print(" ".join(cadena)) -> unir cadenas
+.replace(',','') "a,b,c,d,e,f,g" -> (abcdefg)
+```
+
+```python
+s = "Hola me gusta mucho comer helado y cocholate"
+
+tabla = str.maketrans('aei','zpo') # Sustituciones avanzadas
+nueva_cadena = s.translate(tabla)
+```
+<hr />
+<h2 id="proyectos-de-poo"><h2 id="subtitulo-importante">Proyectos de POO para reforzar</h2></h2>
+
+<h1 class="titulo-principal">Proyecto - Gestión de Biblioteca</h1>
 
 # Proyecto - Tienda de animales
 
