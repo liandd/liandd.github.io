@@ -1779,7 +1779,9 @@ print(c.area)
 c.radio = 10
 ```
 <hr />
-<h2 id="organización-de-código-en-módulos"><h2 id="subtitulo-importante">Organización de Código en Módulos</h2></h2>
+
+<h2 id="módulos-y-paquetes"><h2 id="subtitulo-importante">Módulos y Paquetes</h2></h2>
+<h1 class="titulo-principal">Organización de Código en Módulos</h1>
 
 En este punto se ha trabajado muy bien la Programación Orientada a Objetos, y la organización de nuestros programas ha sido mucho mas estructurada. Ahora podemos dar el salto a los Módulos.
 
