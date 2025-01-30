@@ -17,7 +17,7 @@ La materia tiene un enfoque orientado a seguridad informática para desplegar sc
 - [Colecciones y Estructuras de Datos](#colecciones-y-estructuras-de-datos)
 - [Programación Orientada a Objetos](#programación-orientada-a-objetos)
 - [Módulos y Paquetes](#módulos-y-paquetes)
-- [Entrada y Salida de Datos]
+- [Entrada y Salida de Datos](#entrada-y-salida-de-datos)
 - [Proyectos de POO para reforzar]
 - [Biblioteca Estándar y Herramientas]
 - [Manejo de librerías Comunes]
@@ -1949,9 +1949,39 @@ root
 
 Esto se debe a que python, empieza a buscar desde el directorio actual de trabajo. Esto es critico ya que nos permite la inyección de comandos en caso de tener permisos de escritura y ejecutar archivos como root.
 
-# Creación y distribución de paquetes
+<hr />
+<h2 id="entrada-y-salida-de-datos"><h2 id="subtitulo-importante">Entrada y Salida de Datos</h2></h2>
+<h1 class="titulo-principal">Entrada y salida por teclado</h1>
 
-# Entrada y salida por teclado
+Al momento de ejecutar un script, este nos puede solicitar datos, para ingresar datos se gestiona con 'input':
+
+```python
+nombre = input("Dime tu nombre: ")
+
+print(nombre)
+# Siempre que querramos recibir por teclado una entrada que no es tipo string, hay que hacer type casting
+
+edad = int(input("Dime tu edad: "))
+pi = float(input("Cuánto vale PI: "))
+
+# Se puede usar try except
+
+try:
+	edad = int("Dime tu edad") # pero si ingreso hola
+	print(f"Tu edad es {edad}")
+	break
+except ValueError:
+	print("Dato no válido ingresado")
+```
+
+Otra forma interesante es importando getpass para recibir por teclado contraseñas:
+
+```python
+from getpass import getpass
+
+contraseña = getpass("Ingresa tu contraseña: ")
+print(f"La contraseña es {contraseña}")
+```
 
 # Lectura y escritura de archivos
 
@@ -1995,7 +2025,7 @@ Esto se debe a que python, empieza a buscar desde el directorio actual de trabaj
 
 # Scripting - Escaner de red ICMP
 
-# Scripting -  Escaner de red ARP con Scapy
+# Scripting - Escaner de red ARP con Scapy
 
 # Scripting - ARP Spoofer con Scapy
 
@@ -2005,7 +2035,7 @@ Esto se debe a que python, empieza a buscar desde el directorio actual de trabaj
 
 # Scripting - HTTPS_Image Sniffer con mitmdump
 
-# Scripting -  DNS Spoofer con Scapy y NetfilterQueue
+# Scripting - DNS Spoofer con Scapy y NetfilterQueue
 
 # Scripting - Traffic Hijacking
 
@@ -2013,6 +2043,6 @@ Esto se debe a que python, empieza a buscar desde el directorio actual de trabaj
 
 # Scripting - Creación de Malware
 
-# Scripting -  Creación de Backdoors y Command_and_Control
+# Scripting - Creación de Backdoors y Command_and_Control
 
 # Scripting - Forward Shell
