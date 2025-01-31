@@ -26,6 +26,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">Cisco PacketTracer - Notes</a>
 - [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
 <br><br>
+- [ 2025_31_01 ] <a  href="\grubRescue.html">Grub Rescue de x86_64 a i386</a>
 - [ 2025_28_01 ] <a  href="\ciberseguridadUcp.html">Ciberseguridad - UCP</a>
 - [ 2025_22_01 ] <a  href="\pythonOfensivo.html">Python3 Ofensivo - Notes/Scripting</a>
 - [ 2024_25_11 ] <a  href="\nlp.html">NLP Python3 - Notes</a>
