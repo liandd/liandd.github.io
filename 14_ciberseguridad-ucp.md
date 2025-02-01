@@ -13,15 +13,15 @@ La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 h
 1. <h1 class="titulo-principal">Introducción a la ciberseguridad</h1>
 - [Conceptos básicos](#introducción-a-la-ciberseguridad)
 - Tipos y estados de la información
-- Tipos de ataques y su herramientas
-- Laboratorio 1 y 2
+- Tipos de ataques y sus herramientas
+- Laboratorios 1 y 2
 <br>
-2. <h1 class="titulo-principal">Ataques conceptos y técnicas</h1>
-- Analizando un ciberataques
+2. <h1 class="titulo-principal">Ataques, conceptos y técnicas</h1>
+- Analizando un ciberataque
 - Tipos de ataques
 - Métodos de infiltración e ingeniería social
 - Clasificación de vulnerabilidades
--  Laboratorio 3 y 4
+-  Laboratorios 3 y 4
 <br>
 3. <h1 class="titulo-principal">Protegiendo el perímetro de red</h1>
 - Dispositivos y tecnologías de seguridad
@@ -30,15 +30,15 @@ La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 h
 - Laboratorios 5 y 6
 <br>
 4. <h1 class="titulo-principal">Herramientas de monitoreo</h1>
-- Centro de operaciones de seguridad soc
-- Centro de operaciones de red noc
-- Acceso remoto ssh
+- Centro de operaciones de seguridad SOC
+- Centro de operaciones de red NOC
+- Acceso remoto SSH
 - Sincronización de infraestructura
-- Herramientas de monitoreo syslog span
-- Laboratorio 7, 8 y 9
+- Herramientas de monitoreo SYSLOG, SPAN
+- Laboratorios 7, 8 y 9
 <br>
 5. <h1 class="titulo-principal">Tecnologías de Firewall</h1>
-- Tecnologías de Firewall: software, hardware, basado en contexto
+- Tecnologías de Firewall: Software y Hardware basado en contexto
 - Filtrado de paquetes
 - Laboratorio 10
 <br>
