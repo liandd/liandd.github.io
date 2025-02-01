@@ -18,7 +18,7 @@ La materia tiene un enfoque orientado a seguridad informática para desplegar sc
 - [Programación Orientada a Objetos](#programación-orientada-a-objetos)
 - [Módulos y Paquetes](#módulos-y-paquetes)
 - [Entrada y Salida de Datos](#entrada-y-salida-de-datos)
-- [Proyectos de POO para reforzar]
+- [Proyectos de POO para reforzar](#proyectos-de-POO-para-reforzar)
 - [Biblioteca Estándar y Herramientas]
 - [Manejo de librerías Comunes]
 - [Desarrollo de aplicaciones de escritorio]
@@ -2075,9 +2075,9 @@ tabla = str.maketrans('aei','zpo') # Sustituciones avanzadas
 nueva_cadena = s.translate(tabla)
 ```
 <hr />
-<h2 id="proyectos-de-poo"><h2 id="subtitulo-importante">Proyectos de POO para reforzar</h2></h2>
+<h2 id="proyectos-de-POO-para-reforzar"><h2 id="subtitulo-importante">Proyectos de POO para reforzar</h2></h2>
 
-<h1 class="titulo-principal">Proyecto - Gestión de Biblioteca</h1>
+<h3 class="titulo-secundario">Proyecto - Gestión de Biblioteca</h3>
 
 # Proyecto - Tienda de animales
 
