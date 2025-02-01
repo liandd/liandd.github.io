@@ -62,7 +62,7 @@ El `ColCERT de Mintic`, es el equipo de respuestas de ciberseguridad de Colombia
 
 `Mitre` presenta técnicas, tácticas, y procedimientos ya documentados y el plan de acción para los distintos ataques que puede recibir una organización.
 
-<strong>Visita esta páginas:</strong>
+<strong>Visita estas páginas:</strong>
 
 - <a href="https://wwww.colcert.gov.co"><strong><em style="color: #559;">ColCERT</em></strong></a>
 - <a href="https://attack.mitre.org"><strong><em style="color: #559">Mitre</em></strong></a>
