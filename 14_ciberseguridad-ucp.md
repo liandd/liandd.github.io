@@ -6,6 +6,8 @@ permalink: /ciberseguridadUcp
 
 <h2 id="subtitulo-importante">Optativa II Ciberseguridad 1 UCP - Notas prácticas</h2>
 
+La ciberseguridad es el esfuerzo continuo para proteger a las personas, las organizaciones y los gobiernos de los ataques digitales mediante la protección de los sistemas y datos en red contra el uso o daño no autorizados.
+
 La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 horas en casa, se harán muchos laboratorios.
 
 <h2 id="subtitulo-importante">Índice</h2>
@@ -80,6 +82,37 @@ Debemos proteger nuestros datos pero *¿Cuáles son?*, información personal, in
 <h3 class="titulo-secundario">¿Dónde están nuestros datos?</h3>
 
 De las fotos, de nuestras redes sociales, lo que comentamos, publicamos y compartimos en internet con amigos y familia. Pueden ser fuentes valiosas de información para los agentes externos mediante ingeniería social.
+
+Hay tres niveles de protección:
+
+> **Telepresencia**: A nivel personal, debe proteger su identidad, sus datos, y sus dispositivos informáticos.
+
+>  **Organizacional**: A nivel corporativo, es responsabilidad de todos proteger la reputación, los datos y los clientes de la organización.
+
+> **Gobierno**: A medida que se recopila y comparte más información digital, su protección se vuelve aún mas vital a nivel gubernamental, donde la seguridad nacional, la estabilidad económica y la seguridad y el bienestar de los ciudadanos están en juego.
+
+Los datos personales son cualquier información que se puede utilizar para identificarlo y puede existir tanto fuera de línea como en línea.
+
+Muchas personas creen que si no tienen una o ninguna cuenta en redes sociales o en línea, entonces no tienen unan identidad en línea. Este no es el caso. Si usa la web, tiene una identidad en línea.
+
+En base a nuestra identidad en línea, como primer día de trabajo debemos elegir un nombre de usuario
+
+- **jdoe1990**
+- **Jdoe.es**
+- **j.doe12**
+- **jane.doe**
+- **jdoe**
+<br><br>
+<details><summary><strong><em>Respuestas correctas</em></strong></summary><h3 class="titulo-secundario"><strong>jdoe y j.doe12</strong></h3></details>
+<br>
+
+Los datos personales describen cualquier información sobre usted, incluido su nombre, número de seguro social, número de licencia de conducir, fecha y lugar de nacimiento, nombre de nuestros familiares y amigos. Donde se puede presentar suplantación de identidad.
+
+> **Registros médicos**: Cada vez que visita al médico, la información personal sobre salud y demás queda en los registros médicos electrónicos `EHR` Ya que estos se guardan en línea.
+
+> **Registros educativos**: Calificaciones y logros académicos. Ya que pueden incluir información de contacto.
+
+> **Registros de empleo y financieros**: Ya que se presenta información sobre anteriores empleos incluso evaluaciones de desempeño actuales, y en este historial se puede quizás encontrar información bancaria.
 
 TAREA, descubriendo nuestro comportamiento riesgoso en línea
 
