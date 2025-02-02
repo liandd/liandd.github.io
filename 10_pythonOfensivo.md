@@ -2219,8 +2219,184 @@ if __name__ == '__main__':
 
 <h3 class="titulo-secundario">Proyecto - Administración de vehículos</h3>
 
+```python
+#!/usr/bin/env python3
+
+class Vehiculo:
+
+	def __init__(self, matricula, modelo):
+		self.matricula = matricula
+		self.modelo = modelo
+		self.disponible = True
+
+	def alquilar(self):
+		if self.disponible:
+			self.disponible = False
+		else:
+			print("[!] El vehículo con mátricula {self.matricula} no se puede devolver porque no ha sido alquilado a nadie")
+	
+	def devolver(self):
+		if not self.disponible:
+			self.disponible = True
+		else:
+			print("[!] El vehículo con mátricula {self.matricula} no se puede alquilar")
+
+	def __str__(self):
+		return f"Vehiculo ({self.matricula}, {self.modelo}, esta diponible={self.disponible})"
+
+class Flota:
+
+	def __init__(self):
+		self.vehiculos = []
+
+	def agregar_vehiculo(self, vehiculo):
+		self.vehiculos.append(vehiculo)
+
+	def alquilar_vehiculo(self, matricula):
+		for vehiculo in self.vehiculos:
+			if vehiculo.matricula == matricula:
+				vehiculo.alquilar()
+
+	def devolver_vehiculo(self, matricula):
+		for vehiculo in self.vehiculos:
+			if vehiculo.matricula == matricula:
+				vehiculo.devolver()
+
+	def __str__(self):
+		return f"[+] La flota dispone de: ".join(str(vehiculo) for vehiculo in self.vehiculos)
+	
+if __name__ == '__main__':
+
+	flota = Flota()
+	flota.agregar_vehiculo(Vehiculo("BABDAS6", "Toyota Corolla"))
+	flota.agregar_vehiculo(Vehiculo("FG341S3", "Honda Civic"))
+	print("[+] Flota inicial:\n")
+	print(flota)
+
+	flota.alquilar_vehiculo("BABDAS6")
+
+	print("Mostrando la flota después de haber alquilado el Toyota")
+	print(flota)
+
+	flota.devolver_vehiculo("BABDAS6")
+	print(flota)
+	
+```
+
 <h3 class="titulo-secundario">Proyecto - Gestión de notas</h3>
 
+Aquí vamos a usar la serialización y deserialización de datos en python usando la librería **Pickle**. Esta librería nos permite transformar un objeto a un formato el cual permite ser almacenado en disco, por otro lado la deserialización trae los bytes y hace el proceso inverso para convertir los bytes a un objeto legible. 
+
+> Es importante aclarar que los objetos que se trabajan con **Pickle** no son los mismos de la programación orientada a objetos ya que no es el mismo contexto. Aquí convertimos un tipo de dato a una secuencia de bytes y viceversa
+
+```python
+#!/usr/bin/env python3
+import os
+from gestor_notas import GestorNotas
+
+def main():
+
+	gestor = GestorNotas()
+
+	while True:
+		print(f"\n---------------\nMENÚ\n---------------")
+		print("1. AGREGAR UNA NOTA")
+		print("2. LEER TODAS LAS NOTAS")
+		print("3. BUSCAR POR UNA NOTA")
+		print("4. ELIMINAR UNA NOTA")
+		print("5. SALIR")
+
+		opcion = int(input("\n[+] ESCOGE UNA OPCIÓN: "))
+
+		if opcion == 1:
+			contenido = input("\n[+] Contenido de la nota: ")
+			gestor.agregar_nota(contenido)
+
+		elif opcion == 2:
+			notas = gestor.leer_notas()
+			print("[+] Mostrando todas las notas")
+			for i, nota in enumerate(notas):
+				print(f"{i+1}: {nota}")
+
+		elif opcion == 3:
+			texto_busqueda = input(\n"[+] Ingresa el texto a buscar como criterio en las notas: ")
+			notas = gestor_buscar_nota(texto_busqueda)
+			print(f"\n[+] Mostrando las notas que coinciden con el criterio de búsqueda:\n")
+			for i, nota in enumerate(notas):
+				print(f"{i+1}, {nota}")
+
+		elif opcion == 4:
+			index = int(input("[+] Introduce el índice de la nota que quieres borrar: "))
+			gestor.eliminar_nota(index)
+		elif opcion == 5:
+			break
+		else:
+			print("\n[!] La opción ingresada es incorrecta")
+
+		input("[+] Presiona <Enter> para continuar....")
+
+		os.system('cls' if os.name == 'nt' else 'clear')
+
+
+if __name__ == "__main__":
+	main()
+```
+
+```python
+#!/usr/bin/env python3
+# Gestor_notas.py
+import pickle
+from notas import Nota
+
+class GestorNotas:
+
+	def __init__(self, archivo_notas='notas.pkl'):
+		self.archivo_notas = archivo_notas
+
+		try:
+			with open(self.archivo_notas. 'rb') as f:
+				self.notas = pickle.load(f)
+				
+		except FileNotFoundError:
+			self.notas = []
+
+	def guardar_notas(self):
+		with open(self.archivo_notas, 'wb') as f:
+			pickle.dump(self.notas, f)
+
+	def agregar_nota(self, contenido):
+		self.notas.append(Nota(contenido))
+		self.guardar_notas()
+
+	def leer_notas(self):
+		return self.notas
+
+	def buscar_nota(self, texto_busquedea):
+		return [nota for nota in self.notas if nota.coincide(texto_busqueda)]
+
+	def eliminar_nota(self, index):
+		if index < len(self.notas):
+			del self.notas[index]
+			self.guardar_notas()
+		else:
+			print("\n[!] El índice proporcionado es incorrecto")
+```
+
+```python
+#!/usr/bin/env python3
+# Notas.py
+
+class Nota:
+
+	def __init__(self, contenido):
+		self.contenido = contenido
+
+	def coincide(self, texto_busqueda):
+		return texto_busqueda in self.contenido
+
+	def __str__(self):
+		return self.contenido
+```
 
 <hr />
 
