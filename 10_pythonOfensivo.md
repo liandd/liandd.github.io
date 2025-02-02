@@ -19,7 +19,7 @@ La materia tiene un enfoque orientado a seguridad informática para desplegar sc
 - [Módulos y Paquetes](#módulos-y-paquetes)
 - [Entrada y Salida de Datos](#entrada-y-salida-de-datos)
 - [Proyectos de POO para reforzar](#proyectos-de-POO-para-reforzar)
-- [Biblioteca Estándar y Herramientas]
+- [Biblioteca Estándar y Herramientas](#biblioteca-estándar-y-herramientas-adicionales)
 - [Manejo de librerías Comunes]
 - [Desarrollo de aplicaciones de escritorio]
 - [Python Ofensivo]
@@ -2397,12 +2397,104 @@ class Nota:
 	def __str__(self):
 		return self.contenido
 ```
-
 <hr />
 
+<h2 id="biblioteca-estándar-y-herramientas-adicionales"><h2 id="subtitulo-importante">Biblioteca estándar y herramientas adicionales</h2></h2>
 <h1 class="titulo-principal">Manejo de fechas y horas</h1>
 
-# Expresiones Regulares
+Después de el trabajo de todos los proyectos, se trabajará un concepto muy sencillo el cual es el manejo de fechas y horas.
+
+```python
+import datetime
+
+# Saber con precisión la fecha y hora actual
+ahora = datetime.datetime.now()
+print(ahora) # 2025-1-2 20:03:27.245623
+
+# Fecha
+fecha = datetime.date(2024, 5, 24)
+
+# Hora
+hora = datetime.time(14, 15, 15)
+
+# Fecha y hora
+fecha_hora = datetime.datetime(2025, 5, 24, 14, 15, 15)
+
+# Se puede dividir por secciones
+año = ahora.year
+mes = ahora.month
+dia = ahora.day
+horas = ahora.hour
+minutos = ahora.minute
+segundos = ahora.second
+
+print(f"Año: {año}, mes: {mes}, día: {dia}, horas: {horas}, minutos: {minutos}, segundos: {segundos}")
+```
+<h1 class="titulo-principal">Expresiones Regulares</h1>
+
+Las expresiones regulares o Regex, son patrones utilizados para encontrar una determinada combinación de caracteres dentro de una cadena de texto. Se crea un patrón o un filtro para detectar coincidencias en una cadena.
+
+```python
+import re
+
+text = "Mi gato está en el tejado y mi otro gato está en el jardín"
+
+matches = re.findall("gato", text)
+print(matches) # Imprime en formato lista
+
+text = "Hoy estamos a fecha 10/10/2007, mañana estaremos a 11/10/2007" 
+
+matches = re.findall("\d{2}\/\d{2}\/\d{4}", text) # Hay un digito:\d de 2 números{2}, la barra hay que escaparla
+
+text = "Los usuarios pueden contactarnos a soporte@gmail.com o info@gmail.com"
+
+matches = re.findall("(\w+)@(\w+\.\w{2,})", text) # Caracteres y números hasta el '@' con el +, el '.' es un caracter especial, hay que escaparlo con '\.', y el domio puede ser '.io o .co, .com' por tanto, se utiliza '\w{2,}' minimos 2 hasta donde termine.
+
+# La librería re permite hacer sustituciones
+
+texto = "Mi gato está en el tejado y mi perro está en el jardín"
+
+nuevo_texto = re.sub("gato", "perro", texto)
+
+# También splits
+
+texto = "Campo1,Campo2,Campo3,Campo4"
+
+nuevo_texto = re.split(",", texto)
+```
+
+**Validador de correo electrónico**
+
+```python
+#!/usr/bin/en python3
+import re
+
+def validar_correo(correo):
+
+	patron = "[A-Za-z0-9._+-]+@[A-Za-z0-9]+\.[A-Za-z]{2,}"
+	if re.findall(patron, correo):
+		return True
+	else:
+		return False
+
+print(validar_correo("soporte@gmail.com"))
+```
+
+Dentro de regex hay un carácter especial llamado '\b' que funciona como delimitador de cadenas (car, cart, masticar, magicarp)
+
+```python
+#!/usr/bin/env python3
+
+import re
+
+text = "car, cart, masticar y magicarp"
+
+re.findall("car", text) # Lo va a encontrar 4 veces
+
+re.findall(r"\bcar", text) # La cadena debe empezar con cart
+
+re.findall(r"car\b", text) # La cadena debe terminar con car
+```
 
 # Manejo de archivos y directorios
 
