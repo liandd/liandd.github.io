@@ -2511,9 +2511,76 @@ for match in re.finditer(patron, texto):
 
 <h1 class="titulo-principal">Manejo de archivos y directorios</h1>
 
+Esto es importante porque hay momento al hacer scripts en python, para leer archivos o tomar acciones en caso de que los directorios existan y tomar un rumbo de acción en la lógica de nuestro programa.
 
+```python
+import ps
 
-# Conexiones de red y protocolos
+if os.path.exists("mi_archivo.txt"):
+	print("existe")
+else:
+	print("no existe")
+
+if not os.path.exists("mi_directorio"):
+	os.mkdir("mi_directorio")
+
+if not os.path.exists("mi_directorio/mi_subdirectorio"):
+	os.makedirs("mi_directorio/mi_subdirectorio")
+```
+
+**Crear 5 archivos llamados file.txt**
+
+```bash
+for i in $(seq 1 5); do touch file$i.txt; done
+```
+```python
+import os
+
+recursos = os.listdir()
+
+for recurso in recursos:
+	print(recurso)
+
+if os.path.exists("file1.txt"):
+	os.remove("file1.txt")
+	os.rmdir("diretory")
+
+# Para directorios anidados
+
+import shutil
+import os
+
+if os.path.exists("mi_directorio"):
+	shutil.rmtree("mi_directorio")
+
+if os.path.exists("file2.txt"):
+	os.rename("file2.txt", "cambiado.txt")
+
+if os.path.exists("/etc/passwd"):
+	tam = os.path.getsize("/etc/passwd")
+
+print(tam)
+```
+
+```python
+import os
+
+ruta = os.path.join("mi_directorio", "mi_archivo.txt")
+print(ruta) # mi_directorio/mi_archivo.txt
+# Basename ruta final
+
+archivo = os.path.basename(ruta)
+print(archivo) # mi_archivo.txt
+
+# dirname
+directorio = os.path.dirname(ruta)
+print(directorio) # mi_directorio
+
+#----
+
+directorio, archivo = os.path.split(ruta)
+```
+<h1 class="titulo-principal">Conexiones de red y protocolos</h1>
 
 # Librería OS y SYS
 
