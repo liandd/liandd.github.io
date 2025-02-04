@@ -2496,7 +2496,22 @@ re.findall(r"\bcar", text) # La cadena debe empezar con cart
 re.findall(r"car\b", text) # La cadena debe terminar con car
 ```
 
-# Manejo de archivos y directorios
+```python
+import re
+
+texto = "Hoy estamos a día 10/10/2007 y mañana estaremos a 11/10/2007"
+
+patron = r"\b(\d{2}\/\d{2}/\d{4})\b"
+
+# Iterar
+
+for match in re.finditer(patron, texto):
+	print(match.group(0))
+```
+
+<h1 class="titulo-principal">Manejo de archivos y directorios</h1>
+
+
 
 # Conexiones de red y protocolos
 
