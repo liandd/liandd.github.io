@@ -19,7 +19,7 @@ La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 h
 - Laboratorios 1 y 2
 <br>
 2. <h1 class="titulo-principal">Ataques, conceptos y técnicas</h1>
-- Analizando un ciberataque
+- [Analizando un ciberataque](#analizando-un-ciberataque)
 - Tipos de ataques
 - Métodos de infiltración e ingeniería social
 - Clasificación de vulnerabilidades
@@ -116,8 +116,29 @@ Los datos personales describen cualquier información sobre usted, incluido su n
 
 
 
-
 TAREA, descubriendo nuestro comportamiento riesgoso en línea
+
+<hr />
+
+Modelos de servicio en la nube frente a servicio en físico llamado 'On premise vs cloud'.
+Retomando hay un porcentaje entre el 20/80 de amenazas externas y externas
+
+Guerra cibernetica es básicamente mediante gusanos, virus y sabotajes contra el poder de otros países. Stuxnet fue un auge y ha sementado un comienzo en virus y programas de espionaje y obstaculizan avances de potencias armamentistas. Es curioso como muchos de estos temas son tratados en películas y series. Otro propósito es impactar en la infraestructura y evitar avances.
+<hr />
+
+<h2 id="analizando-un-ciberataque"><h2 id="subtitulo-importante">Modulo 2 Ataques, conceptos y técnicas</h2></h2>
+
+Hay una clasificación en los diferentes ataques que existen:
+
+- Malware
+- Reconocimiento
+- Acceso
+- Dos / Ddos
+- Ingeniería Social
+<br><br>
+Todo el Malware es el código malicioso, ejemplo el Spyware que hace espionaje en la plataforma o sistema operativo. El Adware son las ventanas emergentes llamando la atención al usuario haciendo que haga click en donde no debe. Luego tenemos el Backdoor o 'puerta trasera' que funciona en segundo plano, es difícil de detectar y permite persistencia al atacante a la máquina, empresa o organización.
+
+El virus requiere intervención del usuario pero el gusano no, ese se auto reproduce, una forma muy curiosa para detectar patrones de posible infección por virus es el análisis de PID para saber procesos desconocidos.
 
 ---
 
