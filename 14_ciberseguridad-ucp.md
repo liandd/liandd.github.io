@@ -48,9 +48,9 @@ La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 h
 - Estudio de caso
 
 <hr />
-<h2 id="introducción-a-la-ciberseguridad"><h2 id="subtitulo-importante">Modulo 1 - Conceptos Básicos</h2></h2>
+<h2 id="introducción-a-la-ciberseguridad"><h2 id="subtitulo-importante">Modulo 1 - Introducción a la Ciberseguridad</h2></h2>
 
-<h1 class="titulo-principal">Introducción a la Ciberseguridad</h1>
+<h1 class="titulo-principal">Conceptos Básicos</h1>
 
 La ciberseguridad bajo el contexto en Colombia, la palabra involucra todos los esfuerzos, actividades, experiencia que se ponen a disposición de promover la seguridad informática, que mis sistemas involucrando infraestructura, software, empleados...etc esten seguros. Proteger todo de los ataques, y para nadie es un secreto que la industria de los Hackers genera mucho dinero y trabajan en grupos grandes como organizaciones. Ellos mismos muestran sus ganancias y revelan sus actividades.
 
@@ -115,10 +115,74 @@ Los datos personales describen cualquier información sobre usted, incluido su n
 > **Registros de empleo y financieros**: Ya que se presenta información sobre anteriores empleos incluso evaluaciones de desempeño actuales, y en este historial se puede quizás encontrar información bancaria.
 
 
+<h3 class="titulo-secundario">Robo de identidad</h3>
 
-TAREA, descubriendo nuestro comportamiento riesgoso en línea
+No contentos con robar su dinero para obtener ganancias financieras a corto plazo, los ciberdelincuentes invierten en la ganancia a largo plazo del robo de identidad. Como robo medico o bancario.
+Pero no solo los agentes de amenaza quieren nuestros datos, también tenemos:
+
+> Proveedor de servicios de Internet (ISP): Hace un seguimiento a nuestra actividad en línea y, en algunos países, se puede vender esta información a los anunciantes.
+
+> Anunciantes: Es la publicidad dirigida y esta hace parte de Internet. Los anunciantes monitorean y rastrean (Hábitos de compra, preferencias personales, anuncios).
+
+> Motores de búsqueda y plataformas de redes sociales: Recopilan información acerca de género, geolocalización, número de teléfono e ideologías políticas. También es vendida con fines de lucro.
+
+> Sitios web que visitamos: Mediante sus cookies para rastrear las actividades con el fin de brindar una experiencia más personalizada. Pero esto deja un rastro de datos que está vinculado a nuestra identidad en línea.
+
+Cada vez los agentes de amenaza son más sofisticados en su búsqueda de datos valiosos, esto representa problemas a los datos corporativos y de nuestras organizaciones.
 
 <hr />
+
+Antes de comenzar a implementar las mejores prácticas para proteger los datos de la organización, debemos saber de qué se trata.
+
+<h1 class="titulo-principal">Tipos y estados de la información</h1>
+
+Tenemos por una parte **Datos tradicionales** que suelen ser generados y mantenidos por todas las organizaciones, grandes y pequeñas.
+
+1. **Datos transaccionales**, como detalles relacionados con la compra y venta, actividades de producción y operaciones organizativas básicas, como cualquier información para tomar decisiones de empleo.
+2. **La propiedad intelectual**, como patentes, marcas registradas y planes de productos nuevos, permite a una empresa obtener una ventaja económica sobre sus competidores. Todo se debe a que información es confidencial y secreto.
+3. **Datos financieros**, como las declaraciones de ingresos, los balances y las declaraciones de flujo de caja. Ya que brinda información sobre el estado de la empresa.
+<br><br>
+Por otro lado, la IoT es una gran red de objetos físicos, como sensores, software y otro equipos. Todos están conectados a internet, con la capacidad de recopilar y compartir datos. Y dado que las opciones de almacenamiento se están expandiendo a través de la nube se habla hoy día de Big Data.
+
+<h1 class="titulo-principal">El Cubo</h1>
+
+El McCumber Cube es un marco modelo creado por John McCumber en 1991 para ayudar a las organizaciones a establecer y evaluar iniciativas de seguridad de la información. Este modelo tiene tres dimensiones.
+
+1. Los principios fundamentales para proteger los sistemas de información
+2. La protección de la información en cada uno de sus estados posibles
+3. Las medidas de seguridad utilizadas para proteger los datos
+
+*Los principios fundamentales* para proteger la información:
+
+**Confidencialidad, integridad, Disponibilidad**.
+
+> **Confidencialidad**: Es un conjunto de reglas que evita que la información sensible sea revelada a personas no autorizadas, espacios, recursos y procesos. Los métodos utilizados para garantizar la confidencialidad está el *Cifrado de Datos*, la *Autenticación* y el *Control de Acceso*.
+
+> **Integridad**: Garantiza que la información o los procesos del sistema estén protegidos contra modificaciones intencionales o accidentales. Una forma de garantizar la integridad de los datos es usar funciones Hash o sumas de comprobación como MD5, SHA256.
+
+> **Disponibilidad**: Significa que los usuarios autorizados pueden acceder a los sistemas y datos cuando y donde sea necesario y aquellos que no cumplen con las condiciones establecidas, no lo son. (Mantenimiento del equipo, reparaciones de Hardware, sistemas operativos actualizados y copias de seguridad)
+
+*La protección de información en cada estado* se compone de **Procesamiento, Almacenamiento, Transmisión**.
+
+Con el procesamiento nos referimos a los dato que se utilizan para realizar una operación con la actualización de un registro de base de datos. En el almacenamiento hablamos de los datos en memoria o un dispositivo permanente de almacenamiento, HDD o SSD. Y las transmisión se refiere a los datos que viajan entre sistemas de información.
+
+*Las medidas de seguridad para proteger los datos* son **Awareness, capacitación y educación**, **Tecnología** y **Política y procedimiento**.
+
+> La concientización es la medida implementada por una empresa para garantizar que los usuarios estén informados sobre posibles amenazas de seguridad y como pueden actuar para mantener los sistemas y la organización segura.
+
+> La tecnología se refiere a las soluciones basadas en Software y Hardware diseñadas para proteger los sistemas comos los `Firewalls`, que monitorean continuamente la red en busca de incidentes.
+
+> La política y el procedimiento son los controles administrativos que proporcionan una base para la forma en que una organización tiene planes de respuestas a incidentes y mejores practicas. 
+
+Frente a un correo electrónico fraudulento, que se puede identificar como **Phising**?
+- Lengua, ortografía y gramática
+- Nombre del cliente
+- Gráficos
+- URL del enlace
+- Dirección de correo electrónico
+<br><br>
+<details><summary><strong>Respuestas correctas</strong></summary><h3 class="titulo-secundario">Lengua, ortografía y gramática. <br> Gráficos. <br> URL del enlace. <br> DIrección de correo electrónico.</h3></details>
+---
 
 Modelos de servicio en la nube frente a servicio en físico llamado 'On premise vs cloud'.
 Retomando hay un porcentaje entre el 20/80 de amenazas externas y externas
