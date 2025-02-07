@@ -203,7 +203,7 @@ Estos ejemplos muestran que las posibles consecuencias de una violación de la s
 
 A pesar de las mejores intenciones y de todas las salvaguardas es imposible defenderse de todos los ciberataques, los agentes de amenaza están constantemente encontrando nuevas formas de atacar y, eventualmente, tendrán éxito.
 <h3 class="titulo-secundario">Nosotros como profesionales de ciberseguridad debemos saber como responder rápidamente.</h3>
-
+<hr />
 <h2 id="laboratorio-1-y-2"><h2 id="subtitulo-importante">Lab 1 ¿Quién posee sus datos?</h2></h2>
 <h3 class="titulo-principal">Parte 1</h3>
 Revisar los términos y condiciones y responder unas preguntas.
