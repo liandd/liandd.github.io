@@ -230,18 +230,16 @@ Revisar los términos y condiciones y responder unas preguntas.
 <details><summary>Respuesta</summary>Si la persona muere y Apple recibe el certificado de defunción se cancelara la cuenta y se eliminar todo el contenido. Apple se reserva el derecho en caso de evaluar contenido proporcionado por terceros de determinar si el contenido es ajustado a lo previsto y sin notificación previa eliminar contenido.</details>
 
 <h3 class="titulo-principal">Parte 2: ¿Sabe a qué se suscribió?</h3>
-Luego de haber creado una cuenta y aceptado las Condiciones del servicio, ¿sabe realmente a qué se 
-suscribió? 
-En la parte 2, explorará cómo los proveedores pueden interpretar y utilizar las Condiciones de servicio. 
-Utilice Internet para buscar información sobre cómo se interpretan las Condiciones del servicio. 
-A continuación se encuentran algunos artículos de ejemplo para comenzar. 
+Luego de haber creado una cuenta y aceptado las Condiciones del servicio, ¿sabe realmente a qué se suscribió?. En la parte 2, explorará cómo los proveedores pueden interpretar y utilizar las Condiciones de servicio. 
 
-<a href="http://www.americanbar.org/publications/law_practice_today_home/law_practice_today_archive/april12/haveattorneys-read-the-icloud-terms-and-conditions.html"><strong><em style="color: #559">iCloud</em></strong></a>
+> Utilice Internet para buscar información sobre cómo se interpretan las Condiciones del servicio. A continuación se encuentran algunos artículos de ejemplo para comenzar.
+
+Haz click aquí -> <a href="http://www.americanbar.org/publications/law_practice_today_home/law_practice_today_archive/april12/haveattorneys-read-the-icloud-terms-and-conditions.html"><strong><em style="color: #559">iCloud</em></strong></a>
 
 Revise el artículo y responda las siguientes preguntas. 
 1. ¿Qué puede hacer para protegerse, proteger su cuenta y proteger sus datos?  
   <details><summary>Respuesta</summary>Se puede realizar una encriptación de los datos para proteger lo almacenado en icloud.</details>
-
+<hr />
 <h2 id="subtitulo-importante">Lab 2 Reflexión Sobre comportamiento riesgoso en línea</h2>
 
 2 puntos es bastante seguro, el compartir artículos y noticias por filtro de a quien se decide compartir ya es un comportamiento muy minucioso por parte de un usuario en cuanto su privacidad.
