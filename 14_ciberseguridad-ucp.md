@@ -181,7 +181,25 @@ Frente a un correo electrónico fraudulento, que se puede identificar como **Phi
 - URL del enlace
 - Dirección de correo electrónico
 <br><br>
-<details><summary><strong>Respuestas correctas</strong></summary><h3 class="titulo-secundario">Lengua, ortografía y gramática. <br> Gráficos. <br> URL del enlace. <br> DIrección de correo electrónico.</h3></details>
+<details><summary><strong>Respuestas correctas</strong></summary><h3 class="titulo-secundario">Lengua, ortografía y gramática. <br> Gráficos. <br> URL del enlace. <br> Dirección de correo electrónico.</h3></details><br>
+
+El <em>Phising</em> es muy común y, a menudo funciona. Por ejemplo, en agosto 2020, la marca <strong>Razer</strong> sufrió una violación de datos que expuso la información personal de aprox 100000 clientes. Se descubrió que un clúster en la nube estaba `mal configurado y expuso un segmento de la infraestructura` de <strong>Razer</strong> a la Internet pública. <strong>Razer</strong> tardo tres semanas en 'proteger' la instancia en la nube del acceso público pero los agentes de amenaza ya se habían hecho con la información.
+
+Este tipo de situación se esta haciendo muy común y son graves, tenemos como ejemplo la <em>BotNet Persirai</em> de 2017, que afectaba a 'IoT y más de 1000 cámaras de Protocolo Internet IP', `con puertos abiertos permitía la ejecución remota de comandos RCE`, este malware se ejecutaba desde **memoria** y se usó mayormente para causar *ataques de denegación de servicios *Dos/DDoS*.* Tenemos también el caso de Equifax en 2017 una empresa de informes crediticios de USA que sufrió un evento de violación de datos `mediante una vulnerabilidad web`. La empresa creó un dominio para que los clientes verificaran si habían sufrido robo de datos pero los agentes de amenaza aprovecharon y crearon dominios similares y hubo robo de datos.
+
+Siempre hay que estar al tanto de no usar sitios web no autorizados y al cuidado de la información que se proporciona a través de Internet.
+
+Estos ejemplos muestran que las posibles consecuencias de una violación de la seguridad pueden ser graves.
+
+- **Daño a la reputación**: Una violación puede tener un impacto negativo a largo plazo en la reputación de una organización que ha tardado años en construirse. En caso de haber clientes afectados deberán ser notificados y solicitar una compensación o recurrir a un competidor confiable y seguro.
+- **Vandalismo**: Un hacker puede vandalizar un sitio web de una organización publicando información falsa. Incluso pueden hacer algunas modificaciones menores en el número de teléfono o la dirección de la organización y son cambios difíciles de detectar.
+- **Robo**: La información comprometida se puede hacer pública o la pueden explotar en sobornos por dinero.
+- **Pérdida de ingresos**: Un agente de amenaza puede eliminar por completo todo el sitio web y evitar que esta siga operativa. Así la empresa no vende, no crece y se puede enfrentar a multas y sanciones.
+- **Propiedad intelectual dañada**: Puede afectar si el negocio o organización es competitivo en el mercado ya que se pueden filtrar patentes, documentos confidenciales, secretos comerciales y toda la propiedad intelectual.
+
+A pesar de las mejores intenciones y de todas las salvaguardas es imposible defenderse de todos los ciberataques, los agentes de amenaza están constantemente encontrando nuevas formas de atacar y, eventualmente, tendrán éxito.
+<h3 class="titulo-secundario">Nosotros como profesionales de ciberseguridad debemos saber como responder rápidamente.</h3>
+
 ---
 
 Modelos de servicio en la nube frente a servicio en físico llamado 'On premise vs cloud'.
