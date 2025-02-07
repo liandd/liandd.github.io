@@ -14,8 +14,8 @@ La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 h
 
 1. <h1 class="titulo-principal">Introducción a la ciberseguridad</h1>
 - [Conceptos básicos](#introducción-a-la-ciberseguridad)
-- Tipos y estados de la información
-- Tipos de ataques y sus herramientas
+- [Tipos y estados de la información](#tipos-y-estados-de-la-información)
+- [Tipos de ataques y sus herramientas](#tipos-de-ataques-y-sus-herramientas)
 - [Laboratorios 1 y 2](#laboratorio-1-y-2)
 <br>
 2. <h1 class="titulo-principal">Ataques, conceptos y técnicas</h1>
@@ -74,7 +74,7 @@ El `ColCERT de Mintic`, es el equipo de respuestas de ciberseguridad de Colombia
 - <a href="https://nvd.nist.gov"><strong><em style="color: #559">Nist US</em></strong></a>
 
 ---
-
+<h2 id="tipos-y-estados-de-la-información"><h2 id="subtitulo-importante">Tipos y estados de la información</h2></h2>
 <h1 class="titulo-principal">Protegiendo nuestros datos personales</h1>
 
 Debemos proteger nuestros datos pero *¿Cuáles son?*, información personal, información financiera, información académica y todo lo relacionado con historias clínicas, información educativa relacionado con la academia. Incluso entidades bancarias comos <a href="https://www.datacredito.com.co" style="color: #559999">Datacredito</a> existen para almacenar un historial financiero de cada persona con fines lucrativos. Los Hackers pueden tener acceso a sus datos personales a través de estos registros. Por lo que se puede presentar altas tazas de suplantación de identidad o recolección de información. Conocido como **Inteligencia de fuentes abiertas** o **OSINT**.
@@ -104,8 +104,8 @@ En base a nuestra identidad en línea, como primer día de trabajo debemos elegi
 - **jdoe**
 <br><br>
 <details><summary><strong><em>Respuestas correctas</em></strong></summary><h3 class="titulo-secundario"><strong>jdoe y j.doe12</strong></h3></details>
-<br>
-
+<hr />
+<h2 id="tipos-de-ataques-y-sus-herramientas"><h3 class="titulo-principal">Tipos donde pueden haber ataques</h3></h2>
 Los datos personales describen cualquier información sobre usted, incluido su nombre, número de seguro social, número de licencia de conducir, fecha y lugar de nacimiento, nombre de nuestros familiares y amigos. Donde se puede presentar suplantación de identidad.
 
 > **Registros médicos**: Cada vez que visita al médico, la información personal sobre salud y demás queda en los registros médicos electrónicos `EHR` Ya que estos se guardan en línea.
@@ -134,7 +134,7 @@ Cada vez los agentes de amenaza son más sofisticados en su búsqueda de datos v
 
 Antes de comenzar a implementar las mejores prácticas para proteger los datos de la organización, debemos saber de qué se trata.
 
-<h1 class="titulo-principal">Tipos y estados de la información</h1>
+<h1 class="titulo-principal">Estados de la información</h1>
 
 Tenemos por una parte **Datos tradicionales** que suelen ser generados y mantenidos por todas las organizaciones, grandes y pequeñas.
 
@@ -242,7 +242,9 @@ Revise el artículo y responda las siguientes preguntas.
 1. ¿Qué puede hacer para protegerse, proteger su cuenta y proteger sus datos?  
   <details><summary>Respuesta</summary>Se puede realizar una encriptación de los datos para proteger lo almacenado en icloud.</details>
 
+<h2 id="subtitulo-importante">Lab 2 Reflexión Sobre comportamiento riesgoso en línea</h2>
 
+2 puntos es bastante seguro, el compartir artículos y noticias por filtro de a quien se decide compartir ya es un comportamiento muy minucioso por parte de un usuario en cuanto su privacidad.
 
 ---
 
