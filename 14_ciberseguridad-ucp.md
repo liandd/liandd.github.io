@@ -16,7 +16,7 @@ La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 h
 - [Conceptos básicos](#introducción-a-la-ciberseguridad)
 - Tipos y estados de la información
 - Tipos de ataques y sus herramientas
-- Laboratorios 1 y 2
+- [Laboratorios 1 y 2](#laboratorio-1-y-2)
 <br>
 2. <h1 class="titulo-principal">Ataques, conceptos y técnicas</h1>
 - [Analizando un ciberataque](#analizando-un-ciberataque)
@@ -191,14 +191,58 @@ Siempre hay que estar al tanto de no usar sitios web no autorizados y al cuidado
 
 Estos ejemplos muestran que las posibles consecuencias de una violación de la seguridad pueden ser graves.
 
-- **Daño a la reputación**: Una violación puede tener un impacto negativo a largo plazo en la reputación de una organización que ha tardado años en construirse. En caso de haber clientes afectados deberán ser notificados y solicitar una compensación o recurrir a un competidor confiable y seguro.
-- **Vandalismo**: Un hacker puede vandalizar un sitio web de una organización publicando información falsa. Incluso pueden hacer algunas modificaciones menores en el número de teléfono o la dirección de la organización y son cambios difíciles de detectar.
-- **Robo**: La información comprometida se puede hacer pública o la pueden explotar en sobornos por dinero.
-- **Pérdida de ingresos**: Un agente de amenaza puede eliminar por completo todo el sitio web y evitar que esta siga operativa. Así la empresa no vende, no crece y se puede enfrentar a multas y sanciones.
-- **Propiedad intelectual dañada**: Puede afectar si el negocio o organización es competitivo en el mercado ya que se pueden filtrar patentes, documentos confidenciales, secretos comerciales y toda la propiedad intelectual.
+> **Daño a la reputación**: Una violación puede tener un impacto negativo a largo plazo en la reputación de una organización que ha tardado años en construirse. En caso de haber clientes afectados deberán ser notificados y solicitar una compensación o recurrir a un competidor confiable y seguro.
+
+> **Vandalismo**: Un hacker puede vandalizar un sitio web de una organización publicando información falsa. Incluso pueden hacer algunas modificaciones menores en el número de teléfono o la dirección de la organización y son cambios difíciles de detectar.
+
+> **Robo**: La información comprometida se puede hacer pública o la pueden explotar en sobornos por dinero.
+
+> **Pérdida de ingresos**: Un agente de amenaza puede eliminar por completo todo el sitio web y evitar que esta siga operativa. Así la empresa no vende, no crece y se puede enfrentar a multas y sanciones.
+
+> **Propiedad intelectual dañada**: Puede afectar si el negocio o organización es competitivo en el mercado ya que se pueden filtrar patentes, documentos confidenciales, secretos comerciales y toda la propiedad intelectual.
 
 A pesar de las mejores intenciones y de todas las salvaguardas es imposible defenderse de todos los ciberataques, los agentes de amenaza están constantemente encontrando nuevas formas de atacar y, eventualmente, tendrán éxito.
 <h3 class="titulo-secundario">Nosotros como profesionales de ciberseguridad debemos saber como responder rápidamente.</h3>
+
+<h2 id="laboratorio-1-y-2"><h2 id="subtitulo-importante">Lab 1 ¿Quién posee sus datos?</h2></h2>
+<h3 class="titulo-principal">Parte 1</h3>
+Revisar los términos y condiciones y responder unas preguntas.
+
+1.¿Tiene una cuenta con una proveedor de servicios en línea? Si es así, ¿ha leído el acuerdo de los términos de servicio?
+<details><summary>Respuesta</summary>Si, con icloud hay transparencia en como funciona sus aplicaciones y su servicio en la nube. El como comparte su información en servidores de terceros para alojamiento de datos y las restricciones y procedimientos a realizar para usuarios menores de edad.</details>
+<br> 
+2.¿Cuál es la política de uso de datos? 
+ <details><summary>Respuesta</summary>Aplica tarifas y requiere de uso de licencias de terceros las cuales deben ser aceptadas.</details>
+ <br> 
+3.¿Cuáles son las configuraciones de privacidad? 
+<details><summary>Respuesta</summary>Apple se reserva el derecho de determinar en cualquier momento si el contenido es apropiado y se ajusta a lo previsto en este contrato (trasladar, rechazar, modificar, eliminar contenido en cualquier momento) sin notificación previa y a entera discreción.</details>
+<br> 
+4.¿Cuál es la política de seguridad? 
+ <details><summary>Respuesta</summary>Si se desea, se puede habilitar la encriptación de punto a punto para proteger aún más categorías adicionales de los datos en icloud.</details>
+ <br> 
+5.¿Cuáles son sus derechos en relación con sus datos? ¿Puede solicitar una copia de sus datos? 
+ <details><summary>Respuesta</summary>Si, con icloud se puede acceder a una copia de nuestros datos y si no se hace una copia en 180 días Apple eliminara que fueron creadas periódicamente en icloud.</details>
+ <br> 
+6.¿Qué puede hacer el proveedor con los datos que usted carga? 
+<details><summary>Respuesta</summary>Si, con icloud hay transparencia en como funciona sus aplicaciones y su servicio en la nube. El como comparte su información en servidores de terceros para alojamiento de datos y las restricciones y procedimientos a realizar para usuarios menores de edad.</details>
+<br> 
+7.¿Qué sucede con sus datos cuando cierra su cuenta? 
+<details><summary>Respuesta</summary>Si la persona muere y Apple recibe el certificado de defunción se cancelara la cuenta y se eliminar todo el contenido. Apple se reserva el derecho en caso de evaluar contenido proporcionado por terceros de determinar si el contenido es ajustado a lo previsto y sin notificación previa eliminar contenido.</details>
+
+<h3 class="titulo-principal">Parte 2: ¿Sabe a qué se suscribió?</h3>
+Luego de haber creado una cuenta y aceptado las Condiciones del servicio, ¿sabe realmente a qué se 
+suscribió? 
+En la parte 2, explorará cómo los proveedores pueden interpretar y utilizar las Condiciones de servicio. 
+Utilice Internet para buscar información sobre cómo se interpretan las Condiciones del servicio. 
+A continuación se encuentran algunos artículos de ejemplo para comenzar. 
+
+<a href="http://www.americanbar.org/publications/law_practice_today_home/law_practice_today_archive/april12/haveattorneys-read-the-icloud-terms-and-conditions.html"><strong><em style="color: #559">iCloud</em></strong></a>
+
+Revise el artículo y responda las siguientes preguntas. 
+1. ¿Qué puede hacer para protegerse, proteger su cuenta y proteger sus datos?  
+  <details><summary>Respuesta</summary>Se puede realizar una encriptación de los datos para proteger lo almacenado en icloud.</details>
+
+
 
 ---
 
