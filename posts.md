@@ -19,8 +19,6 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ ? ] <a  href="">x86 Assembly - Notes</a>
 - [ ? ] <a  href="">IvNLP - Asesorias</a>
 - [ ? ] <a  href="">Sistemas Operativos - Notes</a>
-- [ ? ] <a  href="">Hacking 1 - Notes/Scripting</a>
-- [ ? ] <a  href="">Linux 1- Notes/Scripting</a>
 - [ ? ] <a  href="">Over The Wire Bandit - Bash</a>
 - [ ? ] <a  href="">CCNA1v7</a>
 - [ ? ] <a  href="">Cisco PacketTracer - Notes</a>
@@ -29,7 +27,9 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ 2025_31_01 ] <a  href="\grubRescue.html">Grub Rescue de x86_64 a i386</a>
 - [ 2025_28_01 ] <a  href="\ciberseguridadUcp.html">Ciberseguridad 1 - UCP</a>
 - [ 2025_22_01 ] <a  href="\pythonOfensivo.html">Python Para CTF - Notes/Scripting</a>
-- [ 2024_25_11 ] <a  href="\nlp.html">NLP Python3 - Notes</a>
+- [ 2025_?_? ] <a  href="">Hacking 1 Para CTF - Notes/Scripting</a>
+- [ 2025_?_? ] <a  href="">Linux 1 Para CTF - Notes/Scripting</a>
+- [ 2024_25_11 ] <a  href="\nlp.html">Python Para NLP y ML - Notes</a>
 - [ 2024_28_10 ] <a  href="\vpnScript.html">VpnScript.sh - unkn0wn1122/script</a>
 - [ 2024_21_07 ] <a  href="\guiaArch.html">Guía Instalación Arch Linux Bspwm</a>
 - [ 2024_28_03 ] <a  href="\programacionCompetitiva.html">Programación Competitiva 1er año</a>

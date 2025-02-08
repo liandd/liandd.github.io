@@ -20,7 +20,7 @@ La materia tiene un enfoque orientado a seguridad informática para desplegar sc
 - [Entrada y Salida de Datos](#entrada-y-salida-de-datos)
 - [Proyectos de POO para reforzar](#proyectos-de-POO-para-reforzar)
 - [Biblioteca Estándar y Herramientas](#biblioteca-estándar-y-herramientas-adicionales)
-- [Manejo de librerías Comunes]
+- [Manejo de librerías Comunes](#manejo-de-libreriías-comunes)
 - [Desarrollo de aplicaciones de escritorio]
 - [Python Ofensivo]
 
@@ -2581,6 +2581,8 @@ print(directorio) # mi_directorio
 directorio, archivo = os.path.split(ruta)
 ```
 <h1 class="titulo-principal">Conexiones de red y protocolos</h1>
+
+
 
 # Librería OS y SYS
 
