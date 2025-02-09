@@ -2582,7 +2582,101 @@ directorio, archivo = os.path.split(ruta)
 ```
 <h1 class="titulo-principal">Conexiones de red y protocolos</h1>
 
+Una clase muy importante en la creación de exploits, debido a que se establecen muchas comunicaciones con servicios y nosotros mismos. Vamos a usar la librería socket para TCP/UDP.
 
+> **Socket**: Designa un concepto abstracto donde 2 procesos se intercambian datos mediante una comunicación.
+
+Si nos ponemos en escucha con nc en un puerto para recibir conexiones entrantes (Servidor), y luego un cliente cuando hablamos de TCP:
+
+```bash
+nc -nlvp 1234
+```
+
+```bash
+nc localhost 1234
+```
+
+**Server.py**
+```python
+import socket
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) ## ipv4 y TCP
+server_address = ('localhost', 1234)
+server_socket.bind(server_address) # Estamos en escucha, y por ahora 1 unica conexión
+
+# Límite de conexiones
+server_socket.listen(1)
+
+while True:
+	client_socket, client_address = server_socker.accept() # Aceptar conexión entrante
+	data = cliennt_socket.recv(1024) # Recibir datos
+	print(f"[+] Mensaje recibido del cliente: {data.decode()}")
+	print(f"[+] Información del cliente que se ha comunicado con nosostros: {client_address}")
+	client_socket.sendall(f"Un saludo\n".encode())
+	client_socket.close()	
+
+```
+
+**Client.py**
+```python
+import socket
+
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_address = ('localhost', 1234)
+client_socket.connect(server_address)
+
+try:
+	message = b"Este es un mensaje de prueba"
+	client_socket.sendall(message)
+	data = client_socket.recv(1024)
+	print(f"[+] El servidor nos ha respondido con este mensaje: {data.decode()}")
+finally:
+	cliente_socket.close()
+```
+
+**Server.py**
+```python
+import socket
+
+def start_server():
+	host = 'localhost'
+	port = 1234
+	with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+		s.bind((host, port))
+		print(f"[+] Servidor en escucha en {host}, {port}")
+		s.listen(1)
+		conn, addr = s.accept()
+
+		with conn:
+			print(f"[+] Se ha conectado un nuevo cliente: {addr}")
+			while True:
+				data = conn.recv(1024)
+				if not data:
+					break
+				conn.sendall(data)
+
+start_server()
+```
+
+**Cliente.py**
+```python
+import socket
+
+def start_client():
+	host = 'localhost'
+	port = 1234
+
+	with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+		s.connect((host, port))
+		s.sendall(b"Hola, servidor!")
+		data = s.recv(1024)
+
+	print(f"{data.decode()}")
+
+start_client()
+```
+
+Cuando hablamos de UDP
 
 # Librería OS y SYS
 
