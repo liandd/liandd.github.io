@@ -2678,6 +2678,115 @@ start_client()
 
 Cuando hablamos de UDP
 
+**Server.py**
+```python
+import socket
+def start_udp_server():
+	
+	host = 'localhost'
+	port = 1234
+
+	with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+		s.bind((host, port))
+		print(f"[+] Servidor UDP Iniciado en {host}:{port}")
+
+		while True:
+			data, addr = s.recvfrom(1024)
+			print(f"[+] Mensaje enviado por el cliente: {data.decode()}")
+			print(f"[+] Información del cliente : {addr}")
+
+start_udp_server()
+```
+
+```bash
+nc localhost 1234 -u
+```
+
+**Cliente.py**
+
+```python
+import socket
+
+def start_upd_client():
+
+	host = 'localhost'
+	port = 1234
+
+	with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+		s.sendto(b"Hola, aqui estamos tensandola", (host, port)) # las tildes no hacen parte del ASCII .encode("utf-8")
+
+start_udp_client()
+```
+ 
+Vamos a menjar multiples conexiones haciendo uso de la biblioteca Threading que veremos a profundidad más adelante
+
+**Server.py**
+
+```python
+import socket
+import threading
+import pdb # Para debuggear
+class ClientThread(threading.Thread):
+	def __init__(self, client_sock, client_addr):
+		super().__init__()
+		self.client_sock = client_sock
+		self.client_addr = client_addr
+		print(f"[+] Nuevo cliente Conectado: {client_addr}")
+
+	def run(self):
+		message = ''
+		while True:
+			data = self.client_sock.recv(1024)
+			message = data.decode()
+			pdb.set_trace() # p message tiene un salto de línea
+			if message.strip() == "bye":
+				break
+			print(f"[+] Mensaje enviado por el cliente: {message.strip()}")
+			self.client_sock.send(data)
+		print(f"[!] Cliente {client_addr} desconectado")
+		self.client_sock.close()
+
+HOST = 'Localhost'
+PORT = 1234
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
+	# Las propiedades de un socket están en niveles y se pueden modificar
+	server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # 1: nivel, 2: propiedad a alterar, 3:la igualdad que se quiere establecer TIME_WAIT
+	server_socket.bind((HOST, PORT))
+	print(f"[+] En espera de conexiones entrantes...")
+
+	while True:
+		server_socket.listen()
+		client_sock, client_addr =  server_socket.accept()
+		#threading.Thread(target=mi_funcion, args=(client_sock, client_addr))
+		#new_thread.start()
+
+		new_thread = ClientThread(client_sock, client_addr)
+		new_thread.start()
+```
+
+**Cliente.py**
+```python
+import socket
+
+def start_client():
+	host = 'localhost'
+	port = 1234
+
+	with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+		s.connect((host, port))
+
+		while True:
+			message = input("[+] Introduce tu mensaje: ")
+			s.sendall(message.decode())
+			if message == 'bye':
+				break
+			data = s.recv(1024)
+			print(f"[+] Mensaje de respuesta del servidor {data.decode()}")
+			
+start_client()
+```
+
 # Librería OS y SYS
 
 # Librería REQUEST
