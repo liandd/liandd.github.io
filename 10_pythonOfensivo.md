@@ -20,7 +20,7 @@ La materia tiene un enfoque orientado a seguridad informática para desplegar sc
 - [Entrada y Salida de Datos](#entrada-y-salida-de-datos)
 - [Proyectos de POO para reforzar](#proyectos-de-POO-para-reforzar)
 - [Biblioteca Estándar y Herramientas](#biblioteca-estándar-y-herramientas-adicionales)
-- [Manejo de librerías Comunes](#manejo-de-libreriías-comunes)
+- [Manejo de librerías Comunes](#manejo-de-librerías-comunes)
 - [Desarrollo de aplicaciones de escritorio]
 - [Python Ofensivo]
 
