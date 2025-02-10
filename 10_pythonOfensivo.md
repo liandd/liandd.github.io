@@ -2839,9 +2839,149 @@ def start_chat_client():
 start_chat_client()
 ```
 
-# Librería OS y SYS
+<h3 class="titulo-principal">Librería OS y SYS</h3>
 
-# Librería REQUEST
+El uso de la librería os y sys es muy comun:
+
+```python
+import os
+
+directorio_actual = os.getcwd() # pwd
+
+print(f"[+] Directorio actual de trabajo: {directorio_actual}")
+
+files = os.listdir(directorio_actual)
+
+print(type(files))
+
+print("[+] Listando los archivos existentes en el directorio")
+
+for file in files:
+	print(file)
+
+os.mkdir("mi_directorio") # Crear directorio
+
+print(f"[+] ¿Existe el archivo 'mi_archivo.txt' -> {os.path.exists('mi_archivo.txt')}")
+
+# Traer variables de entorno
+get_env = os.getenv('KITTY_INSTALLATION_DIR')
+```
+
+**Para scripts sys, esta muy bien**
+```python
+import sys
+
+print(f"[+] Nombre del script: {sys.argv[0]}")
+print(f"[+] Total argumentos que se estan pasando {len(sys.argv)}")
+sys.exit(1) # Salir con códigos de estado
+```
+
+```bash
+# Para el library hijacking
+python3 -c 'import sys; print(sys.path)'
+```
+<h3 class="titulo-principal">Librería REQUEST</h3>
+
+Se utiliza mucho para el  Hacking Web, es muy importante saber utilizarla para hacer explotaciones web, PS: no poner de nombre requests al archivo python que estemos trabajando.
+
+```python
+# Hacer consulta a google
+import requests
+
+response = requests.get("https://google.es") # Tiene un código de estado, un código fuente
+
+print(f"[+] Status code: {response.status_code}")
+print(f"[+] Código fuente de la respuesta:")
+with open("index.html", "w") as f:
+	f.write(response.text)
+```
+
+Abrir un servidor http con python
+
+```bash
+python3 -m http.server 80
+```
+
+```python
+import requests
+values = {"key1": "value1", "key2": "value2", "key3":"value3"}
+response = requests.get("https://httpbin.org/get", params=values)
+
+print(response.url)
+print(reponse.text)
+
+# Por post
+payload = {"key1": "value1", "key2": "value2", "key3":"value3"}
+# Se puede cambiar la cabecera
+headers = {'User-Agent': 'my-app/1.0.0'}
+response = requests.get("https://httpbin.org/post", data=payload, headers=headers)
+```
+
+Python también permite manejar excepciones:
+
+```python
+import requests
+
+# Limitar tiempo
+
+try:
+	response = requests.get("https://google.es", timeout=1)
+	response.raise_for_status()
+
+except requests.Timeout:
+	print(f"[!] La petición ha excedido el tiempo límite de espera")
+
+except requests.HTTPError as http_err:
+	print(f"[!] Error HTTPS: {http_err}")
+except requests.RequestsException as err:
+	print(f"[!] Error: {err}")
+else:
+	print(f"[+] No ha habido ningún error")
+```
+
+
+```python
+import requests
+
+response = requests.get("https://httpbin.org/get")
+
+data = response.json()
+
+print(data)
+if 'headers' in data and 'User-Agent' in data['headers']:
+	user_agent = data['headers']['User-Agent']
+	print(f"[+] User-Agent : {user_agent}")
+else:
+	print("[!] No existe este campo en la respuestas")
+```
+
+También podemos autenticarnos:
+```python
+import requests
+
+response = requests.get("https://httpbin.org/basic-auth/foo/bar", auth=('foo', 'foo'))
+
+print(response.status_code)
+print(response.text)
+```
+
+**Cambiar Cookie**
+```python
+import requests
+cookies = dict(cookies_are='working')
+response = requests.get("https://httpbin.org/cookies", cookies=cookies)
+print(cookies)
+print(response.text)
+```
+
+**Enviar Archivo**
+```python
+import requests
+url = "https://httpbin.org/post"
+my_file = {'archivo': open('example.txt', 'r')}
+response = requests.post(url, files=my_file)
+print(response.text)
+```
 
 # Librería URLLIB
 
