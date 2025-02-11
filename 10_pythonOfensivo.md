@@ -2838,7 +2838,8 @@ def start_chat_client():
 
 start_chat_client()
 ```
-
+<hr />
+<h1 id="manejo-de-librerías-comunes"><h1 id="subtitulo-importante">Manejo de librerías comunes</h1></h1>
 <h3 class="titulo-principal">Librería OS y SYS</h3>
 
 El uso de la librería os y sys es muy comun:
