@@ -279,6 +279,16 @@ El 80% de las amenazas son internas, y con herramientas como NMAP un agente pued
 
 Una herramienta para OSINT, es WHOIS y por consola está WFUZZ, GOBUSTER. Cuando una persona cae en el PHISING y es redireccionado a la pagina del atacante cae en FARMING donde con herramientas como Cisco Talos para averiguar sobre la web (reputación, dominios, IP).
 
+### Caso de estudio Proyecto asignatura
+
+Para comfamiliar, debemos hacer toda la infraestructura de ciberseguridad. Nos dan todos los permisos y parámetros describiéndonos la infraestructura de red.
+
+#### VLans y enrutamiento
+
+Hay diferentes tipos de vlan para separar los canales de datos. (Datos, voz IP, Administrativa, Usuarios, Nativa es exclusiva para los enlaces truncales). Para separar los canales de conexión mediante una segmentación. Se puede hacer mediante un algoritmo de enrutamiento. Los puertos .1 y .24 son truncales y están establecidos por defecto.
+
+Se hace una separación entre las Vlans y la #1 no se usa por seguridad. Vlan de parking y están apagados por defecto.
+
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
