@@ -266,6 +266,19 @@ Todo el Malware es el código malicioso, ejemplo el Spyware que hace espionaje e
 
 El virus requiere intervención del usuario pero el gusano no, ese se auto reproduce, una forma muy curiosa para detectar patrones de posible infección por virus es el análisis de PID para saber procesos desconocidos.
 
+Entran todos los troyanos, keyloggers.
+
+## Reconocimiento
+Es muy utilizado para obtener información no actualizadas, topologias de red, servicios web y vulnerabilidades. Puede ser mediante la web y técnicas de OSINT para obtener información del objetivo.
+
+Internet information queries (OSINT) -> Inteligencia de fuente abierta
+Ping Sweeps - NMAP
+Port Scans - NMAP
+Packet Sniffer - Wireshark, TCPDUMP
+El 80% de las amenazas son internas, y con herramientas como NMAP un agente puede hacer reconocimiento de nuestra información.
+
+Una herramienta para OSINT, es WHOIS y por consola está WFUZZ, GOBUSTER. Cuando una persona cae en el PHISING y es redireccionado a la pagina del atacante cae en FARMING donde con herramientas como Cisco Talos para averiguar sobre la web (reputación, dominios, IP).
+
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
