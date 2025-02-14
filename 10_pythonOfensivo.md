@@ -3102,6 +3102,8 @@ http = urllib3.PoolManager(cert_reqs='CERT_NONE') # Controlador
 
 # Librería Threading y Multiprocessing
 
+
+
 # Interfaz gráfica de usuario
 
 # Tkinter - Desarrollo de aplicaciones
