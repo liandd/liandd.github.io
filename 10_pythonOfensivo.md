@@ -2939,7 +2939,13 @@ except requests.RequestsException as err:
 else:
 	print(f"[+] No ha habido ningún error")
 ```
+En algunos casos las respuestas están en json
 
+```bash
+curl -s -X GET "https://httpbin.org/get"
+```
+
+Pero python también tiene una forma de manejar este formato
 
 ```python
 import requests
@@ -2982,6 +2988,69 @@ url = "https://httpbin.org/post"
 my_file = {'archivo': open('example.txt', 'r')}
 response = requests.post(url, files=my_file)
 print(response.text)
+```
+
+**Mantener las cookies en el script**
+```python
+import requests
+
+url = 'https://httpbin.org/cookies'
+set_cookies = 'https://httpbin.org/cookies/set/my_cookie/123123'
+
+response = requests.get(set_cookies_url)
+response = requests.get(url)
+
+print(response.text)
+```
+
+Las consultas por consola son diferentes de las del navegador, cuando se desea una relación en todas las solicitdues, hay que declarar una sesion.
+
+```python
+import requests
+
+url = 'https://httpbin.org/cookies'
+set_cookies = 'https://httpbin.org/cookies/set/my_cookie/123123'
+
+s = requests.Session()
+
+response = s.get(set_cookies_url)
+response = s.get(url)
+
+print(response.text)
+```
+
+```python
+from requests import Request, Session
+
+url = 'https://httpbin.org/get'
+s = Session()
+
+headers = {'Custom-Header': 'my_custom_header'}
+req = Requests('GET', url, headers=headers) #Para alterar la solicitud sin modificar
+
+prepped = req.prepare() # Cambiar valores antes de enviar
+
+prepped.headers['Custom-Header'] = 'my_header_changed'
+response = s.send(prepped)
+
+print(response.text)
+```
+
+Para hacer un Log de redirecciones:
+
+```python
+import requests
+
+url = 'http://github.com'
+r = requests.get(url, allow_redirects=False)
+
+print(r.url) # Aplica redirect
+print(r.history) # Ver historico
+
+for request in r.history:
+	print(f"[+] Hemos pasado por el dominio {request.url} con un código de estado {request.status_code}")
+
+r.url # Es la url final
 ```
 
 # Librería URLLIB
