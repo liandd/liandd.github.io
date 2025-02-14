@@ -3102,7 +3102,60 @@ http = urllib3.PoolManager(cert_reqs='CERT_NONE') # Controlador
 
 # Librería Threading y Multiprocessing
 
+Los hilos nos permiten ejecutar múltiples tareas en paralelo dentro de un mismo proceso
+```python
+import threading
+import time
 
+def tarea(num_tarea):
+	print(f"[+] Tarea {num_tarea} iniciando")
+	time.sleep(2)
+	print(f"[+] Tarea {num_tarea} finalizando")
+
+tarea(1)
+tarea(2)
+
+# Tarea 2 debe esperar a que tarea 1 finalice para empezar. Si fueran multiples tareas como 50 tardará mucho. Ahí entrand los hilos
+
+def tarea(num_tarea):
+	print(f"[+] HILO {num_tarea} iniciando")
+	time.sleep(2)
+	print(f"[+] HILO {num_tarea} finalizando")
+
+thread1 = threading.Thread(target=tarea, args=(1,))
+thread2 = threading.Thread(target=tarea, args=(2,))
+
+#Esperear a que terminen los hilos con .join
+thread1.start()
+thread2.start()
+
+thread1.join()
+thread2.join()
+```
+
+### Multiprocessing
+Estos procesos no comparten memoria, entonces no comparte memoria pero puede usar múltiples núcleos de la cpu con son tareas intensivas.
+```python
+import multiprocessing
+import time
+
+def tarea(num_tarea):
+	print(f"[+] HILO {num_tarea} iniciando")
+	time.sleep(2)
+	print(f"[+] HILO {num_tarea} finalizando")
+
+proceso1 = multiprocessing.Process(target=tarea, args=(1,))
+proceso2 = multiprocessing.Process(target=tarea, args=(2,))
+
+#Esperear a que terminen los hilos con .join
+proceso1.start()
+proceso2.start()
+
+proceso1.join()
+proceso2.join()
+```
+
+Hay muchas herramientas que usan hilos para controlar el número de tareas. Gobuster, Wfuzz
 
 # Interfaz gráfica de usuario
 
