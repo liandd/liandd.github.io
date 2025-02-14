@@ -3055,6 +3055,51 @@ r.url # Es la url final
 
 # Librería URLLIB
 
+En esta clase hay otra librería que guarda vínculos y una relación con la librería requests y esta es URLLIB3 y tiene sus diferencias, la más significativa es la complejidad. Siendo requests más a alto nivel y urllib3 es más completa. Con urllib3 hay más opciones para manejar las excepciones.
+
+```python
+import urllib3
+import json
+
+#Hay que definir un controlador de conexiones
+http = urllib3.PoolManager() # Controlador
+#Enviar una solicitud
+response = http.request('GET', 'https://httpbin.org/get')
+#Ver respuesta en bytes
+print(response.data.decode())
+
+#Enviar una solicitud POST
+response = http.request('POST', 'https://httpbin.org/post')
+#cuando se quiera enviar datos en bruto sin ser formulario, y para formulario
+body =, fields=
+
+data = "Esto es una prueba"
+encoded_data = data.encode()
+data2 = {'atributo': 'valor'}
+encoded_data2 = json.dumps(data2).encode()
+response = http.request('POST', 'https://httpbin.org/post', body=encoded_data)
+response = http.request('POST', 'https://httpbin.org/post', body=encoded_data2)
+
+response = http.request('POST', 'https://httpbin.org/post', fields={'atributo': 'valor'})
+#Ver respuesta en bytes
+print(response.data.decode())
+
+# Lo conveniente al usar json es arrastrar una cabecera
+data2 = {'atributo': 'valor'}
+encoded_data2 = json.dumps(data2).encode()
+response = http.request('POST', 'https://httpbin.org/post', body=encoded_data2, headers={'Content-Type': 'application/json'})
+
+# Evitar redirect=False
+response.status
+print(dir(response))
+response.get_redirect_location
+
+#Ignorar certificados autofirmados
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+http = urllib3.PoolManager(cert_reqs='CERT_NONE') # Controlador
+```
+
 # Librería Threading y Multiprocessing
 
 # Interfaz gráfica de usuario
