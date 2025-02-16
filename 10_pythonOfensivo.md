@@ -3159,6 +3159,8 @@ Hay muchas herramientas que usan hilos para controlar el número de tareas. Gobu
 
 # Interfaz gráfica de usuario
 
+El ultimo apartado antes de entrar a la parte ofensiva, la idea es tratar de darle una interfaz de usuario a nuestros programas usando la librería Tkinter para el desarrollo de nuestras aplicaciones para el usuario. De manera muy sencilla pero gestionar todo más cómodo. Se harán algunos proyectos para repasar python y aplicar interfaz gráfica.
+
 # Tkinter - Desarrollo de aplicaciones
 
 # CustomTkinter - Desarrollo de aplicaciones
