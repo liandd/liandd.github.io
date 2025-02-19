@@ -283,7 +283,7 @@ Una herramienta para OSINT, es WHOIS y por consola está WFUZZ, GOBUSTER. Cuando
 
 Para comfamiliar, debemos hacer toda la infraestructura de ciberseguridad. Nos dan todos los permisos y parámetros describiéndonos la infraestructura de red.
 
-#### VLans y enrutamiento
+#### VLans y enrutamiento (SIMULACIÓN)
 
 Hay diferentes tipos de vlan para separar los canales de datos. (Datos, voz IP, Administrativa, Usuarios, Nativa es exclusiva para los enlaces truncales). Para separar los canales de conexión mediante una segmentación. Se puede hacer mediante un algoritmo de enrutamiento. Los puertos .1 y .24 son truncales y están establecidos por defecto.
 
