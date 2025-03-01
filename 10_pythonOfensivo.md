@@ -3174,6 +3174,7 @@ El ultimo apartado antes de entrar a la parte ofensiva, la idea es tratar de dar
 
 ## Previo a la explotación
 De ser necesario se puede hacer la parte de OWAS TOP 10 del Curso de Hacking 1 para practicar aun más python ofensivo.
+Installar `termcolor` y `argparse`.
 
 <h3 class="titulo-principal">Scripting - Escaner de Puertos</h3>
 
@@ -3257,7 +3258,7 @@ def port_scanner(port, s):
 	try: 
 		s.connect((host, port))
 		print(colored(f"[+] El puerto {port} está abierto", 'green'))
-        s.close()
+                s.close()
 	except (socket.timeout, ConnectionRefusedError):
 		print(colored(f"[!] El puerto {port} está cerrado". 'red'))
 		# o también se puede hacer un pass y solo ver los abiertos y no los cerrados
@@ -3267,6 +3268,116 @@ def main():
 	for port in range(1,1000):
 	s = create_socket()
 		port_scanner(port, s)
+
+if __name__ == "__main__":
+	main()
+
+```
+
+**Versión 4.0**
+```python
+#!/usr/bin/env python3
+import socket
+from termcolor import colored
+import argparse
+import sys
+
+def get_arguments():
+	parser = argparse.argumentParser(description='Fast TCP Port Scanner')
+	parser.add_argument('-t', '--target', dest="target", help="Victim Target to Scan (Ex: -t 192.168.0.1)")
+	parser.add_argument('-p', '--port', dest="port", help="Port Range to Scan (Ex: -p 1-100)")
+	options = parser.parse_args()
+	if options.target is None or options.port is None:
+		parser.print_help()
+		sys.exit(1)
+	return options.target, options.port
+
+def create_socket():
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.settimeout(1)
+	return s
+
+def port_scanner(port, host, s):
+	try: 
+		s.connect((host, port))
+		print(colored(f"[+] El puerto {port} está abierto", 'green'))
+		s.close()
+	except (socket.timeout, ConnectionRefusedError):
+		print(colored(f"[!] El puerto {port} está cerrado". 'red'))
+		# o también se puede hacer un pass y solo ver los abiertos y no los cerrados
+		pass
+	
+
+def main():
+	target, port = get_arguments()
+	if '-' in port:
+		ports = port.split('-')
+		for port in range(int(ports[0]),int(ports[1]):
+			s = create_socket()
+			port_scanner(port, target, s)
+	elif ',' in port:
+		ports = port.split(',')
+		for port in ports:
+			s = create_socket()
+			port_scanner(int(port), target, s)			
+
+if __name__ == "__main__":
+	main()
+
+```
+
+**Versión 4.1**
+```python
+#!/usr/bin/env python3
+import socket
+from termcolor import colored
+import argparse
+import sys
+
+def get_arguments():
+	parser = argparse.argumentParser(description='Fast TCP Port Scanner')
+	parser.add_argument('-t', '--target', dest="target", help="Victim Target to Scan (Ex: -t 192.168.0.1)")
+	parser.add_argument('-p', '--port', dest="port", help="Port Range to Scan (Ex: -p 1-100)")
+	options = parser.parse_args()
+	if options.target is None or options.port is None:
+		parser.print_help()
+		sys.exit(1)
+	return options.target, options.port
+
+def create_socket():
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.settimeout(1)
+	return s
+
+def port_scanner(port, host, s):
+	try: 
+		s.connect((host, port))
+		print(colored(f"[+] El puerto {port} está abierto", 'green'))
+		s.close()
+	except (socket.timeout, ConnectionRefusedError):
+		print(colored(f"[!] El puerto {port} está cerrado". 'red'))
+		# o también se puede hacer un pass y solo ver los abiertos y no los cerrados
+		pass
+
+def parse_ports(ports_str):
+	if '-' in ports_str:
+		start, end = map(int, ports_str.split('-'))
+		return ranger(start, end+1)
+	elif ',' in ports_str:
+		return map(int, ports_str.split(','))
+	else:
+		return (int(ports_str),)
+
+def scan_ports(ports, target):
+	for port in ports:
+		s = create_socket()
+		port_scanner(port, target, s)
+
+def main():
+	target, ports_str = get_arguments()
+	ports = parse_ports(ports_str)
+	scan_ports(ports, target)
+			
 
 if __name__ == "__main__":
 	main()
