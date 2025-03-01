@@ -21,8 +21,8 @@ La materia tiene un enfoque orientado a seguridad informática para desplegar sc
 - [Proyectos de POO para reforzar](#proyectos-de-POO-para-reforzar)
 - [Biblioteca Estándar y Herramientas](#biblioteca-estándar-y-herramientas-adicionales)
 - [Manejo de librerías Comunes](#manejo-de-librerías-comunes)
-- [Desarrollo de aplicaciones de escritorio]
-- [Python Ofensivo]
+- [Desarrollo de aplicaciones de escritorio](#desarrollo-de-aplicaciones-de-escritorio)
+- [Python Ofensivo](#python-ofensivo)
 
 <br>
 
@@ -3053,7 +3053,7 @@ for request in r.history:
 r.url # Es la url final
 ```
 
-# Librería URLLIB
+<h3 class="titulo-principal">Librería URLLIB</h3>
 
 En esta clase hay otra librería que guarda vínculos y una relación con la librería requests y esta es URLLIB3 y tiene sus diferencias, la más significativa es la complejidad. Siendo requests más a alto nivel y urllib3 es más completa. Con urllib3 hay más opciones para manejar las excepciones.
 
@@ -3100,7 +3100,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 http = urllib3.PoolManager(cert_reqs='CERT_NONE') # Controlador
 ```
 
-# Librería Threading y Multiprocessing
+<h3 class="titulo-principal">Librería Threading y Multiprocessing</h3>
 
 Los hilos nos permiten ejecutar múltiples tareas en paralelo dentro de un mismo proceso
 ```python
@@ -3133,7 +3133,7 @@ thread1.join()
 thread2.join()
 ```
 
-### Multiprocessing
+<h3 class="titulo-principal">Multiprocessing</h3>
 Estos procesos no comparten memoria, entonces no comparte memoria pero puede usar múltiples núcleos de la cpu con son tareas intensivas.
 ```python
 import multiprocessing
@@ -3154,8 +3154,10 @@ proceso2.start()
 proceso1.join()
 proceso2.join()
 ```
-
 Hay muchas herramientas que usan hilos para controlar el número de tareas. Gobuster, Wfuzz
+
+<hr />
+<h1 id="desarrollo-de-aplicaciones-de-escritorio"><h1 id="subtitulo-importante">Desarrollo de Aplicaciones de Escritorio</h1></h1>
 
 # Interfaz gráfica de usuario
 
@@ -3167,7 +3169,110 @@ El ultimo apartado antes de entrar a la parte ofensiva, la idea es tratar de dar
 
 # Chat Multiusuario con GUI y Cifrado E2E
 
-# Scripting - Escaner de Puertos
+<hr />
+<h1 id="python-ofensivo"><h1 id="subtitulo-importante">Python Ofensivo</h1></h1>
+
+## Previo a la explotación
+De ser necesario se puede hacer la parte de OWAS TOP 10 del Curso de Hacking 1 para practicar aun más python ofensivo.
+
+<h3 class="titulo-principal">Scripting - Escaner de Puertos</h3>
+
+Para conocer la ip del router
+
+```bash
+arp -n
+route -n
+```
+
+**Versión 1.0**
+```python
+#!/usr/bin/env python3
+import socket
+
+host = '192.168.0.1'
+port = 80
+
+def port_scanner(host, port):
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	#s.connect((host, port)), está bien pero hay una variante connection_ex, la diferencia es que una retorna una excepción
+	# Para poner un tiempo de espera en el socket se hace lo siguiente
+	s.settimeout(1)
+	if s.connect_ex((host, port)): # Devuelve un valor código
+		print(f"[+] El puerto {port} esta cerrado")
+	else
+		print(f"[+] El puerto {port} esta abierto")
+
+	s.close()
+
+def main():
+	port_scanner()
+
+if __name__ == "__main__":
+	main()
+
+```
+
+**Versión 2.0**
+```python
+#!/usr/bin/env python3
+import socket
+
+host = input("[+] Introduce una dirección IP: ")
+port = int(input("[+] Introduce el puerto: "))
+
+def port_scanner(host, port):
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	#s.connect((host, port)), está bien pero hay una variante connection_ex, la diferencia es que una retorna una excepción
+	# Para poner un tiempo de espera en el socket se hace lo siguiente
+	s.settimeout(1)
+	if s.connect_ex((host, port)): # Devuelve un valor código
+		print(f"[!] El puerto {port} esta cerrado")
+	else
+		print(f"[+] El puerto {port} esta abierto")
+
+	s.close()
+
+def main():
+	port_scanner()
+
+if __name__ == "__main__":
+	main()
+
+```
+
+**Versión 3.0**
+```python
+#!/usr/bin/env python3
+import socket
+from termcolor import colored
+
+host = input("[+] Introduce una dirección IP: ")
+
+def create_socket():
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.settimeout(1)
+	return s
+
+def port_scanner(port, s):
+	try: 
+		s.connect((host, port))
+		print(colored(f"[+] El puerto {port} está abierto", 'green'))
+	except (socket.timeout, ConnectionRefusedError):
+		print(colored(f"[!] El puerto {port} está cerrado". 'red'))
+		# o también se puede hacer un pass y solo ver los abiertos y no los cerrados
+		pass
+	s.close()
+
+def main():
+	for port in range(1,1000):
+	s = create_socket()
+		port_scanner(port, s)
+
+if __name__ == "__main__":
+	main()
+
+```
+
 
 # Scripting - Macchanger
 
