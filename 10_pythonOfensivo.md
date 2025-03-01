@@ -3257,11 +3257,11 @@ def port_scanner(port, s):
 	try: 
 		s.connect((host, port))
 		print(colored(f"[+] El puerto {port} está abierto", 'green'))
+        s.close()
 	except (socket.timeout, ConnectionRefusedError):
 		print(colored(f"[!] El puerto {port} está cerrado". 'red'))
 		# o también se puede hacer un pass y solo ver los abiertos y no los cerrados
 		pass
-	s.close()
 
 def main():
 	for port in range(1,1000):
