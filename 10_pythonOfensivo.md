@@ -3384,6 +3384,140 @@ if __name__ == "__main__":
 
 ```
 
+**Versión 5.0**
+```python
+#!/usr/bin/env python3
+import socket
+from termcolor import colored
+import argparse
+import threading
+
+def get_arguments():
+	parser = argparse.argumentParser(description='Fast TCP Port Scanner')
+	parser.add_argument('-t', '--target', dest="target", required=True, help="Victim Target to Scan (Ex: -t 192.168.0.1)")
+	parser.add_argument('-p', '--port', dest="port", required=True, help="Port Range to Scan (Ex: -p 1-100)")
+	options = parser.parse_args()
+	
+	return options.target, options.port
+
+def create_socket():
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.settimeout(1)
+	return s
+
+def port_scanner(port, host):
+	s = create_socket()
+	try: 
+		s.connect((host, port))
+		print(colored(f"[+] El puerto {port} está abierto", 'green'))
+		s.close()
+	except (socket.timeout, ConnectionRefusedError):
+		print(colored(f"[!] El puerto {port} está cerrado". 'red'))
+		# o también se puede hacer un pass y solo ver los abiertos y no los cerrados
+		pass
+
+def parse_ports(ports_str):
+	if '-' in ports_str:
+		start, end = map(int, ports_str.split('-'))
+		return ranger(start, end+1)
+	elif ',' in ports_str:
+		return map(int, ports_str.split(','))
+	else:
+		return (int(ports_str),)
+
+def scan_ports(ports, target):
+	threads = []
+	for port in ports:
+		thread = threading.Thread(target=port_scanner(port, target))
+		threads.append(thread)
+		thread.start()
+	for thread in threads:
+		thread.join()
+
+def main():
+	target, ports_str = get_arguments()
+	ports = parse_ports(ports_str)
+	scan_ports(ports, target)
+			
+
+if __name__ == "__main__":
+	main()
+```
+
+Hay un problema con los hilos porque estamos creando sockets por hilos de manera sin control y claro, son descriptores de archivo y al ser tantos empieza a colapsar. Por tanto, una solución es empleando un limite de creación de hilos entre 50-55-100 hilos en simultaneo. Y un manejador de señales.
+**Versión 5.1**
+```python
+#!/usr/bin/env python3
+import socket
+from termcolor import colored
+import argparse
+from concurrent.futures import ThreadPoolExecutor
+import signal
+import sys
+
+open_sockets = []
+
+def def_handler(sig, frame):
+	print(colored(f"[!] Saliendo del programa...", 'red'))
+	for socket in open_sockets:
+		socket.close()
+	sys.exit(1)
+
+signal.signal(signal.SIGINT, def handler) # Ctrl + C
+
+def get_arguments():
+	parser = argparse.argumentParser(description='Fast TCP Port Scanner')
+	parser.add_argument('-t', '--target', dest="target", required=True, help="Victim Target to Scan (Ex: -t 192.168.0.1)")
+	parser.add_argument('-p', '--port', dest="port", required=True, help="Port Range to Scan (Ex: -p 1-100)")
+	options = parser.parse_args()
+	
+	return options.target, options.port
+
+def create_socket():
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.settimeout(1)
+	open_sockets.append(s)
+	return s
+
+def port_scanner(port, host):
+	s = create_socket()
+	try: 
+		s.connect((host, port))
+		s.sendall(b'HEAD / HTTP/1.0\r\n\r\n')
+		response = s.recv(1024)
+		response = response.decode(errors='ignore').slipt('\n')[0]
+		if response:
+			print(colored(f"[+] El puerto {port} está abierto - {response}", 'green'))
+		else:
+			print(colored(f"[+] El puerto {port} está abierto", 'green'))
+		
+	except (socket.timeout, ConnectionRefusedError):
+		pass
+	finally:
+		s.close()
+
+def parse_ports(ports_str):
+	if '-' in ports_str:
+		start, end = map(int, ports_str.split('-'))
+		return ranger(start, end+1)
+	elif ',' in ports_str:
+		return map(int, ports_str.split(','))
+	else:
+		return (int(ports_str),)
+
+def scan_ports(ports, target):
+	with ThreadPoolExecutor(max_workers=50) as executor:
+		 executor.map(lambda port: port_scanner(port, target), ports)
+
+def main():
+	target, ports_str = get_arguments()
+	ports = parse_ports(ports_str)
+	scan_ports(ports, target)
+			
+
+if __name__ == "__main__":
+	main()
+```
 
 # Scripting - Macchanger
 
