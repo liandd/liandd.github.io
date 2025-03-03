@@ -3620,27 +3620,53 @@ if __name__ == '__main__':
 
 ```
 
-# Scripting - Escaner de red ARP con Scapy
+<h3 class="titulo-principal">Scripting - Escaner de red ARP con Scapy</h3>
 
-# Scripting - ARP Spoofer con Scapy
+La anterior herramienta funcionaba mediante ICMP, pero existen otras alternativas por ejemplo protocolo ARP address resolution protocol.
 
-# Scripting - DNS Sniffer
+En una escuela, ¿Quién es John Doe? cuya IP es la (192.168.1.65). Y hay una gran cantidad de alumnos y gritamos a los 4 vientos, ¿Oye, quién es John Doe cuya IP es la 192.168.1.65?. Este mensaje le llega a todos los alumnos y John Doe nos responde con su XX:XX:XX:XX:XX:XX Dirección MAC.
 
-# Scripting - HTTP Sniffer
+> Mapear con una Dirección IP la dirección MAC dada. Esto se hará utilizando Scapy.
 
-# Scripting - HTTPS_Image Sniffer con mitmdump
+```python
+#!/usr/bin/env python3
+import argparse
+import signal
+import sys
 
-# Scripting - DNS Spoofer con Scapy y NetfilterQueue
+def def_handler(sig, frame):
+	print(f"[!] Saliendo del programa...")
+	sys.exit(1)
 
-# Scripting - Traffic Hijacking
+signal.signal(signal.SIGINT, def_handler)
 
-# Scripting - Keylogger
+def main():
+	
 
-# Scripting - Creación de Malware
+if __name__ == "__name__":
+	main()
 
-# Scripting - Creación de Backdoors y Command_and_Control
+```
 
-# Scripting - Forward Shell
+<h3 class="titulo-principal">Scripting - ARP Spoofer con Scapy</h3>
+
+<h3 class="titulo-principal">Scripting - DNS Sniffer</h3>
+
+<h3 class="titulo-principal">Scripting - HTTP Sniffer</h3>
+
+<h3 class="titulo-principal">Scripting - HTTPS_Image Sniffer con mitmdump</h3>
+
+<h3 class="titulo-principal">Scripting - DNS Spoofer con Scapy y NetfilterQueue</h3>
+
+<h3 class="titulo-principal">Scripting - Traffic Hijacking</h3>
+
+<h3 class="titulo-principal">Scripting - Keylogger</h3>
+
+<h3 class="titulo-principal">Scripting - Creación de Malware</h3>
+
+<h3 class="titulo-principal">Scripting - Creación de Backdoors y Command_and_Control</h3>
+
+<h3 class="titulo-principal">Scripting - Forward Shell</h3>
 
 ---
 
