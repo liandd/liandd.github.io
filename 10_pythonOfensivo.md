@@ -3633,6 +3633,7 @@ En una escuela, ¿Quién es John Doe? cuya IP es la (192.168.1.65). Y hay una gr
 import argparse
 import signal
 import sys
+import scapy.all as scapy
 
 def def_handler(sig, frame):
 	print(f"[!] Saliendo del programa...")
@@ -3640,8 +3641,29 @@ def def_handler(sig, frame):
 
 signal.signal(signal.SIGINT, def_handler)
 
-def main():
+def get_arguments():
+	parser = parser.ArgumentParser(description="ARP Scanner")
+	parser.add_argument("-t", "--target", required=True, dest="target", help="Host / IP range to scan")
+	args = parser.parse_args()
 	
+	return args.target
+
+def scan(ip):
+	#La forma más fácil es usando .arping
+	scapy.arping(ip)
+	#La forma chetada es construir el paquete para tener control
+	arp_packet = scapy.ARP(pdst=ip) # Ya estaría el paquete arp construido, sigue la trama Ethernet
+	broadcast_packet = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
+
+	arp_packet = broadcast_packet/arp_packet #Operador de composición para unir capas de red
+	answered, unanswered = scapy.srp(arp_packet, timeout=1, verbose=False)
+	response = answered.summary()
+	if response:
+		print(response)
+
+def main():
+	target = get_arguments()	
+	scan(target)
 
 if __name__ == "__name__":
 	main()
