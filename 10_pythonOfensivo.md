@@ -3897,6 +3897,33 @@ def request(packet):
 
 <h3 class="titulo-principal">Scripting - HTTPS_Image Sniffer con mitmdump</h3>
 
+En este punto se ha sniffeado un poco de todo desde ARP a https. Pero también se puede sniffear imagenes
+
+> El content-type es un recurso en las cabeceras para saber que tipo de archivo se transmite
+
+mitmdump -s image_sniffer.py --quiet
+```python
+from mitmproxy import http
+
+def response(packet):
+	content_type = packet.response.headers.get("content-type", "")
+	try:
+		if "image" in content_type:
+			url = packet.request.url
+			extension = content_type.split("/")[-1]
+
+			if extension == "jpeg":
+				extension = "jpg"
+			file_name = f"images/{url.replace('/', '_').replace(':', '_')}.{extension}"
+			image_data = packet.response.content
+			with open(file_name, "wb") as f:
+				f.write(image_data)
+			print(f"[+] Imagen guardada: {file_name}")
+	except:
+		pass
+
+```
+
 <h3 class="titulo-principal">Scripting - DNS Spoofer con Scapy y NetfilterQueue</h3>
 
 <h3 class="titulo-principal">Scripting - Traffic Hijacking</h3>
