@@ -6,7 +6,7 @@ permalink: /guiaArch
 <h2 id="subtitulo-importante">Entorno Arch</h2>
 
 <div style="text-align: center;">
-  <img src="/assets/images/GuiaArch/imagen.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/GuiaArch/entorno.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Esta publicación tiene la guía de instalación de Arch Linux, suponiendo que ya se ha lanzado su instalador y ya ha sido quemado en un USB Booteable, o una máquina virtual.
