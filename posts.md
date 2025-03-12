@@ -34,6 +34,7 @@ Estas publicaciones han sido creadas como soporte en mi formación académica y 
 - [ 2023_30_11 ] <a  href="\calcularSubnet.html">SubNet.sh - Script</a>
 - [ 2023_16_07 ] <a  href="\dotfiles.html">Configuración Parrot Bspwm - (Deprecated)</a>
 - [ 2023_12_02 ] <a  href="\decompressor.html">Decompressor.sh - Script</a>
+- [ 2023_02_16 ] <a  href="\startingPointHTB.html">Starting Point - un HTB WriteUp</a>
 <br><br>
 <p class="beb">↓ Pendiente..</p>
 
