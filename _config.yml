@@ -4,13 +4,14 @@
 
 header_pages:
   - index.html
+  - blog.html
   - posts.md
   - culture.md
   - about.html
   - contact.md
   
 
-name: ~/liandd.cfg
+name: ~/liandd
 
 author:
   name: liandd

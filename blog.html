@@ -1,13 +1,18 @@
+---
+title: /blog
+layout: post
+permalink: /blog
+---
+
 <html style="--wm-toolbar-height: 69px;" lang="es">
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
 <!-- End Wayback Rewrite JS Include -->
 
-<title>/posts</title>
-<style type="text/css"></style></head>
+<title>/blog</title>
+<style type="text/css"></style>
 <body bgcolor="#000000" text="#8C8C8C" link="#FFEB00" vlink="#FFEB00" alink="#ffffff"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
  
 <center>
@@ -26,7 +31,7 @@
 <p>
 
 <!---------- MAIN---->
-<body oncontextmenu="return false">
+
     <div class="container"><header>
   <div class="menu" align="center">
   <img src="/assets/images/masthead2.png" alt="masthead" width="48" />
@@ -122,7 +127,7 @@
   border: 0;
 }
 
-/* En pantallas pequeñas, apila los elementos verticalmente */
+/* En pantallas pequeÃ±as, apila los elementos verticalmente */
 @media screen and (max-width: 500px) {
   .responsive-container {
     flex-direction: column;
@@ -169,7 +174,7 @@
   vertical-align: top;
 }
 
-/* En pantallas pequeñas, cambia el diseño a columnas */
+/* En pantallas pequeÃ±as, cambia el diseÃ±o a columnas */
 @media screen and (max-width: 600px) {
   .responsive-table {
     display: block;
@@ -226,10 +231,10 @@
     <tr>
       <td valign="top">
         <font face="arial" size="-1" color="#D9D9D9">
-          Publicaciones sobre CTFs en HTB y VulnHub, apuntes de NLP + ML, notas prácticas sobre (Python3, C, Java, Bash), redes de datos y temas de interes abordados en las temáticas tanto código y comandos.
-Estas publicaciones han sido creadas como soporte en mi formación académica y crecimiento profesional.<br>He estado trabajando offline en las publicaciones, ya que considero importante el aprendizaje visual. Agregar imágenes lleva su tiempo, pero de seguro valdrá la pena.
+          Publicaciones sobre CTFs en HTB y VulnHub, apuntes de NLP + ML, notas prÃ¡cticas sobre (Python3, C, Java, Bash), redes de datos y temas de interes abordados en las temÃ¡ticas tanto cÃ³digo y comandos.
+Estas publicaciones han sido creadas como soporte en mi formaciÃ³n acadÃ©mica y crecimiento profesional.<br>He estado trabajando offline en las publicaciones, ya que considero importante el aprendizaje visual. Agregar imÃ¡genes lleva su tiempo, pero de seguro valdrÃ¡ la pena.
     <p>
-Este track está muy bueno, id <a href="" id="play-audio">Zac</a>.
+Este track estÃ¡ muy bueno, id <a href="" id="play-audio">Zac</a>.
 <audio id="audio-player">
   <source src="/assets/aud.mp3" type="audio/mpeg">
   Tu navegador no soporta el elemento de audio.
@@ -238,7 +243,7 @@ Este track está muy bueno, id <a href="" id="play-audio">Zac</a>.
 <script>
   const audio = document.getElementById("audio-player");
   document.getElementById("play-audio").addEventListener("click", function (event) {
-    event.preventDefault(); // Evita que el enlace cambie de página
+    event.preventDefault(); // Evita que el enlace cambie de pÃ¡gina
     if (audio.paused) {
       audio.play();
     } else {
@@ -249,13 +254,13 @@ Este track está muy bueno, id <a href="" id="play-audio">Zac</a>.
 
 
 </p></font><p><font face="arial" size="-1" color="#D9D9D9">
-Como siempre, increíble el contenido de <a href="https://www.youtube.com/@ippsec">@ippsec</a>. Un nota que resuelve como una máquina.
+Como siempre, increÃ­ble el contenido de <a href="https://www.youtube.com/@ippsec">@ippsec</a>. Un nota que resuelve como una mÃ¡quina.
 <br><br>
 </font>
 </p></td>
 <td>&nbsp;&nbsp;&nbsp;</td>
 <td valign="top" nowrap="nowrap"><font face="arial" size="-1">
-Lo más picante:
+Lo mÃ¡s picante:
 <ol>
 <li><a style="color:red;" href="https://liandd.github.io/guiaArch.html">Guia de Arch Linux!</a></li>
 <li><a style="color:red;" href="https://liandd.github.io/pythonOfensivo.html">Python Ofensivo para HTB</a></li>
@@ -285,7 +290,7 @@ Lo más picante:
       const doc2 = parser2.parseFromString(html2, "text/html");
       const posts2 = doc2.querySelectorAll(".list__item");
 
-      // Tomamos los dos últimos posts
+      // Tomamos los dos Ãºltimos posts
       const latestPosts2 = Array.from(posts2).slice(0, 2);
 
       // Contenedor donde agregaremos las publicaciones
@@ -342,7 +347,7 @@ Lo más picante:
         {
           title: "Python3 - 1er paso a CTF - Notes/Scripting",
           link: "https://liandd.github.io/pythonOfensivo.html",
-          description: "Esta publicación tiene los apuntes y notas sobre el tema Python Ofensivo de nivel introductorio orientado en Python3.<br>La materia tiene un enfoque orientado a seguridad informática para desplegar scripts al momento de realizar CTF en plataformas como <a href='https://app.hackthebox.com/machines'>HackTheBox</a>.",
+          description: "Esta publicaciÃ³n tiene los apuntes y notas sobre el tema Python Ofensivo de nivel introductorio orientado en Python3.<br>La materia tiene un enfoque orientado a seguridad informÃ¡tica para desplegar scripts al momento de realizar CTF en plataformas como <a href='https://app.hackthebox.com/machines'>HackTheBox</a>.",
           author: "liandd",
           date: "Mar 13, 2025",
           cus: { url: "https://app.hackthebox.com/profile/1098514", art: "Mi HTB Account" }
@@ -350,7 +355,7 @@ Lo más picante:
         {
           title: "Python3 Para NLP y ML - Notes",
           link: "https://liandd.github.io/nlp.html",
-          description: "Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio.<br>La materia está enfocada a la inteligencia artificial y se presentará un componente fuerte en investigación. Para el PLN hay que saber de gramática donde la idea es poder combinar el sistema de reglas con ML. Usando reglas y patrones, árboles y semántica se trabaja bastante el tema en el lenguaje de programación Python.",
+          description: "Esta publicaciÃ³n tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio.<br>La materia estÃ¡ enfocada a la inteligencia artificial y se presentarÃ¡ un componente fuerte en investigaciÃ³n. Para el PLN hay que saber de gramÃ¡tica donde la idea es poder combinar el sistema de reglas con ML. Usando reglas y patrones, Ã¡rboles y semÃ¡ntica se trabaja bastante el tema en el lenguaje de programaciÃ³n Python.",
           author: "liandd",
           date: "Mar 9, 2025",
           cus: { url: "", art: "PLN Y ML en Python3" }
@@ -358,7 +363,7 @@ Lo más picante:
         {
           title: "Grub Rescue de x86_64 a i386",
           link: "https://liandd.github.io/grubRescue.html",
-          description: "Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricación y en como acceden al sistema operetivo.<br>Este problema ocurrió porque el sistema tenía GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.",
+          description: "Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricaciÃ³n y en como acceden al sistema operetivo.<br>Este problema ocurriÃ³ porque el sistema tenÃ­a GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.",
           author: "liandd",
           date: "Jan 31, 2025",
           cus: { url: "https://phoenixnap.com/kb/grub-rescue", art: "Leer GrubRescue!" }
@@ -366,7 +371,7 @@ Lo más picante:
         {
           title: "VpnScript.sh",
           link: "https://liandd.github.io/vpnScript.html",
-          description: "Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN para <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.",
+          description: "Este script en Bash automatiza las tareas de conexiÃ³n y desconexiÃ³n de una VPN utilizando OpenVPN para <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. TambiÃ©n permite copiar la direcciÃ³n IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervenciÃ³n manual.",
           author: "Unkn0wn1122 y liandd",
           date: "Oct 28, 2024",
           cus: { url: "https://github.com/liandd/Vpn_Script_for_HTB", art: "Visita el repositorio" }
@@ -535,15 +540,15 @@ html:before {
 
 
 
-<!Final de página ----------------------------------------------------------------------------->
+<!Final de pÃ¡gina ----------------------------------------------------------------------------->
 </p><p>
 <table border="0" cellpadding="0" cellspacing="0" width="600" class="responsive-table"><tbody><tr><td>
 <font face="arial" size="-1">Este sitio web es posible gracias a GitHub: <a href="https://github.com/">Visita GitHub</a></font></td>
-<td align="right"><font face="arial" size="-1">Resolución de máquinas <a href="https://www.youtube.com/playlist?list=PLWys0ZbXYUy4x2gR3LFDa0bZw4OZ1m8k-">Linux por @s4vitar</a>!</font></td>
+<td align="right"><font face="arial" size="-1">ResoluciÃ³n de mÃ¡quinas <a href="https://www.youtube.com/playlist?list=PLWys0ZbXYUy4x2gR3LFDa0bZw4OZ1m8k-">Linux por @s4vitar</a>!</font></td>
 </tr>
 </tbody></table>
 </p><p>
-<table border="0" cellpadding="0" cellspacing="0" class="responsive-table"><tbody><tr><td align="center"><font size="-1" face="ARIAL"><b>slava:¿¿¿¿¿¿ ¿¿¿¿¿¿¿! ¿¿ ¿¿¿ ¿¿¿¿¿¿¿ ¿¿ ¿¿¿¿¿¿¿¿ ¿¿¿¿¿!</b></font></td></tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" class="responsive-table"><tbody><tr><td align="center"><font size="-1" face="ARIAL"><b>slava:!</b></font></td></tr></tbody></table>
 </p><p>
 </p><center>
 <table border="0" width="600" bgcolor="#000000" cellspacing="0" class="responsive-table"><tbody><tr>
@@ -633,7 +638,7 @@ function openAWindow(pageToLoad, winName, width, height, center) {
 	content0[0] = "Nil"
 	content0[1] = "Nuevo!";        
   content0[2] = "Abreme!";
-	content0[3] = "Qué es esto?";
+	content0[3] = "QuÃ© es esto?";
 	content0[4] = "Entradas recientes:";
 	content0[5] = "Haz algo hoy!";
 	content0[6] = "Quemadores de tiempo:";
@@ -641,13 +646,13 @@ function openAWindow(pageToLoad, winName, width, height, center) {
 
   content = new Array (8);         // UCP
 	content[0] = "Nil"
-	content[1] = "<a href=\"https://liandd.github.io/programacionCompetitiva.html\"><font color=#FFEB00>Programación Competitiva</font></a>";        
+	content[1] = "<a href=\"https://liandd.github.io/programacionCompetitiva.html\"><font color=#FFEB00>ProgramaciÃ³n Competitiva</font></a>";        
   content[2] = "<a href=\"https://www.ucp.edu.co/noticias/semillero-coders-participa-en-la-xxxviii-maraton-nacional-de-programacion/\"><font color=#FFEB00>ICPC Colombia 2024</font></a>";
 	content[3] = "<a href=\"https://www.ucp.edu.co/noticias/semillero-coders-obtiene-primer-puesto-en-utp-open-2023/\"><font color=#FFEB00>UTP Open 2023</font></a>";
 	content[4] = "<a href=\"https://www.ucp.edu.co/noticias/los-programas-ist-y-tds-participan-en-la-xxxvii-maraton-nacional-de-programacion/\"><font color=#FFEB00>ICPC Colombia 2023</font></a>";
-	content[5] = "<a href=\"https://www.ucp.edu.co/noticias/asumen-nuevos-representantes-estudiantiles/\"><font color=#FFEB00>Representante Académico</font></a>";
-	content[6] = "<a href=\"https://liandd.github.io/about/#constancia-monitoria-2\"><font color=#FFEB00>Monitor Académico II</font></a>";
-	content[7] = "<a href=\"https://liandd.github.io/about/#constancia-monitoria-1\"><font color=#FFEB00>Monitor Académico I</font></a>";
+	content[5] = "<a href=\"https://www.ucp.edu.co/noticias/asumen-nuevos-representantes-estudiantiles/\"><font color=#FFEB00>Representante AcadÃ©mico</font></a>";
+	content[6] = "<a href=\"https://liandd.github.io/about/#constancia-monitoria-2\"><font color=#FFEB00>Monitor AcadÃ©mico II</font></a>";
+	content[7] = "<a href=\"https://liandd.github.io/about/#constancia-monitoria-1\"><font color=#FFEB00>Monitor AcadÃ©mico I</font></a>";
 
   content2 = new Array (8);         // Software y teleco
 	content2[0] = "Nil"
@@ -685,7 +690,7 @@ function showContent(value) {
 
 showContent(1);
 </script><br><b>Quemadores de tiempo:</b><br>
-- <a href="https://liandd.github.io/guiaArch.html"><font color="#FFEB00">Instalación de ArchLinux</font></a><br>
+- <a href="https://liandd.github.io/guiaArch.html"><font color="#FFEB00">InstalaciÃ³n de ArchLinux</font></a><br>
 - <a href="https://liandd.github.io/nlp.html"><font color="#FFEB00">NLP En Python3</font></a><br>
 - <a href="https://liandd.github.io/pythonOfensivo.html"><font color="#FFEB00">Python para HTB</font></a>
 
