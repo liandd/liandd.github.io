@@ -17,10 +17,8 @@
 <tbody><tr><td bgcolor="#000000" align="center">
 </td></tr></tbody></table>
 </td>
-<td>&nbsp;</td>
 <td valign="top" align="center">
 </td>
-<td>&nbsp;</td>
 <td width="84" valign="top">
 </td>
 </tr>
@@ -44,6 +42,7 @@
   <div class="menu-links">
   <ul class="menu-links">
     <li><a href="/">/</a></li>
+    <li><a href="/blog">/blog</a></li>
     <li><a href="/posts">/posts</a></li>
     <li><a href="/culture">/culture</a></li>
     <li>
@@ -65,53 +64,142 @@
   }
 
   .menu-links {
-    display: center;
     list-style: none;
     padding: 0;
     margin-top: 10px;
     gap: 15px;
-  }
+}
 
-  .menu-links li {
+.menu-links li {
     display: inline;
-  }
+}
 
-  .menu-links a {
+.menu-links a {
     text-decoration: none;
-    color: #ffeb00;
-    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 3px;
     font-size: 16px;
-  }
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-links a:hover {
+    background: linear-gradient(to bottom, #ff6600, #cc4400); /* Naranja fuerte */
+    color: black;
+    border-color: #ffcc00;
+    box-shadow: 3px 3px 0px #ffcc00; /* Amarillo */
+}
+
+.menu-links a.active {
+    background: linear-gradient(to bottom, #ffcc00, #aa8800); /* Amarillo */
+    color: black;
+    font-weight: bold;
+    border-color: black;
+    box-shadow: 3px 3px 0px #ff6600;
+}
+
 </style>
 <main>
+<style>
+.responsive-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* Espaciado entre elementos */
+  max-width: 600px;
+  margin: auto;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre imagen y texto */
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border: 0;
+}
+
+/* En pantallas pequeñas, apila los elementos verticalmente */
+@media screen and (max-width: 500px) {
+  .responsive-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+<div class="responsive-container">
+  <div class="profile">
+    <a href="">
+      <img src="https://unkn0wn1122.github.io/assets/images/avatar.jpg">
+    </a>
+    <font face="arial" size="-1">
+      <a href="https://unkn0wn1122.github.io/#">Visita a mi colega Unkn0wn1122!</a>
+    </font>
+  </div>
+
+  <div class="profile">
+    <a href="">
+      <img src="https://avatars.githubusercontent.com/u/111206866?v=4">
+    </a>
+    <font face="arial" size="-1">
+      <a href="https://nico2603.github.io/PersonalPage/">Nico ha actualizado su Blog!</a>
+    </font>
+  </div>
+</div>
 
 
-<table border="0" cellpadding="0" cellspacing="0" width="600">
-<tbody>
-  <tr>
-    <td style="width: 70px;">
-      <a href=""><img src="https://unkn0wn1122.github.io/assets/images/avatar.jpg" width="50" height="50" border="0"></a></td>
-    <td>
-      <font face="arial" size="-1">
-        <a href="https://unkn0wn1122.github.io/#">Visita a mi colega Unkn0wn1122!</a>
-      </font>
-    </td>
-<td style="width: 70px;">
-      <a href=""><img src="https://avatars.githubusercontent.com/u/111206866?v=4" width="50" height="50" border="0"></a></td>
-    <td>
-      <font face="arial" size="-1">
-        <a href="https://nico2603.github.io/PersonalPage/">Nico ha actualizado su Blog!</a>
-      </font>
-    </td>
 
-</tr>
-</tbody>
-</table>
+
+
+
 </p><p>
 </p><p>
+<style>
+.responsive-table {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.responsive-table td {
+  vertical-align: top;
+}
+
+/* En pantallas pequeñas, cambia el diseño a columnas */
+@media screen and (max-width: 600px) {
+  .responsive-table {
+    display: block;
+  }
+
+  .responsive-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .responsive-table tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .responsive-table td {
+    text-align: left;
+  }
+
+  .responsive-table ol {
+    padding-left: 20px;
+  }
+}
+</style>
+
+
 <a name="news"></a>
 
-<table border="0" cellpadding="2" cellspacing="0" width="600">
+<table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
 <tbody><tr><td valign="top" bgcolor="#262626">
 <!--- TITLE ----->
 <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
@@ -139,11 +227,27 @@
       <td valign="top">
         <font face="arial" size="-1" color="#D9D9D9">
           Publicaciones sobre CTFs en HTB y VulnHub, apuntes de NLP + ML, notas prácticas sobre (Python3, C, Java, Bash), redes de datos y temas de interes abordados en las temáticas tanto código y comandos.
-Estas publicaciones han sido creadas como soporte en mi formación académica y crecimiento profesional.
-
-          He estado trabajando offline en las publicaciones, ya que considero importante el aprendizaje visual. Agregar imágenes lleva su tiempo, pero de seguro valdrá la pena.
+Estas publicaciones han sido creadas como soporte en mi formación académica y crecimiento profesional.<br>He estado trabajando offline en las publicaciones, ya que considero importante el aprendizaje visual. Agregar imágenes lleva su tiempo, pero de seguro valdrá la pena.
     <p>
-Este track está muy bueno, id <a href="https://www.youtube.com/watch?v=zgYy-E9fgwE">Do you feel it</a>.
+Este track está muy bueno, id <a href="" id="play-audio">Zac</a>.
+<audio id="audio-player">
+  <source src="/assets/aud.mp3" type="audio/mpeg">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+
+<script>
+  const audio = document.getElementById("audio-player");
+  document.getElementById("play-audio").addEventListener("click", function (event) {
+    event.preventDefault(); // Evita que el enlace cambie de página
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+</script>
+
+
 </p></font><p><font face="arial" size="-1" color="#D9D9D9">
 Como siempre, increíble el contenido de <a href="https://www.youtube.com/@ippsec">@ippsec</a>. Un nota que resuelve como una máquina.
 <br><br>
@@ -153,11 +257,11 @@ Como siempre, increíble el contenido de <a href="https://www.youtube.com/@ippsec
 <td valign="top" nowrap="nowrap"><font face="arial" size="-1">
 Lo más picante:
 <ol>
-<li><a href="https://liandd.github.io/guiaArch.html&amp;sort=daily5&amp;rank=1">Guia de Arch Linux!</a></li>
-<li><a href="https://liandd.github.io/pythonOfensivo.html&amp;sort=daily5&amp;rank=2">Python Ofensivo para HTB</a></li>
-<li><a href="https://liandd.github.io/nlp.html&amp;sort=daily5&amp;rank=3">NLP En Python - Optativa I</a></li>
-<li><a href="https://liandd.github.io/ciberseguridadUcp.html&amp;sort=daily5&amp;rank=4">Ciberseguridad - Optativa II</a></li>
-<li><a href="https://liandd.github.io/vpnScript.html&amp;sort=daily5&amp;rank=5">VpnScript.sh - Unkn0wn1122</a></li>
+<li><a style="color:red;" href="https://liandd.github.io/guiaArch.html">Guia de Arch Linux!</a></li>
+<li><a style="color:red;" href="https://liandd.github.io/pythonOfensivo.html">Python Ofensivo para HTB</a></li>
+<li><a style="color:red;" href="https://liandd.github.io/nlp.html">NLP En Python - Optativa I</a></li>
+<li><a style="color:red;" href="https://liandd.github.io/ciberseguridadUcp.html">Ciberseguridad - Optativa II</a></li>
+<li><a style="color:red;" href="https://liandd.github.io/vpnScript.html">VpnScript.sh - Unkn0wn1122</a></li>
 
 </font>
 </ol>
@@ -298,7 +402,7 @@ Lo más picante:
       postsToShow.forEach(post => {
         const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
         const postHTML = `
-          <table border="0" cellpadding="2" cellspacing="0" width="600">
+          <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
             <tbody>
               <tr>
                 <td valign="top" bgcolor="#262626">
@@ -433,16 +537,16 @@ html:before {
 
 <!Final de página ----------------------------------------------------------------------------->
 </p><p>
-<table border="0" cellpadding="0" cellspacing="0" width="600"><tbody><tr><td>
+<table border="0" cellpadding="0" cellspacing="0" width="600" class="responsive-table"><tbody><tr><td>
 <font face="arial" size="-1">Este sitio web es posible gracias a GitHub: <a href="https://github.com/">Visita GitHub</a></font></td>
 <td align="right"><font face="arial" size="-1">Resolución de máquinas <a href="https://www.youtube.com/playlist?list=PLWys0ZbXYUy4x2gR3LFDa0bZw4OZ1m8k-">Linux por @s4vitar</a>!</font></td>
 </tr>
 </tbody></table>
 </p><p>
-<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td align="center"><font size="-1" face="ARIAL"><b>slava:¿¿¿¿¿¿ ¿¿¿¿¿¿¿! ¿¿ ¿¿¿ ¿¿¿¿¿¿¿ ¿¿ ¿¿¿¿¿¿¿¿ ¿¿¿¿¿!</b></font></td></tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" class="responsive-table"><tbody><tr><td align="center"><font size="-1" face="ARIAL"><b>slava:¿¿¿¿¿¿ ¿¿¿¿¿¿¿! ¿¿ ¿¿¿ ¿¿¿¿¿¿¿ ¿¿ ¿¿¿¿¿¿¿¿ ¿¿¿¿¿!</b></font></td></tr></tbody></table>
 </p><p>
 </p><center>
-<table border="0" width="600" bgcolor="#000000" cellspacing="0"><tbody><tr>
+<table border="0" width="600" bgcolor="#000000" cellspacing="0" class="responsive-table"><tbody><tr>
 
 <td width="160" valign="top">
 <table border="0" cellpadding="0" cellspacing="0">
