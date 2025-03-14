@@ -1,6 +1,7 @@
 <html style="--wm-toolbar-height: 69px;" lang="es">
   <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <!-- End Wayback Rewrite JS Include -->
@@ -27,6 +28,63 @@
 <p>
 
 <!---------- MAIN---->
+<body oncontextmenu="return false">
+    <div class="container"><header>
+  <div class="menu" align="center">
+  <img src="/assets/images/masthead2.png" alt="masthead" width="48" />
+  <img src="/assets/images/ucp_.png" alt="masthead" width="70" />
+  <img src="/assets/images/button-truth.gif" alt="masthead" width="95" />
+  <img src="/assets/images/button-sky.gif" alt="masthead" width="100" />
+  <img src="/assets/images/button-vk.png" alt="masthead" width="95" />
+  <img src="/assets/images/get1996.gif" alt="masthead" width="95" />
+  <img src="/assets/images/button-mac.jpg" alt="masthead" width="120" />
+  <img src="/assets/images/button-wii.gif" alt="masthead" width="95" />
+  <img src="/assets/images/botao08.gif" alt="masthead" width="95" />
+  </div>
+  <div class="menu-links">
+  <ul class="menu-links">
+    <li><a href="/">/</a></li>
+    <li><a href="/posts">/posts</a></li>
+    <li><a href="/culture">/culture</a></li>
+    <li>
+      <a href="/about/" class="bob">/about 
+        <img src="/assets/images/face.gif" alt="masthead" width="12" />
+      </a>
+    </li>
+    <li><a href="/contact">/contact</a></li>
+  </ul>
+</div>
+
+<style>
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaciado entre elementos */
+    flex-wrap: wrap; /* Permite que se ajusten si el espacio es reducido */
+  }
+
+  .menu-links {
+    display: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    gap: 15px;
+  }
+
+  .menu-links li {
+    display: inline;
+  }
+
+  .menu-links a {
+    text-decoration: none;
+    color: #ffeb00;
+    font-weight: bold;
+    font-size: 16px;
+  }
+</style>
+<main>
+
 
 <table border="0" cellpadding="0" cellspacing="0" width="600">
 <tbody>
@@ -93,6 +151,9 @@
     <tr>
       <td valign="top">
         <font face="arial" size="-1" color="#D9D9D9">
+          Publicaciones sobre CTFs en HTB y VulnHub, apuntes de NLP + ML, notas prácticas sobre (Python3, C, Java, Bash), redes de datos y temas de interes abordados en las temáticas tanto código y comandos.
+Estas publicaciones han sido creadas como soporte en mi formación académica y crecimiento profesional.
+
           He estado trabajando offline en las publicaciones, ya que considero importante el aprendizaje visual. Agregar imágenes lleva su tiempo, pero de seguro valdrá la pena.
     <p>
 Este track está muy bueno, id <a href="https://www.youtube.com/watch?v=zgYy-E9fgwE">Do you feel it</a>.
@@ -162,11 +223,20 @@ Lo más picante:
 </td>
 </tr>
 <tr><td colspan="3">
-<font face="arial" size="-1" color="#D9D9D9"><b>&gt;&gt; <a href="">Entradas al blog...</a></b></font>
+<font face="arial" size="-1" color="#D9D9D9">
+  <b>&gt;&gt; <a href="">Entradas al blog...</a>
+    <span id="pagination-links"></span>
+  </b>
+</font>
 </td></tr>
 </tbody></table>
 </td></tr></tbody></table>
-<p id="post-list"></p>
+<p id="post-list">
+  <div id="post-unkn0wn" class="post-unkn0wn">
+  </div>
+  <div id="post-local-container">
+  </div>
+</p>
 <script>
   document.addEventListener("DOMContentLoaded", async function () {
     const url = "https://unkn0wn1122.github.io/"; // Cambia esto a la URL de tu página
@@ -269,31 +339,69 @@ Lo más picante:
     }
 });
 </script>
-<!---------------------------------------- END NG NEWS ----------------------------------------------------------------------------->
 </p><p>
-<!---------------------------------------------------------- SF NEWS ------------------------------------------------------------->
-<table border="0" cellpadding="2" cellspacing="0" width="600">
-<tbody><tr><td valign="top" bgcolor="#262626">
-<!--- TITLE ----->
-<table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
-<tbody><tr><td align="left"><font face="arial" size="-1" color="#FFEB00"><b>Python3 - 1er paso a CTF - Notes/Scripting</b></font></td>
-<td align="right"><font face="arial" size="-1">Mar 13, 2025</font></td>
-</tr></tbody></table>
-<!--- END TITLE ---->
-<table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626"><tbody><tr><td>
-<font face="arial" size="-1" color="#D9D9D9">
-Esta publicación tiene los apuntes y notas sobre el tema Python Ofensivo de nivel introductorio orientado en Python3.
+<! Post ------------------------------------------------------------->
 
-La materia tiene un enfoque orientado a seguridad informática para desplegar scripts al momento de realizar CTF en plataformas como <a href="https://app.hackthebox.com/machines">HackTheBox</a>.
-  </font><p><font face="arial" size="-1" color="#D9D9D9">
-<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><font face="arial" size="-1"><b>&gt;&gt; <a href="https://liandd.github.io/pythonOfensivo.html">Entrar...</a></b></font></td>
-<td align="right"><font face="arial" size="-1"><b><a href="https://app.hackthebox.com/profile/1098514">Mi HTB Account!</a></b></font></td></tr></tbody></table>
+<div class="post-local">
+  <table border="0" cellpadding="2" cellspacing="0" width="600">
+    <tbody>
+      <tr>
+        <td valign="top" bgcolor="#262626">
+<!--- TITLE ----->
+        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
+          <tbody>
+            <tr>
+              <td align="left">
+                <font face="arial" size="-1" color="#FFEB00">
+                  <b>Python3 - 1er paso a CTF - Notes/Scripting</b>
+                </font>
+              </td>
+              <td align="right">
+                <font face="arial" size="-1">Mar 13, 2025
+                </font>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+<!--- END TITLE ---->
+        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
+          <tbody>
+            <tr>
+              <td>
+                <font face="arial" size="-1" color="#D9D9D9">
+                Esta publicación tiene los apuntes y notas sobre el tema Python Ofensivo de nivel introductorio orientado en Python3.
+
+                La materia tiene un enfoque orientado a seguridad informática para desplegar scripts al momento de realizar CTF en plataformas como <a href="https://app.hackthebox.com/machines">HackTheBox</a>.
+                </font>
+                <p>
+                <font face="arial" size="-1" color="#D9D9D9">
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <font face="arial" size="-1">
+                            <b>&gt;&gt; <a href="https://liandd.github.io/pythonOfensivo.html">Entrar...</a>
+                            </b>
+                          </font>
+                        </td>
+              <td align="right">
+                <font face="arial" size="-1">
+                  <b>
+                    <a href="https://app.hackthebox.com/profile/1098514">Mi HTB Account!</a>
+                  </b>
+                </font>
+              </td>
+                      </tr>
+                    </tbody>
+                  </table>
 </font>
 </p></td></tr></tbody></table>
 </td></tr></tbody></table>
+</div>
 <!---------------------------------------- END SF NEWS ----------------------------------------------------------------------------->
 </p><p>
 <!------------------------------------------- TOMMUNISM NEWS ------------------------------------------------------------------------>
+<div class="post-local">
 <table border="0" cellpadding="2" cellspacing="0" width="600">
 <tbody><tr><td valign="top" bgcolor="#262626">
 <!--- TITLE ----->
@@ -314,9 +422,129 @@ La materia está enfocada a la inteligencia artificial y se presentará un compone
 </font>
 </p></td></tr></tbody></table>
 </td></tr></tbody></table>
-<!---------------------------------------- END TOMMUNISM NEWS ----------------------------------------------------------------------------->
+</div>
+
+<p></p>
+<! Post ------------------------------------------------------------->
 </p><p>
-<!---------------------------------------- END CAPSIZETHIS NEWS ----------------------------------------------------------------------------->
+<div class="post-local">
+  <table border="0" cellpadding="2" cellspacing="0" width="600">
+    <tbody>
+      <tr>
+        <td valign="top" bgcolor="#262626">
+<!--- TITLE ----->
+        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
+          <tbody>
+            <tr>
+              <td align="left">
+                <font face="arial" size="-1" color="#FFEB00">
+                  <b>Grub Rescue de x86_64 a i386</b>
+                </font>
+              </td>
+              <td align="right">
+                <font face="arial" size="-1">Jan 31, 2025
+                </font>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+<!--- END TITLE ---->
+        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
+          <tbody>
+            <tr>
+              <td>
+                <font face="arial" size="-1" color="#D9D9D9">
+                Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricación y en como acceden al sistema operetivo.
+
+                Este problema ocurrió porque el sistema tenía GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.
+                </font>
+                <p>
+                <font face="arial" size="-1" color="#D9D9D9">
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <font face="arial" size="-1">
+                            <b>&gt;&gt; <a href="https://liandd.github.io/grubRescue.html">Entrar...</a>
+                            </b>
+                          </font>
+                        </td>
+              <td align="right">
+                <font face="arial" size="-1">
+                  <b>
+                    <a href="https://phoenixnap.com/kb/grub-rescue">Leer GrubRescue!</a>
+                  </b>
+                </font>
+              </td>
+                      </tr>
+                    </tbody>
+                  </table>
+</font>
+</p></td></tr></tbody></table>
+</td></tr></tbody></table>
+</div>
+<p></p>
+
+<! Post ------------------------------------------------------------->
+<p></p>
+<div class="post-local">
+  <table border="0" cellpadding="2" cellspacing="0" width="600">
+    <tbody>
+      <tr>
+        <td valign="top" bgcolor="#262626">
+<!--- TITLE ----->
+        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
+          <tbody>
+            <tr>
+              <td align="left">
+                <font face="arial" size="-1" color="#FFEB00">
+                  <b>VpnScript.sh - unkn0wn1122 y liandd</b>
+                </font>
+              </td>
+              <td align="right">
+                <font face="arial" size="-1">Oct 28, 2024
+                </font>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+<!--- END TITLE ---->
+        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
+          <tbody>
+            <tr>
+              <td>
+                <font face="arial" size="-1" color="#D9D9D9">
+                  Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN para Hack The Box. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.
+
+                </font>
+                <p>
+                <font face="arial" size="-1" color="#D9D9D9">
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <font face="arial" size="-1">
+                            <b>&gt;&gt; <a href="https://liandd.github.io/vpnScript.html">Entrar...</a>
+                            </b>
+                          </font>
+                        </td>
+              <td align="right">
+                <font face="arial" size="-1">
+                  <b>
+                    <a href="https://github.com/liandd/Vpn_Script_for_HTB">Vista el Repositorio!</a>
+                  </b>
+                </font>
+              </td>
+                      </tr>
+                    </tbody>
+                  </table>
+</font>
+</p></td></tr></tbody></table>
+</td></tr></tbody></table>
+</div>
+
+
+<!Final de página ----------------------------------------------------------------------------->
 </p><p>
 <table border="0" cellpadding="0" cellspacing="0" width="600"><tbody><tr><td>
 <font face="arial" size="-1">Este sitio web es posible gracias a GitHub: <a href="https://github.com/">Visita GitHub</a></font></td>
