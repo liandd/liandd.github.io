@@ -13,7 +13,8 @@ permalink: /blog
 
 <title>/blog</title>
 <style type="text/css"></style>
-<body bgcolor="#000000" text="#8C8C8C" link="#FFEB00" vlink="#FFEB00" alink="#ffffff"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<body bgcolor="#000000" text="#8C8C8C" link="#FFEB00" vlink="#FFEB00" alink="#ffffff" oncontextmenu="return false"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
  
 <center>
 <table border="0" cellpadding="0" cellspacing="0" width="630" bgcolor="#000000"><tbody><tr>
@@ -34,7 +35,7 @@ permalink: /blog
 
     <div class="container"><header>
   <div class="menu" align="center">
-  <img src="/assets/images/masthead2.png" alt="masthead" width="48" />
+  <img src="/assets/images/masthead.png" alt="masthead" width="48" />
   <img src="/assets/images/ucp_.png" alt="masthead" width="70" />
   <img src="/assets/images/button-truth.gif" alt="masthead" width="95" />
   <img src="/assets/images/button-sky.gif" alt="masthead" width="100" />
@@ -156,6 +157,46 @@ permalink: /blog
 </div>
 
 
+ <script type="text/javascript">
+        function mousehandler(e) {
+            var myevent = (isNS) ? e : event;
+            var eventbutton = (isNS) ? myevent.which : myevent.button;
+            if ((eventbutton == 2) || (eventbutton == 3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        function disableCtrlKeyCombination(e) {
+            var forbiddenKeys = new Array("a", "s", "c", "x","u");
+            var key;
+            var isCtrl;
+            if (window.event) {
+                key = window.event.keyCode;
+                //IE
+                if (window.event.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            else {
+                key = e.which;
+                //firefox
+                if (e.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            if (isCtrl) {
+                for (i = 0; i < forbiddenKeys.length; i++) {
+                    //case-insensitive comparation
+                    if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    </script>
 
 
 

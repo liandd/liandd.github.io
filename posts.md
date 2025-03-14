@@ -6,9 +6,8 @@ permalink: /posts
 
 ### Blog de Juan Garcia (aka liandd)
 
-Publicaciones sobre CTFs en HTB y VulnHub, apuntes de NLP + ML, notas prácticas sobre (Python3, C, Java, Bash). Apuntes sobre redes de datos y temas de interes.
-Traza de apuntes abordados en las temáticas tanto código y comandos.
-Estas publicaciones han sido creadas como soporte en mi formación académica y crecimiento profesional.
+Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada temática.
+Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, sirviendo como referencia y soporte en mi formación.
 
 <p class="beb">↓ more soon</p>
 

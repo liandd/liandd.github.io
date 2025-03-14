@@ -112,7 +112,7 @@ $container-max-width:  900px !default;
  * Global
  */
 body {
-  background-color: var(--background-color);
+  background-color: #060606;
   margin: 0 auto;
   padding: 0;
   font-family: $base-font-family;
@@ -144,7 +144,7 @@ p, ul, ol { margin: 0px;  color: var(--text-color); }
 .titulo-secundario {
   color:#69c041; /* Este estilo se aplicará solo a h3*/
 }
-a { text-decoration: none;  color: #74a7f9 } /* publicaciones*/
+a { text-decoration: none;  color: #ffd702 } /* publicaciones*/
 a:hover { color: var(--background-color); background-color: var(--base-color); }
 @media only screen and (max-device-width: 500px) { * { font-size: $mobile-font-size !important; } }
 
@@ -156,9 +156,9 @@ p { word-wrap: break-word;  word-break: break-word;  white-space: pre-wrap; marg
 footer { color: var(--text-color);  border-top: var(--border);  margin: 20px auto 15px;  padding-top: 10px;  text-align: right; }
 header { margin-top: 25px;  margin-bottom: 10px; }
 header p { text-align: left;  margin: 0; }
-footer a { text-shadow: 0 0 5px #74a7ff; font-weight: bold;}
+footer a { text-shadow: 0 0 5px #f00; font-weight: bold;}
 footer { margin-bottom: 20px; }
-p.beb {color: #74afff} //comment
+p.beb {color: #f94e4e} //comment
 
 /**
  * Highlight/Markup
@@ -180,7 +180,7 @@ p.beb {color: #74afff} //comment
 .menu ul { margin-top: 12px;  margin-bottom: 12px;  padding-left: 0px;  list-style-type: none;  text-align: right; }
 .menu ul li { display: inline;  margin-left: 10px;  }
 .menu ul li a { text-decoration: none;  color: var(--text-color);  }
-.menu ul li a.bob {text-shadow: 0 0 5px #74a7ff;}
+.menu ul li a.bob {text-shadow: 0 0 5px #fb0505;} //aboutt
 .menu ul li a:hover { text-decoration: none; color: var(--background-color); background-color: var(--base-color); }
 ul li a.beb { text-shadow: 0 0 5px #77c6cf;}
 /**
