@@ -235,313 +235,202 @@ Lo más picante:
   <div id="post-unkn0wn" class="post-unkn0wn">
   </div>
   <div id="post-local-container">
+   
   </div>
 </p>
+
 <script>
   document.addEventListener("DOMContentLoaded", async function () {
-    const url = "https://unkn0wn1122.github.io/"; // Cambia esto a la URL de tu página
+    const url = "https://unkn0wn1122.github.io/";
+    const postsPerPage = 4;
+    let currentPage = 1;
+    let allPosts = [];
 
-    try {
-        const response = await fetch(url);
-        const html = await response.text();
-        
-        // Parseamos el HTML con DOMParser
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
+    function generateLocalPosts() {
+      return [
+        {
+          title: "Post Generado 1",
+          link: "#",
+          description: "Este es un post generado localmente.",
+          author: "Sistema",
+          date: "Mar 12, 2025",
+          cus: { url: "https://ejemplo.com/perfil1", art: "Cuenta 1" }
+        },
+        {
+          title: "Post Generado 2",
+          link: "#",
+          description: "Otro post generado con JavaScript.",
+          author: "Sistema",
+          date: "Mar 12, 2025",
+          cus: { url: "https://ejemplo.com/perfil2", art: "Cuenta 2" }
+        },
+        {
+          title: "Post Generado 3",
+          link: "#",
+          description: "Un tercer post de prueba.",
+          author: "Sistema",
+          date: "Mar 12, 2025",
+          cus: { url: "https://ejemplo.com/perfil3", art: "Cuenta 3" }
+        },
+        {
+          title: "Post Generado 4",
+          link: "#",
+          description: "Último post generado.",
+          author: "Sistema",
+          date: "Mar 12, 2025",
+          cus: { url: "https://ejemplo.com/perfil4", art: "Cuenta 4" }
+        }
+      ];
+    }
 
-        // Seleccionamos los artículos (publicaciones)
-        const posts = doc.querySelectorAll(".list__item");
-        
-        // Tomamos las dos últimas publicaciones
-        const latestPosts = Array.from(posts).slice(0, 2);
-        
-        // Contenedor donde agregaremos las publicaciones
-        const postContainer = document.getElementById("post-list");
-        postContainer.innerHTML = ""; // Limpiar contenido previo
+    function renderPagination() {
+      const totalPages = Math.ceil(allPosts.length / postsPerPage);
+      const paginationContainer = document.getElementById("pagination-links");
+      paginationContainer.innerHTML = "";
 
-        latestPosts.forEach(post => {
-            const title = post.querySelector(".archive__item-title a").innerText.trim();
-            const link = post.querySelector(".archive__item-title a").getAttribute("href");
-            const fullLink = `https://unkn0wn1122.github.io${link}`;
-            const description = post.querySelector(".archive__item-excerpt").innerText.trim();
-            const img = post.querySelector(".archive__item-excerpt img")?.src || "";
-            const tags = Array.from(post.querySelectorAll(".page__meta.btn")).map(tag => tag.innerText.trim());
-            const date = post.querySelector(".page__meta time")?.innerText.trim() || "Fecha desconocida";
+      for (let i = 1; i <= totalPages; i++) {
+        const pageLink = document.createElement("a");
+        pageLink.href = "#";
+        pageLink.innerText = `${i} `;
+        pageLink.onclick = function (e) {
+          e.preventDefault();
+          currentPage = i;
+          renderPosts();
+        };
+        paginationContainer.appendChild(pageLink);
+      }
+    }
 
-            // Crear el HTML de la publicación
-            const postHTML = `
-                <table border="0" cellpadding="2" cellspacing="0" width="600">
-                  <tbody>
-                    <tr>
-                      <td valign="top" bgcolor="#262626">
-                        <!--- TITLE ----->
-                          <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
-                            <tbody>
-                              <tr>
-                                <td align="left">
-                                  <font face="arial" size="-1" color="#FFEB00">
-                                    <b>${title} - Creado por unkn0wn1122</b>
-                                  </font>
-                                </td>
-                      <td align="right">
-                        <font face="arial" size="-1">${date}
-                        </font>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!--- END TITLE ---->
-                <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <font face="arial" size="-1" color="#D9D9D9">
-                        ${description}
-                        <p><strong>Tags:</strong> ${tags.join(", ")}</p>
-                        </font>
+    function renderPosts() {
+      const start = (currentPage - 1) * postsPerPage;
+      const end = start + postsPerPage;
+      const postsToShow = allPosts.slice(start, end);
+      const postContainer = document.getElementById("post-list");
+      postContainer.innerHTML = "";
+
+      postsToShow.forEach(post => {
+        const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
+        const postHTML = `
+          <table border="0" cellpadding="2" cellspacing="0" width="600">
+            <tbody>
+              <tr>
+                <td valign="top" bgcolor="#262626">
+                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <font face="arial" size="-1" color="#FFEB00"><b>${post.title} - ${post.author}</b></font>
+                        </td>
+                        <td align="right"><font face="arial" size="-1">${post.date}</font></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <font face="arial" size="-1" color="#D9D9D9">
+                            ${post.description}
+                            ${tagsHTML}
+                          </font>
                           <p>
-                            <font face="arial" size="-1" color="#D9D9D9">
-                              <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                      <font face="arial" size="-1">
-                                        <b>&gt;&gt; <a href="${fullLink}">Entrar...</a>
-                                        </b>
-                                      </font>
-                                    </td>
-                                    <td align="right">
-                                      <font face="arial" size="-1">
-                                        <b>
-                                          <a href="https://app.hackthebox.com/profile/700813">Unkn0wn1122 HTB Account!</a>
-                                        </b>
-                                      </font>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </font>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <font face="arial" size="-1">
+                                      <b>&gt;&gt; <a href="${post.link}">Entrar...</a></b>
+                                    </font>
+                                  </td>
+                                  <td align="right">
+                                    <font face="arial" size="-1">
+                                      <b><a href="${post.cus.url}">${post.cus.art}</a></b>
+                                    </font>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </td>
               </tr>
             </tbody>
           </table>
           <p></p>
-            `;
-            postContainer.innerHTML += postHTML;
-        });
-    } catch (error) {
-        console.error("Error obteniendo las publicaciones:", error);
+        `;
+        postContainer.innerHTML += postHTML;
+      });
     }
-});
+
+    try {
+      const response = await fetch(url);
+      const html = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const posts = doc.querySelectorAll(".list__item");
+      const latestPosts = Array.from(posts).slice(0, 2);
+
+      latestPosts.forEach((post, index) => {
+        const title = post.querySelector(".archive__item-title a").innerText.trim();
+        const link = post.querySelector(".archive__item-title a").getAttribute("href");
+        const fullLink = `https://unkn0wn1122.github.io${link}`;
+        const description = post.querySelector(".archive__item-excerpt").innerText.trim();
+        const tags = Array.from(post.querySelectorAll(".page__meta.btn")).map(tag => tag.innerText.trim());
+        const date = post.querySelector(".page__meta time")?.innerText.trim() || "Fecha desconocida";
+
+        // Personalizar "cus" por post
+        const cusData = [
+          { url: "https://app.hackthebox.com/profile/700813", art: "Unkn0wn1122 HTB Account" },
+          { url: "https://app.hackthebox.com/profile/123456", art: "Perfil Alternativo" }
+        ];
+
+        allPosts.push({ 
+          title, 
+          link: fullLink, 
+          description, 
+          author: "unkn0wn1122", 
+          date, 
+          tags, 
+          cus: cusData[index] || { url: "#", art: "Default Profile" } 
+        });
+      });
+
+      allPosts = allPosts.concat(generateLocalPosts());
+      renderPagination();
+      renderPosts();
+    } catch (error) {
+      console.error("Error obteniendo las publicaciones:", error);
+    }
+  });
 </script>
+<style>
+#pagination-links a {
+    padding: 2px 5px;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+#pagination-links a:hover {
+    background: linear-gradient(to bottom, #ff6600, #cc4400); /* Naranja fuerte */
+    color: black;
+    border-color: #ffcc00;
+    box-shadow: 3px 3px 0px #ffcc00; /* Amarillo */
+}
+
+#pagination-links a.active {
+    background: linear-gradient(to bottom, #ffcc00, #aa8800); /* Amarillo */
+    color: black;
+    font-weight: bold;
+    border-color: black;
+    box-shadow: 3px 3px 0px #ff6600;
+}
+
+</style>
 </p><p>
-<! Post ------------------------------------------------------------->
 
-<div class="post-local">
-  <table border="0" cellpadding="2" cellspacing="0" width="600">
-    <tbody>
-      <tr>
-        <td valign="top" bgcolor="#262626">
-<!--- TITLE ----->
-        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
-          <tbody>
-            <tr>
-              <td align="left">
-                <font face="arial" size="-1" color="#FFEB00">
-                  <b>Python3 - 1er paso a CTF - Notes/Scripting</b>
-                </font>
-              </td>
-              <td align="right">
-                <font face="arial" size="-1">Mar 13, 2025
-                </font>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-<!--- END TITLE ---->
-        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
-          <tbody>
-            <tr>
-              <td>
-                <font face="arial" size="-1" color="#D9D9D9">
-                Esta publicación tiene los apuntes y notas sobre el tema Python Ofensivo de nivel introductorio orientado en Python3.
-
-                La materia tiene un enfoque orientado a seguridad informática para desplegar scripts al momento de realizar CTF en plataformas como <a href="https://app.hackthebox.com/machines">HackTheBox</a>.
-                </font>
-                <p>
-                <font face="arial" size="-1" color="#D9D9D9">
-                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <font face="arial" size="-1">
-                            <b>&gt;&gt; <a href="https://liandd.github.io/pythonOfensivo.html">Entrar...</a>
-                            </b>
-                          </font>
-                        </td>
-              <td align="right">
-                <font face="arial" size="-1">
-                  <b>
-                    <a href="https://app.hackthebox.com/profile/1098514">Mi HTB Account!</a>
-                  </b>
-                </font>
-              </td>
-                      </tr>
-                    </tbody>
-                  </table>
-</font>
-</p></td></tr></tbody></table>
-</td></tr></tbody></table>
-</div>
-<!---------------------------------------- END SF NEWS ----------------------------------------------------------------------------->
-</p><p>
-<!------------------------------------------- TOMMUNISM NEWS ------------------------------------------------------------------------>
-<div class="post-local">
-<table border="0" cellpadding="2" cellspacing="0" width="600">
-<tbody><tr><td valign="top" bgcolor="#262626">
-<!--- TITLE ----->
-<table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
-<tbody><tr><td align="left"><font face="arial" size="-1" color="#FFEB00"><b>Python3 Para NLP y ML - Notes</b></font></td>
-<td align="right"><font face="arial" size="-1">Mar 9, 2025</font></td>
-</tr></tbody></table>
-<!--- END TITLE ---->
-<table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626"><tbody><tr><td>
-<font face="arial" size="-1" color="#D9D9D9">
-Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio.
-
-La materia está enfocada a la inteligencia artificial y se presentará un componente fuerte en investigación. Para el PLN hay que saber de gramática donde la idea es poder combinar el sistema de reglas con ML. Usando reglas y patrones, árboles y semántica se trabaja bastante el tema en el lenguaje de programación Python.
-
-</font><p><font face="arial" size="-1" color="#D9D9D9">
-<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><font face="arial" size="-1"><b>&gt;&gt; <a href="https://liandd.github.io/nlp.html">Entrar...</a></b></font></td>
-<td align="right"><font face="arial" size="-1"><b>PLN Y ML en Python3</b></font></td></tr></tbody></table>
-</font>
-</p></td></tr></tbody></table>
-</td></tr></tbody></table>
-</div>
-
-<p></p>
-<! Post ------------------------------------------------------------->
-</p><p>
-<div class="post-local">
-  <table border="0" cellpadding="2" cellspacing="0" width="600">
-    <tbody>
-      <tr>
-        <td valign="top" bgcolor="#262626">
-<!--- TITLE ----->
-        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
-          <tbody>
-            <tr>
-              <td align="left">
-                <font face="arial" size="-1" color="#FFEB00">
-                  <b>Grub Rescue de x86_64 a i386</b>
-                </font>
-              </td>
-              <td align="right">
-                <font face="arial" size="-1">Jan 31, 2025
-                </font>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-<!--- END TITLE ---->
-        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
-          <tbody>
-            <tr>
-              <td>
-                <font face="arial" size="-1" color="#D9D9D9">
-                Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricación y en como acceden al sistema operetivo.
-
-                Este problema ocurrió porque el sistema tenía GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.
-                </font>
-                <p>
-                <font face="arial" size="-1" color="#D9D9D9">
-                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <font face="arial" size="-1">
-                            <b>&gt;&gt; <a href="https://liandd.github.io/grubRescue.html">Entrar...</a>
-                            </b>
-                          </font>
-                        </td>
-              <td align="right">
-                <font face="arial" size="-1">
-                  <b>
-                    <a href="https://phoenixnap.com/kb/grub-rescue">Leer GrubRescue!</a>
-                  </b>
-                </font>
-              </td>
-                      </tr>
-                    </tbody>
-                  </table>
-</font>
-</p></td></tr></tbody></table>
-</td></tr></tbody></table>
-</div>
-<p></p>
-
-<! Post ------------------------------------------------------------->
-<p></p>
-<div class="post-local">
-  <table border="0" cellpadding="2" cellspacing="0" width="600">
-    <tbody>
-      <tr>
-        <td valign="top" bgcolor="#262626">
-<!--- TITLE ----->
-        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
-          <tbody>
-            <tr>
-              <td align="left">
-                <font face="arial" size="-1" color="#FFEB00">
-                  <b>VpnScript.sh - unkn0wn1122 y liandd</b>
-                </font>
-              </td>
-              <td align="right">
-                <font face="arial" size="-1">Oct 28, 2024
-                </font>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-<!--- END TITLE ---->
-        <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
-          <tbody>
-            <tr>
-              <td>
-                <font face="arial" size="-1" color="#D9D9D9">
-                  Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN para Hack The Box. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.
-
-                </font>
-                <p>
-                <font face="arial" size="-1" color="#D9D9D9">
-                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <font face="arial" size="-1">
-                            <b>&gt;&gt; <a href="https://liandd.github.io/vpnScript.html">Entrar...</a>
-                            </b>
-                          </font>
-                        </td>
-              <td align="right">
-                <font face="arial" size="-1">
-                  <b>
-                    <a href="https://github.com/liandd/Vpn_Script_for_HTB">Vista el Repositorio!</a>
-                  </b>
-                </font>
-              </td>
-                      </tr>
-                    </tbody>
-                  </table>
-</font>
-</p></td></tr></tbody></table>
-</td></tr></tbody></table>
-</div>
 
 
 <!Final de página ----------------------------------------------------------------------------->
