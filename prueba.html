@@ -129,6 +129,107 @@ Lo ultimo de unkn0wn1122:
 </td></tr>
 </tbody></table>
 </td></tr></tbody></table>
+<p id="post-list"></p>
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    const url = "https://unkn0wn1122.github.io/"; // Cambia esto a la URL de tu página
+
+    try {
+        const response = await fetch(url);
+        const html = await response.text();
+        
+        // Parseamos el HTML con DOMParser
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        // Seleccionamos los artículos (publicaciones)
+        const posts = doc.querySelectorAll(".list__item");
+        
+        // Tomamos las dos últimas publicaciones
+        const latestPosts = Array.from(posts).slice(0, 2);
+        
+        // Contenedor donde agregaremos las publicaciones
+        const postContainer = document.getElementById("post-list");
+        postContainer.innerHTML = ""; // Limpiar contenido previo
+
+        latestPosts.forEach(post => {
+            const title = post.querySelector(".archive__item-title a").innerText.trim();
+            const link = post.querySelector(".archive__item-title a").href;
+            const description = post.querySelector(".archive__item-excerpt").innerText.trim();
+            const img = post.querySelector(".archive__item-excerpt img")?.src || "";
+            const tags = Array.from(post.querySelectorAll(".page__meta.btn")).map(tag => tag.innerText.trim());
+
+            // Crear el HTML de la publicación
+            const postHTML = `
+                <table border="0" cellpadding="2" cellspacing="0" width="600">
+                  <tbody>
+                    <tr>
+                      <td valign="top" bgcolor="#262626">
+                        <!--- TITLE ----->
+                          <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
+                            <tbody>
+                              <tr>
+                                <td align="left">
+                                  <font face="arial" size="-1" color="#FFEB00">
+                                    <b>${title} - Creado por unkn0wn1122</b>
+                                  </font>
+                                </td>
+                      <td align="right">
+                        <font face="arial" size="-1">Reciente
+                        </font>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!--- END TITLE ---->
+                <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <font face="arial" size="-1" color="#D9D9D9">
+                        ${description}
+                        <p><strong>Tags:</strong> ${tags.join(", ")}</p>
+                        </font>
+                          <p>
+                            <font face="arial" size="-1" color="#D9D9D9">
+                              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <font face="arial" size="-1">
+                                        <b>&gt;&gt; <a href="${link}">Entrar...</a>
+                                        </b>
+                                      </font>
+                                    </td>
+                                    <td align="right">
+                                      <font face="arial" size="-1">
+                                        <b>
+                                          <a href="https://app.hackthebox.com/profile/700813">Unkn0wn1122 HTB Account!</a>
+                                        </b>
+                                      </font>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </font>
+                          </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p></p>
+            `;
+            postContainer.innerHTML += postHTML;
+        });
+    } catch (error) {
+        console.error("Error obteniendo las publicaciones:", error);
+    }
+});
+</script>
 <!---------------------------------------- END NG NEWS ----------------------------------------------------------------------------->
 </p><p>
 <!---------------------------------------------------------- SF NEWS ------------------------------------------------------------->
