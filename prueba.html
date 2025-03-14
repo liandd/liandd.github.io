@@ -113,16 +113,50 @@ Lo más picante:
 
 </font>
 </ol>
-<font face="arial" size="-1">
-Lo ultimo de unkn0wn1122:
-</font>
-<ol>
   <font face="arial" size="-1">
-<li><a href="&amp;sort=daily5&amp;rank=1">!Europa Writeup</a></li>
-<li><a href="&amp;sort=daily5&amp;rank=2">'Clicker Writeup</a></li>
+    Lo ultimo de unkn0wn1122:
+  </font>
+  <ol>
+    <font face="arial" size="-1">
+    <p id="post-list2"></p>
+  </font>
+</ol>
+
 <script>
-  
-  </script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    const url2 = "https://unkn0wn1122.github.io/";
+
+    try {
+      const response2 = await fetch(url2);
+      const html2 = await response2.text();
+      const parser2 = new DOMParser();
+      const doc2 = parser2.parseFromString(html2, "text/html");
+      const posts2 = doc2.querySelectorAll(".list__item");
+
+      // Tomamos los dos últimos posts
+      const latestPosts2 = Array.from(posts2).slice(0, 2);
+
+      // Contenedor donde agregaremos las publicaciones
+      const postContainer2 = document.getElementById("post-list2");
+      postContainer2.innerHTML = ""; // Limpiar contenido previo
+
+      latestPosts2.forEach(post => {
+        const title2 = post.querySelector(".archive__item-title a").innerText.trim();
+        const link2 = post.querySelector(".archive__item-title a").getAttribute("href");
+        const fullLink2 = `https://unkn0wn1122.github.io${link2}`;
+
+        const postHTML2 = `
+          <li><a href="${fullLink2}" target="_blank">${title2}</a></li>
+        `;
+
+        postContainer2.innerHTML += postHTML2;
+      });
+
+    } catch (error) {
+      console.error("Error obteniendo las publicaciones:", error);
+    }
+  });
+</script>
 </ol>
 </font>
 </td>
