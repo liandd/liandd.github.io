@@ -120,6 +120,9 @@ Lo ultimo de unkn0wn1122:
   <font face="arial" size="-1">
 <li><a href="&amp;sort=daily5&amp;rank=1">!Europa Writeup</a></li>
 <li><a href="&amp;sort=daily5&amp;rank=2">'Clicker Writeup</a></li>
+<script>
+  
+  </script>
 </ol>
 </font>
 </td>
@@ -154,10 +157,12 @@ Lo ultimo de unkn0wn1122:
 
         latestPosts.forEach(post => {
             const title = post.querySelector(".archive__item-title a").innerText.trim();
-            const link = post.querySelector(".archive__item-title a").href;
+            const link = post.querySelector(".archive__item-title a").getAttribute("href");
+            const fullLink = `https://unkn0wn1122.github.io${link}`;
             const description = post.querySelector(".archive__item-excerpt").innerText.trim();
             const img = post.querySelector(".archive__item-excerpt img")?.src || "";
             const tags = Array.from(post.querySelectorAll(".page__meta.btn")).map(tag => tag.innerText.trim());
+            const date = post.querySelector(".page__meta time")?.innerText.trim() || "Fecha desconocida";
 
             // Crear el HTML de la publicación
             const postHTML = `
@@ -175,7 +180,7 @@ Lo ultimo de unkn0wn1122:
                                   </font>
                                 </td>
                       <td align="right">
-                        <font face="arial" size="-1">Reciente
+                        <font face="arial" size="-1">${date}
                         </font>
                       </td>
                     </tr>
@@ -197,7 +202,7 @@ Lo ultimo de unkn0wn1122:
                                   <tr>
                                     <td>
                                       <font face="arial" size="-1">
-                                        <b>&gt;&gt; <a href="${link}">Entrar...</a>
+                                        <b>&gt;&gt; <a href="${fullLink}">Entrar...</a>
                                         </b>
                                       </font>
                                     </td>
