@@ -384,7 +384,7 @@ Lo más picante:
     let allPosts = [];
 
     function generateLocalPosts() {
-      return [
+      let local = [
         {
           title: "Python3 - 1er paso a CTF - Notes/Scripting",
           link: "https://liandd.github.io/pythonOfensivo.html",
@@ -416,8 +416,35 @@ Lo más picante:
           author: "Unkn0wn1122 y liandd",
           date: "Oct 28, 2024",
           cus: { url: "https://github.com/liandd/Vpn_Script_for_HTB", art: "Visita el repositorio" }
+        },
+        {
+          title: "Configuración Parrot Bspwm - (Deprecated)",
+          link: "http://liandd.github.io/dotfiles.html",
+          description: "Este entorno de trabajo personalizado con Bspwm está diseñado para máquinas con sistema operativo GNU/Linux y distribuciones basadas en Debian. Está enfocado en el pentesting y tiene una configuración con atajos de teclado.<br>Para este entorno se utiliza el gestor de ventanas Bspwm, que se basa en el concepto de ventanas flotantes. Es altamente personalizable, lo que permite organizar y controlar las ventanas de forma efectiva.<br>Se han configurado atajos de teclado optimizados para agilizar el flujo de trabajo, asignando comandos a combinaciones de teclas para realizar acciones rápidas y sencillas.",
+          author: "liandd",
+          date: "Jul 16, 2023",
+          cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
+        },
+        {
+          title: "Decompressor.sh - Script",
+          link: "http://liandd.github.io/decompressor.html",
+          description: "Hace un tiempo he venido obteniendo soltura en Bash. Para practicar un poco de scripting con Bandit, he terminado desarrollando un pequeño script en Bash para descomprimir un archivo que tiene una cantidad desconocida de archivos comprimidos en su interior.<br>La plataforma OTW presenta Bandit para el aprendizaje de Bash en forma de niveles, donde en el nivel 13-14 se presenta un caso en el cual hay un archivo con una cantidad enorme de comprimidos en su interior.",
+          author: "liandd",
+          date: "Feb 12, 2023",
+          cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
+        },
+        {
+          title: "Guía Instalación Arch Linux Bspwm",
+          link: "http://liandd.github.io/guiaArch.html",
+          description: "Esta publicación tiene la guía de instalación de Arch Linux, suponiendo que ya se ha lanzado su instalador y ya ha sido quemado en un USB Booteable, o una máquina virtual.<br>Se han configurado atajos de teclado optimizados para agilizar el flujo de trabajo, asignando comandos a combinaciones de teclas para realizar acciones rápidas y sencillas.",
+          author: "liandd",
+          date: "Jul 21, 2023",
+          cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         }
+
       ];
+      local.sort((a, b) => new Date(b.date) - new Date(a.date));
+      return local;
     }
 
     function renderPagination() {
