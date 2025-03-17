@@ -68,6 +68,10 @@
       $masthead-link-color-hover: mix(#000, $primary-color, 25%) !default;
       $navicon-link-color-hover: mix(#fff, $primary-color, 75%) !default;
 
+img {
+  border: none !important;
+}
+
 :root {
   --base-color: #DBDBDB;
   --border: dotted 1.5px white;
