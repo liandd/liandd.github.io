@@ -8,6 +8,11 @@ permalink: /startingPointHTB
 
 Todas las writeups del starting point como módulos introductorios a <a href="https://app.hackthebox.com/starting-point">HackTheBox</a>. Pasando por Tier1, Tier2, Tier3.
 
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/basics.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
 <h2 id="subtitulo-importante">Índice</h2>
 
 - [Meow](#meow)
@@ -39,7 +44,7 @@ Todas las writeups del starting point como módulos introductorios a <a href="ht
 </div>
 
 Antes de comenzar con Tier1 y la máquina <a><strong><em>Meow</em></strong></a> debemos configurar un par de cosas.
-Estos son los 4 pasos a seguir para descargar la VPN especial de *HackThebox*. Esencial para comenzar y desarrollar todas las máquinas de la plataforma.
+Estos son los 4 pasos a seguir para descargar la VPN especial de *HackTheBox*. Esencial para comenzar y desarrollar todas las máquinas de la plataforma.
 
 
 <table border="1" style="width: 100%; text-align: center; border-collapse: collapse;">
