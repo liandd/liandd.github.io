@@ -40,7 +40,7 @@ Todas las writeups del starting point como módulos introductorios a <a href="ht
 <h2 id="meow"><h1 class="titulo-principal">Meow</h1></h2>
 
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/StartingPoint/meow.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/meow.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Antes de comenzar con Tier1 y la máquina <a><strong><em>Meow</em></strong></a> debemos configurar un par de cosas.
@@ -56,16 +56,16 @@ Estos son los 4 pasos a seguir para descargar la VPN especial de *HackTheBox*. E
   </thead>
   <tbody>
     <tr>
-      <td><img src="/assets/images/StartingPoint/vpn1.png" alt="VPN 1" oncontextmenu="return false;" style="width: 100%; height: auto;"></td>
-      <td><img src="/assets/images/StartingPoint/vpn2.png" alt="VPN 2" oncontextmenu="return false;" style="width: 100%; height: auto;"></td>
+      <td><img src="/assets/images/StartingPoint/meow/vpn1.png" alt="VPN 1" oncontextmenu="return false;" style="width: 100%; height: auto;"></td>
+      <td><img src="/assets/images/StartingPoint/meow/vpn2.png" alt="VPN 2" oncontextmenu="return false;" style="width: 100%; height: auto;"></td>
     </tr>
     <tr>
       <th align="center">3</th>
       <th align="center">4</th>
     </tr>
     <tr>
-      <td><img src="/assets/images/StartingPoint/vpn3.png" alt="VPN 3" oncontextmenu="return false;" style="width: 100%; height: auto;"></td>
-      <td><img src="/assets/images/StartingPoint/vpn4.png" alt="VPN 4" oncontextmenu="return false;" style="width: 100%; height: auto;"></td>
+      <td><img src="/assets/images/StartingPoint/meow/vpn3.png" alt="VPN 3" oncontextmenu="return false;" style="width: 100%; height: auto;"></td>
+      <td><img src="/assets/images/StartingPoint/meow/vpn4.png" alt="VPN 4" oncontextmenu="return false;" style="width: 100%; height: auto;"></td>
     </tr>
   </tbody>
 </table>
@@ -74,22 +74,22 @@ Estos son los 4 pasos a seguir para descargar la VPN especial de *HackTheBox*. E
 
 Comenzamos agregando el target de la máquina en nuestra polybar con la utilidad elaborada por unkn0wn1122:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/vpnscript.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/vpnscript.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Una vez conectados a la VPN, procederemos a encender la máquina:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/spawn.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/spawn.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Nos dara también la dirección IP de la máquina -> (10.129.85.116) y ya podremos comenzar:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/meow_ip.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/meow_ip.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Ahora gracias a un script previamente definido en la .zshrc podemos también agregar a la polybar la dirección IP de la maáquina Meow.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/ips.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/ips.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Entonces tenemos 3 direcciones IP:
@@ -101,7 +101,7 @@ Entonces tenemos 3 direcciones IP:
 
 Como alternativa para saber donde encontrar estas direcciones podemos hacer uso del comando `ifconfig`:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/ifconfig.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/ifconfig.png" alt="under" oncontextmenu="return false;">
 </div>
 Ahora que ya hemos configurado nuestra máquina y hemos encendido Meow, podremos comenzar con la resolución de la misma.
 
@@ -135,12 +135,12 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.85.116
 <br><br>
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/nmap.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 Aunque, el escaneo esta perfecto y nos da la información que estamos buscando sobre puertos abiertos, podemos hacer un retoque estético.
 Para esto podemos exportar la captura nmap en un formato 'grep' para aplicar expresiones regulares y obtener lo más relevante en pantalla. Lo haremos agregando al final *-oG target*.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/nmap2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 La diferencia es muy clara, tendremos más centrado y la información más relevante de la captura. Ahora haremos uso de la siguiente utilidad:
 **extractPorts**
@@ -160,7 +160,7 @@ extractPorts () {
 
 Y como argumento le pasaremos la captura `target` de nmap:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/extractPorts.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/extractPorts.png" alt="under" oncontextmenu="return false;">
 </div>
 Veremos como lo más importante es la dirección IP de la máquina Meow y su puerto abierto, en este caso 23.
 
@@ -172,7 +172,7 @@ nmap -sCV -p23 10.129.85.116 -oN targeted
 Estaremos escaneando la versión y servicio para el puerto 23 en la IP de la máquina Meow, y la estaremos exportando en formato 'nmap'/texto_plano en `targeted`.
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/nmap3.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/nmap3.png" alt="under" oncontextmenu="return false;">
 </div>
  Y vemos que se está ejecutando un `telnet` y la máquina es Linux.
 
@@ -180,18 +180,195 @@ Estaremos escaneando la versión y servicio para el puerto 23 en la IP de la má
 
 Telnet es un servicio orientado a conexiones remotas, y su mayor vulnerabilidad es establecer conexiones con credenciales por defecto.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/telnet.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/telnet.png" alt="under" oncontextmenu="return false;">
 </div>
 Una credencial muy utilizada es **root** y sin contraseña:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/telnet2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/telnet2.png" alt="under" oncontextmenu="return false;">
 </div>
 Ahora como nos hemos conectado a través de telnet con credenciales de `root` tenemos control total, solo queda buscar la flag para completar la máquina al 100%.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/pwn.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/pwn.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<hr />
+<h2 id="fawn"><h2 class="titulo-principal">Fawn</h2></h2>
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/fawn/fawn.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Siempre es importante hacer uso de la utilidad `ifconfig` para saber nuestras direcciones IP (de la VPN, local, y de la máquina).
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/fawn/interfaces.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<h2 class="titulo-principal">Enumeración</h2>
+
+Entonces tenemos 3 direcciones IP:
+
+1. 10.129.221.222 de la máquina Fawn
+2. 10.10.16.84 de la VPN de HackTheBox -> Interfaz tun0
+3. 192.168.0.11 nuestra propia dirección IP (Privada) -> Interfaz enp3s0
+<br><br>
+
+Una vez hecho esto, creamos nuestros directorios de trabajo `nmap, content, exploits` y entramos en nmap. Revisamos que la máquina este activa enviando 5 paquetes:
+
+```bash
+❯ ping -c 5 10.129.221.222 -R
+PING 10.129.221.222 (10.129.221.222) 56(124) bytes of data.
+64 bytes from 10.129.221.222: icmp_seq=1 ttl=63 time=102 ms
+RR:     10.10.16.84  ---> Nuestra dirección IP de la VPN
+        10.129.0.1   ---> Nodo intermediario
+        10.129.221.222 -> Máquina Fawn
+        10.129.221.222 -> Máquina Fawn
+        10.10.16.1   ---> Nodo intermediario
+        10.10.16.84  ---> Nuestra dirección IP de la VPN
+
+64 bytes from 10.129.221.222: icmp_seq=2 ttl=63 time=99.0 ms    (same route)
+64 bytes from 10.129.221.222: icmp_seq=3 ttl=63 time=100 ms     (same route)
+64 bytes from 10.129.221.222: icmp_seq=4 ttl=63 time=97.0 ms    (same route)
+64 bytes from 10.129.221.222: icmp_seq=5 ttl=63 time=97.3 ms    (same route)
+
+--- 10.129.221.222 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4003ms
+rtt min/avg/max/mdev = 97.040/99.087/102.049/1.851 ms
+```
+
+> Debido a los nodos intermediarios es que perdemos un paquete al revisar el TTL -> (Time to Live) donde 64 hace referencia a máquinas Linux y 128 a máquinas Windows. El nodo intermediario hace que baje en una unidad siempre por la VPN. Por tanto, ya sabemos a que nos estamos enfrentando.
+
+Ahora vamos a lanzar un escaneo de reconocimiento llamado también fase de enumeración con nmap y directamente lo exportamos en archivo `grep`:
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.221.222 -oG target
+```
+
+<h3 class="titulo-secundario">Explicación</h3>
+
+- -p-: Escanea todo el rango de puertos (1-65535)
+- --open: Muestra solo los puertos que están abiertos, ignorando cerrados y filtrados.
+- -sS: Escaneo SYN (Sigiloso y rápido) no establece una conexión completa.
+- --min-rate 5000: Envía al menos 5000 paquetes por segundo, acelerando el escaneo.
+- -vvv: Triple verbose o modo muy detallado, muestra información a tiempo real mientras se ejecuta el escaneo.
+- -n: No resuelve nombres de dominio por tanto, no aplica resolución DNS.
+- -Pn: No hace ping, asume que el host está activo aunque no responde ICMP.
+<br><br>
+
+El escaneo es bastante rápido pero, para tener guardada la captura la exportamos en formato `grep` al archivo `target`. Así nos quedamos con lo más importante de la captura.
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/fawn/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Podemos ver que el puerto 21 está abierto y es FTP, especial atención a su posible versión ya que podría ser vulnerable. Para hacerlo podemos ejecutar:
+
+```bash
+nmap -sCV -p21 10.129.221.222 -oN targeted
+```
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/fawn/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
+Una vez exportada la captura vemos una información mucho más detallada, nos encontramos con **FTP vsftpd 3.0.3** y inmediatamente nmap nos reporta que el usuario `anonymous` puede iniciar sesión en FTP sin contraseña. Por tanto, FPT no está sanitizado. También vemos que nmap nos reporta un archivo con capacidades de lectura para dueño, grupo, y otros. Donde por 'otros' seriamos nosotros con el usuario anonymous, así que podremos leer ese archivo `flag.txt` si nos conectamos a FTP.
+
+Probamos conexión por FPT a la 10.129.221.222
+```bash
+ftp 10.129.221.222
+```
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/fawn/ftp.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Nos pide credenciales y probamos con _"anonymous y sin contraseña"_. Con `ls` y `get` podremos acceder a la flag y tendremos completada la máquina.
+
+<h2 class="titulo-principal">Scripting con Python3 y C++</h2>
+
+**C++**
+```c++
+#include <curl/curl.h>
+#include <fstream>
+#include <iostream>
+
+size_t write_callback(void *ptr, size_t size, size_t nmemb, void *stream) {
+  std::ofstream *file = static_cast<std::ofstream *>(stream);
+  file->write(static_cast<char *>(ptr), size * nmemb);
+  return size * nmemb;
+}
+
+int main() {
+  CURL *curl;
+  CURLcode res;
+
+  std::string ftp_url = "ftp://10.129.221.222/flag.txt";
+  std::string usuario = "anonymous:";
+  std::ofstream archivo_local("script_cpp.txt", std::ios::binary);
+
+  if (!archivo_local) {
+    std::cerr << "[!] Error al abrir el archivo local para escribir.\n";
+    return 1;
+  }
+
+  curl_global_init(CURL_GLOBAL_DEFAULT);
+  curl = curl_easy_init();
+
+  if (curl) {
+    curl_easy_setopt(curl, CURLOPT_URL, ftp_url.c_str());
+    curl_easy_setopt(curl, CURLOPT_USERPWD, usuario.c_str());
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &archivo_local);
+
+    res = curl_easy_perform(curl);
+
+    if (res != CURLE_OK) {
+      std::cerr << "[!] Error: " << curl_easy_strerror(res) << std::endl;
+    }
+
+    curl_easy_cleanup(curl);
+  }
+
+  curl_global_cleanup();
+  archivo_local.close();
+
+  return 0;
+}
+```
+
+**Python3**
+```python
+#!/usr/bin/env python3
+from ftplib import FTP
+import sys
+import signal
+from termcolor import colored
+
+def def_handler(sig, frame):
+    print(colored(f"\n[!] Saliendo...", 'red'))
+    sys.exit(1)
+
+signal.signal(signal.SIGINT, def_handler) # Ctrl + C
+
+def main():
+    FTP_HOST = "10.129.221.222"
+    FTP_USER = "anonymous"
+    FTP_PASS = ""
+    file = "flag.txt"
+    file_script = "script_py.txt"
+    try:
+        ftp = FTP(FTP_HOST)
+        ftp.login(FTP_USER, FTP_PASS)
+        with open(file_script, "wb") as f:
+            ftp.retrbinary(f"RETR {file}", f.write)
+        print(colored(f"\n[+] Archivo remoto {file} descargado como {file_script}", 'green'))
+        ftp.quit()
+    except Exception as e:
+        print(colored(f"\n[!] {e}",'red'))
+
+if __name__ == "__main__":
+    main()
+```
 
 ---
 
