@@ -484,11 +484,13 @@ Y encontramos un directorio 'James.P' donde encontramos la `flag` y hemos comple
 </div>
 
 <hr />
-
-## Redeemer
+<h2 id="redeemer"><h2 class="titulo-principal">Redeemer</h2></h2>
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/redeemer/redeemer.webp" alt="under" oncontextmenu="return false;">
+</div>
 
 Estamos frente a la ultima máquina del Starting Point del Tier1. Así como hemos hecho con las anteriores máquinas es importante ir aplicando la metodología. (Encender la máquina, verificar nuestras direcciones IP, crear el directorio con el nombre de la máquina, y los subdirectorios de trabajo, ya conocer la utilidad `ifconfig` y organizar todo antes de la fase de enumeración). 
-# Enumeración
+<h2 class="titulo-principal">Enumeración</h2>
 
 Comenzamos haciendo un ping para saber sí la máquina está activa:
 
@@ -518,23 +520,26 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.191.232 -oG target
 ```
 
 Y el escaneo nos arroja un único puerto abierto:
-
-![[HTB/Starting Point/Tier 1/4_Redeemer/Images/nmap.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/redeemer/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Al ser un único puerto, aun necesitamos un poco mas de información respecto a ese puerto, para ello haremos uso de nmap con una serie de scripts básicos de reconocimiento:
 
 ```bash
-nmap -sCV -P6379 10.129.191.232 -oN targeted
+nmap -sCV -p6379 10.129.191.232 -oN targeted
 ```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/redeemer/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
+<h2 class="titulo-principal">Explotación</h2>
 
-![[HTB/Starting Point/Tier 1/4_Redeemer/Images/nmap2.png]]
-# Explotación
+Podemos ver que el puerto 6379  pertenece a un servicio **REDIS** con una versión `5.0.7`. A pesar de buscar en la web sobre está versión y encontrar algunas CVE, ninguna tiene relación a la explotación.
 
-Podemos ver que el puerto 6379  pertenece a un servicio **Redis** con una versión `5.0.7`. A pesar de buscar en la web sobre está versión y encontrar algunas CVE, ninguna tiene relación a la explotación.
-
-> **REDIS** es una base de datos de Key y Value. Usa pares de datos para guardar la información lo que las hace muy eficientes muy similar a los diccionarios. En lugar de crear tablas y relaciones hace pares de datos.
-
-![[redis.png]]
+> **REDIS** es una base de datos de Key y Value. Usa pares de datos para guardar la información lo que las hace muy eficientes y similares a los diccionarios. En lugar de crear tablas y relaciones hace pares de datos.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/redeemer/redis.png" alt="under" oncontextmenu="return false;">
+</div>
 
 **Redis desde su web oficial**
 ```python
@@ -557,26 +562,28 @@ Podemos instalar _REDIS_ ejecutando `sudo pacman -S redis` y nos crea dos binari
 
 - redis-cli
 - redis-server
-
-Podemos hacer uso de `redis-cli -h` para tener un poco más de información de las flags para usar la herramienta.
-
-Nos conectamos usando:
-
+<br><br>
+Podemos hacer uso de `redis-cli -h` para tener un poco más de información de las flags para usar la herramienta y nos conectamos usando:
+<br><br>
 ```bash
 redis-cli -h 10.129.191.232 -p 6379
 ```
 
 Y al conectarnos hacemos el comando `info` para ver un poco más de información, y vemos que hay una 'Base de Datos' llamada **db0**. Y tiene 4 claves de pares y valores.
-
-![[redis3.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/redeemer/redis3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Podemos usar `select 0` para seleccionar esa base de datos **db0**, y para ver las llaves podemos usars `keys *`. Y con `get` nos traemos la llave **flag**.
 
-![[redis4.png]] 
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/redeemer/redis4.png" alt="under" oncontextmenu="return false;">
+</div>
 
-Y así hemos pwn3d la máquina y completado el Tier1 del Starting Point.
+Y así hemos <a><strong><em>pw3nd</em></strong></a> la máquina y completado el Tier1 del Starting Point.
+
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
 
-© Juan David Garcia Acevedo (aka liandd)
+© JuanDavid Garcia Acevedo (aka liandd)
