@@ -483,6 +483,98 @@ Y encontramos un directorio 'James.P' donde encontramos la `flag` y hemos comple
   <img src="/assets/images/StartingPoint/dancing/flag.png" alt="under" oncontextmenu="return false;">
 </div>
 
+<hr />
+
+## Redeemer
+
+Estamos frente a la ultima máquina del Starting Point del Tier1. Así como hemos hecho con las anteriores máquinas es importante ir aplicando la metodología. (Encender la máquina, verificar nuestras direcciones IP, crear el directorio con el nombre de la máquina, y los subdirectorios de trabajo, ya conocer la utilidad `ifconfig` y organizar todo antes de la fase de enumeración). 
+# Enumeración
+
+Comenzamos haciendo un ping para saber sí la máquina está activa:
+
+```bash
+❯ ping -c 5 10.129.191.232 -R
+PING 10.129.191.232 (10.129.191.232) 56(124) bytes of data.
+64 bytes from 10.129.191.232: icmp_seq=1 ttl=63 time=113 ms
+RR:     10.10.16.84
+        10.129.0.1
+        10.129.191.232
+        10.129.191.232
+        10.10.16.1
+        10.10.16.84
+64 bytes from 10.129.191.232: icmp_seq=2 ttl=63 time=110 ms     (same route)
+64 bytes from 10.129.191.232: icmp_seq=3 ttl=63 time=116 ms     (same route)
+64 bytes from 10.129.191.232: icmp_seq=4 ttl=63 time=110 ms     (same route)
+64 bytes from 10.129.191.232: icmp_seq=5 ttl=63 time=111 ms     (same route)
+--- 10.129.191.232 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4004ms
+rtt min/avg/max/mdev = 110.122/112.022/115.733/2.038 ms
+```
+
+Vamos a realizar un escaneo de puertos sigiloso y rápido utilizando la herramienta nmap:
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.191.232 -oG target
+```
+
+Y el escaneo nos arroja un único puerto abierto:
+
+![[HTB/Starting Point/Tier 1/4_Redeemer/Images/nmap.png]]
+
+Al ser un único puerto, aun necesitamos un poco mas de información respecto a ese puerto, para ello haremos uso de nmap con una serie de scripts básicos de reconocimiento:
+
+```bash
+nmap -sCV -P6379 10.129.191.232 -oN targeted
+```
+
+![[HTB/Starting Point/Tier 1/4_Redeemer/Images/nmap2.png]]
+# Explotación
+
+Podemos ver que el puerto 6379  pertenece a un servicio **Redis** con una versión `5.0.7`. A pesar de buscar en la web sobre está versión y encontrar algunas CVE, ninguna tiene relación a la explotación.
+
+> **REDIS** es una base de datos de Key y Value. Usa pares de datos para guardar la información lo que las hace muy eficientes muy similar a los diccionarios. En lugar de crear tablas y relaciones hace pares de datos.
+
+![[redis.png]]
+
+**Redis desde su web oficial**
+```python
+import redis
+
+r = redis.Redis(host="localhost", port=6379, db=0, decode_responses=True)
+
+res = r.set("bike:1", "Process 134")
+print(res)
+# >>> True
+
+res = r.get("bike:1")
+print(res)
+# >>> "Process 134"
+```
+
+Dentro de los comandos que podemos usar tenemos algunos sencillos como `info, get, select`.
+
+Podemos instalar _REDIS_ ejecutando `sudo pacman -S redis` y nos crea dos binarios.
+
+- redis-cli
+- redis-server
+
+Podemos hacer uso de `redis-cli -h` para tener un poco más de información de las flags para usar la herramienta.
+
+Nos conectamos usando:
+
+```bash
+redis-cli -h 10.129.191.232 -p 6379
+```
+
+Y al conectarnos hacemos el comando `info` para ver un poco más de información, y vemos que hay una 'Base de Datos' llamada **db0**. Y tiene 4 claves de pares y valores.
+
+![[redis3.png]]
+
+Podemos usar `select 0` para seleccionar esa base de datos **db0**, y para ver las llaves podemos usars `keys *`. Y con `get` nos traemos la llave **flag**.
+
+![[redis4.png]] 
+
+Y así hemos pwn3d la máquina y completado el Tier1 del Starting Point.
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
