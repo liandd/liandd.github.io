@@ -446,6 +446,8 @@ Tratando de enumerar un poco con la herramienta `whatweb` para conocer el servic
 http://10.129.203.2:5985 [404 Not Found] Country[RESERVED][ZZ], HTTPServer[Microsoft-HTTPAPI/2.0], IP[10.129.203.2], Microsoft-HTTPAPI[2.0], Title[Not Found]
 ```
 
+<h2 class="titulo-principal">Explotación</h2>
+
 Especial atención a el puerto `445` ya que ese puerto en especial pertenece al servicio `Server Message Block`. SMB se usa para el acceso a redes MS por TCP/IP. Podemos hacer uso de la herramienta `smbclient` que nos permite listar directorios compartidos a nivel de red.
 
 > **smbclient** es una herramienta que permite acceder a los recursos compartidos de un servidor SMB, de forma similar a un cliente FTP de línea de comandos.
