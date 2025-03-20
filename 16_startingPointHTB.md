@@ -9,7 +9,7 @@ permalink: /startingPointHTB
 Todas las writeups del starting point como módulos introductorios a <a href="https://app.hackthebox.com/starting-point">HackTheBox</a>. Pasando por Tier1, Tier2, Tier3.
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/basics.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/basics.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -72,7 +72,7 @@ Estos son los 4 pasos a seguir para descargar la VPN especial de *HackTheBox*. E
 <br>
 
 
-Comenzamos agregando el target de la máquina en nuestra polybar con la utilidad elaborada por unkn0wn1122:
+Comenzamos agregando el target de la máquina en nuestra polybar con la utilidad elaborada por <a href="http://liandd.github.io/vpnScript.html">unkn0wn1122</a>:
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/meow/vpnscript.png" alt="under" oncontextmenu="return false;">
 </div>
@@ -137,12 +137,12 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.85.116
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/meow/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
-Aunque, el escaneo esta perfecto y nos da la información que estamos buscando sobre puertos abiertos, podemos hacer un retoque estético.
+Aunque, el escaneo está perfecto y nos da la información que estamos buscando sobre puertos abiertos, podemos hacer un retoque estético.
 Para esto podemos exportar la captura nmap en un formato 'grep' para aplicar expresiones regulares y obtener lo más relevante en pantalla. Lo haremos agregando al final *-oG target*.
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/meow/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
-La diferencia es muy clara, tendremos más centrado y la información más relevante de la captura. Ahora haremos uso de la siguiente utilidad:
+La diferencia es muy clara, tendremos centrada y detallada la información más relevante de la captura. Ahora haremos uso de la siguiente utilidad:
 **extractPorts**
 ```bash
 extractPorts () {
@@ -270,6 +270,7 @@ nmap -sCV -p21 10.129.221.222 -oN targeted
   <img src="/assets/images/StartingPoint/fawn/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
+<h2 class="titulo-principal">Explotación</h2>
 
 Una vez exportada la captura vemos una información mucho más detallada, nos encontramos con **FTP vsftpd 3.0.3** y inmediatamente nmap nos reporta que el usuario `anonymous` puede iniciar sesión en FTP sin contraseña. Por tanto, FPT no está sanitizado. También vemos que nmap nos reporta un archivo con capacidades de lectura para dueño, grupo, y otros. Donde por 'otros' seriamos nosotros con el usuario anonymous, así que podremos leer ese archivo `flag.txt` si nos conectamos a FTP.
 
@@ -369,6 +370,116 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+<hr />
+<h2 id="dancing"><h2 class="titulo-principal">Dancing</h2></h2>
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/dancing/dancing.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Ya sabes como empezar, primero encendiendo la máquina, ubicando nuestras respectivas direcciones IP, creando un directorio con el nombre de la máquina **Dancing** y podremos comenzar.
+
+<h2 class="titulo-principal">Enumeración</h2>
+
+Una vez hecho esto, creamos nuestros directorios de trabajo `nmap, content, exploits` y entramos en nmap. Revisamos que la máquina este activa enviando 5 paquetes:
+
+```bash
+❯ ping -c 5 10.129.174.184
+PING 10.129.174.184 (10.129.174.184) 56(124) bytes of data.
+64 bytes from 10.129.174.184: icmp_seq=1 ttl=127 time=102 ms
+64 bytes from 10.129.221.222: icmp_seq=2 ttl=127 time=99.0 ms    (same route)
+64 bytes from 10.129.221.222: icmp_seq=3 ttl=127 time=100 ms     (same route)
+64 bytes from 10.129.221.222: icmp_seq=4 ttl=127 time=97.0 ms    (same route)
+64 bytes from 10.129.221.222: icmp_seq=5 ttl=127 time=97.3 ms    (same route)
+
+--- 10.129.221.222 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4003ms
+rtt min/avg/max/mdev = 97.040/99.087/102.049/1.851 ms
+```
+
+Una vez encendida la máquina vamos a comenzar a realizar una fase de reconocimiento o enumeración usando la herramienta nmap y directamente lo exportamos en archivo `grep`:
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.174.184 -oG target
+```
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/dancing/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Podemos ver que hay una gran cantidad de puertos abiertos. Por tanto, podemos hacer uso de la herramienta `extractPorts` y le pasamos como argumento la captura `target`:
+
+**extractPorts**
+```bash
+extractPorts () {
+        ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')" 
+        ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)" 
+        echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
+        echo -e "\t[*] IP Address: $ip_address" >> extractPorts.tmp
+        echo -e "\t[*] Open ports: $ports\n" >> extractPorts.tmp
+        echo $ports | tr -d '\n' | xclip -sel clip
+        echo -e "[*] Ports copied to clipboard\n" >> extractPorts.tmp
+        bat extractPorts.tmp
+        rm extractPorts.tmp
+}
+```
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/dancing/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Ahora vemos lo más importante como la dirección IP y los puertos abiertos `135, 139, 445, 5985, 47001, 49664, 49665, 49666, 49667, 49668, 49669`.
+Vamos a prestar especial atención a estos puertos, ya que pueden tener versiones o servicios expuestos vulnerables. Para ello ejecutamos:
+
+```bash
+nmap -sCV -p135,139,445,5985,47001,49664,49665,49666,49667,49668,49669 10.129.174.184 -oN targeted
+```
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/dancing/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Tratando de enumerar un poco con la herramienta `whatweb` para conocer el servicio web que estamos viendo por el puerto **5985** nos encontramos un servicio HTTPserver pero, poco mas.
+
+```bash
+❯ whatweb 10.129.203.2:5985
+http://10.129.203.2:5985 [404 Not Found] Country[RESERVED][ZZ], HTTPServer[Microsoft-HTTPAPI/2.0], IP[10.129.203.2], Microsoft-HTTPAPI[2.0], Title[Not Found]
+```
+
+Especial atención a el puerto `445` ya que ese puerto en especial pertenece al servicio `Server Message Block`. SMB se usa para el acceso a redes MS por TCP/IP. Podemos hacer uso de la herramienta `smbclient` que nos permite listar directorios compartidos a nivel de red.
+
+> **smbclient** es una herramienta que permite acceder a los recursos compartidos de un servidor SMB, de forma similar a un cliente FTP de línea de comandos.
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/dancing/smbclient.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Y podemos ver los siguientes directorios compartidos a nivel de red:
+
+- ADMIN$
+- C$
+- IPC$
+- WorkShares
+<br><br>
+
+Para probar acceder a cada uno de estos recursos es a través del comando smbclient hasta que alguno nos responde estableciendo una conexión.
+
+```bash
+smbclient \\\\10.129.174.184\\ADMIN
+smbclient \\\\10.129.174.184\\C
+smbclient \\\\10.129.174.184\\IPC
+smbclient \\\\10.129.174.184\\WorkShares
+```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/dancing/smbclient2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Y obtenemos acceso con 'WorkShares', y podemos hacer uso de algunos comandos familiares como `ls, dir, cd, get`.
+
+Y encontramos un directorio 'James.P' donde encontramos la `flag` y hemos completado la máquina.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/dancing/flag.png" alt="under" oncontextmenu="return false;">
+</div>
 
 ---
 
