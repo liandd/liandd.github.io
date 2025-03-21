@@ -586,4 +586,4 @@ Y así hemos <a><strong><em>pw3nd</em></strong></a> la máquina y completado el 
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
 
-© JuanDavid Garcia Acevedo (aka liandd)
+© Juan David Garcia Acevedo (aka liandd)
