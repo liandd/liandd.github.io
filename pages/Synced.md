@@ -6,127 +6,92 @@ permalink: /Synced
 
 <h2 class="titulo-principal">Synced</h2>
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/Synced/synced" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/VIP/Synced/synced.webp" alt="under" oncontextmenu="return false;">
 </div>
 
-Vamos a encender la máquina, y nos da la dirección IP 10.129.54.191.
+Encendemos la máquina Synced y nos la dirección IP 10.129.228.37, así vamos a realizar un ping para saber si la máquina está activa y ver a que sistema nos estamos enfrentando.
+
+```bash
+❯ ping -c 5 10.129.228.37
+PING 10.129.228.37 (10.129.228.37) 56(84) bytes of data.
+64 bytes from 10.129.228.37: icmp_seq=1 ttl=63 time=120 ms
+64 bytes from 10.129.228.37: icmp_seq=2 ttl=63 time=111 ms
+64 bytes from 10.129.228.37: icmp_seq=3 ttl=63 time=114 ms
+64 bytes from 10.129.228.37: icmp_seq=4 ttl=63 time=110 ms
+64 bytes from 10.129.228.37: icmp_seq=5 ttl=63 time=110 ms
+--- 10.129.228.37 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 109.548/113.020/119.644/3.714 ms
+```
+
+Con un TTL de 63 vemos que estamos frente a una máquina Linux.
 <h2 class="titulo-principal">Enumeración</h2>
 
- Vamos a realizar un ping para saber si la máquina está activa:
- 
-```bash
-❯ ping -c 5 10.129.54.191
-PING 10.129.54.191 (10.129.54.191) 56(84) bytes of data.
-64 bytes from 10.129.54.191: icmp_seq=1 ttl=127 time=119 ms
-64 bytes from 10.129.54.191: icmp_seq=2 ttl=127 time=2240 ms
-64 bytes from 10.129.54.191: icmp_seq=3 ttl=127 time=1344 ms
-64 bytes from 10.129.54.191: icmp_seq=4 ttl=127 time=321 ms
-64 bytes from 10.129.54.191: icmp_seq=5 ttl=127 time=110 ms
---- 10.129.54.191 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 4028ms
-rtt min/avg/max/mdev = 109.585/826.837/2240.115/840.932 ms, pipe 3
-```
-
-Podemos ver un TTL de 127 lo que significa que estamos ante un Windows.
-
-Vamos a realizar un escaneo de puertos sigiloso y rápido utilizando la herramienta nmap:
+Vamos a realizar un escaneo sigiloso y rápido con nmap para descubrir puertos abiertos:
 
 ```bash
-nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.54.191 -oG allPorts
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.228.37 -oG allPorts
 ```
 
-El escaneo arroja una gran cantidad de puertos abiertos:
-<div style="text-align: center;">
-  <img src="/assets/images/Explosion/nmap.png" alt="under" oncontextmenu="return false;">
-</div>
+El escaneo fue bastante rápido ya que solo encontró un puerto abierto `873`.
 
+<hr />
+<h3 class="titulo-secundarion">¿Qué es Rsync?</h3>
 
-Vamos a hacer uso de la herramienta **extractPorts** para copiar los puertos en la clipboard y hacer un escaneo con scripts básicos de reconocimiento:
+Es una herramienta de línea de comandos que permite sincronizar archivos y directorios entre sistemas.
 
-**extractPorts**
-<div style="text-align: center;">
-  <img src="/assets/images/Explosion/extractPorts.png" alt="under" oncontextmenu="return false;">
-</div>
-
-Y vemos una gran cantidad de puertos abiertos:
-<div style="text-align: center;">
-  <img src="/assets/images/Explosion/ports.png" alt="under" oncontextmenu="return false;">
-</div>
-
-Aun necesitamos un poco mas de información ya que hay una gran cantidad de puertos abiertos, para ello haremos uso de nmap para saber la versión y servicio:
+Se trabaja con **2 directorios** `origen` y `destino`
 
 ```bash
-nmap -sCV -p135,139,445,3389,5985,47001,49664,49665,49666,49667,49668,49669,49670,49671 10.129.54.191 -oN targeted
+cd ~            ---> Se va al directorio raíz
+mkdir original  ---> Se crea el directorio origen
+mkdir duplicate ---> Se crea el directorio destino
+touch original/file{1..3} --> Se crean tres archivos llamados file1, file2, file3 dentro de original
 ```
+
+El siguiente comando copiará o sincronizará todos los archivos del directorio original en el directorio duplicado.
+
+```bash
+rsync original/* duplicate/
+```
+<hr />
+
+Después de contextualizar un poco `RSYNC` le pasamos la captura 'allPorts' a la función extractPorts
 <div style="text-align: center;">
-  <img src="/assets/images/Explosion/nmap2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/VIP/Synced/extractPorts.png" alt="under" oncontextmenu="return false;">
 </div>
+
+Ahora que ya tenemos el puerto `873` copiado a la clipboard comenzaremos a hacer una serie de scripts básicos de reconocimiento para saber la version y servicio de RSYNC.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Synced/extractPorts1.png" alt="under" oncontextmenu="return false;">
+</div>
+
+La captura nos arroja un _Protocol version 31_ pero, no hay nada relacionado a vulnerabilidades.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Synced/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
+
+**Como nota adicional**
+> El puerto TCP 873 usa el Protocolo de Control de Transmisión. TCP es uno de los protocolos principales en redes TCP/IP. TCP es un protocolo orientado en la conexión, _necesita el apretón de manos para determinar comunicaciones de principio a fin (Ejemplo)_. Solo cuando la conexión es determinada, los datos del usuario pueden ser mandados de modo bidireccional por la conexión.
+> ¡Atención! TCP puerto 873 garantiza la entrega de paquetes de datos en la misma orden, en que fueron mandados.
 
 <h2 class="titulo-principal">Explotación</h2>
 
-Podemos ver los puertos 135, 139 pero, no da mucho vector de ataque. Sin embargo, el puerto `445` nos deja ver que la máquina tiene un SMB activo. Por tanto, podemos listar los recursos compartidos a nivel de red con la herramienta `smbclient`:
-<div style="text-align: center;">
-  <img src="/assets/images/Explosion/smb1.png" alt="under" oncontextmenu="return false;">
-</div>
-
-A pesar de listar los recursos compartidos a nivel de red, no encontramos nada. Así que al seguir mirando los puertos abiertos de la máquina encontramos uno muy interesante. El puerto `3389` del servicio **Remote Desktop Protocol** de MS.
-
-> Remote Desktop Protocol es un [protocolo](https://www.cloudflare.com/learning/network-layer/what-is-a-protocol/), o estándar técnico, para usar un ordenador de escritorio a distancia.
-
-Para intentar explotar este servicio, podemos hacer uso de la herramienta `xfreerdp`.
+Por defecto en las distribuciones Linux ya hay un binario instalado llamado `rsync` con el cual podemos intentar acceder a este protocolo para entablar una conexión. Haremos uso del comando y agregamos **--list-only** para listar recursos.
 
 ```bash
-sudo pacman -S freerdp
-```
-
-Esta herramienta nos permite entablar conexiones por el puerto 3389.
-
-<h3 class="titulo-secundario">Ejemplo de prueba</h3>
-```bash
-xfreerdp connection.rdp /p:Pwd123! /f
-xfreerdp /u:CONTOSO\JohnDoe /p:Pwd123! /v:rdp.contoso.com
-xfreerdp /u:JohnDoe /p:Pwd123! /w:1366 /h:768 /v:192.168.1.100:4489
-xfreerdp /u:JohnDoe /p:Pwd123! /vmconnect:C824F53E-95D2-46C6-9A18-23A5BB403532 /v:192.168.1.100
-```
-1. /v: Es para poner la dirección a la cual nos vamos a conectar.
-2. /u: Es para el `usuario`.
-3. /p: Es para la `contraseña`.
-4. /cert: Para los certificados de confianza.
-<br><br>
-
-Si nos devolvemos un poco a la captura 'targeted' vemos un poco de información respecto al puerto 3389, ya que nmap ha sido capaz de enumerar un poco más de información. Y podemos destacar entre ella el nombre del Dominio 'Explosion'.
-
-Podemos probar:
-
-```bash
-xfreerdp /v:10.129.54.191
-```
-
-Pero la conexión es rechazada por un certificado de seguridad:
-<div style="text-align: center;">
-  <img src="/assets/images/Explosion/rdp.png" alt="under" oncontextmenu="return false;">
-</div>
-
-Una de las opciones que tenemos con `xfreerpd` es ignorar ese certificado usando la flag '/cert:ignore':
-
-```bash
-xfreerdp /v:10.129.54.191 /cert:ignore
+rsync --list-only 10.129.228.37
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/Explosion/rpd2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/VIP/Synced/rsync.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Aun seguimos sin poder establecer una conexión pero, ahora ya nos pide ingresar el dominio y una contraseña. Como vimos en los ejemplos de `xfreerdp` podemos usar la flag '/u:' para intentar con usuarios comunes:
-
-- user
-- admin
-- administrator
-<br><br>
+Vemos un recurso anónimo compartido llamado `public`, podemos listar agregando al final del comando 'rsync 10.129.228.37::public' y encontramos la flag, así que para verla la actualizamos desde la máquina a un archivo nuevo en nuestro host con el mismo nombre.
 <div style="text-align: center;">
-  <img src="/assets/images/Explosion/rpd3.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/VIP/Synced/flag.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Nos abre una pestaña con la máquina Explosion y podemos ver la flag sin problemas. Hemos pwn3ed la máquina.
+Y hemos terminado la máquina Synced.
 
 ---
 
