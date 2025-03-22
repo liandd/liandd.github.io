@@ -23,9 +23,9 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ ? ] <a  href="">Cisco PacketTracer - Notes</a>
 - [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
 <br><br>
-- [ 2025_20_03 ] <a  href="\Explosion.html">Synced - Writeup</a>
-- [ 2025_20_03 ] <a  href="\Explosion.html">Mongod - Writeup</a>
-- [ 2025_20_03 ] <a  href="\Explosion.html">Preignition - Writeup</a>
+- [ 2025_20_03 ] <a  href="\Synced.html">Synced - Writeup</a>
+- [ 2025_20_03 ] <a  href="\Mongod.html">Mongod - Writeup</a>
+- [ 2025_20_03 ] <a  href="\Preignition.html">Preignition - Writeup</a>
 - [ 2025_20_03 ] <a  href="\Explosion.html">Explosion - Writeup</a>
 - [ 2025_31_01 ] <a  href="\grubRescue.html">Grub Rescue de x86_64 a i386</a>
 - [ 2025_28_01 ] <a  href="\ciberseguridadUcp.html">Ciberseguridad 1 - UCP</a>

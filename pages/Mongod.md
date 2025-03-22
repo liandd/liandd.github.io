@@ -4,9 +4,9 @@ layout: page
 permalink: /Mongod
 ---
 
-<h2 class="titulo-principal">Explosion</h2>
+<h2 class="titulo-principal">Mongod</h2>
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/Mongod/mongod" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Mongod/mongod.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Vamos a encender la máquina, y nos da la dirección IP 10.129.54.191.
