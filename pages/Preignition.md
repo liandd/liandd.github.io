@@ -9,10 +9,7 @@ permalink: /Preignition
   <img src="/assets/images/StartingPoint/VIP/Preignition/preignition.webp" alt="under" oncontextmenu="return false;">
 </div>
 
-Vamos a encender la máquina, y nos da la dirección IP 10.129.9.0.
-<h2 class="titulo-principal">Enumeración</h2>
-
-Vamos a lanzar 5 paquetes para saber si la máquina está activa:
+Vamos a encender la máquina, y nos da la dirección IP 10.129.9.0 y comenzaremos a lanzar 5 paquetes para saber si la máquina está activa:
 
 ```bash
 ❯ ping -c 5 10.129.9.0
@@ -27,7 +24,11 @@ PING 10.129.9.0 (10.129.9.0) 56(84) bytes of data.
 rtt min/avg/max/mdev = 109.508/112.468/119.315/3.516 ms
 ```
 
-Vemos que tiene un TTL de 63. Por tanto, estamos frente a una máquina Linux. Vamos a continuar con la fase de enumeración usando nmap:
+Vemos que tiene un TTL de 63. Por tanto, estamos frente a una máquina Linux.
+
+<h2 class="titulo-principal">Enumeración</h2>
+
+Vamos a continuar con la fase de enumeración usando nmap:
 
 ```bash
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.9.0 -oG allPorts
@@ -110,7 +111,7 @@ Probamos con las típicas credenciales por defecto 'admin:admin'
   <img src="/assets/images/StartingPoint/VIP/Preignition/flag.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Y hemos completado la máquina.
+Y hemos completado la máquina Preignition.
 
 ---
 
