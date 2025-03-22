@@ -9,20 +9,8 @@ permalink: /posts
 Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada temática.
 Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, sirviendo como referencia y soporte en mi formación.
 
-<p class="beb">↓ more soon</p>
+<p class="beb">↓ Entradas recientes</p>
 
-- [ ? ] <a  href="">Programación en Linux uso de comandos y shell scripting</a>
-- [ ? ] <a  href="">Powershell para Administración de Servidores y Seguridad</a>
-- [ ? ] <a  href="">Linux Security and Hardening</a>
-- [ ? ] <a  href="">Fundamentos de Windows Scripting</a>
-- [ ? ] <a  href="">x86 Assembly - Notes</a>
-- [ ? ] <a  href="">IvNLP - Asesorias</a>
-- [ ? ] <a  href="">Sistemas Operativos - Notes</a>
-- [ ? ] <a  href="">Over The Wire Bandit - Bash</a>
-- [ ? ] <a  href="">CCNA1v7</a>
-- [ ? ] <a  href="">Cisco PacketTracer - Notes</a>
-- [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
-<br><br>
 - [ 2025_20_03 ] <a  href="\Synced.html">Synced - Writeup</a>
 - [ 2025_20_03 ] <a  href="\Mongod.html">Mongod - Writeup</a>
 - [ 2025_20_03 ] <a  href="\Preignition.html">Preignition - Writeup</a>
@@ -49,3 +37,18 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ 2023_27_01 ] <a  href="">SQL - UCP</a>
 - [ 2023_27_01 ] <a  href="">Java POO - UCP</a>
 - [ 2022_01_07 ] <a  href="\c_programacionEstructurada.html">C++ - UCP</a> 
+<br><br>
+<p class="beb">↓ more soon</p>
+
+- [ ? ] <a  href="">Programación en Linux uso de comandos y shell scripting</a>
+- [ ? ] <a  href="">Powershell para Administración de Servidores y Seguridad</a>
+- [ ? ] <a  href="">Linux Security and Hardening</a>
+- [ ? ] <a  href="">Fundamentos de Windows Scripting</a>
+- [ ? ] <a  href="">x86 Assembly - Notes</a>
+- [ ? ] <a  href="">IvNLP - Asesorias</a>
+- [ ? ] <a  href="">Sistemas Operativos - Notes</a>
+- [ ? ] <a  href="">Over The Wire Bandit - Bash</a>
+- [ ? ] <a  href="">CCNA1v7</a>
+- [ ? ] <a  href="">Cisco PacketTracer - Notes</a>
+- [ ? ] <a  href="">PharmacyControlSystem - Uruena2603</a>
+
