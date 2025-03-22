@@ -9,10 +9,7 @@ permalink: /Explosion
   <img src="/assets/images/StartingPoint/VIP/Explosion/explosion.webp" alt="under" oncontextmenu="return false;">
 </div>
 
-Vamos a encender la máquina, y nos da la dirección IP 10.129.54.191.
-<h2 class="titulo-principal">Enumeración</h2>
-
- Vamos a realizar un ping para saber si la máquina está activa:
+Vamos a encender la máquina, y nos da la dirección IP 10.129.54.191 y a realizar un ping para saber si la máquina está activa:
  
 ```bash
 ❯ ping -c 5 10.129.54.191
@@ -28,6 +25,8 @@ rtt min/avg/max/mdev = 109.585/826.837/2240.115/840.932 ms, pipe 3
 ```
 
 Podemos ver un TTL de 127 lo que significa que estamos ante un Windows.
+
+<h2 class="titulo-principal">Enumeración</h2>
 
 Vamos a realizar un escaneo de puertos sigiloso y rápido utilizando la herramienta nmap:
 
