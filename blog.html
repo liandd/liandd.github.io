@@ -136,26 +136,72 @@ permalink: /blog
   }
 }
 </style>
-<div class="responsive-container">
-  <div class="profile">
-    <a href="">
-      <img src="https://unkn0wn1122.github.io/assets/images/avatar.jpg">
-    </a>
-    <font face="arial" size="-1">
-      <a href="https://unkn0wn1122.github.io/#">Visita a mi colega Unkn0wn1122!</a>
-    </font>
-  </div>
 
-  <div class="profile">
-    <a href="">
-      <img src="https://avatars.githubusercontent.com/u/111206866?v=4">
-    </a>
-    <font face="arial" size="-1">
-      <a href="https://nico2603.github.io/PersonalPage/">Nico ha actualizado su Blog!</a>
-    </font>
-  </div>
-</div>
+ <style>
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
+    .marquee-content {
+      display: flex;
+      gap: 20px;
+      animation: marqueeOscilante 3s linear infinite alternate;
+    }
+
+    /* Animación "Oscilante" */
+    @keyframes marqueeOscilante {
+      0% {
+        transform: translateX(-10%);
+      }
+      100% {
+        transform: translateX(10%);
+      }
+    }
+
+    /* Pausar cuando el mouse está encima */
+    .marquee-container:hover .marquee-content {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <div class="profile">
+        <a href="">
+          <img src="https://unkn0wn1122.github.io/assets/images/avatar.jpg">
+        </a>
+        <font face="arial" size="-1">
+          <a href="https://unkn0wn1122.github.io/#">Visita a mi colega Unkn0wn1122!</a>
+        </font>
+      </div>
+
+      <div class="profile">
+        <a href="">
+          <img src="https://avatars.githubusercontent.com/u/111206866?v=4">
+        </a>
+        <font face="arial" size="-1">
+          <a href="https://nico2603.github.io/PersonalPage/">Nico ha actualizado su Blog!</a>
+        </font>
+      </div>
+
+      <div class="profile">
+        <a href="">
+          <img src="https://avatars.githubusercontent.com/u/150274418?v=4">
+        </a>
+        <font face="arial" size="-1">
+          <a href="https://uruena2603.github.io/Personal-blog/">Urueña se ha unido al Club!</a>
+        </font>
+      </div>
+    </div>
+  </div>
 
  <script type="text/javascript">
         function mousehandler(e) {
@@ -452,11 +498,20 @@ Lo más picante:
         {
           title: "Starting Point HTB WriteUp",
           link: "http://liandd.github.io/startingPointHTB.html",
-          description: "Esta publicación se centra en una rápida introducción a <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. Se aborda todos los 3 Tier de Starting Point.<br><br>Meow, Fawn, Dancing, Redeemer, Appointment, Sequel, Crocodile, Responder, Three, Archetype, Oopsie, Vaccine, Unified<br><br>Hemos completado el Tier1.",
+          description: "Esta publicación se centra en una rápida introducción a <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. Se aborda todos los 3 Tier de Starting Point.<br><br>Meow, Fawn, Dancing, Redeemer, Appointment, Sequel, Crocodile, Responder, Three, Archetype, Oopsie, Vaccine, Unified<br><br>Hemos completado el Tier1 (Meow,Fawn,Dancing,Redeemer).<br><br>Vamos ahora por el Tier2.",
           author: "liandd",
           date: "Mar 16, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
+        {
+          title: "Preignition Writeup",
+          link: "http://liandd.github.io/Preignition.html",
+          description: "La máquina Preignition de HackTheBox es de una dificultad muy fácil y Linux, que presenta un servicio APACHE y requiere de técnicas de DirBusting para enumerar posibles rutas por defecto. Mediante credenciales debiles y una mala configuración de APACHE se puede comprometer está máquina.<br><p><strong>Tags:</strong> Linux, Apache, Web, Weak Credentials</p> ",
+          author: "liandd",
+          date: "Mar 20, 2025",
+          cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
+        },
+
         {
           title: "Explosion Writeup",
           link: "http://liandd.github.io/Explosion.html",
@@ -466,30 +521,21 @@ Lo más picante:
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
         {
-          title: "Preignition Writeup",
-          link: "http://liandd.github.io/Preignition.html",
-          description: "La máquina Preignition de HackTheBox es de una dificultad muy fácil y Linux, ",
+          title: "Synced Writeup",
+          link: "http://liandd.github.io/Synced.html",
+          description: "La máquina Synced de HackTheBox es de una dificultad muy fácil y Linux, con un protocolo para entablar conexiones no muy común Rsync orientada a la transferencia de archivos tal que FTP (Pero mejor, y más nuevo), pero con una jugadilla podemos hacer bypass para tener acceso total.<br><p><strong>Tags:</strong> Linux, Rsync, Bypass</p>",
           author: "liandd",
-          date: "Mar 20, 2025",
+          date: "Mar 21, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
         {
           title: "Mongod Writeup",
           link: "http://liandd.github.io/Mongod.html",
-          description: "La máquina Mongod de HackTheBox es de una dificultad muy fácil y Linux",
-          author: "liandd",
-          date: "Mar 21, 2025",
-          cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
-        },
-        {
-          title: "Synced Writeup",
-          link: "http://liandd.github.io/Synced.html",
-          description: "La máquina Synced de HackTheBox es de una dificultad muy fácil y Linux",
+          description: "La máquina Mongod de HackTheBox es de una dificultad muy fácil y Linux, que a través de malas configuraciones se explota un servicio MongoDB y de manera anonima dumpear colecciones con información sensible.<br><p><strong>Tags:</strong> Linux, MongoDB, Bypass</p>",
           author: "liandd",
           date: "Mar 21, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         }
-
 
 
 
