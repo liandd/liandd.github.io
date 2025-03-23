@@ -588,7 +588,7 @@ Y así hemos <a><strong><em>pw3nd</em></strong></a> la máquina y completado el 
   <img src="/assets/images/StartingPoint/tier2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 id="meow"><h1 class="titulo-principal">Appointment</h1></h2>
+<h2 id="appointment"><h1 class="titulo-principal">Appointment</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/appointment/appointment.png" alt="under" oncontextmenu="return false;">
@@ -619,12 +619,15 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.84.205 -oG allPorts
 ```
 
 Abrimos la captura de nmap de todos los puertos abiertos y vemos únicamente el puerto `80`.
-
-![[HTB/Starting Point/Tier 2/Appointment/Images/nmap.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/appointment/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Para no tener tanto ruido de la captura, con la herramienta **extractPorts** se nos parsea la información más relevante por consola:
 
-![[HTB/Starting Point/Tier 2/Appointment/Images/extractPorts.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/appointment/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Lanzamos una serie de scripts básicos de reconocimiento para identificar la versión y servicio de ese puerto 80 de la siguiente manera con nmap:
 
@@ -632,13 +635,17 @@ Lanzamos una serie de scripts básicos de reconocimiento para identificar la ver
 nmap -sCV -p80 10.129.84.205 -oN targeted
 ```
 
-![[HTB/Starting Point/Tier 2/Appointment/Images/nmap2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/appointment/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 La captura revela un servicio HTTP Apache y Login pero, poco más. Haciendo uso de la herramienta `whatweb` podemos tratar de enumerar un poco sobre el servicio HTTP y efectivamente vemos un Login.
 
-![[whatweb.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/appointment/whatweb.png" alt="under" oncontextmenu="return false;">
+</div>
 
-# Explotación
+<h2 class="titulo-principal">Explotación</h2>
 
 Con ayuda de nmap podemos lanzar un script programado en Lua, para identificar rutas comunes almacenadas en un diccionario de 1060-1080 entradas posibles para enumerar posibles rutas:
 
@@ -646,16 +653,20 @@ Con ayuda de nmap podemos lanzar un script programado en Lua, para identificar r
 nmap --script http-enum 10.129.84.205 -oN webScan
 ```
 
-![[webScan.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/appointment/webScan.png" alt="under" oncontextmenu="return false;">
+</div>
 
 A pesar de encontrar estos directorios, no son útiles y no vemos nada más allá de lo habitual, así que ingresamos a la web:
 
-![[login.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/appointment/login.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Efectivamente estamos viendo que se emplea un Login, probamos con credenciales por defecto 'admin:admin. admin:password. root:root' pero no logramos nada. Otra forma alternativa si no es por credenciales por defecto es que puede estar aplicando una Base de Datos MySQL y debamos hacer una SQL Injection.
 
 ----
-# ¿Qué es una SQL Injection?
+<h3 class="titulo-secundario">¿Qué es una SQL Injection?</h3>
 
 La inyección de SQL es un tipo de ciberataque encubierto en el cual un hacker inserta código propio en un sitio web con el fin de quebrantar las medidas de seguridad y acceder a datos protegidos. Una vez dentro, puede controlar la base de datos del sitio web y secuestrar la información de los usuarios.
 
@@ -707,7 +718,10 @@ else {
 - pruebapassword123
 
 Y obtenemos la flag.
-![[flagd.png]]
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/appointment/flagd.png" alt="under" oncontextmenu="return false;">
+</div>
 
 
 ---
