@@ -821,7 +821,7 @@ Y hemos completado la máquina.
 <h2 id="cocodrile"><h1 class="titulo-principal">Cocodrile</h1></h2>
 
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/StartingPoint/cocodrile/cocodrile.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/cocodrile/crocodile.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Encendemos la máquina y nos da la dirección IP 10.129.1.15 y probamos lanzando 5 trazas ICMP para comprobar que el host este activo.
@@ -840,7 +840,7 @@ rtt min/avg/max/mdev = 97.627/107.604/142.192/17.327 ms
 ```
 
 El resultado de ping nos arroja un TTL de 63, entonces nos estamos enfrentando a una máquina Linux.
-# Enumeración
+<h2 class="titulo-principal">Enumeración</h2>
 
 Para comenzar con la fase de enumeración vamos a realizar un escaneo rápido y sigiloso usando nmap para identificar puertos abiertos:
 
@@ -848,11 +848,15 @@ Para comenzar con la fase de enumeración vamos a realizar un escaneo rápido y 
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.1.15 -oG allPorts
 ```
 
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/nmap.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y vemos de la captura una serie de puertos abiertos tal que `21, 80`. Vamos a eliminar el ruido con la herramienta **extractPorts**:
 
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/extractPorts.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Lo siguiente será hacer un escaneo usando nmap y una serie de scripts básicos de reconocimiento:
 
@@ -860,13 +864,17 @@ Lo siguiente será hacer un escaneo usando nmap y una serie de scripts básicos 
 nmap -sCV -p21,80 10.129.1.15 -oN targeted
 ```
 
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/nmap2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-# Explotación
+<h2 class="titulo-principal">Explotación</h2>
 
 Vemos que la máquina tiene puerto 21 FTP `3.0.3` que es vulnerable a **Anonymous Login**. Antes de revisar el servicio FTP vamos a realizar un análisis web a la 10.129.1.15:
 
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/whatweb.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/whatweb.png" alt="under" oncontextmenu="return false;">
+</div>
 
 No vemos nada, así que haremos un escaneo con nmap usando un script programado en Lua, para identificar rutas comunes de servicios web con:
 
@@ -874,32 +882,47 @@ No vemos nada, así que haremos un escaneo con nmap usando un script programado 
 nmap --script hhtp-enum 10.129.1.15 -oN webScan
 ```
 
-
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/webScan.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/webScan.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y encontramos algo muy interesante en la captura de nmap una ruta llamada `login.php`, pero por ahora entablaremos una conexión con el FTP usando como credenciales "anonymous:" y sin contraseña:
 
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/ftp.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/ftp.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Listamos el contenido del servicio FTP:
 
-![[ftp2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/ftp2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y encontramos 2 archivos llamados 'allowed.userlist' y 'allowed.userlist.passwd' que es información sensible no sanitizada. Las descargamos a nuestra máquina con el comando `get`.
 
-![[ftp3.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/ftp3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y vemos posibles usuarios y credenciales, aun así ahora no podemos hacer nada. Abrimos la página web y vemos lo siguiente.
 
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/web.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/web.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Aun así no encontramos nada importante en la pagina, iremos la dirección que encontramos previamente 'http://10.129.1.15/login.php' y encontramos un panel de Login, probamos con credenciales por defecto 'admin:admin' 'root:root' 'admin:password' 'guest:guest' y no conseguimos nada. Probamos una inyección SQL 'admin'#:pruebatest1234' y sin resultados:
 
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/web2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/web2.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Probamos con las credenciales que obtuvimos previamente desde el servicio FTP:
 
-![[HTB/Starting Point/Tier 2/Cocodrile/Images/flag.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/cocodrile/flag.png" alt="under" oncontextmenu="return false;">
+</div>
+
 Hemos completado la máquina.
 
 
