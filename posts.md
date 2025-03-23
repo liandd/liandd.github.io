@@ -11,8 +11,13 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ Entradas recientes</p>
 
-- [ 2025_20_03 ] <a  href="\Synced.html">Synced - Writeup</a>
-- [ 2025_20_03 ] <a  href="\Mongod.html">Mongod - Writeup</a>
+- [ 2025_23_03 ] <a  href="\startingPointHTB.html#three">Three - Writeup</a>
+- [ 2025_23_03 ] <a  href="\startingPointHTB.html#responder">Responder - Writeup</a>
+- [ 2025_23_03 ] <a  href="\startingPointHTB.html#cocodrile">Cocodrile - Writeup</a>
+- [ 2025_22_03 ] <a  href="\startingPointHTB.html#sequel">Sequel - Writeup</a>
+- [ 2025_22_03 ] <a  href="\startingPointHTB.html#appointment">Appointment - Writeup</a>
+- [ 2025_21_03 ] <a  href="\Synced.html">Synced - Writeup</a>
+- [ 2025_21_03 ] <a  href="\Mongod.html">Mongod - Writeup</a>
 - [ 2025_20_03 ] <a  href="\Preignition.html">Preignition - Writeup</a>
 - [ 2025_20_03 ] <a  href="\Explosion.html">Explosion - Writeup</a>
 - [ 2025_31_01 ] <a  href="\grubRescue.html">Grub Rescue de x86_64 a i386</a>
