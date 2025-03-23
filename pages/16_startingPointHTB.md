@@ -723,6 +723,82 @@ Y obtenemos la flag.
   <img src="/assets/images/StartingPoint/appointment/flagd.png" alt="under" oncontextmenu="return false;">
 </div>
 
+<hr />
+<h2 id="sequel"><h1 class="titulo-principal">Sequel</h1></h2>
+
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/sequel.png" alt="under" oncontextmenu="return false;">
+</div>
+Encendemos la máquina y nos da la dirección IP 10.129.133.7, enviamos un ping para saber si es Linux o Windows.
+
+```bash
+❯ ping -c 5 10.129.133.7
+PING 10.129.133.7 (10.129.133.7) 56(84) bytes of data.
+64 bytes from 10.129.133.7: icmp_seq=1 ttl=63 time=106 ms
+64 bytes from 10.129.133.7: icmp_seq=2 ttl=63 time=98.7 ms
+64 bytes from 10.129.133.7: icmp_seq=3 ttl=63 time=97.6 ms
+64 bytes from 10.129.133.7: icmp_seq=4 ttl=63 time=98.0 ms
+64 bytes from 10.129.133.7: icmp_seq=5 ttl=63 time=97.4 ms
+--- 10.129.133.7 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4004ms
+rtt min/avg/max/mdev = 97.428/99.446/105.501/3.059 ms
+```
+
+Vemos un TTL 63 así que estamos frente a una máquina Linux.
+# Enumeración
+
+Para la fase de enumeración vamos a lanzar un escaneo rápido y sigiloso con nmap:
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.133.7 -oG allPorts
+```
+
+![[HTB/Starting Point/Tier 2/Sequel/Images/nmap.png]]
+
+Vemos como puerto abierto `3306` un MySQL, y limpiando un poco el ruido de la captura parsearemos la información de la captura con **extractPorts**:
+
+![[HTB/Starting Point/Tier 2/Sequel/Images/extractPorts.png]]
+
+Vamos a realizar un escaneo con una serie de scripts básicos de reconocimiento para identificar la versión y servicio del puerto MySQL.
+
+```bash
+nmap -sCV -p3306 10.129.133.7 -oG targeted
+```
+
+![[HTB/Starting Point/Tier 2/Sequel/Images/nmap2.png]]
+
+# Explotación
+
+Para poder explotar este puerto podemos probar a loguearnos con credenciales por defecto al servicio MySQL usando mariadb.
+
+![[maria.png]]
+
+Para solucionar este error de SSL ya que es una version algo desactualizada de SQL agregamos la flag '--ssl=OFF'. Y para las credenciales usamos la flag '-u root'.
+
+![[maria2.png]]
+
+Nos acepta la conexión y por tanto ya podemos intentar a ejecutar comandos SQL.
+
+![[maria3.png]]
+
+Vemos unas bases de datos y todo normal pero, una de ellas llama poderosamente la atención y es la 'htb'. Así que usamos con:
+```
+show databases;
+use htb;
+show tables;
+select * from users;
+```
+
+![[maria4.png]]
+
+Vemos usuarios y correos, pero aun no vemos la flag, así que revisamos la tabla 'config':
+
+```
+select * from config;
+```
+
+![[HTB/Starting Point/Tier 2/Sequel/Images/flag.png]]
+Y hemos completado la máquina.
 
 ---
 
