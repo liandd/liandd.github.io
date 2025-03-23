@@ -745,7 +745,7 @@ rtt min/avg/max/mdev = 97.428/99.446/105.501/3.059 ms
 ```
 
 Vemos un TTL 63 así que estamos frente a una máquina Linux.
-# Enumeración
+<h2 class="titulo-principal">Enumeración</h2>
 
 Para la fase de enumeración vamos a lanzar un escaneo rápido y sigiloso con nmap:
 
@@ -753,11 +753,15 @@ Para la fase de enumeración vamos a lanzar un escaneo rápido y sigiloso con nm
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.133.7 -oG allPorts
 ```
 
-![[HTB/Starting Point/Tier 2/Sequel/Images/nmap.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos como puerto abierto `3306` un MySQL, y limpiando un poco el ruido de la captura parsearemos la información de la captura con **extractPorts**:
 
-![[HTB/Starting Point/Tier 2/Sequel/Images/extractPorts.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vamos a realizar un escaneo con una serie de scripts básicos de reconocimiento para identificar la versión y servicio del puerto MySQL.
 
@@ -765,21 +769,29 @@ Vamos a realizar un escaneo con una serie de scripts básicos de reconocimiento 
 nmap -sCV -p3306 10.129.133.7 -oG targeted
 ```
 
-![[HTB/Starting Point/Tier 2/Sequel/Images/nmap2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-# Explotación
+<h2 class="titulo-principal">Explotación</h2>
 
 Para poder explotar este puerto podemos probar a loguearnos con credenciales por defecto al servicio MySQL usando mariadb.
 
-![[maria.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/maria.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Para solucionar este error de SSL ya que es una version algo desactualizada de SQL agregamos la flag '--ssl=OFF'. Y para las credenciales usamos la flag '-u root'.
 
-![[maria2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/maria2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Nos acepta la conexión y por tanto ya podemos intentar a ejecutar comandos SQL.
 
-![[maria3.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/maria3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos unas bases de datos y todo normal pero, una de ellas llama poderosamente la atención y es la 'htb'. Así que usamos con:
 ```
@@ -789,7 +801,9 @@ show tables;
 select * from users;
 ```
 
-![[maria4.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/maria4.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos usuarios y correos, pero aun no vemos la flag, así que revisamos la tabla 'config':
 
@@ -797,7 +811,10 @@ Vemos usuarios y correos, pero aun no vemos la flag, así que revisamos la tabla
 select * from config;
 ```
 
-![[HTB/Starting Point/Tier 2/Sequel/Images/flag.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/sequel/flag.png" alt="under" oncontextmenu="return false;">
+</div>
+
 Y hemos completado la máquina.
 
 ---
