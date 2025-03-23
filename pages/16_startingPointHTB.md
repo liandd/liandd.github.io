@@ -581,6 +581,134 @@ Podemos usar `select 0` para seleccionar esa base de datos **db0**, y para ver l
 </div>
 
 Y así hemos <a><strong><em>pw3nd</em></strong></a> la máquina y completado el Tier1 del Starting Point.
+<hr />
+<h2 id="subtitulo-importante">Tier 2</h2>
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/tier2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<h2 id="meow"><h1 class="titulo-principal">Appointment</h1></h2>
+
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/appointment/appointment.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Vamos a encender la máquina, y nos da la dirección IP 10.129.84.205 y lanzamos un ping para saber a que nos estamos enfrentando si a una máquina Linux o Windows.
+
+```bash
+❯ ping -c 5 10.129.84.205
+PING 10.129.84.205 (10.129.84.205) 56(84) bytes of data.
+64 bytes from 10.129.84.205: icmp_seq=1 ttl=63 time=97.4 ms
+64 bytes from 10.129.84.205: icmp_seq=2 ttl=63 time=98.0 ms
+64 bytes from 10.129.84.205: icmp_seq=3 ttl=63 time=98.6 ms
+64 bytes from 10.129.84.205: icmp_seq=4 ttl=63 time=100 ms
+64 bytes from 10.129.84.205: icmp_seq=5 ttl=63 time=109 ms
+--- 10.129.84.205 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4004ms
+rtt min/avg/max/mdev = 97.444/100.782/109.425/4.438 ms
+```
+
+Vemos un TTL de 63. Por tanto, máquina Linux.
+<h2 class="titulo-principal">Enumeración</h2>
+
+Para hacer un escaneo rápido y sigiloso usamos nmap:
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.84.205 -oG allPorts
+```
+
+Abrimos la captura de nmap de todos los puertos abiertos y vemos únicamente el puerto `80`.
+
+![[HTB/Starting Point/Tier 2/Appointment/Images/nmap.png]]
+
+Para no tener tanto ruido de la captura, con la herramienta **extractPorts** se nos parsea la información más relevante por consola:
+
+![[HTB/Starting Point/Tier 2/Appointment/Images/extractPorts.png]]
+
+Lanzamos una serie de scripts básicos de reconocimiento para identificar la versión y servicio de ese puerto 80 de la siguiente manera con nmap:
+
+```bash
+nmap -sCV -p80 10.129.84.205 -oN targeted
+```
+
+![[HTB/Starting Point/Tier 2/Appointment/Images/nmap2.png]]
+
+La captura revela un servicio HTTP Apache y Login pero, poco más. Haciendo uso de la herramienta `whatweb` podemos tratar de enumerar un poco sobre el servicio HTTP y efectivamente vemos un Login.
+
+![[whatweb.png]]
+
+# Explotación
+
+Con ayuda de nmap podemos lanzar un script programado en Lua, para identificar rutas comunes almacenadas en un diccionario de 1060-1080 entradas posibles para enumerar posibles rutas:
+
+```bash
+nmap --script http-enum 10.129.84.205 -oN webScan
+```
+
+![[webScan.png]]
+
+A pesar de encontrar estos directorios, no son útiles y no vemos nada más allá de lo habitual, así que ingresamos a la web:
+
+![[login.png]]
+
+Efectivamente estamos viendo que se emplea un Login, probamos con credenciales por defecto 'admin:admin. admin:password. root:root' pero no logramos nada. Otra forma alternativa si no es por credenciales por defecto es que puede estar aplicando una Base de Datos MySQL y debamos hacer una SQL Injection.
+
+----
+# ¿Qué es una SQL Injection?
+
+La inyección de SQL es un tipo de ciberataque encubierto en el cual un hacker inserta código propio en un sitio web con el fin de quebrantar las medidas de seguridad y acceder a datos protegidos. Una vez dentro, puede controlar la base de datos del sitio web y secuestrar la información de los usuarios.
+
+> **SQL** : Viene de Structured Query Language.
+
+Estas vulnerabilidades están relacionados con **AO3:201-Injection**.
+
+Para la SQL Injection la idea es explotar los statements de la base de datos ya que estos almacenan datos de entrada de usuario.
+
+---
+
+Suponiendo que la página renderiza el Login con código .PHP aquí hay un ejemplo de código vulnerable a SQL Injection:
+
+```php
+<?php
+mysql_connect("localhost", "db_username", "db_password"); # Connection to the SQL Database.
+mysql_select_db("users"); # Database table where user information is stored.
+$username=$_POST['username']; # User-specified username.
+$password=$_POST['password']; #User-specified password.
+
+# Query for user/pass retrieval from the DB.
+$sql="SELECT * FROM users WHERE username='$username' AND password='$password'";
+
+# Performs query stored in $sql and stores it in $result.
+$result=mysql_query($sql);
+
+# Sets the $count variable to the number of rows stored in $result.
+$count=mysql_num_rows($result);
+
+# Checks if there's at least 1 result, and if yes:
+if ($count==1){
+	$_SESSION['username'] = $username; # Creates a session with the specified $username.
+	$_SESSION['password'] = $password; # Creates a session with the specified $password.
+	header("location:home.php"); # Redirect to homepage.
+}
+else { 
+	# If there's no singular result of a user/pass combination:
+	header("location:login.php");
+	
+	# No redirection, as the login failed in the case the $count variable is not equal to 1,
+	HTTP Response code 200 OK.
+}
+?>
+```
+
+> Para comentar código en .PHP se usa '#'. Así que probamos con 
+
+- admin'#
+- pruebapassword123
+
+Y obtenemos la flag.
+![[flagd.png]]
+
 
 ---
 
