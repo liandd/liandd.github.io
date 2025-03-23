@@ -818,7 +818,7 @@ select * from config;
 Y hemos completado la máquina.
 
 <hr />
-<h2 id="cocodrile"><h1 class="titulo-principal">Cocodrile</h1></h2>
+<h2 id="crocodile"><h1 class="titulo-principal">Cocodrile</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/cocodrile/crocodile.png" alt="under" oncontextmenu="return false;">
