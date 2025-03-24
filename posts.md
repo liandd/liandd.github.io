@@ -11,6 +11,8 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ Entradas Recientes</p>
 
+- [ ?? ] <a  href="">HTB Writeup - Tactics</a>
+- [ ?? ] <a  href="">HTB Writeup - PennyWorth</a>
 - [ ?? ] <a  href="">HTB Writeup - Funnel</a>
 - [ ?? ] <a  href="">HTB Writeup - Bike</a>
 - [ ?? ] <a  href="">HTB Writeup - Ignition</a>
