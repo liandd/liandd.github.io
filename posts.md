@@ -17,7 +17,7 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ ?? ] <a  href="">HTB Writeup - Bike</a>
 - [ ?? ] <a  href="">HTB Writeup - Ignition</a>
 - [ ?? ] <a  href="">HTB Writeup - Three</a>
-- [ ?? ] <a  href="">HTB Writeup - Responder</a>
+- [ 2025_24_03 ] <a  href="\startingPointHTB.html#responder">HTB Writeup - Responder</a>
 - [ 2025_23_03 ] <a  href="\startingPointHTB.html#crocodile">HTB Writeup - Crocodile</a>
 - [ 2025_22_03 ] <a  href="\startingPointHTB.html#sequel">HTB Writeup - Sequel</a>
 - [ 2025_22_03 ] <a  href="\startingPointHTB.html#appointment">HTB Writeup - Appointment</a>

