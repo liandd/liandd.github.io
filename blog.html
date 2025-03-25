@@ -563,58 +563,66 @@ Lo más picante:
         },
         {
           title: "Tactics Writeup",
-          link: "http://liandd.github.io/startingPointHTB.html#appointment",
-          description: "La máquina Tactics de HackTheBox es de una dificultad muy fácil y Windows,.<br><p><strong>Tags:</strong> Windows, Web, SQL Injection, Bypass</p>",
+          link: "http://liandd.github.io/Tactics.html",
+          description: "La máquina Tactics de HackTheBox es de una dificultad muy fácil y Windows, que mediante enumeración SMB y credenciales debiles tenemos acceso total.<br><p><strong>Tags:</strong> Windows, SMB Weak Credentials</p>",
           author: "liandd",
           date: "Mar 24, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
         {
           title: "PennyWorth Writeup",
-          link: "http://liandd.github.io/startingPointHTB.html#crocodile",
-          description: "La máquina PennyWorth de HackTheBox es de una dificultad muy fácil y Linux,.<br><p><strong>Tags:</strong> Linux, Web, Dir Busting, Information Leakage</p>",
+          link: "http://liandd.github.io/PennyWorth",
+          description: "La máquina PennyWorth de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web que tiene una versión vulnerable de Jenkins y credenciales debiles, Y con Groovy Script podemos hacer RCE para control total.<br><p><strong>Tags:</strong> Linux, Web, Jenkins Weak Credentials, Groovy Script, RCE</p>",
           author: "liandd",
           date: "Mar 24, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
         {
           title: "Funnel Writeup",
-          link: "http://liandd.github.io/startingPointHTB.html#appointment",
-          description: "La máquina Funnel de HackTheBox es de una dificultad muy fácil y Linux,.<br><p><strong>Tags:</strong> Linux, Web, SQL Injection, Bypass</p>",
+          link: "http://liandd.github.io/Funnel.html",
+          description: "La máquina Funnel de HackTheBox es de una dificultad muy fácil y Linux, presenta un FTP y Información sensible no sanitizada que permite acceso SSH, se ataca un PostgresSQL que se ejecutaba localmente en la máquina con un Local Port Forwarding.<br><p><strong>Tags:</strong> Linux, FTP, Information Leakage, Local Port Forwarding, PSQL</p>",
           author: "liandd",
           date: "Mar 24, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
         {
           title: "Bike Writeup",
-          link: "http://liandd.github.io/startingPointHTB.html#crocodile",
-          description: "La máquina Bike de HackTheBox es de una dificultad muy fácil y Linux,.<br><p><strong>Tags:</strong> Linux, Web, Dir Busting, Information Leakage</p>",
+          link: "http://liandd.github.io/Bike.html",
+          description: "La máquina Bike de HackTheBox es de una dificultad muy fácil y Linux, tiene un servidor web donde hay una etiqueta html input que con un Server Side Template Injection (SSTI) Y RCE controlando las peticiones web con Caido se puede obtener información sensible.<br><p><strong>Tags:</strong> Linux, Web, SSTI, Caido</p>",
           author: "liandd",
           date: "Mar 24, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
         {
           title: "Ignition Writeup",
-          link: "http://liandd.github.io/startingPointHTB.html#sequel",
-          description: "La máquina Ignition de HackTheBox es de una dificultad muy fácil y Linux,.<br><p><strong>Tags:</strong> Linux, SQL</p>",
+          link: "http://liandd.github.io/Ignition.html",
+          description: "La máquina Ignition de HackTheBox es de una dificultad muy fácil y Linux, cuenta con un servicio web el cual utiliza un servicio Magento de formularios vulnerable.<br><p><strong>Tags:</strong> Linux, Magento, Weak Credentials</p>",
           author: "liandd",
           date: "Mar 24, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
         {
           title: "Three Writeup",
-          link: "http://liandd.github.io/startingPointHTB.html#appointment",
-          description: "La máquina Three de HackTheBox es de una dificultad muy fácil y Linux,.<br><p><strong>Tags:</strong> Linux, Web, SQL Injection, Bypass</p>",
+          link: "http://liandd.github.io/startingPointHTB.html#three",
+          description: "La máquina Three de HackTheBox es de una dificultad muy fácil y Linux, tiene un apartado web que mediante DirBusting se explota un servicio mal configurado de Amazon para ejecución arbitraria de comandos.<br><p><strong>Tags:</strong> Linux, Web, DirBustin, AWS S3, RCE</p>",
           author: "liandd",
           date: "Mar 24, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         },
         {
           title: "Responder Writeup",
-          link: "http://liandd.github.io/startingPointHTB.html#appointment",
-          description: "La máquina Responder de HackTheBox es de una dificultad muy fácil y Linux, .<br><p><strong>Tags:</strong> Linux, Web, SQL Injection, Bypass</p>",
+          link: "http://liandd.github.io/startingPointHTB.html#responder",
+          description: "La máquina Responder de HackTheBox es de una dificultad muy fácil y Windows, tiene un apartado web que mediante una variable PHP mal sanitizada nos brinda un LFI para el NetNTLMv2 que nos permite mediante un desafío de hashes obtener acceso total .<br><p><strong>Tags:</strong> Windows, Web, Path Trasversal, LFI, NetNTLMv2, Hash Cracking</p>",
           author: "liandd",
           date: "Mar 24, 2025",
+          cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
+        },
+        {
+          title: "Archetype Writeup",
+          link: "http://liandd.github.io/startingPointHTB.html#archetype",
+          description: "La máquina Archetype de HackTheBox es de una dificultad muy fácil y Windows, que mediante enumeración SMB hay información sensible no sanitizada, luego se presenta un MSSQL que nos permite un RCE para entablarnos una conexión que nos permite acceso al sistema. Para la escalada hay un Information Leakage mediante Logs.<br><p><strong>Tags:</strong> Windows, SMB Information Leakage, MSSQL, RCE, Log Credentials(Escalada)</p>",
+          author: "liandd",
+          date: "Mar 25, 2025",
           cus: { url: "https://github.com/liandd", art: "liandd GitHub"}
         }
 
