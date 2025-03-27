@@ -11,6 +11,13 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ Entradas Recientes</p>
 
+- [ ?? ] <a  href="">HTB Writeup - Base</a>
+- [ ?? ] <a  href="">HTB Writeup - Markup</a>
+- [ ?? ] <a  href="">HTB Writeup - Included</a>
+- [ ?? ] <a  href="">HTB Writeup - Unified</a>
+- [ ?? ] <a  href="">HTB Writeup - Vaccine</a>
+- [ ?? ] <a  href="">HTB Writeup - Oopsie</a>
+- [ ?? ] <a  href="">HTB Writeup - Archetype</a>
 - [ ?? ] <a  href="">HTB Writeup - Tactics</a>
 - [ ?? ] <a  href="">HTB Writeup - PennyWorth</a>
 - [ ?? ] <a  href="">HTB Writeup - Funnel</a>
