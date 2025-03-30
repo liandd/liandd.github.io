@@ -9,8 +9,6 @@ permalink: /Bike
   <img src="/assets/images/StartingPoint/VIP/Bike/bike.webp" alt="under" oncontextmenu="return false;">
 </div>
 
-
-
 Comenzamos encendiendo la máquina y nos da la dirección IP 10.129.166.121, enviaremos un paquete para saber a que nos estamos enfrentando:
 
 ```bash
@@ -27,7 +25,7 @@ rtt min/avg/max/mdev = 108.120/110.928/115.225/2.492 ms
 ```
 
 Con un TTL de 63 estamos frente a una máquina Linux.
-# Enumeración
+<h2 class="titulo-principal">Enumeración</h2>
 
 Para la fase de reconocimiento o enumeración lanzaremos un escaneo rápido y sigiloso con nmap sobre la dirección IP 10.129.166.121:
 
@@ -35,11 +33,15 @@ Para la fase de reconocimiento o enumeración lanzaremos un escaneo rápido y si
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.166.121 -oG allPorts
 ```
 
-![[HTB/Starting Point VIP/Tier 2/Bike/Images/nmap.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos dos puertos abiertos pero, para limpiar un poco el ruido de la captura de nmap usamos la herramienta previamente definida en la .zshrc **extractPorts**:
 
-![[HTB/Starting Point VIP/Tier 2/Bike/Images/extractPorts.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos el puerto `22` y `80`, vamos a lanzar un escaneo con una serie de scripts básicos de reconocimiento con nmap para identificar la versión y servicio:
 
@@ -47,11 +49,15 @@ Vemos el puerto `22` y `80`, vamos a lanzar un escaneo con una serie de scripts 
 nmap -sCV -p22,80 10.129.166.121 -oN targeted
 ```
 
-![[HTB/Starting Point VIP/Tier 2/Bike/Images/nmap2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Vemos puerto 22 SSH aunque sin credenciales por ahora será tenerlo en cuenta, y puerto 80 HTTP. Probamos con la herramienta whatweb a enumerar un poco este servicio:
 
-![[HTB/Starting Point VIP/Tier 2/Bike/Images/whatweb.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/whatweb.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Solo encontramos que ejecuta Express, entonces haremos uso de un script programado en Lua para que nmap utilice un diccionario corto de rutas comunes para el servicio web:
 
@@ -59,15 +65,19 @@ Solo encontramos que ejecuta Express, entonces haremos uso de un script programa
 nmap --script http-enum 10.129.166.121 -oN webScan
 ```
 
-![[HTB/Starting Point VIP/Tier 2/Bike/Images/webscan.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/webscan.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Pero no vemos nada relevante.
 
-# Explotación
+<h2 class="titulo-principal">Explotación</h2>
 
 Abriremos la página y nos encontramos con tipo de desarrollo de juego estilo 'Among US' el cual nos esta pidiendo una dirección de correo para avisarnos cuando el servicio este listo.
 
-![[HTB/Starting Point VIP/Tier 2/Bike/Images/web.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/web.png" alt="under" oncontextmenu="return false;">
+</div>
 
 En este punto podemos probar a explotar este campo 'Placeholder' intentando un XSS:
 
@@ -77,28 +87,32 @@ En este punto podemos probar a explotar este campo 'Placeholder' intentando un X
 
 Pero la página parece tener sanitizado XSS. Así que intentamos otra posibilidad capturando el tráfico web con Caido. Ya que si el campo no es vulnerable a XSS puede serlo a SSTI. Server Side Template Injection
 
----
-# Explicación
+<hr />
+<h2 class="titulo-principal">Explicación</h2>
 
-¿Qué es Node.js?
+<h3 class="titulo-secundario">¿Qué es Node.js?</h3>
 Node.js es una plataforma de código abierto que permite como backend ejecutar JavaSscript para construir aplicativos.
-¿Qué es Express?
+<h3 class="titulo-secundario">¿Qué es Express?</h3>
 Express es una versión minimalista de Node.js para aplicativos web.
 
-![[stti0.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/stti0.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Node.js y Python comúnmente hacen uso de algo llamado "Template Engines".
-## ¿Qué es un Template Engine?
+<h3 class="titulo-secundario">¿Qué es un Template Engine?</h3>
 
 Template Engines son usados para generar automáticamente contenido web y ayudar al programador.
 
 Template Engines son como todo software propensos a vulnerabilidades y en este caso Server Side Template Injection (SSTI).
-## ¿Qué es un SSTI?
+<h3 class="titulo-principal">¿Qué es un SSTI?</h3>
 Server-side template injection es una vulnerabilidad que consiste en entrada maliciosa en un placeholder o campo de input en una template para ejecutar comandos en el server.
 
 Este ataque es muy común en páginas Node.js.
 
-![[stti1.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/stti1.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Podemos probar las siguientes combinaciones para hacer el SSTI:
 
@@ -110,19 +124,23 @@ ${ {7*7}}
 #{7*7
 ```
 
-----
+<hr />
 
 Capturamos con Caido el SSTI `{ {7*7}}` y lo convertimos a URL encode:
 
-![[ssti.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/ssti.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Hacemos un forward a la petición y vemos un mensaje de error por parte de la página y el servidor:
 
-![[ssti2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/ssti2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Debería de ejecutar la operatorio '7 x 7' pero, en su lugar el mensaje de error muestra que si ha funcionado la inyección, y aparte de eso nos está mostrando 'root/Backend/node_modules/handlebars/dist/cjs/handlebars/compiler....'. Esto es bueno porque ahora sabemos que la plantilla se llama Handlebars.
 
-> Aquí un muy buen recurso para indagar más en SSTI https://book.hacktricks.wiki/en/pentesting-web/ssti-server-side-template-injection/index.html#handlebars-nodejsl
+> Aquí un muy buen recurso para indagar más en SSTI <a href="https://book.hacktricks.wiki/en/pentesting-web/ssti-server-side-template-injection/index.html#handlebars-nodejsl">Hacktricks</a>.
 
 
 Donde como script para hacer pruebas a Node.js encontramos:
@@ -151,7 +169,9 @@ Donde como script para hacer pruebas a Node.js encontramos:
 
 El cual debe ir en formato URL encode ya que viaja como parámetro en una petición web:
 
-![[ssti3.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/ssti3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Y vemos que hay un error en la linea 19 de la respuesta de Caido. Eso es porque Node.js trabaja con unas globales https://nodejs.org/api/globals.html. Pero que algunas funciones parecen ser también globales y son:
 
@@ -189,7 +209,9 @@ El problema es que necesitamos `require()` para poder ejecutar comandos pero no 
 
 Lo pasamos a URL encode y vemos la respuesta:
 
-![[ssti4.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/ssti4.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Se verifica la disponibilidad del objeto `process` en Node.js y el uso de su propiedad `mainModule`, esta propiedad aún puede ser utilizada para cargar el módulo principal y, desde allí, acceder a `require`.
 
@@ -241,7 +263,9 @@ Se proporciona un payload en Handlebars para comprobar si `mainModule` es accesi
 
 Finalmente, se confirma que `require` ha sido llamado con éxito y `child_process` ha sido cargado, lo que permite ejecutar comandos en el sistema:
 
-![[ssti5.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/ssti5.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Le mandamos otra petición con un `whoami`:
 
@@ -267,12 +291,19 @@ Le mandamos otra petición con un `whoami`:
 { {/with}}
 ```
 
-![[ssti6.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/ssti6.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Ya siendo root podemos listar la flag:
 
-![[HTB/Starting Point VIP/Tier 2/Bike/Images/intrusion.png]]
-![[HTB/Starting Point VIP/Tier 2/Bike/Images/flag.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/intrusion.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Bike/flag.png" alt="under" oncontextmenu="return false;">
+</div>
 
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Bike/pwn.png" alt="under" oncontextmenu="return false;">
