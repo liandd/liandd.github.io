@@ -26,12 +26,15 @@ permalink: /
       cursor: url("/assets/ico/wii-pointer-red-ccw.cur") 16 16, auto;
 
     }
-    h3{
+
+    h3 {
       text-shadow: 0 0 5px #ff1e00;
     }
+
     img {
-     pointer-events: none;
+      pointer-events: none;
     }
+
     body hr {
       border: 1.5px dotted white;
     }
@@ -59,6 +62,7 @@ permalink: /
     }
 
     @media only screen and (max-width: 650px) {
+
       html,
       body {
         width: 90vw !important;
@@ -69,15 +73,16 @@ permalink: /
       list-style-type: '> ';
     }
 
-  .blink {
-    color: #ff1e00;
-    margin-left: -6px;
-    vertical-align: top;
-    width: 6px;
-    height: 15px;
-    animation: blink-animation 1s steps(5, start) infinite;
-    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    .blink {
+      color: #ff1e00;
+      margin-left: -6px;
+      vertical-align: top;
+      width: 6px;
+      height: 15px;
+      animation: blink-animation 1s steps(5, start) infinite;
+      -webkit-animation: blink-animation 1s steps(5, start) infinite;
     }
+
     /*
     #radialBackground {
       background-color: #020202;
@@ -91,6 +96,7 @@ permalink: /
         visibility: hidden;
       }
     }
+
     @-webkit-keyframes blink-animation {
       to {
         visibility: hidden;
@@ -111,84 +117,87 @@ permalink: /
     }
   </style>
 </head>
+
 <body oncontextmenu="return false">
   <main>
     <div class="container">
-      
+
       <h3>Улыбки фортуны 💥</h3>
       <div class="bio">
-        
-      <h2><span style="color: #ff1e00;text-shadow: 0 0 5px #f88a19;">cat</span> ~/liandd.md
-      <span class="blink" style="text-shadow: 0 0 5px #ff1e00;">|</span>
-        
-      </h2>
+
+        <h2><span style="color: #ff1e00;text-shadow: 0 0 5px #f88a19;">cat</span> ~/liandd.md
+          <span class="blink" style="text-shadow: 0 0 5px #ff1e00;">|</span>
+
+        </h2>
       </div>
-        <hr />
-        <h4 align="left">Creé esta página para registrar mis scripts y apuntes, además de ser un pasatiempo.<br>
-          Me dedico a CTF en entornos i686/Linux, PLN, ML, Python y C/C++ con Bash.<br>
-          Próximo objetivo: eJPT 🐡<br>
-        </h4>
-      <h4 style="text-shadow: 0 0 5px #e6e6e6;">dm me <a href="https://x.com/lianndd_" style="font-weight: bold;">@lianndd_</a>, <a href="https://www.linkedin.com/in/juan-garciaa2/" style="font-weight: bold;">linkedin</a>, <a href="https://app.hackthebox.com/profile/1098514" style="font-weight: bold;">HTB</a></h4>
+      <hr />
+      <h4 align="left">Creé esta página para registrar mis scripts y apuntes, además de ser un pasatiempo.<br>
+        Me dedico a CTF en entornos i686/Linux, PLN, ML, Python y C/C++ con Bash.<br>
+        Próximo objetivo: eJPT 🐡<br>
+      </h4>
+      <h4 style="text-shadow: 0 0 5px #e6e6e6;">dm me <a href="https://x.com/lianndd_"
+          style="font-weight: bold;">@lianndd_</a>, <a href="https://www.linkedin.com/in/juan-garciaa2/"
+          style="font-weight: bold;">linkedin</a>, <a href="https://app.hackthebox.com/profile/1098514"
+          style="font-weight: bold;">HTB</a></h4>
       <div id="radialBackground">
         <img width="295" src="/assets/images/headers/alien.gif">
       </div>
       <h3>- <a href="/blog">Entrar...</a> -
       </h3>
 
-      <h4 >..blog 📕</h4>
+      <h4>..blog 📕</h4>
       <hr />
       <marquee behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();" direction="left" loop="">
- <a href="#"><img width="130" src="/assets/images/headers/smlogo.gif"></a>
-        <a href="#"><img width="55" src="/assets/images/headers/fin.gif"
-            alt=""></a>
-        <a href="#"><img width="110"
-            src="/assets/images/headers/welcome.gif"></a>
+        <a href="#"><img width="130" src="/assets/images/headers/smlogo.gif"></a>
+        <a href="#"><img width="55" src="/assets/images/headers/fin.gif" alt=""></a>
+        <a href="#"><img width="110" src="/assets/images/headers/welcome.gif"></a>
         <a href="#"><img width="50" src="/assets/images/headers/gamecube.gif"></a>
- <a href="#"><img width="50" src="/assets/images/headers/space.gif"></a>
- <a href="#"><img width="50" src="/assets/images/headers/neutral.gif"></a>
+        <a href="#"><img width="50" src="/assets/images/headers/space.gif"></a>
+        <a href="#"><img width="50" src="/assets/images/headers/neutral.gif"></a>
 
       </marquee>
       <script type="text/javascript">
         function mousehandler(e) {
-            var myevent = (isNS) ? e : event;
-            var eventbutton = (isNS) ? myevent.which : myevent.button;
-            if ((eventbutton == 2) || (eventbutton == 3)) return false;
+          var myevent = (isNS) ? e : event;
+          var eventbutton = (isNS) ? myevent.which : myevent.button;
+          if ((eventbutton == 2) || (eventbutton == 3)) return false;
         }
         document.oncontextmenu = mischandler;
         document.onmousedown = mousehandler;
         document.onmouseup = mousehandler;
         function disableCtrlKeyCombination(e) {
-            var forbiddenKeys = new Array("a", "s", "c", "x","u");
-            var key;
-            var isCtrl;
-            if (window.event) {
-                key = window.event.keyCode;
-                //IE
-                if (window.event.ctrlKey)
-                    isCtrl = true;
-                else
-                    isCtrl = false;
+          var forbiddenKeys = new Array("a", "s", "c", "x", "u");
+          var key;
+          var isCtrl;
+          if (window.event) {
+            key = window.event.keyCode;
+            //IE
+            if (window.event.ctrlKey)
+              isCtrl = true;
+            else
+              isCtrl = false;
+          }
+          else {
+            key = e.which;
+            //firefox
+            if (e.ctrlKey)
+              isCtrl = true;
+            else
+              isCtrl = false;
+          }
+          if (isCtrl) {
+            for (i = 0; i < forbiddenKeys.length; i++) {
+              //case-insensitive comparation
+              if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                return false;
+              }
             }
-            else {
-                key = e.which;
-                //firefox
-                if (e.ctrlKey)
-                    isCtrl = true;
-                else
-                    isCtrl = false;
-            }
-            if (isCtrl) {
-                for (i = 0; i < forbiddenKeys.length; i++) {
-                    //case-insensitive comparation
-                    if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
-                        return false;
-                    }
-                }
-            }
-            return true;
+          }
+          return true;
         }
-    </script>
-  </div>
-</main>
+      </script>
+    </div>
+  </main>
 </body>
+
 </html>
