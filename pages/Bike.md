@@ -53,7 +53,7 @@ nmap -sCV -p22,80 10.129.166.121 -oN targeted
   <img src="/assets/images/StartingPoint/VIP/Bike/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Vemos puerto 22 SSH aunque sin credenciales por ahora será tenerlo en cuenta, y puerto 80 HTTP. Probamos con la herramienta whatweb a enumerar un poco este servicio:
+Vemos puerto 22 SSH aunque sin credenciales, por ahora será tenerlo en cuenta y vemos también el puerto 80 HTTP. Probamos con la herramienta whatweb a enumerar un poco este servicio:
 
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Bike/whatweb.png" alt="under" oncontextmenu="return false;">
@@ -73,7 +73,7 @@ Pero no vemos nada relevante.
 
 <h2 class="titulo-principal">Explotación</h2>
 
-Abriremos la página y nos encontramos con tipo de desarrollo de juego estilo 'Among US' el cual nos esta pidiendo una dirección de correo para avisarnos cuando el servicio este listo.
+Abriremos la página y nos encontramos con una página en de desarrollo con un estilo de juego similar a 'Among US', el cual nos esta pidiendo una dirección de correo para avisarnos cuando el servicio este listo.
 
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Bike/web.png" alt="under" oncontextmenu="return false;">
@@ -183,7 +183,7 @@ module
 require()
 ```
 
-El problema es que necesitamos `require()` para poder ejecutar comandos pero no es una global. Podemos tratar a llamar una variable `process` para tener más información usando:
+El problema es que necesitamos `require()` para poder ejecutar comandos pero, no es una función global. Podemos tratar a llamar una variable `process` para tener más información usando el código JavaScript:
 
 ```js
 { {#with "s" as |string|}}
@@ -300,6 +300,8 @@ Ya siendo root podemos listar la flag:
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Bike/intrusion.png" alt="under" oncontextmenu="return false;">
 </div>
+
+Podemos dentro de Caido ver la respuesta del servidor y vemos la flag en texto plano:
 
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Bike/flag.png" alt="under" oncontextmenu="return false;">
