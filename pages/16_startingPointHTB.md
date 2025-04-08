@@ -9,7 +9,7 @@ permalink: /startingPointHTB
 Todas las writeups del starting point como módulos introductorios a <a href="https://app.hackthebox.com/starting-point">HackTheBox</a>. Pasando por Tier1, Tier2, Tier3.
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/meow/basics.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/StartingPoint/meow/ALL_startingPoint.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -1442,6 +1442,12 @@ www-data@host:/$ export SHELL=bash
 1. export TERM=xterm` -> Debemos hacer esto ya que a pesar de haberle indicado que queríamos una **xterm** al momento de reiniciarlo la variable de entorno **TERM** vale **dump** (Se usa esta variable para poder usar los atajos de teclado).
 
 2. export SHELL=bash` -> Para que nuestra shell sea una bash.
+
+<hr />
+<h2 id="subtitulo-importante">Tier 3</h2>
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/Tier3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 ---
 
