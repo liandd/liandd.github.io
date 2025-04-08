@@ -27,77 +27,91 @@ rtt min/avg/max/mdev = 119.939/147.233/247.262/50.103 ms
 
 Vemos que tiene un TTL de 127, estamos frente a una máquina Windows.
 
-# Enumeración
+<h2 class="titulo-principal">Enumeración</h2>
 
 Usando nmap haremos un escaneo rápido y sigiloso para identificar puertos abiertos:
 
 ```bash
 nmap -p- --open -sS --min-rate 5000 -vvv -n -P 10.129.96.179
 ```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Tactics/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point VIP/Tier 2/Tactics/Images/nmap.png]]
 
 Vemos algunos puertos abiertos, entonces para eliminar el ruido de la captura de nmap vamos a usar la herramienta extractPorts:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Tactics/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point VIP/Tier 2/Tactics/Images/extractPorts.png]]
 
 Vamos a hacer un escaneo exhaustivo a los puertos abiertos con nmap para identificar la version y servicio de esos puertos:
 
 ```bash
 nmap -sCV -p135,139,445 10.129.96.179 -oN targeted
 ```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Tactics/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point VIP/Tier 2/Tactics/Images/nmap2.png]]
 
-# Explotación
+<h2 class="titulo-principal">Explotación</h2>
 
 El puerto que más llama la atención es el `445` ya que hay un servicio SMB compartido a nivel de red, al cual podemos acceder usando la herramienta `smbclient`
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Tactics/smb.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point VIP/Tier 2/Tactics/Images/smb.png]]
 
 Pero no podemos ver ningún recurso, podemos probar agregando `-U user` donde el usuario será el defecto en Windows 'Administrator':
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Tactics/smb2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point VIP/Tier 2/Tactics/Images/smb2.png]]
 
 Y esta vez podemos listar los recursos, probamos a conectarnos a la unidad compartida `$C`:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Tactics/smb3.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point VIP/Tier 2/Tactics/Images/smb3.png]]
 
 
 Y una vez dentro encontramos la flag en el escritorio.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Tactics/flag.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point VIP/Tier 2/Tactics/Images/flag.png]]
 
 Habremos completado la máquina.
 
----
-# Bonus
+<hr />
+<h3 class="titulo-secundario">Bonus</h3>
 
 Podemos usar la herramienta `impacket`, ya que podemos acceder a `ADMIN$` como recurso compartido, vamos a ejecutar un script llamado **psexec.py** para explotar esta mala configuración y tener una shell interactiva. 
 
-# Impacket y Psexec.py Ejecución Remota de Comandos en Windows
+<h3 class="titulo-secundario">Impacket y Psexec.py Ejecución Remota de Comandos en Windows</h3>
 
 **Impacket** es un framework escrito en Python para trabajar con protocolos de red. Está enfocado en proporcionar acceso programático de bajo nivel a los paquetes y, para algunos protocolos (como SMB y MSRPC), la implementación completa del protocolo. En resumen, Impacket contiene docenas de herramientas increíbles para interactuar con sistemas y aplicaciones Windows, muchas de las cuales son ideales para atacar sistemas Windows y Active Directory.
 
-## Psexec.py en Impacket
+<h3 class="titulo-principal">Psexec.py en Impacket</h3>
 
 Una de las herramientas más comúnmente utilizadas de Impacket es **psexec.py**. Esta herramienta lleva su nombre de la utilidad PsExec de la suite Sysinternals de Microsoft, ya que realiza la misma función: permitirnos ejecutar un shell completamente interactivo en máquinas Windows remotas.
 
 **PsExec** es una herramienta portátil de Microsoft que permite ejecutar procesos de manera remota utilizando las credenciales de cualquier usuario. Es algo similar a un programa de acceso remoto, pero en lugar de controlar la computadora con un ratón, los comandos se envían mediante la línea de comandos, sin necesidad de instalar software cliente de manera manual.
 
-### Funcionamiento de Psexec en Impacket
+<h3 class="titulo-principal">Funcionamiento de Psexec en Impacket</h3>
 
 Es importante entender cómo funciona `psexec.py` de Impacket. Este crea un servicio remoto subiendo un ejecutable con un nombre aleatorio en el recurso compartido **ADMIN$** del sistema remoto y luego lo registra como un servicio de Windows. Esto resultará en un **shell interactivo** disponible en el sistema Windows remoto a través del puerto TCP 445.
 
 **Psexec** requiere credenciales de un usuario con privilegios de administrador local o superiores, ya que es necesario leer/escribir en el recurso compartido **ADMIN$**. Una vez que la autenticación sea exitosa, se accederá a un **shell NT AUTHORITY\SYSTEM**.
 
-## Descarga e Instalación de Impacket
+<h2 class="titulo-secundario">Descarga e Instalación de Impacket</h2>
 
 Puedes descargar **Impacket** desde el siguiente enlace:
 
 [Descargar Impacket](https://github.com/SecureAuthCorp/impacket)
 
-### Guía de instalación:
+<h2 id="subtitulo-importante">Guía de instalación:</h2>
 
 Si no tienes instalado **pip3** (pip para Python3) o **Python3**, instálalos con los siguientes comandos:
 
@@ -139,7 +153,9 @@ Cuando solicite la contraseña presionar **Enter** (ya que no hay contraseña co
 
 Y seremos el usuario con **más altos privilegios**, es decir, el usuario **NT AUTHORITY\SYSTEM**.
 
-![[HTB/Starting Point VIP/Tier 2/Tactics/Images/pwn.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/VIP/Tactics/pwn.png" alt="under" oncontextmenu="return false;">
+</div>
 
 
 
