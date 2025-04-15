@@ -157,5 +157,8 @@ Y seremos el usuario con **más altos privilegios**, es decir, el usuario **NT A
   <img src="/assets/images/StartingPoint/VIP/Tactics/pwn.png" alt="under" oncontextmenu="return false;">
 </div>
 
+---
 
+Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
 
+© Juan David Garcia Acevedo (aka liandd)
