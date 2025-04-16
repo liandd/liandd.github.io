@@ -1449,6 +1449,13 @@ www-data@host:/$ export SHELL=bash
   <img src="/assets/images/StartingPoint/Tier3.png" alt="under" oncontextmenu="return false;">
 </div>
 
+<hr />
+<h2 id="archetype"><h1 class="titulo-principal">Archetype</h1></h2>
+
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/archetype.webp" alt="under" oncontextmenu="return false;">
+</div>
+
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
