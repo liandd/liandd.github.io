@@ -1621,6 +1621,35 @@ Solo será cuestión de buscar la flag y habremos completado la máquina.
   <img src="/assets/images/StartingPoint/archetype/rootflag.png" alt="under" oncontextmenu="return false;">
 </div>
 
+
+
+<hr />
+<h2 id="oopsie"><h1 class="titulo-principal">Oopsie</h1></h2>
+
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/oopsie.webp" alt="under" oncontextmenu="return false;">
+</div>
+
+
+
+<hr />
+<h2 id="vaccine"><h1 class="titulo-principal">Vaccine</h1></h2>
+
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/vaccine.webp" alt="under" oncontextmenu="return false;">
+</div>
+
+
+
+<hr />
+<h2 id="unified"><h1 class="titulo-principal">Unified</h1></h2>
+
+<div id="imgs" style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/unified.webp" alt="under" oncontextmenu="return false;">
+</div>
+
+
+
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
