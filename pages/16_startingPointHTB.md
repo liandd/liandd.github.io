@@ -1449,13 +1449,15 @@ www-data@host:/$ export SHELL=bash
   <img src="/assets/images/StartingPoint/Tier3.png" alt="under" oncontextmenu="return false;">
 </div>
 
+
+
 <hr />
 <h2 id="archetype"><h1 class="titulo-principal">Archetype</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/archetype/archetype.webp" alt="under" oncontextmenu="return false;">
 </div>
-Comenzamos encendiendo la máquina y tenemos la direcicón IP 10.129.204.6, le enviamos una traza ICMP con ping para saber si la máquina esta activa.
+Comenzamos encendiendo la máquina y tenemos la dirección IP 10.129.204.6, le enviamos una traza ICMP con ping para saber si la máquina esta activa.
 ```bash
 ❯ ping -c 5 10.129.204.6
 PING 10.129.204.6 (10.129.204.6) 56(84) bytes of data.
@@ -1471,111 +1473,154 @@ rtt min/avg/max/mdev = 97.845/103.341/114.042/5.675 ms
 ```
 
 Vemos un TTL de 127. Por tanto, estamos frente a un Windows.
-# Enumeración
+
+<h2 class="titulo-principal">Enumeración</h2>
 
 Empezamos lanzando un escaneo rápido y sigiloso con nmap:
 
 ```bash
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.204.6 -oG allPorts
 ```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/nmap.png]]
 
 Vemos varios puertos abiertos entonces para limpiar ruido usamos la utilidad previamente definida **extractPorts**:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/extractPorts.png]]
 
 Con los puertos copiados en la clipboard lanzamos un escaneo exhaustivo con nmap usando una serie de scripts básicos de reconocimiento para identificar la version y servicio:
 
 ```bash
 nmap -sCV -p135,139,445,1433,5985,47001,49664,49665,49666,49667,49668,49669 -oN targeted
 ```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/nmap2.png]]
 
 No nos interesa ver los puertos abiertos tan altos a partir del 5985, no son relevantes.
-# Explotación
+<h2 class="titulo-principal">Explotación</h2>
 
 El puerto más adecuado para comenzar es el `445` porque tiene un recurso SMB compartido a nivel de red al cual nos conectaremos:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/smb.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/smb.png]]
 
 Y vemos un directorio compartido llamado `backups`. Entraremos a ese directorio:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/smb2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/smb2.png]]
 
 Listando el contenido encontramos un archivo interesante llamado `prod.dtsConfig`. Lo traeremos a nuestra máquina con `get`.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/smb3.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/smb3.png]]
 
 Revisando el archivo de configuración encontramos Information Leakage, ya que vemos en texto plano `password:M3g4c0rp123` para el usuario **ARCHETYPE\sql_svc**.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/infoLeakage.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[infoLeakage.png]]
 
 Con estas credenciales podemos hacer uso de la herramienta impacket.
 
 > Impacket **es una colección de clases de Python que se integran con aplicaciones como los escáneres de vulnerabilidades**, lo que les permite funcionar con los protocolos de red de Windows.
 
 Impacket cuenta con una serie de scripts que nos pueden ser de utilidad al tratar con una máquina Windows.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/impacket.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[impacket.png]]
 
 El script que usaremos es `mssqlclient.py` para poder conectarnos al servicio MS-SQL:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/impacket2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[impacket2.png]]
 
 Una vez dentro podremos probar que privilegios tenemos con:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/impacket3.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[impacket3.png]]
 
 Al tener un 1, significa que podemos hacer cambios
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/impacket4.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[impacket4.png]]
 
 Nos dice que debemos poner `xp_cmdshell` en 1:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/sql.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/sql.png]]
 
 Su valor por defecto está en 0, así que lo cambiamos:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/sql2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[sql2.png]]
 
 Y ahora tenemos un RCE:
 
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/RCE.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/RCE.png]]
 
 Aprovechandonos del RCE subimos el nc64 para entablarnos una reverse shell con netcat:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/intrusion.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/intrusion.png]]
 
 Y ejecutamos la shell con powershell:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/intrusion2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/intrusion2.png]]
 
 Una vez dentro, ya podremos leer la flag del usuario:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/userflag.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[userflag.png]]
 
-# Escalada
+<h2 class="titulo-principal">Escalada</h2>
 
 Para esta parte, encontramos una carpeta interesante `PSReadLine`, con un archivo **ConsoleHost_history**:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/privesc.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[privesc.png]]
 
 Al abrir este archivo vemos un Information Disclosure, con las credenciales del administrador
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/privesc2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[privesc2.png]]
 
 /user:administrator MEGACORP_4dm1n!!
 
 Probamos conexión y somos administrator:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/esc.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Archetype/Images/esc.png]]
 
 Solo será cuestión de buscar la flag y habremos completado la máquina.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/archetype/rootflag.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[rootflag.png]]
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
