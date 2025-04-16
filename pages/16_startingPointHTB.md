@@ -1455,7 +1455,127 @@ www-data@host:/$ export SHELL=bash
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/archetype/archetype.webp" alt="under" oncontextmenu="return false;">
 </div>
+Comenzamos encendiendo la máquina y tenemos la direcicón IP 10.129.204.6, le enviamos una traza ICMP con ping para saber si la máquina esta activa.
+```bash
+❯ ping -c 5 10.129.204.6
+PING 10.129.204.6 (10.129.204.6) 56(84) bytes of data.
+64 bytes from 10.129.204.6: icmp_seq=1 ttl=127 time=104 ms
+64 bytes from 10.129.204.6: icmp_seq=2 ttl=127 time=100 ms
+64 bytes from 10.129.204.6: icmp_seq=3 ttl=127 time=101 ms
+64 bytes from 10.129.204.6: icmp_seq=4 ttl=127 time=97.8 ms
+64 bytes from 10.129.204.6: icmp_seq=5 ttl=127 time=114 ms
 
+--- 10.129.204.6 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4004ms
+rtt min/avg/max/mdev = 97.845/103.341/114.042/5.675 ms
+```
+
+Vemos un TTL de 127. Por tanto, estamos frente a un Windows.
+# Enumeración
+
+Empezamos lanzando un escaneo rápido y sigiloso con nmap:
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.204.6 -oG allPorts
+```
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/nmap.png]]
+
+Vemos varios puertos abiertos entonces para limpiar ruido usamos la utilidad previamente definida **extractPorts**:
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/extractPorts.png]]
+
+Con los puertos copiados en la clipboard lanzamos un escaneo exhaustivo con nmap usando una serie de scripts básicos de reconocimiento para identificar la version y servicio:
+
+```bash
+nmap -sCV -p135,139,445,1433,5985,47001,49664,49665,49666,49667,49668,49669 -oN targeted
+```
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/nmap2.png]]
+
+No nos interesa ver los puertos abiertos tan altos a partir del 5985, no son relevantes.
+# Explotación
+
+El puerto más adecuado para comenzar es el `445` porque tiene un recurso SMB compartido a nivel de red al cual nos conectaremos:
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/smb.png]]
+
+Y vemos un directorio compartido llamado `backups`. Entraremos a ese directorio:
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/smb2.png]]
+
+Listando el contenido encontramos un archivo interesante llamado `prod.dtsConfig`. Lo traeremos a nuestra máquina con `get`.
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/smb3.png]]
+
+Revisando el archivo de configuración encontramos Information Leakage, ya que vemos en texto plano `password:M3g4c0rp123` para el usuario **ARCHETYPE\sql_svc**.
+
+![[infoLeakage.png]]
+
+Con estas credenciales podemos hacer uso de la herramienta impacket.
+
+> Impacket **es una colección de clases de Python que se integran con aplicaciones como los escáneres de vulnerabilidades**, lo que les permite funcionar con los protocolos de red de Windows.
+
+Impacket cuenta con una serie de scripts que nos pueden ser de utilidad al tratar con una máquina Windows.
+
+![[impacket.png]]
+
+El script que usaremos es `mssqlclient.py` para poder conectarnos al servicio MS-SQL:
+
+![[impacket2.png]]
+
+Una vez dentro podremos probar que privilegios tenemos con:
+
+![[impacket3.png]]
+
+Al tener un 1, significa que podemos hacer cambios
+
+![[impacket4.png]]
+
+Nos dice que debemos poner `xp_cmdshell` en 1:
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/sql.png]]
+
+Su valor por defecto está en 0, así que lo cambiamos:
+
+![[sql2.png]]
+
+Y ahora tenemos un RCE:
+
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/RCE.png]]
+
+Aprovechandonos del RCE subimos el nc64 para entablarnos una reverse shell con netcat:
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/intrusion.png]]
+
+Y ejecutamos la shell con powershell:
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/intrusion2.png]]
+
+Una vez dentro, ya podremos leer la flag del usuario:
+
+![[userflag.png]]
+
+# Escalada
+
+Para esta parte, encontramos una carpeta interesante `PSReadLine`, con un archivo **ConsoleHost_history**:
+
+![[privesc.png]]
+
+Al abrir este archivo vemos un Information Disclosure, con las credenciales del administrador
+
+![[privesc2.png]]
+
+/user:administrator MEGACORP_4dm1n!!
+
+Probamos conexión y somos administrator:
+
+![[HTB/Starting Point/Tier 3/Archetype/Images/esc.png]]
+
+Solo será cuestión de buscar la flag y habremos completado la máquina.
+
+![[rootflag.png]]
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
