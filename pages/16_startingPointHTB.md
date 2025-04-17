@@ -1828,7 +1828,86 @@ Logrando que se ejecuto primero nuestro binario malicioso *cat*. Y seremos root
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/vaccine/vaccine.webp" alt="under" oncontextmenu="return false;">
 </div>
+Encendemos la máquina y nos da la dirección IP 10.129.122.95 y usamos ping para saber si la máquina esta activa:
 
+```bash
+❯ ping -c 5 10.129.122.95
+PING 10.129.122.95 (10.129.122.95) 56(84) bytes of data.
+64 bytes from 10.129.122.95: icmp_seq=1 ttl=63 time=124 ms
+64 bytes from 10.129.122.95: icmp_seq=2 ttl=63 time=123 ms
+64 bytes from 10.129.122.95: icmp_seq=3 ttl=63 time=129 ms
+64 bytes from 10.129.122.95: icmp_seq=4 ttl=63 time=121 ms
+64 bytes from 10.129.122.95: icmp_seq=5 ttl=63 time=121 ms
+
+--- 10.129.122.95 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4004ms
+rtt min/avg/max/mdev = 120.835/123.672/129.102/3.047 ms
+```
+
+Vemos un TTL 63 significa que estamos frente a un Linux.
+# Enumeración
+
+Hacemos uso de nmap a la IP 10.129.122.95
+
+```bash
+nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.122.95 -oG allPorts
+```
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/nmap.png]]
+
+Limpiamos la captura con **extractPorts**:
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/extractPorts.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/nmap2.png]]
+
+
+# Explotación
+
+![[fpt.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/ftp2.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/ftp3.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/whatweb.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/web.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/web2.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/john.png]]
+
+![[john2.png]]
+
+![[zip.png]]
+
+![[zip2.png]]
+
+![[md5.png]]
+
+
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/web3.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/web4.png]]
+
+![[cookie.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/SQL.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/intrusion.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/user.png]]
+# Escalada
+
+![[esc1.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/esc2.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/esc3.png]]
+
+![[HTB/Starting Point/Tier 3/Vaccine/Images/root.png]]
 
 
 <hr />
@@ -1837,7 +1916,67 @@ Logrando que se ejecuto primero nuestro binario malicioso *cat*. Y seremos root
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/unified/unified.webp" alt="under" oncontextmenu="return false;">
 </div>
+10.129.135.195
 
+❯ ping -c 5 10.129.135.195
+PING 10.129.135.195 (10.129.135.195) 56(84) bytes of data.
+64 bytes from 10.129.135.195: icmp_seq=1 ttl=63 time=116 ms
+64 bytes from 10.129.135.195: icmp_seq=2 ttl=63 time=113 ms
+64 bytes from 10.129.135.195: icmp_seq=3 ttl=63 time=111 ms
+64 bytes from 10.129.135.195: icmp_seq=4 ttl=63 time=113 ms
+64 bytes from 10.129.135.195: icmp_seq=5 ttl=63 time=112 ms
+
+# Enumeración
+
+![[HTB/Starting Point/Tier 3/Unified/Images/nmap.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/nmap2.png]]
+# Explotación
+
+![[HTB/Starting Point/Tier 3/Unified/Images/web.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/web2.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/caido.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/caido2.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/caido3.png]]
+
+![[pay.png]]
+
+![[pay2.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/intrusion.png]]
+
+
+
+# Escalada
+
+![[HTB/Starting Point/Tier 3/Unified/Images/esc.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/esc2.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/esc3.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/esc4.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/esc5.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/esc6.png]]
+
+![[HTB/Starting Point/Tier 3/Unified/Images/root.png]]
+
+--- 10.129.135.195 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 110.743/113.041/115.996/1.709 ms
+
+$6$Ry6Vdbse$8enMR5Znxoo.WfCMd/Xk65GwuQEPx1M.QP8/qHiQV0PvUc3uHuonK4WcTQFN1CRk3GwQaquyVwCVq8iQgPTt4
+
+$6$zd3aCG0uN4FkSFpM$txBM8YnmCuifebw9sZ5gh56wtSwlBMFZ4O8f0MB79h0V2y3r/uaGAslpb3YkRWDtEQo8jfvn0PDUMg47EOlx8.
+
+mongo --port 27117 ace --eval 'db.admin.update({"_id":
+ObjectId("61ce278f46e0fb0012d47ee4")},{$set:{"x_shadow":"$6$zd3aCG0uN4FkSFpM$txBM8YnmCuifebw9sZ5gh56wtSwlBMFZ4O8f0MB79h0V2y3r/uaGAslpb3YkRWDtEQo8jfvn0PDUMg47EOlx8."}})'
 
 
 ---
