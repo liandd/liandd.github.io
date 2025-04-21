@@ -16,6 +16,22 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ ?? ] <a  href="">HTB Writeup - Included</a>
 - [ 2025_25_03 ] <a  href="\startingPointHTB.html#unified">HTB Writeup - Unified</a>
 - [ 2025_25_03 ] <a  href="\startingPointHTB.html#vaccine">HTB Writeup - Vaccine</a>
+<br><br>
+<p class="beb">↓ Notas y Apuntes</p>
+
+- [ 2025_21_04 ] <a  href="">Notas - Hacking Para CTF 1</a>
+- [ 2025_22_01 ] <a  href="\pythonOfensivo.html">Notas - Python Para CTF 1</a>
+- [ 2025_?_? ] <a  href="">Notas - Linux Para CTF 1</a>
+- [ 2025_28_01 ] <a  href="\ciberseguridadUcp.html">UCP - Ciberseguridad 1</a>
+- [ 2024_25_11 ] <a  href="\nlp.html">UCP - Procesamiento de Lenguaje Natural</a>
+- [ 2023_05_21 ] <a  href="">UTP - Estructuras de datos</a>
+- [ 2023_27_01 ] <a  href="">UCP - SQL</a>
+- [ 2023_27_01 ] <a  href="">UCP - Java</a>
+- [ 2022_01_07 ] <a  href="\c_programacionEstructurada.html">UCP - C++</a> 
+<br><br>
+
+<p class="beb">↓ HackTheBox Máquinas Resueltas</p>
+
 - [ 2025_25_03 ] <a  href="\startingPointHTB.html#oopsie">HTB Writeup - Oopsie</a>
 - [ 2025_25_03 ] <a  href="\startingPointHTB.html#archetype">HTB Writeup - Archetype</a>
 - [ 2025_25_03 ] <a  href="\Tactics.html">HTB Writeup - Tactics</a>
@@ -38,12 +54,7 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ 2025_22_03 ] <a  href="\startingPointHTB.html#meow">HTB Writeup - Meow</a>
 - [ 2023_02_16 ] <a  href="\startingPointHTB.html">HTB Writeup - Starting Point</a>
 <br><br>
-<p class="beb">↓ Notas y Apuntes</p>
 
-- [ 2025_28_01 ] <a  href="\ciberseguridadUcp.html">UCP - Ciberseguridad 1</a>
-- [ 2025_22_01 ] <a  href="\pythonOfensivo.html">Notas - Python Para CTF 1</a>
-- [ 2024_25_11 ] <a  href="\nlp.html">UCP - Python Para NLP y ML</a>
-<br><br>
 <p class="beb">↓ Scripting</p>
 
 - [ 2024_28_10 ] <a  href="\vpnScript.html">Script - VpnConnection / unkn0wn1122</a>
@@ -59,14 +70,8 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 <br><br>
 <p class="beb">↓ Pendiente..</p>
 
-- [ 2025_?_? ] <a  href="">Notas - Hacking Para CTF 1</a>
-- [ 2025_?_? ] <a  href="">Notas - Linux Para CTF 1</a>
 - [ 2023_06_16 ] <a  href="\scannerSh.html">Notas - Estudiando un scanner TCP</a>
 - [ 2023_28_07 ] <a  href="\bufferOverflow_1er_Practica">Buffer OverFlow / SLMail</a>
-- [ 2023_05_21 ] <a  href="">UTP - Estructuras de datos</a>
-- [ 2023_27_01 ] <a  href="">UCP - SQL</a>
-- [ 2023_27_01 ] <a  href="">UCP - Java</a>
-- [ 2022_01_07 ] <a  href="\c_programacionEstructurada.html">UCP - C++</a> 
 <br><br>
 <p class="beb">↓ more soon</p>
 
