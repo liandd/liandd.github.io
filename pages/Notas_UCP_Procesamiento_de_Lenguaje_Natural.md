@@ -1,7 +1,7 @@
 ---
-title: NLP - Notes
+title: Notas PLN
 layout: page
-permalink: /nlp
+permalink: /Notas_UCP_Procesamiento_de_Lenguaje_Natural
 ---
 
 <h2 id="subtitulo-importante">Optativa 1 - NLP</h2>

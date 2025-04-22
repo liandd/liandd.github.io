@@ -1,7 +1,7 @@
 ---
 title: Estudiando un scanner TCP
 layout: page
-permalink: /scannerSh
+permalink: /Notas_CTF_Escaner_TCP
 ---
 
 <h2 id="subtitulo-importante">Bajo construcción</h2>

@@ -1,7 +1,7 @@
 ---
 title: Starting Point - un HTB WriteUp
 layout: page
-permalink: /startingPointHTB
+permalink: /HTB_Starting_Point
 ---
 
 <h2 id="subtitulo-importante">Starting Point - un HTB WriteUp</h2>

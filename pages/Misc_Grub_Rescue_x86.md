@@ -1,7 +1,7 @@
 ---
 tittle: Grub Rescue de x86_64 a i386
 layout: page 
-permalink: /grubRescue
+permalink: /Misc_Grub_Rescue_x86
 ---
 
 <h2 id="subtitulo-importante">Grub Rescue de x86_64 a i386</h2>

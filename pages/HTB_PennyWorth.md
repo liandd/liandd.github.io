@@ -1,7 +1,7 @@
 ---
 title: PennyWorth
 layout: page
-permalink: /PennyWorth
+permalink: /HTB_PennyWorth
 ---
 
 <h2 class="titulo-principal">PennyWorth</h2>

@@ -1,7 +1,7 @@
 ---
 title: Programación Competitiva 1er año 
 layout: page
-permalink: /programacionCompetitiva
+permalink: /Misc_Programación_Competitiva
 ---
 
 <h2 id="subtitulo-importante">Programación Competitiva.</h2>

@@ -1,7 +1,7 @@
 ---
 title: Python3 Ofensivo
 layout: page
-permalink: /pythonOfensivo
+permalink: /Notas_CTF_Python_Ofensivo_1
 ---
 
 <h2 id="subtitulo-importante">Python Ofensivo - Notas prácticas</h2>

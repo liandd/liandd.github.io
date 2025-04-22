@@ -1,7 +1,7 @@
 ---
-title: Bandit Decompressor
+title: Bandit 14 Custom Script
 layout: page
-permalink: /decompressor
+permalink: /Script_Decompressor
 ---
 <h2 id="subtitulo-importante">Decompressor, Herramienta para Bandit 12-13.</h2>
 

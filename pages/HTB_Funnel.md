@@ -1,7 +1,7 @@
 ---
 title: Funnel
 layout: page
-permalink: /Funnel
+permalink: /HTB_Funnel
 ---
 
 <h2 class="titulo-principal">Funnel</h2>

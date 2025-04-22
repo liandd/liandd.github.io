@@ -1,7 +1,7 @@
 ---
 title: Guia Instalacion de Arch Linux  
 layout: page
-permalink: /guiaArch
+permalink: /Misc_Guía_Instalación_Arch_Linux
 ---
 <h2 id="subtitulo-importante">Entorno Arch</h2>
 

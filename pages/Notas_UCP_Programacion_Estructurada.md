@@ -1,7 +1,7 @@
 ---
-title: C++ Programación Estructurada
+title: Programación Estructurada
 layout: page
-permalink: /c_programacionEstructurada
+permalink: /Notas_UCP_Programación_Estructurada
 ---
 
 <h2 id="subtitulo-importante">C++ Programación Esctructurada - Notas prácticas</h2>

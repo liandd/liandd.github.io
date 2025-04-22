@@ -1,7 +1,7 @@
 ---
 title: Explosion
 layout: page
-permalink: /Explosion
+permalink: /HTB_Explosion
 ---
 
 <h2 class="titulo-principal">Explosion</h2>

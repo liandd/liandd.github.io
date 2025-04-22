@@ -1,7 +1,7 @@
 ---
 title: Ciberseguridad 1 - UCP
 layout: page
-permalink: /ciberseguridadUcp
+permalink: /Notas_UCP_Ciberseguridad_1
 ---
 
 <h2 id="subtitulo-importante">Optativa II Ciberseguridad 1 UCP - Notas prácticas</h2>

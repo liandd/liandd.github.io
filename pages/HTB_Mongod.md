@@ -1,7 +1,7 @@
 ---
 title: Mongod
 layout: page
-permalink: /Mongod
+permalink: /HTB_Mongod
 ---
 
 <h2 class="titulo-principal">Mongod</h2>

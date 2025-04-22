@@ -1,7 +1,7 @@
 ---
 title: Buffer OverFlow a SLMail 5.5
 layout: page
-permalink: /bufferOverflow_1er_Practica
+permalink: /Misc_Buffer_Overflow_SlMail
 ---
 <h2 id="subtitulo-importante">Buffer OverFlow a SLMail 5.5.</h2>
 <h1 class="titulo-principal">Descripción</h1>

@@ -1,7 +1,7 @@
 ---
 title: Tactics
 layout: page
-permalink: /Tactics
+permalink: /HTB_Tactics
 ---
 
 <h2 class="titulo-principal">Tactics</h2>

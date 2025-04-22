@@ -1,7 +1,7 @@
 ---
 title: Bike
 layout: page
-permalink: /Bike
+permalink: /HTB_Bike
 ---
 
 <h2 class="titulo-principal">Bike</h2>

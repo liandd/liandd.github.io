@@ -1,7 +1,7 @@
 ---
 title: Calcular Subnet - Script
 layout: page
-permalink: /calcularSubnet
+permalink: /Script_SubNet
 ---
 
 <h2 id="subtitulo-importante">Subnet Calculator - Script</h2>

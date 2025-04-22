@@ -1,7 +1,7 @@
 ---
 title: Ignition
 layout: page
-permalink: /Ignition
+permalink: /HTB_Ignition
 ---
 
 <h2 class="titulo-principal">Ignition</h2>

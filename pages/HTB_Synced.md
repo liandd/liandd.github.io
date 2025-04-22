@@ -1,7 +1,7 @@
 ---
 title: Synced
 layout: page
-permalink: /Synced
+permalink: /HTB_Synced
 ---
 
 <h2 class="titulo-principal">Synced</h2>

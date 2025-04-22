@@ -1,7 +1,7 @@
 ---
 title: vpnScript por unkn0wn1122
 layout: page
-permalink: /vpnScript
+permalink: /Script_VpnConnection
 ---
 
 <h2 id="subtitulo-importante">vpnScript - HTB</h2>

@@ -1,7 +1,7 @@
 ---
 title: Archivos de Configuración Bspwm Parrot
 layout: page
-permalink: /dotfiles
+permalink: /Misc_Dotfiles_Parrot
 ---
 
 <h2 id="subtitulo-importante">Configuración personal de entorno de trabajo Bspwm.</h2>
