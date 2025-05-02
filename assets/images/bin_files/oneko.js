@@ -61,11 +61,11 @@
         nekoEl.style.height = "32px";
         nekoEl.style.position = "fixed";
         nekoEl.style.pointerEvents = "none";
-        nekoEl.style.backgroundImage = "url('/home/ian/Descargas/vmfunc.gg_files/oneko-vaporwave.gif')";
+        nekoEl.style.backgroundImage = "url('/assets/images/bin_files/oneko-vaporwave.gif')";
         nekoEl.style.imageRendering = "pixelated";
         nekoEl.style.left = "16px";
         nekoEl.style.top = "16px";
-        nekoEl.style.zIndex = "3";
+        nekoEl.style.zIndex = "9999";
 
         document.body.appendChild(nekoEl);
 
