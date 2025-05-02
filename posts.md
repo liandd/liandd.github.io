@@ -1,32 +1,29 @@
 ---
-title: /posts
+title: /post
 layout: home
 permalink: /posts
 ---
 
-<h2 class="titulo-secundario">Blog de Juan Garcia (aka liandd)</h2>
+<h2 class="titulo-secundario">Publicaciones de Juan Garcia</h2>
 
 Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada temática.
 Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, sirviendo como referencia y soporte en mi formación.
 
 <p class="beb">↓ Entradas Recientes</p>
 
-- [ ?? ] <a  href="">HTB Writeup - Base</a>
-- [ ?? ] <a  href="">HTB Writeup - Markup</a>
-- [ ?? ] <a  href="">HTB Writeup - Included</a>
-- [ 2025_25_03 ] <a  href="">HTB Writeup - Unified</a>
-- [ 2025_25_03 ] <a  href="">HTB Writeup - Vaccine</a>
+- [ 2025_25_03 ] HTB Writeup - Unified
+- [ 2025_25_03 ] HTB Writeup - Vaccine
 <br><br>
 <p class="beb">↓ Notas y Apuntes</p>
 
 - [ 2025_21_04 ] <a  href="\Notas_CTF_Hacking_1">Notas - Hacking Para CTF 1</a>
 - [ 2025_22_01 ] <a  href="\Notas_CTF_Python_Ofensivo_1">Notas - Python Para CTF 1</a>
-- [ 2025_?_? ] <a  href="">Notas - Linux Para CTF 1</a>
+- [ 2025_?_? ] Notas - Linux Para CTF 1
 - [ 2025_28_01 ] <a  href="\Notas_UCP_Ciberseguridad_1">UCP - Ciberseguridad 1</a>
 - [ 2024_25_11 ] <a  href="\Notas_UCP_Procesamiento_de_Lenguaje_Natural">UCP - Procesamiento de Lenguaje Natural</a>
-- [ 2023_05_21 ] <a  href="">UTP - Estructuras de datos</a>
-- [ 2023_27_01 ] <a  href="">UCP - SQL</a>
-- [ 2023_27_01 ] <a  href="">UCP - Java</a>
+- [ 2023_05_21 ] UTP - Estructuras de datos
+- [ 2023_27_01 ] UCP - SQL
+- [ 2023_27_01 ] UCP - Java
 - [ 2022_01_07 ] <a  href="\Notas_UCP_Programación_Estructurada">UCP - C++</a> 
 <br><br>
 
@@ -75,11 +72,21 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 <br><br>
 <p class="beb">↓ more soon</p>
 
-- [ ? ] <a  href="">Notas - Programación en Linux uso de comandos y shell scripting</a>
-- [ ? ] <a  href="">Notas - Powershell para Administración de Servidores y Seguridad</a>
-- [ ? ] <a  href="">Notas - Linux Security and Hardening</a>
-- [ ? ] <a  href="">Notas - Fundamentos de Windows Scripting</a>
-- [ ? ] <a  href="">Notas - x86 Assembly</a>
-- [ ? ] <a  href="">Notas - IvNLP Asesorias</a>
-- [ ? ] <a  href="">Notas - Sistemas Operativos</a>
-- [ ? ] <a  href="">Scripting - Over The Wire Bandit</a>
+- [ ?? ] HTB Writeup - Pollution
+- [ ?? ] HTB Writeup - Awkward
+- [ ?? ] HTB Writeup - Soccer
+- [ ?? ] HTB Writeup - Stocker
+- [ ?? ] HTB Writeup - PC
+- [ ?? ] HTB Writeup - MetaTwo
+- [ ?? ] HTB Writeup - Titanic
+- [ ?? ] HTB Writeup - Base
+- [ ?? ] HTB Writeup - Markup
+- [ ?? ] HTB Writeup - Included
+- [ ? ] Notas - Programación en Linux uso de comandos y shell scripting
+- [ ? ] Notas - Powershell para Administración de Servidores y Seguridad
+- [ ? ] Notas - Linux Security and Hardening
+- [ ? ] Notas - Fundamentos de Windows Scripting
+- [ ? ] Notas - x86 Assembly
+- [ ? ] Notas - IvNLP Asesorias
+- [ ? ] Notas - Sistemas Operativos
+- [ ? ] Scripting - Over The Wire Bandit
