@@ -38,24 +38,54 @@ Para el Procesamiento del lenguaje natural hay que saber de gramática donde la 
 
 Podemos decir que el tema comienza con un **paper** que introduce conceptos sobre el sistema nervioso, el funcionamiento neural y las contribuciones de Alan Turing, así como la programación computacional.
 
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/Inicios IA.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
 La inteligencia artificial hizo su aparición en 1943, y Alan Turing realizó contribuciones significativas con su paper "*Computing Machinery and Intelligence*"[^1]. En este trabajo, Turing presentó conceptos innovadores como el aprendizaje automático, los algoritmos genéricos, el aprendizaje por refuerzo, y el famoso *Test de Turing*.
+
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/Computing Machinery and Intelligence.png" alt="under" oncontextmenu="return false;">
+</div>
 
 El *Test de Turing* involucra a dos humanos: uno formula preguntas, mientras que un humano y una máquina responden. El objetivo del test es que el entrevistador no pueda distinguir quién respondió, lo que indicaría que la inteligencia artificial ha alcanzado un grado significativo al poder engañar al entrevistador humano. Este concepto fue propuesto por Turing en **1950**[^2].
 
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/Test de Turing (1950).png" alt="under" oncontextmenu="return false;">
+</div>
+
 El término *inteligencia artificial* (IA) fue acuñado en **1956** por John McCarthy, quien definió este enfoque como "la ciencia de crear máquinas inteligentes y programas de cómputo inteligentes". Esta idea sirvió como una forma de evaluar el progreso de los algoritmos de IA hasta ese momento[^3].
 
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/1956 Nace la IA.png" alt="under" oncontextmenu="return false;">
+</div>
+
 En **1967**, el *Perceptrón Mark 1* surgió como una implementación de redes neuronales básicas[^4], donde las entradas pasan por un proceso para generar una salida. Este modelo se centra en replicar aspectos de la naturaleza humana: el perceptrón recibe entradas, las procesa a través de neuronas, y con *deep learning* (aprendizaje profundo) la cantidad de neuronas influye en la precisión del sistema, aunque también tiene desventajas y ventajas: mayor precisión requiere más capacidad de procesamiento. Por ejemplo, procesar media página es diferente a procesar 10 páginas.
+
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/Perceptrón 1967.png" alt="under" oncontextmenu="return false;">
+</div>
 
 En el *Deep Learning*, las redes están formadas por muchas neuronas conectadas entre sí. Hoy en día, hablamos de capas de neuronas, que se comunican para dar una respuesta binaria, como 0 o 1.
 
 En **1980**, surge el concepto de la *Habitación China*, que es la antítesis del *Test de Turing*. Este argumento refuta la idea de que una máquina que pasa el *Test de Turing* tenga inteligencia real. Se afirma que solo simula la inteligencia, sin comprender el contenido semántico, solo el sintáctico.
 
-<h1 class="titulo-principal">Eventos importantes</h1>
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/Habitación China 1980.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<h1 class="titulo-principal">Algunos Eventos importantes</h1>
 
 - **IBM (1997)**: Vence al campeón mundial de ajedrez.
 - **IBM (2011)**: Gana en el programa de televisión *Jeopardy*.
 - **Minwa (2015)**: Desarrolla sistemas de reconocimiento de imágenes superpotentes.
 - **2017**: Nace la base de los generadores de texto modernos, sobre los principios de generación de texto y avances hacia el futuro.
+
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/events.webp" alt="under" oncontextmenu="return false;">
+</div>
+
 
 En la actualidad, los sistemas de *Question Answering* (QA) son una de las competencias de IA a desarrollar, junto con los generadores de texto como *GPT*. Estos sistemas ayudan a alimentar grandes corpus de conocimiento, que continúan aprendiendo de manera constante.
 
