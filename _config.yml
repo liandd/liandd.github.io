@@ -5,6 +5,7 @@
 header_pages:
   - index.html
   - dashboard.html
+  - portafolio.html
   - blog.html
   - posts.md
   - culture.md
