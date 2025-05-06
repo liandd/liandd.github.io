@@ -1,1 +1,1 @@
-# blog personal
+# blog personal de juan garcia
