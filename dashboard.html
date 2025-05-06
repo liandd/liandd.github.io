@@ -41,8 +41,47 @@ permalink: /dashboard
   <link rel="stylesheet" href="/assets/images/bin_files/index.RLSollZa.css">
   <link rel="stylesheet" href="/assets/images/bin_files/defeating-llm-safeguards.2KxEbIxo.css">
 </head>
-
-<body data-astro-cid-ouamjn2i>
+<script type="text/javascript">
+  function mousehandler(e) {
+    var myevent = (isNS) ? e : event;
+    var eventbutton = (isNS) ? myevent.which : myevent.button;
+    if ((eventbutton == 2) || (eventbutton == 3)) return false;
+  }
+  document.oncontextmenu = mischandler;
+  document.onmousedown = mousehandler;
+  document.onmouseup = mousehandler;
+  function disableCtrlKeyCombination(e) {
+    var forbiddenKeys = new Array("a", "s", "c", "x", "u");
+    var key;
+    var isCtrl;
+    if (window.event) {
+      key = window.event.keyCode;
+      //IE
+      if (window.event.ctrlKey)
+        isCtrl = true;
+      else
+        isCtrl = false;
+    }
+    else {
+      key = e.which;
+      //firefox
+      if (e.ctrlKey)
+        isCtrl = true;
+      else
+        isCtrl = false;
+    }
+    if (isCtrl) {
+      for (i = 0; i < forbiddenKeys.length; i++) {
+        //case-insensitive comparation
+        if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+</script>
+<body data-astro-cid-ouamjn2i oncontextmenu="return false">
   <div class="splash-screen" id="splash-screen" data-astro-cid-ouamjn2i>
     <div class="splash-content" data-astro-cid-ouamjn2i>
       <div class="window" data-astro-cid-ouamjn2i>
