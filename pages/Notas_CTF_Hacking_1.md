@@ -5,26 +5,27 @@ permalink: /Notas_CTF_Hacking_1
 ---
 <h2 id="subtitulo-importante">Notas prácticas - Hacking 1 para CTF</h2>
 
-Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</b></i> de nivel introductorio orientado donde se presenta el siguiente temario:
+Este es el curso de introducción a Hacking para practicar en plataformas como HackTheBox y VulnHub, el Pinguino de Mario y Docker. En caso de no tener un buen nivel en Linux, es recomendable hacer el <a href=""><em>Curso de Linux 1 para Hacking</em></a>.
 
-Este es el curso de introducción a Hacking para practicar en plataformas como HackTheBox y VulnHub, El Pinguino de Mario y Docker. En caso de no tener un buen nivel en Linux, es recomendable hacer el Curso de Linux 1 para Hacking. Este curso es preparatorio desde 0 para el EJPT, ECPPTV2, EWPT.
-Hay mucha practica para este curso, y hay que practicar mucho para que se quede grabado los conceptos de cada clase.
+Este curso es preparatorio desde 0 para el EJPT, ECPPTV2, EWPT. Hay mucha practica para este curso y hay que realizar los ejercicos para que se quede grabado los conceptos de cada clase.
 
 La materia tiene un enfoque orientado a seguridad informática para realizar CTF en plataformas como <a href="https://app.hackthebox.com/profile/1098514"><strong><em style="color :#559">Hack The Box</em></strong></a>.
 
+Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</i></b> de nivel introductorio donde se presenta el siguiente temario:
+
 <h2 id="subtitulo-importante">Índice</h2>
 
-- [Introducción a Python](#introducción-a-python)
-- [Conceptos Básicos](#conceptos-básicos)
-- [Colecciones y Estructuras de Datos](#colecciones-y-estructuras-de-datos)
-- [Programación Orientada a Objetos](#programación-orientada-a-objetos)
-- [Módulos y Paquetes](#módulos-y-paquetes)
-- [Entrada y Salida de Datos](#entrada-y-salida-de-datos)
-- [Proyectos de POO para reforzar](#proyectos-de-POO-para-reforzar)
-- [Biblioteca Estándar y Herramientas](#biblioteca-estándar-y-herramientas-adicionales)
-- [Manejo de librerías Comunes](#manejo-de-librerías-comunes)
-- [Desarrollo de aplicaciones de escritorio](#desarrollo-de-aplicaciones-de-escritorio)
-- [Python Ofensivo](#python-ofensivo)
+- [Direcciones ipv4-ipv6](#)
+- [Direcciones MAC Nic y Oui](#)
+- [Protocolos Comunes UDP, TCP y el famoso Three Way HandShake](#)
+- [El Modelo OSI](#)
+- [Subnetting - ¿Cómo se interpreta una mascara de red?](#)
+- [Subnetting - CIDRS y calculo total de hosts](#)
+- [Subnetting - Mascaras de subred, tipos de clase e interpretación de prefijos de red](#)
+- [Subnetting - Interpretación de los rangos de red que el cliente nos ofrece para auditar](#)
+- [Subnetting - Redes Curiosas y Casos Particulares](#)
+- [Tips de Subnetting - Calculo veloz de direccionamiento de redes](#)
+- [](#)
 
 <br>
 
