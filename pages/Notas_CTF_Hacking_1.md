@@ -15,7 +15,7 @@ Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</i></b> 
 
 <h2 id="subtitulo-importante">Índice</h2>
 
-- [Direcciones ipv4-ipv6](#)
+- [Direcciones ipv4-ipv6](#direcciones-ipv4-ipv6)
 - [Direcciones MAC Nic y Oui](#)
 - [Protocolos Comunes UDP, TCP y el famoso Three Way HandShake](#)
 - [El Modelo OSI](#)
@@ -25,21 +25,55 @@ Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</i></b> 
 - [Subnetting - Interpretación de los rangos de red que el cliente nos ofrece para auditar](#)
 - [Subnetting - Redes Curiosas y Casos Particulares](#)
 - [Tips de Subnetting - Calculo veloz de direccionamiento de redes](#)
+- [Nmap y sus diferentes modos de uso](#)
+- [Técnicas de evasión de FireWalls - MTU DATA LENGTH SOURCE PORT DECOY ETC](#)
+- [Uso de Scripts y Categorias de Nmap para aplicar reconocimiento](#)
+- [Nmap - Creación de Custom Scripts en Lua](#)
+- [Alternativas para la enumeraciñón de puertos usando descriptores de archivo](#)
+- [Descubrimiento de archivos en la red local - ARP ICMP](#)
+- [Validación de un objetivo - Fijando un Target en HackerOne](#)
+- [Descubrimiento de correos electronicos](#)
+- [Reconocimiento de imagenes](#)
+- [Enumeración de SubDominios](#)
+- [Credenciales y brechas de seguridad](#)
+- [Identificación de las tecnologías de una página web](#)
+- [Fuzzing - Enumeración de archivos en un servidor web](#)
+- [Google Dorks - Google Hacking (Los 10 Dorks más usados)](#)
+- [Identificación y verificación de sistema operativo](#)
+- [Docker - Introducción](#)
+- [Docker - Instalación](#)
+- [Docker - Definiendo la estructura básica de DockerFile](#)
+- [Docker - Creación y construcción de imagenes](#)
+- [Docker - Carga de instrucciones y despliegue de nuestro primer contenedor](#)
+- [Docker - Comandos comunes para la gestión de contenedores](#)
+- [Docker - Port Forwarding y uso de monturas](#)
+- [Docker - Despligue de máquinas vulnerables con DockerCompose](#)
 - [](#)
-
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
 <br>
 
 ---
 
-<h2 id="subtitulo-importante">titulo</h2>
+<h2 id="direcciones-ipv4-ipv6"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
 
 Lo primero es ¿Qúe es una dirección IP?, en mi caso en la polybar tengo mi propia dirección IP:
-
-![[1.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/1.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Al igual que podemos verla usando el comando `ifconfig` o `ip a`:
-
-![[2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Podemos ver 2 interfaces de red, siendo la primera `enp3s0` y la `lo`. Solo vamos a centrarnos en la enp3s0 ahí vemos que pone **inet**, es la IP privada que nos identifica a nivel de usuario.
 
@@ -48,13 +82,17 @@ Podemos ver 2 interfaces de red, siendo la primera `enp3s0` y la `lo`. Solo vamo
 
 Es una etiqueta numérica que identifica de manera lógica y jerárquica a una interfaz en la red de un dispositivo que utiliza el protocolo de Internet. Y esto no son más que bits ceros y unos. Y consiste de 4 octetos (4 pares de 8 bits). Podemos ver como los dispositivos cada uno se identifica con una dirección IP.
 
-![[3.2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/3.2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Para la estructura de una dirección IPv4 tenemos 4 pares de octetos representados en base 10, **198.20.250.1**.
 
 Para cada uno de los 4 pares sale un Byte compuesto de 8 Bits (0,1).
 
-![[3.3..png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/3.3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Para hacer la conversión podemos hacerlo en Bash:
 
@@ -68,8 +106,10 @@ Para hacer la conversión podemos hacerlo en Bash:
 ❯ echo "$(echo "obase=2; 192" | bc).$(echo "obase=2; 168" | bc).$(echo "obase=2; 0" | bc).$(echo "obase=2; 10" | bc)"
 11000000.10101000.0.1010
 ```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/3.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[3.png]]
 
 Y esto es la propia representación de la IP en binario, ==¿Cuántas direcciones IP se pueden representar hablando de IPv4?==
 
@@ -83,8 +123,12 @@ echo "2^128" | bc ---> Para IPv6
 340282366920938463463374607431768211456
 ```
 
-![[4.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/4.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Parece que jamas vamos a llegar a semejante cantidad de direcciones por IPv6, al momento de hacer pentesting en HackTheBox para la enumeración de puertos, identificar la máquina requiere tener la noción de estos conceptos.
 
-![[5.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/5.png" alt="under" oncontextmenu="return false;">
+</div>
