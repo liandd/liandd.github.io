@@ -5,11 +5,9 @@ permalink: /Notas_CTF_Hacking_1
 ---
 <h2 id="subtitulo-importante">Notas prácticas - Hacking 1 para CTF</h2>
 
-Este es el curso de introducción a Hacking para practicar en plataformas como HackTheBox y VulnHub, el Pinguino de Mario y Docker. En caso de no tener un buen nivel en Linux, es recomendable hacer el <a href=""><em>Curso de Linux 1 para Hacking</em></a>.
+Este es el curso de introducción a Hacking para practicar en plataformas como <a href="https://app.hackthebox.com/machines"><strong><em>HackTheBox</em></strong></a>, <a href="https://www.vulnhub.com/">VulnHub</a> y <a href="https://dockerlabs.es/">DockerLabs</a>. En caso de no tener un buen nivel en Linux, es recomendable hacer el <a href=""><em>Curso de Linux 1 para Hacking</em></a>.
 
-Este curso es preparatorio desde 0 para el EJPT, ECPPTV2, EWPT. Hay mucha practica para este curso y hay que realizar los ejercicos para que se quede grabado los conceptos de cada clase.
-
-La materia tiene un enfoque orientado a seguridad informática para realizar CTF en plataformas como <a href="https://app.hackthebox.com/profile/1098514"><strong><em style="color :#559">Hack The Box</em></strong></a>.
+Este curso es preparatorio desde 0 para el <a href="https://security.ine.com/certifications/ejpt-certification/">EJPT</a>, ECPPTV2, EWPT. Hay mucha practica para este curso y hay que realizar los ejercicos para que se quede grabado los conceptos de cada clase.
 
 Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</i></b> de nivel introductorio donde se presenta el siguiente temario:
 
