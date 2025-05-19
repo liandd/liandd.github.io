@@ -147,7 +147,7 @@ Al igual que podemos verla usando el comando `ifconfig` o `ip a`:
 Podemos ver 2 interfaces de red, siendo la primera `enp3s0` y la `lo`. Solo vamos a centrarnos en la enp3s0 ahí vemos que pone **inet**, es la IP privada que nos identifica a nivel de usuario.
 
 ----
-# ¿Qué es una dirección IP?
+<h2 class="titulo-principal"> ¿Qué es una dirección IP?</h2>
 
 Es una etiqueta numérica que identifica de manera lógica y jerárquica a una interfaz en la red de un dispositivo que utiliza el protocolo de Internet. Y esto no son más que bits ceros y unos. Y consiste de 4 octetos (4 pares de 8 bits). Podemos ver como los dispositivos cada uno se identifica con una dirección IP.
 
@@ -179,8 +179,9 @@ Para hacer la conversión podemos hacerlo en Bash:
   <img src="/assets/images/notas_hacking/3.png" alt="under" oncontextmenu="return false;">
 </div>
 
+Y esto es la propia representación de la IP en binario:
 
-Y esto es la propia representación de la IP en binario, ==¿Cuántas direcciones IP se pueden representar hablando de IPv4?==
+<h2 class="titulo-secundario">¿Cuántas direcciones IP se pueden representar hablando de IPv4?</h2>
 
 El computo lo hacemos con:
 
@@ -201,3 +202,18 @@ Parece que jamas vamos a llegar a semejante cantidad de direcciones por IPv6, al
 <div style="text-align: center;">
   <img src="/assets/images/notas_hacking/5.png" alt="under" oncontextmenu="return false;">
 </div>
+
+---
+<h2 id="direcciones-mac-nic-y-oui"><h2 id="subtitulo-importante">Direcciones MAC Nic y Oui</h2></h2>
+<h2 id="protocolos-comunes-udp-tcp-y-el-famoso-three-way-handshake"><h2 id="subtitulo-importante">Protocolos Comunes UDP, TCP y el famoso Three Way HandShake</h2></h2>
+<h2 id="el-modelo-osi"><h2 id="subtitulo-importante">El Modelo OSI</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+
