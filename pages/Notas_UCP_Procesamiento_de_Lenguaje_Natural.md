@@ -121,7 +121,7 @@ No se limita solo a *Python*, la IA abarca múltiples disciplinas.
 - Robots que actúan como humanos.
 - Lógica formal y sistemas expertos, como sistemas con sensores para enviar correos electrónicos o detectar enfermedades.
 - Agentes inteligentes y asistentes virtuales que actúan racionalmente.
-<div style="text-align: center;">
+<div class="bgd">
   <img src="/assets/images/nlp/Sistema IA.svg" alt="under" oncontextmenu="return false;">
 </div>
 Es importante considerar la palabra "automatización", pero, dado que es un concepto complejo, es mejor hablar de "sistematización" para evitar confusiones.
@@ -130,10 +130,30 @@ Es importante considerar la palabra "automatización", pero, dado que es un conc
 
 > **Estadística y probabilidad**: La IA se nutre de estas áreas para hablar en términos científicos y lógicos.
 > **Neurociencia**: Aporta a la IA con el estudio de las neuronas, las conexiones y cómo aprenden.
+<div class="bgd" style="text-align: center;">
+  <img src="/assets/images/nlp/Neurociencia.svg" alt="under" oncontextmenu="return false;">
+</div>
 > **Psicología**: Se conecta con la IA a través del estudio de cómo piensan y actúan las personas, ayudando a replicar la conducta humana.
+<div class="bgd" style="text-align: center;">
+  <img src="/assets/images/nlp/Psicología.svg" alt="under" oncontextmenu="return false;">
+</div>
 > **Economía**: Contribuye en la toma de decisiones, ya que una máquina debe pensar en beneficios, competidores y el balance entre ellos.
 > **Lingüística**: Desde la lingüística, al conocer muy bien el idioma, se aportan bases fundamentales. 
+<div class="bgd" style="text-align: center;">
+  <img src="/assets/images/nlp/Lingüística.svg" alt="under" oncontextmenu="return false;">
+</div>
 > **Lingüística computacional**: Esta rama requiere un profundo conocimiento de las normas que rigen nuestra gramática.
+<div class="bgd" style="text-align: center;">
+  <img src="/assets/images/nlp/Sistemas Dinámicos y Economía.svg" alt="under" oncontextmenu="return false;">
+</div>
+
+<div class="bgd" style="text-align: center;">
+  <img src="/assets/images/nlp/Computación.svg" alt="under" oncontextmenu="return false;">
+</div>
+
+<div class="bgd" style="text-align: center;">
+  <img src="/assets/images/nlp/" alt="under" oncontextmenu="return false;">
+</div>
 
 - Chomsky fue el primero en establecer bases teóricas y computacionales de la lingüística, dejando una línea de trabajo clara sobre cómo representar el conocimiento, mostrar el lenguaje, sintetizar y estructurar.  
 - Por otro lado, enfrenta desafíos como las **ambigüedades**, especialmente difíciles de reconocer y resolver en el idioma español. Estas constituyen una de las principales dificultades del lenguaje.
@@ -165,16 +185,19 @@ Algunos **problemas** reales que se pueden resolver mediante IA son:
 - Análisis de Sentimientos
 - Optimización de la cadena de suministro
 - Servicio de atención al cliente
-
-Algoritmos de redes, como los usados en la gestión de tráfico y enrutamiento, son ejemplos de la aplicación de la inteligencia artificial. Conocer y aplicar técnicas adecuadas es esencial.
+<br><br>
+Algoritmos de redes como los usados en la gestión de tráfico y enrutamiento son ejemplos de la aplicación de la inteligencia artificial. Conocer y aplicar técnicas adecuadas es esencial.
 
 Desde la computación podemos hablar de Hardware y herramientas para el desarrollo, ya que esta rama o área es la que más aporta a la IA.
 
 <h1 class="titulo-principal">Algunas limitaciones de la IA</h1>
 
-¿Puede una computadora lidiar con la explosión combinatoria generada por muchos problemas?
+<a><strong><em style="color: red;">¿Puede una computadora lidiar con la explosión combinatoria generada por muchos problemas?</em></strong></a>
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/Internet de las cosas IoT.svg" alt="under" oncontextmenu="return false;">
+</div>
 
-¿Puede una máquina tener sentimientos?
+<h1 class="titulo-secundario"><strong>¿Puede una máquina tener sentimientos?</strong></h1>
 
 ------
 <h2 id="introducción-a-python"><h2 id="subtitulo-importante">Introducción a Python</h2></h2>
