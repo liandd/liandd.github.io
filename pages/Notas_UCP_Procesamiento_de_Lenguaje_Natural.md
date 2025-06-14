@@ -4,13 +4,13 @@ layout: page
 permalink: /Notas_UCP_Procesamiento_de_Lenguaje_Natural
 ---
 
-<h2 id="subtitulo-importante">Optativa 1 - NLP</h2>
+<h2 id="subtitulo-importante">Procesamiento del lenguaje natural NLP - Notas de Optativa 1</h2>
+La materia está enfocada a la inteligencia artificial y se presentará un componente fuerte en investigación. La idea de la Optativa es solucionar problemas y tratar de darle enfoques de calidad, como resultado de aprendizaje el trabajo se centra en desarrollar habilidades teórico prácticas, y la capacidad de poder conceptualizar los temas con calidad.
+
 
 Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio donde se presenta el siguiente temario:
 
-La materia está enfocada a la inteligencia artificial y se presentará un componente fuerte en investigación. La idea de la Optativa es solucionar problemas y tratar de darle enfoques de calidad, como resultado de aprendizaje el trabajo se centra en desarrollar habilidades teórico prácticas, y la capacidad de poder conceptualizar los temas con calidad.
-
-El procesamiento del lenguaje como su nombre indica, procesar el lenguaje. El ingeniero debe y tiene que saber gramática, saber escribir, leer y redactar textos.
+El procesamiento del lenguaje como su nombre indica, procesar el lenguaje. El ingeniero debe y tiene que saber gramática, saber escribir, leer y redactar textos para hacer uso de algoritmos para la creación de herramientas dotadas de inteligencia artificial.
 
 <h2 id="subtitulo-importante">Índice</h2>
 
@@ -143,16 +143,12 @@ Es importante considerar la palabra "automatización", pero, dado que es un conc
   <img src="/assets/images/nlp/Lingüística.svg" alt="under" oncontextmenu="return false;">
 </div>
 > **Lingüística computacional**: Esta rama requiere un profundo conocimiento de las normas que rigen nuestra gramática.
-<div class="bgd" style="text-align: center;">
+<div style="text-align: center;">
   <img src="/assets/images/nlp/Sistemas Dinámicos y Economía.svg" alt="under" oncontextmenu="return false;">
 </div>
 
-<div class="bgd" style="text-align: center;">
+<div style="text-align: center;">
   <img src="/assets/images/nlp/Computación.svg" alt="under" oncontextmenu="return false;">
-</div>
-
-<div class="bgd" style="text-align: center;">
-  <img src="/assets/images/nlp/" alt="under" oncontextmenu="return false;">
 </div>
 
 - Chomsky fue el primero en establecer bases teóricas y computacionales de la lingüística, dejando una línea de trabajo clara sobre cómo representar el conocimiento, mostrar el lenguaje, sintetizar y estructurar.  
@@ -202,19 +198,21 @@ Desde la computación podemos hablar de Hardware y herramientas para el desarrol
 ------
 <h2 id="introducción-a-python"><h2 id="subtitulo-importante">Introducción a Python</h2></h2>
 
-Durante la asignatura, se utilizará *Flask*. Python es un lenguaje poderoso, interpretado y multiparadigma, con características como datos estructurados, no estructurados, diccionarios, y más. Por ejemplo, el uso de índices `[:-2]`, diccionarios clave-valor (bases de NoSQL), y estructuras de procesamiento de lenguaje natural con listas anidadas.
+Durante la asignatura, se utilizará *Flask*. Python es un lenguaje poderoso, interpretado y multiparadigma, con características como datos estructurados, no estructurados, diccionarios, y más. Por ejemplo, el uso de índices `[:-2]`, diccionarios clave-valor (bases de NoSQL), y estructuras de procesamiento de lenguaje natural con listas anidadas.<strong> (Todos los temas importantes y relevantes se tendran en cuenta cuando llegue el momento de trabajarlos)</strong>
 
 El uso de `set` y `get` en clases de Python, la sobrecarga de métodos (mismo nombre con diferentes parámetros) también son temas importantes que se cubrirán.
 
+<h1 class="titulo-principal">Se abordaran los temas desde cero de manera secuencial y ordenada.</h1>
+
 Al ser una introducción se hablará sobre:
 
-1. Generalidades
+1. <strong>Generalidades</strong>
 - [Concepto](#concepto)
-2. Python
+2. <strong>Python</strong>
 - [Programación Estructurada](#programacion-estructurada)
-- POO
-- Ejercicio Menú
-3. Flask
+- [Programación Orientada a Objetos](#programacion-poo)
+- [Ejercicio Menú](#ejercicio-menu)
+3. <strong>Flask</strong>
 - Instalación
 - Ejemplos
 
@@ -223,7 +221,9 @@ Al ser una introducción se hablará sobre:
 Es un lenguaje de programación de tipo interpretado, multiparadigma. El lenguaje soporta orientación a objetos (POO), utiliza la programación imperativa y funcional, además es de tipado dinámico, multiplataforma y multipropósito.
 
 Python es interpretado con un código legible mediante su interprete, el cual traduce y ejecuta. Es multiplataforma (Windows, Linux, Mac OS).
-
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/Python.svg" alt="under" oncontextmenu="return false;">
+</div>
 Algo especial del lenguaje es el *Tipado Dinámico* con sus mutaciones de variables, siendo fuertemente tipado, y sus tipos de variables.
 
 <h1 class="titulo-principal">Tipos de Datos</h1>
@@ -236,7 +236,9 @@ Para los tipos de datos estructurados en Python:
 > - Mapeos: **Diccionarios**
 > - Conjuntos: **set** y **frozenset**
 
-Entre otros como **File, None, Notimplementedtype**
+Entre otros como **File, None, Notimplementedtype**. Cabe resaltar que se requiere de una previa experiencia en cuanto a algoritmia y programación para entender los conceptos abordados.
+
+A partir de este punto vendrán una serie de ejemplos de código Python (Altamente recomendado probarlos en la máquina y ejecutarlos para practicar, sobre todo entender que hacen los códigos).
 
 <h1 id="programacion-estructurada" class="titulo-principal">Python - Programación Estructurada</h1>
 
