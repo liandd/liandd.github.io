@@ -213,8 +213,8 @@ Al ser una introducción se hablará sobre:
 - [Programación Orientada a Objetos](#programacion-poo)
 - [Ejercicio Menú](#ejercicio-menu)
 3. <strong>Flask</strong>
-- Instalación
-- Ejemplos
+- [Instalación](#instalacion)
+- [Ejemplos](#Ejemplos)
 
 <h1 id="concepto" class="titulo-principal">Concepto</h1>
 
@@ -997,6 +997,151 @@ elif dinero <= 12:
 ## Modularidad 1 
 ```python
 
+
+```
+
+<h1 id="ejercicio-menu" class="titulo-principal">Python - Ejercicio Menú</h1>
+
+## Menú 1 
+```python
+
+```
+## Menú 2 
+```python
+
+
+```
+
+## Menú 3 
+```python
+
+
+```
+
+## Menú 4 
+```python
+
+
+```
+
+## Menú 5 
+```python
+
+
+```
+<h1 id="instalacion" class="titulo-principal">Flask - Instalación</h1>
+
+<h1 id="Ejemplos" class="titulo-principal">Ejemplos</h1>
+##  
+```python
+
+```
+
+## 
+```python
+
+
+```
+
+##
+```python
+
+
+```
+
+## 
+```python
+
+
+```
+
+##  
+```python
+
+
+```
+
+##  
+```python
+
+```
+
+## 
+```python
+
+
+```
+
+##  
+```python
+
+
+```
+
+##  
+```python
+
+
+```
+
+##   
+```python
+
+
+```
+
+##  
+```python
+
+```
+##  
+```python
+
+
+```
+
+## 
+```python
+
+
+```
+
+## 
+```python
+
+
+```
+
+##  
+```python
+
+
+```
+
+##  
+```python
+
+```
+##  
+```python
+
+
+```
+
+##  
+```python
+
+
+```
+
+## 
+```python
+
+
+```
+
+##  
+```python
 
 ```
 
