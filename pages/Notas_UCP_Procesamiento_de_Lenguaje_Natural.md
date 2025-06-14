@@ -802,15 +802,203 @@ elif dinero <= 12:
 
 ```
 
-##
+## Archivos 1
+```python
 
-##
 
-##
+```
 
-##
+## Archivos 2
+```python
 
-##
+
+```
+
+## Iterables por comprensión
+```python
+
+
+```
+
+## Diccionarios por compresión 
+```python
+
+
+```
+
+## Format y Join
+```python
+
+```
+
+<h1 id="programacion-poo" class="titulo-principal">Python - Programación Orientada a objetos</h1>
+
+## Clases, métodos y objetos 1 
+```python
+
+
+```
+
+## Clases, métodos y objetos 2 
+```python
+
+
+```
+
+## Herencia Multiple 1 
+```python
+
+
+```
+
+## Herencia Multiple 2 
+```python
+
+
+```
+
+## Herencia Multiple 3 
+```python
+
+```
+
+## Super 1 
+```python
+
+
+```
+
+## Super 2
+```python
+
+
+```
+
+## Super 3 
+```python
+
+
+```
+
+## Super 4 
+```python
+
+
+```
+
+## Super 5 
+```python
+
+```
+
+## Super 6
+```python
+
+
+```
+
+## Super 7
+```python
+
+
+```
+
+## Variables de Clase e Instancia 1
+```python
+
+
+```
+
+## Variables de Clase e Instancia 2 
+```python
+
+
+```
+
+## Variables de Clase e Instancia 3 
+```python
+
+```
+
+## Variables de Clase e Instancia 4
+```python
+
+
+```
+
+## Decoradores 1 
+```python
+
+
+```
+
+## Decoradores 2 
+```python
+
+
+```
+
+## Decoradores 3  
+```python
+
+
+```
+
+## Decoradores 4 
+```python
+
+```
+## Atributos 1 
+```python
+
+
+```
+
+## Atributos 2
+```python
+
+
+```
+
+## Atributos 3 
+```python
+
+
+```
+
+## Atributos 4 
+```python
+
+
+```
+
+## Polimorfismo y sobrecarga 1 
+```python
+
+```
+## Polimorfismo y sobrecarga 2 
+```python
+
+
+```
+
+## Polimorfismo y sobrecarga 3 
+```python
+
+
+```
+
+## Módulo 1
+```python
+
+
+```
+
+## Modularidad 1 
+```python
+
+
+```
 
 ------
 <h2 id="subtitulo-importante">Bases NLP</h2>
