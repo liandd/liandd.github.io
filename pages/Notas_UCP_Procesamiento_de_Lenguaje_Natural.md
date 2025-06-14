@@ -121,7 +121,9 @@ No se limita solo a *Python*, la IA abarca múltiples disciplinas.
 - Robots que actúan como humanos.
 - Lógica formal y sistemas expertos, como sistemas con sensores para enviar correos electrónicos o detectar enfermedades.
 - Agentes inteligentes y asistentes virtuales que actúan racionalmente.
-
+<div style="text-align: center;">
+  <img src="/assets/images/nlp/Sistema IA.svg" alt="under" oncontextmenu="return false;">
+</div>
 Es importante considerar la palabra "automatización", pero, dado que es un concepto complejo, es mejor hablar de "sistematización" para evitar confusiones.
 
 <h1 class="titulo-principal">Contribuciones desde diversas disciplinas</h1>
