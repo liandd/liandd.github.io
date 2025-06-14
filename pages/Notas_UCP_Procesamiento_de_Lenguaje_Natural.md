@@ -777,8 +777,40 @@ while True:
         print('ERROR EN EL PROGRAMA')
     finally:
         print('GRACIAS POR UTILIZAR EL PROGRAMA CALCULADORA')
+####
+#Name error
+while True:
+  print(a)
 ```
 
+## Excepciones 2
+```python
+###
+#Typer error
+a = 12
+b = 'Hola'
+print(a + b) # no se puede sumar 12 + hola
+
+#################
+#Aserciones - ESPECIFICAR INVARIANTES
+dinero = -19
+if dinero >= 12:
+  print(("TIENES"), (dinero), ("MONEDAS, ES MAYOR A 12"))
+elif dinero <= 12:
+  print(("TIENES"), (dinero), ("MONEDAS, ES MENOR A 12, INSUFICIENTE"))
+  assert dinero > 0, "ERROR AL COMPROBAR, VALOR NEGATIVO"
+
+```
+
+##
+
+##
+
+##
+
+##
+
+##
 
 ------
 <h2 id="subtitulo-importante">Bases NLP</h2>
