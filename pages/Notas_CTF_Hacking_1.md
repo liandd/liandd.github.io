@@ -203,8 +203,54 @@ Parece que jamas vamos a llegar a semejante cantidad de direcciones por IPv6, al
   <img src="/assets/images/notas_hacking/5.png" alt="under" oncontextmenu="return false;">
 </div>
 
+Todo esto igual es muy básico pero es importante tenerlo muy claro, pronto se trabajará reconocimiento de equipos a nivel de red. Como breve inciso al hacer el comando `ifconfig` en **inet** podremos ver nuestra dirección iPv6.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/6.png" alt="under" oncontextmenu="return false;">
+</div>
+
 ---
 <h2 id="direcciones-mac-nic-y-oui"><h2 id="subtitulo-importante">Direcciones MAC Nic y Oui</h2></h2>
+
+Si hacemos `ifconfig` podemos ver en nuestra interfaz de red enp3s0 donde dice **ether**
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/7.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Bueno pues d8:5e:d3:89:80:8b es nuestra dirección MAC.
+
+En redes de computadoras una dirección MAC es un identificador de 48 bits que corresponde de manera única a una tarjeta o dispositivo de red, también se le conoce como dirección física y es "única" ya que hay herramientas como MACchanger que permiten modificar esta dirección. En cuanto a su estructura respecta podemos dividirlo en 2 grupos. Siendo el primero el OUI Organization Unique Identifier y el segundo NIC Network Interface controller especific.
+
+Podemos aplicar un pequeño escaneo a nivel de red local para encontrar dispositivos conectados a la red.
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/8.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+<a><strong>¿Cómo sabe que dispositivos encuentra en la red local?</strong></a>
+<h1 class="titulo-secundario"><strong> hay una herramienta `macchanger` que puede ayudar en está identificación:</strong></h1>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/9.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Esto es gracias al OUI, podemos hacer filtros usando grep
+
+```bash
+macchanger -l | grep -i arris
+```
+
+> Siendo arris la marca de mi router podemos ver:
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/10.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Hay unas cuantas, y podemos ver que el OUI nos ayuda a identificar a que nos estamos enfrentando y entender los ID de los dispositivos. En auditorias de redes inalambricas en Hacking Wifi se puede hacer mucho uso de esta técnica (La tarjeta de red se coloca en modo monitor, la tarjeta de red se da de baja, se cambia la dirección MAC etc). Por ahora es importante entender las direcciones iPv4 iPv6 y MAC.
+
+---
 <h2 id="protocolos-comunes-udp-tcp-y-el-famoso-three-way-handshake"><h2 id="subtitulo-importante">Protocolos Comunes UDP, TCP y el famoso Three Way HandShake</h2></h2>
 <h2 id="el-modelo-osi"><h2 id="subtitulo-importante">El Modelo OSI</h2></h2>
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
