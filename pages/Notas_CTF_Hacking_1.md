@@ -14,9 +14,9 @@ Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</i></b> 
 <h2 id="subtitulo-importante">Índice</h2>
 
 - [Direcciones ipv4-ipv6](#direcciones-ipv4-ipv6)
-- [Direcciones MAC Nic y Oui](#)
-- [Protocolos Comunes UDP, TCP y el famoso Three Way HandShake](#)
-- [El Modelo OSI](#)
+- [Direcciones MAC Nic y Oui](#direcciones-mac-nic-y-oui)
+- [Protocolos Comunes UDP, TCP y el famoso Three Way HandShake](#protocolos-comunes)
+- [El Modelo OSI](#modelo-osi)
 - [Subnetting - ¿Cómo se interpreta una mascara de red?](#)
 - [Subnetting - CIDRS y calculo total de hosts](#)
 - [Subnetting - Mascaras de subred, tipos de clase e interpretación de prefijos de red](#)
@@ -216,9 +216,17 @@ Si hacemos `ifconfig` podemos ver en nuestra interfaz de red enp3s0 donde dice *
   <img src="/assets/images/notas_hacking/7.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Bueno pues d8:5e:d3:89:80:8b es nuestra dirección MAC.
+Bueno pues **d8:5e:d3:89:80:8b** es nuestra dirección MAC.
 
-En redes de computadoras una dirección MAC es un identificador de 48 bits que corresponde de manera única a una tarjeta o dispositivo de red, también se le conoce como dirección física y es "única" ya que hay herramientas como MACchanger que permiten modificar esta dirección. En cuanto a su estructura respecta podemos dividirlo en 2 grupos. Siendo el primero el OUI Organization Unique Identifier y el segundo NIC Network Interface controller especific.
+> En redes de computadoras una dirección MAC es un identificador de 48 bits que corresponde de manera única a una tarjeta o dispositivo de red, también se le conoce como dirección física y es "única" ya que hay herramientas como **MACchanger** que permiten modificar esta dirección.
+
+En cuanto a su estructura respecta podemos dividirlo en 2 grupos. Siendo el primero el OUI Organization Unique Identifier y el segundo NIC Network Interface controller especific.
+
+<div class="bgd" style="text-align: center;">
+  <img src="/assets/images/notas_hacking/11.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<a href="https://macaddress.io/faq/what-is-an-organizationally-unique-identifier-oui">Visita aquí</a>
 
 Podemos aplicar un pequeño escaneo a nivel de red local para encontrar dispositivos conectados a la red.
 
@@ -228,7 +236,7 @@ Podemos aplicar un pequeño escaneo a nivel de red local para encontrar disposit
 
 
 <a><strong>¿Cómo sabe que dispositivos encuentra en la red local?</strong></a>
-<h1 class="titulo-secundario"><strong> hay una herramienta `macchanger` que puede ayudar en está identificación:</strong></h1>
+<h1 class="titulo-secundario"><strong> hay una herramienta `macchanger` que puede ayudar en esta identificación:</strong></h1>
 
 <div style="text-align: center;">
   <img src="/assets/images/notas_hacking/9.png" alt="under" oncontextmenu="return false;">
@@ -248,18 +256,49 @@ macchanger -l | grep -i arris
 </div>
 
 
-Hay unas cuantas, y podemos ver que el OUI nos ayuda a identificar a que nos estamos enfrentando y entender los ID de los dispositivos. En auditorias de redes inalambricas en Hacking Wifi se puede hacer mucho uso de esta técnica (La tarjeta de red se coloca en modo monitor, la tarjeta de red se da de baja, se cambia la dirección MAC etc). Por ahora es importante entender las direcciones iPv4 iPv6 y MAC.
+Hay unas cuantas direcciones OUI para el Router de hogar Arris, y podemos ver que el OUI nos ayuda a identificar a que nos estamos enfrentando y entender los ID de los dispositivos. 
+
+En auditorias de redes inalambricas en Hacking Wifi se puede hacer mucho uso de está técnica (La tarjeta de red se coloca en modo monitor, la tarjeta de red se da de baja, se cambia la dirección MAC etc). Por ahora es importante entender las direcciones iPv4 iPv6 y MAC.
 
 ---
-<h2 id="protocolos-comunes-udp-tcp-y-el-famoso-three-way-handshake"><h2 id="subtitulo-importante">Protocolos Comunes UDP, TCP y el famoso Three Way HandShake</h2></h2>
+<h2 id="protocolos-comunes"><h2 id="subtitulo-importante">Protocolos Comunes UDP, TCP y el famoso Three Way HandShake</h2></h2>
+
+---
+
 <h2 id="el-modelo-osi"><h2 id="subtitulo-importante">El Modelo OSI</h2></h2>
+
+---
+
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+---
+
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+---
+
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+---
+
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+---
+
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+---
+
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+---
+
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+---
+
 <h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+
+---
 
 
