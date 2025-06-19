@@ -262,6 +262,72 @@ En auditorias de redes inalambricas en Hacking Wifi se puede hacer mucho uso de 
 
 ---
 <h2 id="protocolos-comunes"><h2 id="subtitulo-importante">Protocolos Comunes UDP, TCP y el famoso Three Way HandShake</h2></h2>
+Cuando hablamos de protocolos por lo general nos centramos en TCP, UDP, vamos a ver un poquito la  diferencia entre estos.
+
+<h1 class="titulo-principal">TCP vs UDP</h1>
+
+Comenzando con **TCP**.
+
+> Este protocolo esta orientado a conexiones, la gran mayoría de dispositivos lo utilizan para conectarse a través internet.
+
+Así mismo, es uno de los principales protocolos en redes **TCP/IP**, este protocolo es especial porque proporciona verificación de errores además de garantizar la entrega de datos y que los paquetes se entreguen en el orden en el que fueron enviados. 
+
+Todo lo contrario a **UDP**.
+
+> Es un protocolo sin conexión, a diferencia del protocolo **TCP** éste no garantiza la entrega de datos, ni verifica los errores.
+
+El protocolo **UDP** envía continuamente datos al destinatario pero sin comprobar que este los recibe.
+
+Normalmente, al hablar de este protocolo **TCP** se habla del **Three Way Handshake** y se suele ver al momento de entablar una conexión se suele ver algo como esto:
+
+```
+SYN -> SYN ACK -> ACK
+```
+
+Pero, <a>¿Qué es esto?</a>
+
+Esto hay que verlo como una comunicación
+
+> Imagina que estas con un compañero y quieres comenzar la conversación (Esto lo podríamos considerar como el **SYN**), el compañero una vez le hablamos y comienza la conversación (Sería **SYN ACK**) ACK viene de acknowledge, y por último **ACK**.
+
+Esto puede verse en Wireshark
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/11.2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Lo ideal sería tomar para este ejemplo la interfaz loopback
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/12.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Vamos a ponernos en escucha con *nc* en el puerto 4646
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/13.png" alt="under" oncontextmenu="return false;">
+</div>
+
+> Siendo ncat una herramienta que nos permite realizar conexiones de red y trabajar el envío de datos
+
+Tratamos de entablar una conexión a nuestra dirección IP, donde con *nc* estamos en escucha en el puerto 4646:
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/14.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Si nos vamos al Wireshark veremos lo siguiente:
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/15.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Podremos ver en los últimos paquetes el **Three Way Handshake**, estamos viendo el SYN -> SYN ACK -> ACK. En este caso el SYN representa como intentamos conectarnos a nuestra dirección IP por el puerto 4646, donde se nos responde con el SYN ACK, y luego el ACK.
+
+Cuando estamos en una página web, o nos conectamos a un servicio lo normal es ver este principio que opera por **TCP**. Recordar muy importante que un servicio puede estar operando en un puerto pero este puede ser **TCP** o **UDP**, quizás otros protocolos. Nosotros como atacantes debemos realizar escaneos para identificar estos servicios con la herramienta **NMAP** la cual veremos más adelante en profundidad.
+
+Pasando ahora a los servicios, cabe decir que hay infinidad de servicios pero la cantidad de puertos que existen para alojar estos servicios es de 65535, estos puertos vamos a tratar de enumerarlos con la herramienta **NMAP** y demás, pero entre estos puertos hay algunos de ellos que suelen ser muy comunes a la hora de realizar estos escaneos.
+
 
 ---
 
