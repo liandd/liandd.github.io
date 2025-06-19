@@ -324,14 +324,62 @@ Si nos vamos al Wireshark veremos lo siguiente:
 
 Podremos ver en los últimos paquetes el **Three Way Handshake**, estamos viendo el SYN -> SYN ACK -> ACK. En este caso el SYN representa como intentamos conectarnos a nuestra dirección IP por el puerto 4646, donde se nos responde con el SYN ACK, y luego el ACK.
 
-Cuando estamos en una página web, o nos conectamos a un servicio lo normal es ver este principio que opera por **TCP**. Recordar muy importante que un servicio puede estar operando en un puerto pero este puede ser **TCP** o **UDP**, quizás otros protocolos. Nosotros como atacantes debemos realizar escaneos para identificar estos servicios con la herramienta **NMAP** la cual veremos más adelante en profundidad.
+Cuando estamos en una página web, o nos conectamos a un servicio lo normal es ver este principio que opera por **TCP**.
+
+>Recordar muy importante que un servicio puede estar operando en un puerto pero este puede ser **TCP** o **UDP**, quizás otros protocolos. Nosotros como atacantes debemos realizar escaneos para identificar estos servicios con la herramienta **NMAP** la cual veremos más adelante en profundidad.
 
 Pasando ahora a los servicios, cabe decir que hay infinidad de servicios pero la cantidad de puertos que existen para alojar estos servicios es de 65535, estos puertos vamos a tratar de enumerarlos con la herramienta **NMAP** y demás, pero entre estos puertos hay algunos de ellos que suelen ser muy comunes a la hora de realizar estos escaneos.
 
+<a>**TCP**</a>
+```bash
+21 -> FTP
+21 -> SSH
+23 -> TELNET (Acceder a otra máquina de manera remota)
+25 -> SMTP (Correo Electronico)
+53 -> DNS
+80 -> HTTP
+443 -> HTTPS
+110 -> POP3
+139, 445 -> SMB -> Recursos compartidos a nivel de red a nivel de empresa (Hace mucho daño)
+143 -> IMAP
+```
+
+<h1 class="titulo-secundario">UDP</h1>
+```bash
+53 -> DNS
+69 -> TFTP
+161 -> SNMP
+```
+
+Por **UDP** no es muy común encontrar tantos puertos pero los puede haber.
 
 ---
 
 <h2 id="el-modelo-osi"><h2 id="subtitulo-importante">El Modelo OSI</h2></h2>
+
+El proceso de enviar una solicitud a un servidor es algo similar a enviar un paquete por correo, todos los paquetes enviados desde nuestro PC pasan por unos pocos pasos para llegar al destinatario. Estos pasos es lo que se conoce como **Modelo OSI**.
+
+>El Modelo OSI es un estándar para los protocolos de red, los protocolos no son más que reglas de comunicación que se utilizan para conectar dos o más computadores.
+
+Justamente el **Modelo OSI** se encarga de juntar estos protocolos en grupos específicos o capas. Cuando hacemos una solicitud a un servicio web está solicitud recorre un largo camino desde nuestra máquina hasta el servidor, normalmente esto es por un cable de Ethernet o por el aire usando redes WiFi pasando por el proveedor de internet ISP hasta que llega al destino. El servidor devuelve la respuesta por la misma ruta pero **¿Cómo sabe la solicitud que camino tomar?** 
+
+Tenemos siete capas y el **Modelo OSI** enumera desde la superior hasta la inferior:
+
+```
+7 -> Aplicación
+6 -> Presentación
+5 -> Sesión
+4 -> Trasnporte 
+3 -> Red
+2 -> Datos
+1 -> Física
+```
+
+La primera capa siendo la física sería el camino que recorre el paquete para llegar al destino, esta capa específica los dispositivo como Hubs y los medios de transmisión como los cables de red, donde los datos se transmiten por estos medios y se procesan en la siguiente capa.
+
+La segunda capa siendo la de datos o enlace actúa como inspector, digamos que observa sí el paquete tiene un defecto en su formato y controla el flujo con el que se envían los paquetes, en esta capa se verifican si los paquetes recibido del medio físico presentan algún error y tratar de corregirlos (Por tanto, las capas superiores asumen paquetes sin errores). Cabe destacar que está capa también controla el flujo de datos que se transmite.
+
+La tercera capa siendo la de red verifica el destinatario y remitente del paquete
 
 ---
 
