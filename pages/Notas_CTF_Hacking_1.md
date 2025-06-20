@@ -361,9 +361,13 @@ El proceso de enviar una solicitud a un servidor es algo similar a enviar un paq
 
 >El Modelo OSI es un estándar para los protocolos de red, los protocolos no son más que reglas de comunicación que se utilizan para conectar dos o más computadores.
 
-Justamente el **Modelo OSI** se encarga de juntar estos protocolos en grupos específicos o capas. Cuando hacemos una solicitud a un servicio web está solicitud recorre un largo camino desde nuestra máquina hasta el servidor, normalmente esto es por un cable de Ethernet o por el aire usando redes WiFi pasando por el proveedor de internet ISP hasta que llega al destino. El servidor devuelve la respuesta por la misma ruta pero **¿Cómo sabe la solicitud que camino tomar?** 
+Justamente el **Modelo OSI** se encarga de juntar estos protocolos en grupos específicos o capas. Cuando hacemos una solicitud a un servicio web está solicitud recorre un largo camino desde nuestra máquina hasta el servidor, normalmente esto es por un cable de Ethernet o por el aire usando redes WiFi pasando por el proveedor de internet ISP hasta que llega al destino.
+
+El servidor devuelve la respuesta por la misma ruta pero<a> **¿Cómo sabe la solicitud que camino tomar?** </a>
 
 Tenemos siete capas y el **Modelo OSI** enumera desde la superior hasta la inferior:
+
+<h1 class="titulo-secundario">Capas del Modelo OSI</h1>
 
 ```
 7 -> Aplicación
@@ -375,31 +379,42 @@ Tenemos siete capas y el **Modelo OSI** enumera desde la superior hasta la infer
 1 -> Física
 ```
 
-La primera capa siendo la física sería el camino que recorre el paquete para llegar al destino, esta capa específica los dispositivo como Hubs y los medios de transmisión como los cables de red, donde los datos se transmiten por estos medios y se procesan en la siguiente capa.
+<strong>La primera capa</strong> siendo la <a>física</a> sería el camino que recorre el paquete para llegar al destino, esta capa específica los dispositivo como Hubs y los medios de transmisión como los cables de red, donde los datos se transmiten por estos medios y se procesan en la siguiente capa.
 
-La segunda capa siendo la de datos o enlace actúa como inspector, digamos que observa sí el paquete tiene un defecto en su formato y controla el flujo con el que se envían los paquetes, en esta capa se verifican si los paquetes recibido del medio físico presentan algún error y tratar de corregirlos (Por tanto, las capas superiores asumen paquetes sin errores). Cabe destacar que está capa también controla el flujo de datos que se transmite.
+<strong>La segunda capa</strong> siendo la de <a>datos o enlace</a> actúa como inspector, digamos que observa sí el paquete tiene un defecto en su formato y controla el flujo con el que se envían los paquetes, en esta capa se verifican si los paquetes recibido del medio físico presentan algún error y tratar de corregirlos (Por tanto, las capas superiores asumen una transmisión de paquetes sin errores). Cabe destacar que está capa también controla el flujo de datos que se transmite.
 
-La tercera capa siendo la de red verifica el destinatario y remitente del paquete
+<strong>La tercera capa</strong> siendo la de<a> red</a> verifica el destinatario y remitente del paquete, en caso de que hayan demasiados mensajes, en caso de que hayan demasiados mensajes para enviar se puede priorizar cuales se enviaran primero (Actúa como una oficina de correos). Aquí es donde esta el direccionamiento IP source/destination.
 
----
+<strong>La cuarta capa</strong> presentaría los camiones o reporteros siendo la capa de <a>transporte</a>, garantizando el envío y recepción de paquetes provenientes de la capa tres. Gestiona el transporte de los paquetes garantizando el éxito de envío de paquetes.
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<strong>La quinta capa</strong> la de <a>sesión</a> es la responsable de establecer y terminar la conexión entre Hosts, también se encarga de realizar el establecimiento de sesiones (También brinda registros Logs y algunas tareas de seguridad).
 
----
+<strong>La sexta capa</strong> la de <a>presentación</a> es responsable de traducir todos los datos para que los utilice la siguiente capa, desde la conversión de códigos a caracteres, comprensión de datos y cifrado de los mismos.
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<strong>La última capa</strong> siendo la de<a> aplicación</a>, es donde el usuario consume correos electrónicos, transferir archivos, acceder a sitios webs, etc. Aquí encontramos algunos protocolos comunes como HTTP y HTTPs.
 
----
-
-<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+Esto viene bastante bien de cara a soporte para identificar errores subiendo desde la primer capa hasta la última.
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting ¿Qué es y cómo se interpreta una mascara de red?</h2></h2>
+
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting CIDRs y calculo total de hosts</h2></h2>
+
+---
+
+<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting ipv4-ipv6</h2></h2>
+
+---
+
+<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting ipv4-ipv6</h2></h2>
+
+---
+
+<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting ipv4-ipv6</h2></h2>
 
 ---
 
