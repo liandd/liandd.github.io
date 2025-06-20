@@ -355,7 +355,7 @@ Por **UDP** no es muy común encontrar tantos puertos pero los puede haber.
 
 ---
 
-<h2 id="el-modelo-osi"><h2 id="subtitulo-importante">El Modelo OSI</h2></h2>
+<h2 id="modelo-osi"><h2 id="subtitulo-importante">El Modelo OSI</h2></h2>
 
 El proceso de enviar una solicitud a un servidor es algo similar a enviar un paquete por correo, todos los paquetes enviados desde nuestro PC pasan por unos pocos pasos para llegar al destinatario. Estos pasos es lo que se conoce como **Modelo OSI**.
 
