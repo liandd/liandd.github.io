@@ -155,20 +155,20 @@ ol {
   color: var(--text-color);
 }
 
-.titulo-principal {
+.amarillo {
   color: #ddb950;
   /* Este estilo reemplazará el h1 */
   text-shadow: 0 0 1px #74a7d4;
 }
 
-#subtitulo-importante {
+#whity {
 
   text-shadow: 0 0 3px #74a7d4;
   /* Este estilo reemplazará el h2 */
 }
 
-.titulo-secundario {
-  color: #69c041;
+.verde {
+  color: #8cca76;
   /* Este estilo se aplicará solo a h3*/
 }
 
@@ -178,7 +178,7 @@ ol {
 
 a {
   text-decoration: none;
-  color: #ff026d
+  color: #d6ffae;
 }
 
 /* publicaciones*/
@@ -229,7 +229,7 @@ header p {
 }
 
 footer a {
-  text-shadow: 0 0 5px #ff00a7;
+  text-shadow: 0 0 5px #3c952a;
   font-weight: bold;
 }
 
@@ -238,7 +238,7 @@ footer {
 }
 
 p.beb {
-  color: #f9ae4e
+  color: #acf94e;
 }
 
 //comment

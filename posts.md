@@ -4,7 +4,7 @@ layout: home
 permalink: /posts
 ---
 
-<h2 class="titulo-secundario">Publicaciones de Juan Garcia</h2>
+<h2 class="verde">Publicaciones de Juan Garcia</h2>
 
 Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada temática.
 Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, sirviendo como referencia y soporte en mi formación.
