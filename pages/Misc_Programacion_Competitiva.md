@@ -6,11 +6,9 @@ permalink: /Misc_Programación_Competitiva
 
 <h2 id="subtitulo-importante">Programación Competitiva.</h2>
 
-Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*)
+Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*) y eventos como ICPC, UTP Contests.
 
-*Resumen*:
 
-> Después de un año de participación activa en programación competitiva, se ha logrado un progreso significativo en el desarrollo de habilidades en el lenguaje de programación C++. Este informe destaca los logros, lecciones aprendidas y áreas de mejora.
 
 <h3 class="titulo-secundario">Eventos donde participé.</h3>
 
@@ -19,7 +17,10 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*)
 
 🗳️ Durante el día 25 de noviembre hice mi participación en `UTP Open Contest 2023` en la *Universidad Tecnológica de Pereira*.
 
-<img src="/assets/images/Foto1.jpg" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/comp_prog/Foto1.jpg" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/comp_prog/m1.jpg" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/comp_prog/m2.jpg" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/comp_prog/m3.jpg" width="800px" alt="utpopen" oncontextmenu="return false;">
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/semillero-coders-obtiene-primer-puesto-en-utp-open-2023/)
 
@@ -34,56 +35,80 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*)
 
 <a><strong><em>Galería fotográfica</em></strong></a>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/comp_prog/ev.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev4.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/comp_prog/ev4.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev1.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/comp_prog/ev1.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev2.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/comp_prog/ev2.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/ev3.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/comp_prog/ev3.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/ProgramacionCompetitiva/Maraton.jpg" alt="Maraton" oncontextmenu="return false;">
+<img src="/assets/images/comp_prog/Maraton.jpg" alt="Maraton" oncontextmenu="return false;">
 </div>
-Foto de Coders de la Universidad Católica de Pereira.
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/los-programas-ist-y-tds-participan-en-la-xxxvii-maraton-nacional-de-programacion/)
 
 ---
-<h1 class="titulo-principal">Logros.</h1>
+<h1 class="titulo-principal">Latin American Regional Colombia.</h1>
+🗓️ <time datetime="2023-02-12T00:00:00+00:00">2024</time>&emsp;
 
--<strong>Dominio del Lenguaje</strong>: Se ha alcanzado un alto nivel de dominio en C++, comprendiendo conceptos avanzados manipulación de cadenas, estructuras de datos complejas y el uso eficiente de la memoria.
+🗳️ Hice hice mi participación en la Maratón Regional Colombiana en UTP Codeforces (RPC Invitado).
 
--<strong>Resolución Rápida de Problemas</strong>: La capacidad para abordar problemas complejos y encontrar soluciones eficientes ha mejorado significativamente. La rapidez en la resolución de problemas es notable, lo que se refleja en los tiempos de ejecución.
-
--<strong>Participación Activa</strong>: Se ha participado activamente en competiciones en línea y se han logrado clasificaciones notables. La participación ha abarcado diversas plataformas, como `Codeforces`, `RPC`, `BeeCrowd`, `UVA`, `UTP Open 2023` y `Maraton Nacional de Programacion 2023 Colombia ICPC`.
-
--<strong>Uso Eficiente de Bibliotecas Estándar</strong>: Se ha adquirido un conocimiento profundo del uso de las bibliotecas estándar de C++, lo que ha permitido implementar soluciones más eficientes.
-
-**Lecciones Aprendidas.**
-
-1. *Optimización de Código*: La importancia de la optimización del código para mejorar la eficiencia y reducir los tiempos de ejecución se ha vuelto evidente. Se ha aprendido a analizar y mejorar la complejidad temporal y espacial.
-
-2. *Estrategias de Algoritmos*: La comprensión de estrategias de algoritmos avanzados, se ha vuelto más sólida. Se ha aprendido a identificar el enfoque correcto para diferentes tipos de problemas.
-
-3. *Manejo de Estrés*: La participación en competiciones en tiempo real ha ayudado a desarrollar habilidades para manejar el estrés y la presión temporal.
-
-<h1 class="titulo-principal">Metas Futuras.</h1>
-
-Participación en Competencias Avanzadas: Aspirar a participar en competiciones más avanzadas y desafiantes para seguir mejorando las habilidades y enfrentar problemas de mayor complejidad.
-
-<h1 class="titulo-principal">Conclusión.</h1>
-
-El primer año de experiencia en programación competitiva ha sido gratificante y ha proporcionado una base sólida en C++ y algoritmos. El compromiso continuo con la práctica y la mejora constante garantizará un progreso mejor.
+<img src="/assets/images/comp_prog/20231028_091618.jpg" alt="utpopen" oncontextmenu="return false;">
 
 ---
 
+<h1 class="titulo-principal">UTP Primera Fecha Gran Premio de México 1 y 2, 2024 Online Codeforces (RPC).</h1>
+🗓️ <time datetime="2023-02-12T00:00:00+00:00">June 23, 2024</time>&emsp;
+
+🗳️ Durante el día 23 de junio hice mi participación de `Primera Fecha Gran Premio de México 2024` en la Universidad Tecnologíca de Pereira.
+
+<div style="text-align: center;">
+<img src="/assets/images/comp_prog/m4.jpg" alt="Maraton" oncontextmenu="return false;" >
+</div>
+<div style="text-align: center;">
+<img src="/assets/images/comp_prog/m5.jpg" alt="Maraton" oncontextmenu="return false;">
+</div>
+
+[Link de la publicación hecho por la Universidad Tecnologíca de Pereira!](https://www.facebook.com/share/p/1Je6oRcy8u/)
+
+---
+
+<h1 class="titulo-principal">XXXVIII Maratón Nacional de Programación 2024.</h1>
+🗓️ <time datetime="2023-02-12T00:00:00+00:00">Nov 5, 2024</time>&emsp;
+
+🗳️ Durante el día 5 de noviembre hice mi participación de `XXXVIII Maratón Nacional de Programación 2024` en la ciudad de Manizales.
+
+<div style="text-align: center;">
+<img src="/assets/images/comp_prog/maraton2.jpg" alt="Maraton" oncontextmenu="return false;" >
+</div>
+<div style="text-align: center;">
+<img src="/assets/images/comp_prog/DSC02441.JPG" alt="Maraton" oncontextmenu="return false;">
+</div>
+<div style="text-align: center;">
+<img src="/assets/images/comp_prog/20241019_114030.jpg" alt="Maraton" oncontextmenu="return false;" >
+</div>
+<div style="text-align: center;">
+<img src="/assets/images/comp_prog/DSC02422.JPG" alt="Maraton" oncontextmenu="return false;">
+</div>
+
+
+[Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/semillero-coders-participa-en-la-xxxviii-maraton-nacional-de-programacion/)
+
+---
+
+<h1 class="titulo-principal">Conclusión</h1>
+
+Después de dos años de participación activa en programación competitiva ha sido gratificante y ha proporcionado una base sólida en C++ y algoritmos. El compromiso continuo con la práctica y la mejora constante garantizó un progreso importante en mi formación.
+
+---
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
 
 © Juan David Garcia Acevedo (aka liandd)
