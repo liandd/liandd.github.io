@@ -65,7 +65,15 @@ if (data.error) {
 throw new Error(data.message);
 }
 const user = data.user;
-const avatar = user.image.find(img => img.size === "large")["#text"];
+const sizes = ["extralarge", "large", "medium"];
+let avatar = null;
+for (let size of sizes) {
+  const img = user.image.find(i => i.size === size && i["#text"]);
+  if (img) {
+    avatar = img["#text"];
+    break;
+  }
+}
 const scrobbles = user.playcount;
 const profileUrl = user.url;
 

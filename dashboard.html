@@ -13,7 +13,7 @@ permalink: /dashboard
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <link rel="icon" href="https://lastfm.freetls.fastly.net/i/u/174s/24a8b23098ab6a767b8e475f00f37870.png"
+  <link rel="icon" href="https://lastfm.freetls.fastly.net/i/u/avatar170s/1d9dce624a67b03d99b7c9787db2da85.png"
     type="image/x-icon">
   <meta name="generator" content="Astro v5.4.2"><!-- Primary Meta Tags -->
   <title>Página Principal</title>
@@ -32,7 +32,7 @@ permalink: /dashboard
       const i = document.getElementById("splash-screen"), k = document.getElementById("enter-button"), e = document.getElementById("background-audio"), f = document.getElementById("play-pause"), v = document.getElementById("prev-track"), E = document.getElementById("next-track"), y = document.getElementById("now-playing-text"), S = document.getElementById("taskbar-time"), b = document.querySelector(".start-button-inner"), l = document.getElementById("start-menu"), g = document.getElementById("taskbar-apps"); x(); const I = localStorage.getItem("hasEnteredSite"); (() => {(L() || !I) && i && o ? i.style.display = "flex" : I && i && (i.style.display = "none", o && e && e.play().catch(t => {console.error("Autoplay blocked:", t), i && (i.style.display = "flex", localStorage.removeItem("hasEnteredSite"))}))})(), k && i && e && k.addEventListener("click", function () {i.style.display = "none", localStorage.setItem("hasEnteredSite", "true"), e.play().then(() => {o = !0, c(), d()}).catch(t => {console.error("Still couldn't play audio after user interaction:", t), o = !1, c(), d()})}); function T(t) {if (a = t, e && a >= 0 && a < s.length) {const n = s[a]; typeof n == "string" && (e.src = n, o && e.play())} h(), d()} function P() {let t = a + 1; t >= s.length && (t = 0), T(t), !o && e && (e.play(), o = !0), c()} function M() {let t = a - 1; t < 0 && (t = s.length - 1), T(t), !o && e && (e.play(), o = !0), c()} function A() {e && (e.paused ? (e.play(), o = !0) : (e.pause(), o = !1), c(), d())} function c() {f && (o ? f.innerHTML = '<span style="font-weight: bold;">❚❚</span>' : f.innerHTML = '<span style="font-weight: bold;">►</span>')} function h() {if (a >= 0 && a < s.length) {const t = s[a]; if (t && y) {const r = t.split("/").pop(), u = r ? r.replace(".mp3", "") : "Unknown"; y.textContent = `Now playing: ${u}`, y.setAttribute("title", `Now Playing: ${u}`)} } } function d() {const t = {currentTrackIndex: a, isPlaying: o, currentTime: e ? e.currentTime : 0}; localStorage.setItem("audioState", JSON.stringify(t))} function x() {const t = localStorage.getItem("audioState"); if (t) {const n = JSON.parse(t), r = n.currentTrackIndex, u = n.isPlaying, p = n.currentTime; if (a = typeof r == "number" ? r : 0, o = !!u, e && a >= 0 && a < s.length) {const m = s[a]; typeof m == "string" && (e.src = m, typeof p == "number" && (e.currentTime = p))} c(), h()} else {if (a = Math.floor(Math.random() * s.length), e && a >= 0 && a < s.length) {const n = s[a]; typeof n == "string" && (e.src = n)} h()} } f && f.addEventListener("click", A), E && E.addEventListener("click", P), v && v.addEventListener("click", M), e && (e.addEventListener("ended", function () {P()}), e.addEventListener("timeupdate", function () {e && Math.floor(e.currentTime) % 5 === 0 && d()})); function w() {const t = new Date, n = t.getHours(), r = t.getMinutes(), u = n >= 12 ? "PM" : "AM", p = n % 12 || 12, m = r.toString().padStart(2, "0"); S && (S.textContent = `${p}:${m} ${u}`)} w(), setInterval(w, 6e4), b && l && b.addEventListener("click", function () {l.style.display = l.style.display === "block" ? "none" : "block"}), document.addEventListener("click", function (t) {const n = t.target; l && n && !n.closest(".start-button") && l.style.display === "block" && (l.style.display = "none")}); function B() {
         let t = document.title; if (t || (t = "liandd"), g) {
           g.innerHTML = ""; const n = document.createElement("div"); n.className = "taskbar-app active", n.innerHTML = `
-              <img src="https://lastfm.freetls.fastly.net/i/u/174s/24a8b23098ab6a767b8e475f00f37870.png" width="16" height="16" alt="liandd" style="border-radius: 2px;">
+              <img src="https://lastfm.freetls.fastly.net/i/u/avatar170s/1d9dce624a67b03d99b7c9787db2da85.png" width="16" height="16" alt="liandd" style="border-radius: 2px;">
               <span>${t}</span>
             `, g.appendChild(n)
         }
@@ -386,11 +386,8 @@ permalink: /dashboard
                       target="_blank" rel="noopener" data-astro-cid-j7pv25f6><img
                         src="https://i.pinimg.com/originals/87/8e/f1/878ef1a501fbe2d178fcb1e29dda9d20.gif"
                         class="astro-JRT43QTM" width="88" height="31" data-astro-cid-j7pv25f6>
-                    </a> <a class="astro-JRT43QTM" data-astro-cid-j7pv25f6><img src="" class="astro-JRT43QTM" width="88"
-                        height="31" data-astro-cid-j7pv25f6> </a> <br data-astro-cid-j7pv25f6> <a href=""
-                      target="_blank" rel="noopener" data-astro-cid-j7pv25f6><img src="" alt="badge"
-                        data-astro-cid-j7pv25f6> </a> <a title="badge" href="" target="_blank" rel="noopener"
-                      data-astro-cid-j7pv25f6> <img alt="badge" src="" data-astro-cid-j7pv25f6> </a> </ul>
+                    </a> <a href="https://www.ucp.edu.co/semillero-coders-participa-en-la-xxxviii-maraton-nacional-de-programacion/" class="astro-JRT43QTM" data-astro-cid-j7pv25f6><img src="/assets/images/bin_files/CODERS.jpg" class="astro-JRT43QTM" width="430"
+                        height="80" data-astro-cid-j7pv25f6></a> </ul>
               </fieldset>
             </article>
             <article role="tabpanel" hidden id="blog" data-astro-cid-j7pv25f6>
