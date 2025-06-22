@@ -11,12 +11,13 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ Entradas Recientes</p>
 
+- [ 2025_22_06 ] <a  href="\Misc_Programación_Competitiva">Programación Competitiva</a>
 - [ 2025_25_03 ] HTB Writeup - Unified
 - [ 2025_25_03 ] HTB Writeup - Vaccine
 <br><br>
 <p class="beb">↓ Notas y Apuntes</p>
 
-- [ 2025_21_04 ] <a  href="\Notas_CTF_Hacking_1">Notas - Hacking Para CTF 1</a>
+- [ 2025_21_06 ] <a  href="\Notas_CTF_Hacking_1">Notas - Hacking Para CTF 1</a>
 - [ 2025_22_01 ] <a  href="\Notas_CTF_Python_Ofensivo_1">Notas - Python Para CTF 1</a>
 - [ 2025_?_? ] Notas - Linux Para CTF 1
 - [ 2025_28_01 ] <a  href="\Notas_UCP_Ciberseguridad_1">UCP - Ciberseguridad 1</a>
@@ -60,9 +61,9 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 <br><br>
 <p class="beb">↓ Publicaciones varias</p>
 
+- [ 2025_22_06 ] <a  href="\Misc_Programación_Competitiva">Programación Competitiva</a>
 - [ 2025_31_01 ] <a  href="\Misc_Grub_Rescue_x86">Grub Rescue de x86_64 a i386</a>
 - [ 2024_21_07 ] <a  href="\Misc_Guía_Instalación_Arch_Linux">Guía Instalación Arch Linux Bspwm</a>
-- [ 2024_28_03 ] <a  href="\Misc_Programación_Competitiva">Programación Competitiva</a>
 - [ 2023_16_07 ] <a  href="\Misc_Dotfiles_Parrot">Configuración Parrot Bspwm - (Deprecated)</a>
 <br><br>
 <p class="beb">↓ Pendiente..</p>
