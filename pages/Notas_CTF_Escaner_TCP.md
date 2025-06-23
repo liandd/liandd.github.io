@@ -4,7 +4,7 @@ layout: page
 permalink: /Notas_CTF_Escaner_TCP
 ---
 
-<h2 id="subtitulo-importante">Bajo construcción</h2>
+<h2 id="whity">Bajo construcción</h2>
 
 <br>
 

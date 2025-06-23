@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Mongod
 ---
 
-<h2 class="titulo-principal">Mongod</h2>
+<h2 class="amarillo">Mongod</h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Mongod/mongod.webp" alt="under" oncontextmenu="return false;">
 </div>
@@ -28,7 +28,7 @@ rtt min/avg/max/mdev = 110.522/112.553/114.953/1.412 ms
 
 Con un TTL de 63 sabemos que estamos frente a un Linux.
 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Por tanto vamos a comenzar con la fase de enumeración con nmap y un escaneo rápido y sigiloso:
 
@@ -57,7 +57,7 @@ Es una captura bastante abrumadora en el sentido que el servicio MongoDB está m
   <img src="/assets/images/StartingPoint/VIP/Mongod/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 La captura nos arroja la información de las bases de datos que contiene MongoDB, así que lo siguiente será entablar una conexión con el servicio por el puerto 27017. Una forma de hacerlo es usando la herramienta `mongo` o `mongosh`.
 

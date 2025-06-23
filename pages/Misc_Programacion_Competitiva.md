@@ -4,15 +4,15 @@ layout: page
 permalink: /Misc_Programación_Competitiva
 ---
 
-<h2 id="subtitulo-importante">Programación Competitiva.</h2>
+<h2 id="whity">Programación Competitiva.</h2>
 
 Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*) y eventos como ICPC, UTP Contests.
 
 
 
-<h3 class="titulo-secundario">Eventos donde participé.</h3>
+<h3 class="verde">Eventos donde participé.</h3>
 
-<h1 class="titulo-principal">UTP Open Contest 2023 Colombia.</h1>
+<h1 class="amarillo">UTP Open Contest 2023 Colombia.</h1>
 🗓️ <time datetime="2023-02-12T00:00:00+00:00">November 25, 2023</time>&emsp;
 
 🗳️ Durante el día 25 de noviembre hice mi participación en `UTP Open Contest 2023` en la *Universidad Tecnológica de Pereira*.
@@ -26,7 +26,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*) y eventos 
 
 ---
 
-<h1 class="titulo-principal">XXXVII Maratón Nacional de Programación 2023 Colombia.</h1>
+<h1 class="amarillo">XXXVII Maratón Nacional de Programación 2023 Colombia.</h1>
 🗓️ <time datetime="2023-02-12T00:00:00+00:00">September 6, 2023</time>&emsp;
 
 🗳️ Durante el día 2 de septiembre hice mi participación de `XXXVII Maratón Nacional de Programación` en la ciudad de Manizales.
@@ -56,7 +56,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*) y eventos 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/los-programas-ist-y-tds-participan-en-la-xxxvii-maraton-nacional-de-programacion/)
 
 ---
-<h1 class="titulo-principal">Latin American Regional Colombia.</h1>
+<h1 class="amarillo">Latin American Regional Colombia.</h1>
 🗓️ <time datetime="2023-02-12T00:00:00+00:00">2024</time>&emsp;
 
 🗳️ Hice hice mi participación en la Maratón Regional Colombiana en UTP Codeforces (RPC Invitado).
@@ -65,7 +65,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*) y eventos 
 
 ---
 
-<h1 class="titulo-principal">UTP Primera Fecha Gran Premio de México 1 y 2, 2024 Online Codeforces (RPC).</h1>
+<h1 class="amarillo">UTP Primera Fecha Gran Premio de México 1 y 2, 2024 Online Codeforces (RPC).</h1>
 🗓️ <time datetime="2023-02-12T00:00:00+00:00">June 23, 2024</time>&emsp;
 
 🗳️ Durante el día 23 de junio hice mi participación de `Primera Fecha Gran Premio de México 2024` en la Universidad Tecnologíca de Pereira.
@@ -81,7 +81,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*) y eventos 
 
 ---
 
-<h1 class="titulo-principal">XXXVIII Maratón Nacional de Programación 2024.</h1>
+<h1 class="amarillo">XXXVIII Maratón Nacional de Programación 2024.</h1>
 🗓️ <time datetime="2023-02-12T00:00:00+00:00">Nov 5, 2024</time>&emsp;
 
 🗳️ Durante el día 5 de noviembre hice mi participación de `XXXVIII Maratón Nacional de Programación 2024` en la ciudad de Manizales.
@@ -104,7 +104,7 @@ Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*) y eventos 
 
 ---
 
-<h1 class="titulo-principal">Conclusión</h1>
+<h1 class="amarillo">Conclusión</h1>
 
 Después de dos años de participación activa en programación competitiva ha sido gratificante y ha proporcionado una base sólida en C++ y algoritmos. El compromiso continuo con la práctica y la mejora constante garantizó un progreso importante en mi formación.
 

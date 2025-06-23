@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Ignition
 ---
 
-<h2 class="titulo-principal">Ignition</h2>
+<h2 class="amarillo">Ignition</h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Ignition/ignition.webp" alt="under" oncontextmenu="return false;">
 </div>
@@ -26,7 +26,7 @@ rtt min/avg/max/mdev = 108.648/110.052/113.603/1.802 ms
 ```
 
 Para saber a que nos estamos enfrentamos miramos el TTL y vemos 63, así que estamos frente a una máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Para la enumeración usamos nmap:
 
@@ -83,7 +83,7 @@ Y encontramos una ruta '/admin', seguimos enumerando por archivos con la extensi
 </div>
 
 Pero no hay nada más allá de un index.php.
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Recordando que estamos frente a un servicio web, lo abrimos en el navegador y nos encontramos con la página en cuestion:
 

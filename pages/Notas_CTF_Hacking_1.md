@@ -3,7 +3,7 @@ title: Hacking CTF 1
 layout: page
 permalink: /Notas_CTF_Hacking_1
 ---
-<h2 id="subtitulo-importante">Notas prácticas - Hacking 1 para CTF</h2>
+<h2 id="whity">Notas prácticas - Hacking 1 para CTF</h2>
 
 Este es el curso de introducción a Hacking para practicar en plataformas como <a href="https://app.hackthebox.com/machines"><strong><em>HackTheBox</em></strong></a>, <a href="https://www.vulnhub.com/">VulnHub</a> y <a href="https://dockerlabs.es/">DockerLabs</a>. En caso de no tener un buen nivel en Linux, es recomendable hacer el <a href=""><em>Curso de Linux 1 para Hacking</em></a>.
 
@@ -11,7 +11,7 @@ Este curso es preparatorio desde 0 para el <a href="https://security.ine.com/cer
 
 Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</i></b> de nivel introductorio donde se presenta el siguiente temario:
 
-<h2 id="subtitulo-importante">Índice</h2>
+<h2 id="whity">Índice</h2>
 
 - [Direcciones ipv4-ipv6](#direcciones-ipv4-ipv6)
 - [Direcciones MAC Nic y Oui](#direcciones-mac-nic-y-oui)
@@ -132,7 +132,7 @@ Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</i></b> 
 
 ---
 
-<h2 id="direcciones-ipv4-ipv6"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="direcciones-ipv4-ipv6"><h2 id="whity">Direcciones ipv4-ipv6</h2></h2>
 
 Lo primero es ¿Qúe es una dirección IP?, en mi caso en la polybar tengo mi propia dirección IP:
 <div style="text-align: center;">
@@ -147,7 +147,7 @@ Al igual que podemos verla usando el comando `ifconfig` o `ip a`:
 Podemos ver 2 interfaces de red, siendo la primera `enp3s0` y la `lo`. Solo vamos a centrarnos en la enp3s0 ahí vemos que pone **inet**, es la IP privada que nos identifica a nivel de usuario.
 
 ----
-<h2 class="titulo-principal"> ¿Qué es una dirección IP?</h2>
+<h2 class="amarillo"> ¿Qué es una dirección IP?</h2>
 
 Es una etiqueta numérica que identifica de manera lógica y jerárquica a una interfaz en la red de un dispositivo que utiliza el protocolo de Internet. Y esto no son más que bits ceros y unos. Y consiste de 4 octetos (4 pares de 8 bits). Podemos ver como los dispositivos cada uno se identifica con una dirección IP.
 
@@ -181,7 +181,7 @@ Para hacer la conversión podemos hacerlo en Bash:
 
 Y esto es la propia representación de la IP en binario:
 
-<h2 class="titulo-secundario">¿Cuántas direcciones IP se pueden representar hablando de IPv4?</h2>
+<h2 class="verde">¿Cuántas direcciones IP se pueden representar hablando de IPv4?</h2>
 
 El computo lo hacemos con:
 
@@ -209,7 +209,7 @@ Todo esto igual es muy básico pero es importante tenerlo muy claro, pronto se t
 </div>
 
 ---
-<h2 id="direcciones-mac-nic-y-oui"><h2 id="subtitulo-importante">Direcciones MAC Nic y Oui</h2></h2>
+<h2 id="direcciones-mac-nic-y-oui"><h2 id="whity">Direcciones MAC Nic y Oui</h2></h2>
 
 Si hacemos `ifconfig` podemos ver en nuestra interfaz de red enp3s0 donde dice **ether**
 <div style="text-align: center;">
@@ -236,7 +236,7 @@ Podemos aplicar un pequeño escaneo a nivel de red local para encontrar disposit
 
 
 <a><strong>¿Cómo sabe que dispositivos encuentra en la red local?</strong></a>
-<h1 class="titulo-secundario"><strong> hay una herramienta `macchanger` que puede ayudar en esta identificación:</strong></h1>
+<h1 class="verde"><strong> hay una herramienta `macchanger` que puede ayudar en esta identificación:</strong></h1>
 
 <div style="text-align: center;">
   <img src="/assets/images/notas_hacking/9.png" alt="under" oncontextmenu="return false;">
@@ -261,10 +261,10 @@ Hay unas cuantas direcciones OUI para el Router de hogar Arris, y podemos ver qu
 En auditorias de redes inalambricas en Hacking Wifi se puede hacer mucho uso de está técnica (La tarjeta de red se coloca en modo monitor, la tarjeta de red se da de baja, se cambia la dirección MAC etc). Por ahora es importante entender las direcciones iPv4 iPv6 y MAC.
 
 ---
-<h2 id="protocolos-comunes"><h2 id="subtitulo-importante">Protocolos Comunes UDP, TCP y el famoso Three Way HandShake</h2></h2>
+<h2 id="protocolos-comunes"><h2 id="whity">Protocolos Comunes UDP, TCP y el famoso Three Way HandShake</h2></h2>
 Cuando hablamos de protocolos por lo general nos centramos en TCP, UDP, vamos a ver un poquito la  diferencia entre estos.
 
-<h1 class="titulo-principal">TCP vs UDP</h1>
+<h1 class="amarillo">TCP vs UDP</h1>
 
 Comenzando con **TCP**.
 
@@ -344,7 +344,7 @@ Pasando ahora a los servicios, cabe decir que hay infinidad de servicios pero la
 143 -> IMAP
 ```
 
-<h1 class="titulo-secundario">UDP</h1>
+<h1 class="verde">UDP</h1>
 ```bash
 53 -> DNS
 69 -> TFTP
@@ -355,7 +355,7 @@ Por **UDP** no es muy común encontrar tantos puertos pero los puede haber.
 
 ---
 
-<h2 id="modelo-osi"><h2 id="subtitulo-importante">El Modelo OSI</h2></h2>
+<h2 id="modelo-osi"><h2 id="whity">El Modelo OSI</h2></h2>
 
 El proceso de enviar una solicitud a un servidor es algo similar a enviar un paquete por correo, todos los paquetes enviados desde nuestro PC pasan por unos pocos pasos para llegar al destinatario. Estos pasos es lo que se conoce como **Modelo OSI**.
 
@@ -367,7 +367,7 @@ El servidor devuelve la respuesta por la misma ruta pero<a> **¿Cómo sabe la so
 
 Tenemos siete capas y el **Modelo OSI** enumera desde la superior hasta la inferior:
 
-<h1 class="titulo-secundario">Capas del Modelo OSI</h1>
+<h1 class="verde">Capas del Modelo OSI</h1>
 
 ```
 7 -> Aplicación
@@ -397,36 +397,36 @@ Esto viene bastante bien de cara a soporte para identificar errores subiendo des
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting ¿Qué es y cómo se interpreta una mascara de red?</h2></h2>
+<h2 id="subnetting"><h2 id="whity">Subnetting ¿Qué es y cómo se interpreta una mascara de red?</h2></h2>
 
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting CIDRs y calculo total de hosts</h2></h2>
+<h2 id="subnetting"><h2 id="whity">Subnetting CIDRs y calculo total de hosts</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="whity">Subnetting ipv4-ipv6</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="whity">Subnetting ipv4-ipv6</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Subnetting ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="whity">Subnetting ipv4-ipv6</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="whity">Direcciones ipv4-ipv6</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="whity">Direcciones ipv4-ipv6</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="subtitulo-importante">Direcciones ipv4-ipv6</h2></h2>
+<h2 id="subnetting"><h2 id="whity">Direcciones ipv4-ipv6</h2></h2>
 
 ---
 

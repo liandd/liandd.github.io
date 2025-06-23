@@ -4,34 +4,34 @@ layout: page
 permalink: /Notas_UCP_Ciberseguridad_1
 ---
 
-<h2 id="subtitulo-importante">Optativa II Ciberseguridad 1 UCP - Notas prácticas</h2>
+<h2 id="whity">Optativa II Ciberseguridad 1 UCP - Notas prácticas</h2>
 
 La ciberseguridad es el esfuerzo continuo para proteger a las personas, las organizaciones y los gobiernos de los ataques digitales mediante la protección de los sistemas y datos en red contra el uso o daño no autorizados.
 
 La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 horas en casa, se harán muchos laboratorios.
 
-<h2 id="subtitulo-importante">Índice</h2>
+<h2 id="whity">Índice</h2>
 
-1. <h1 class="titulo-principal">Introducción a la ciberseguridad</h1>
+1. <h1 class="amarillo">Introducción a la ciberseguridad</h1>
 - [Conceptos básicos](#introducción-a-la-ciberseguridad)
 - [Tipos y estados de la información](#tipos-y-estados-de-la-información)
 - [Tipos de ataques y sus herramientas](#tipos-de-ataques-y-sus-herramientas)
 - [Laboratorios 1 y 2](#laboratorio-1-y-2)
 <br>
-2. <h1 class="titulo-principal">Ataques, conceptos y técnicas</h1>
+2. <h1 class="amarillo">Ataques, conceptos y técnicas</h1>
 - [Analizando un ciberataque](#analizando-un-ciberataque)
 - Tipos de ataques
 - Métodos de infiltración e ingeniería social
 - Clasificación de vulnerabilidades
 -  Laboratorios 3 y 4
 <br>
-3. <h1 class="titulo-principal">Protegiendo el perímetro de red</h1>
+3. <h1 class="amarillo">Protegiendo el perímetro de red</h1>
 - Dispositivos y tecnologías de seguridad
 - Seguridad basada en el comportamiento
 - Herramientas para la prevención y detección
 - Laboratorios 5 y 6
 <br>
-4. <h1 class="titulo-principal">Herramientas de monitoreo</h1>
+4. <h1 class="amarillo">Herramientas de monitoreo</h1>
 - Centro de operaciones de seguridad SOC
 - Centro de operaciones de red NOC
 - Acceso remoto SSH
@@ -39,18 +39,18 @@ La asignatura es 3 horas por trabajo con docente, por tanto debe ser trabajo 6 h
 - Herramientas de monitoreo SYSLOG, SPAN
 - Laboratorios 7, 8 y 9
 <br>
-5. <h1 class="titulo-principal">Tecnologías de Firewall</h1>
+5. <h1 class="amarillo">Tecnologías de Firewall</h1>
 - Tecnologías de Firewall: Software y Hardware basado en contexto
 - Filtrado de paquetes
 - Laboratorio 10
 <br>
-6. <h1 class="titulo-principal">Proyecto de asignatura</h1>
+6. <h1 class="amarillo">Proyecto de asignatura</h1>
 - Estudio de caso
 
 <hr />
-<h2 id="introducción-a-la-ciberseguridad"><h2 id="subtitulo-importante">Modulo 1 - Introducción a la Ciberseguridad</h2></h2>
+<h2 id="introducción-a-la-ciberseguridad"><h2 id="whity">Modulo 1 - Introducción a la Ciberseguridad</h2></h2>
 
-<h1 class="titulo-principal">Conceptos Básicos</h1>
+<h1 class="amarillo">Conceptos Básicos</h1>
 
 La ciberseguridad bajo el contexto en Colombia, la palabra involucra todos los esfuerzos, actividades, experiencia que se ponen a disposición de promover la seguridad informática, que mis sistemas involucrando infraestructura, software, empleados...etc esten seguros. Proteger todo de los ataques, y para nadie es un secreto que la industria de los Hackers genera mucho dinero y trabajan en grupos grandes como organizaciones. Ellos mismos muestran sus ganancias y revelan sus actividades.
 
@@ -74,12 +74,12 @@ El `ColCERT de Mintic`, es el equipo de respuestas de ciberseguridad de Colombia
 - <a href="https://nvd.nist.gov"><strong><em style="color: #559">Nist US</em></strong></a>
 
 ---
-<h2 id="tipos-y-estados-de-la-información"><h2 id="subtitulo-importante">Tipos y estados de la información</h2></h2>
-<h1 class="titulo-principal">Protegiendo nuestros datos personales</h1>
+<h2 id="tipos-y-estados-de-la-información"><h2 id="whity">Tipos y estados de la información</h2></h2>
+<h1 class="amarillo">Protegiendo nuestros datos personales</h1>
 
 Debemos proteger nuestros datos pero *¿Cuáles son?*, información personal, información financiera, información académica y todo lo relacionado con historias clínicas, información educativa relacionado con la academia. Incluso entidades bancarias comos <a href="https://www.datacredito.com.co" style="color: #559999">Datacredito</a> existen para almacenar un historial financiero de cada persona con fines lucrativos. Los Hackers pueden tener acceso a sus datos personales a través de estos registros. Por lo que se puede presentar altas tazas de suplantación de identidad o recolección de información. Conocido como **Inteligencia de fuentes abiertas** o **OSINT**.
 
-<h3 class="titulo-secundario">¿Dónde están nuestros datos?</h3>
+<h3 class="verde">¿Dónde están nuestros datos?</h3>
 
 De las fotos, de nuestras redes sociales, lo que comentamos, publicamos y compartimos en internet con amigos y familia. Pueden ser fuentes valiosas de información para los agentes externos mediante ingeniería social.
 
@@ -103,9 +103,9 @@ En base a nuestra identidad en línea, como primer día de trabajo debemos elegi
 - **jane.doe**
 - **jdoe**
 <br><br>
-<details><summary><strong><em>Respuestas correctas</em></strong></summary><h3 class="titulo-secundario"><strong>jdoe y j.doe12</strong></h3></details>
+<details><summary><strong><em>Respuestas correctas</em></strong></summary><h3 class="verde"><strong>jdoe y j.doe12</strong></h3></details>
 <hr />
-<h2 id="tipos-de-ataques-y-sus-herramientas"><h3 class="titulo-principal">Tipos donde pueden haber ataques</h3></h2>
+<h2 id="tipos-de-ataques-y-sus-herramientas"><h3 class="amarillo">Tipos donde pueden haber ataques</h3></h2>
 Los datos personales describen cualquier información sobre usted, incluido su nombre, número de seguro social, número de licencia de conducir, fecha y lugar de nacimiento, nombre de nuestros familiares y amigos. Donde se puede presentar suplantación de identidad.
 
 > **Registros médicos**: Cada vez que visita al médico, la información personal sobre salud y demás queda en los registros médicos electrónicos `EHR` Ya que estos se guardan en línea.
@@ -115,7 +115,7 @@ Los datos personales describen cualquier información sobre usted, incluido su n
 > **Registros de empleo y financieros**: Ya que se presenta información sobre anteriores empleos incluso evaluaciones de desempeño actuales, y en este historial se puede quizás encontrar información bancaria.
 
 
-<h3 class="titulo-secundario">Robo de identidad</h3>
+<h3 class="verde">Robo de identidad</h3>
 
 No contentos con robar su dinero para obtener ganancias financieras a corto plazo, los ciberdelincuentes invierten en la ganancia a largo plazo del robo de identidad. Como robo medico o bancario.
 Pero no solo los agentes de amenaza quieren nuestros datos, también tenemos:
@@ -134,7 +134,7 @@ Cada vez los agentes de amenaza son más sofisticados en su búsqueda de datos v
 
 Antes de comenzar a implementar las mejores prácticas para proteger los datos de la organización, debemos saber de qué se trata.
 
-<h1 class="titulo-principal">Estados de la información</h1>
+<h1 class="amarillo">Estados de la información</h1>
 
 Tenemos por una parte **Datos tradicionales** que suelen ser generados y mantenidos por todas las organizaciones, grandes y pequeñas.
 
@@ -144,7 +144,7 @@ Tenemos por una parte **Datos tradicionales** que suelen ser generados y manteni
 <br><br>
 Por otro lado, la IoT es una gran red de objetos físicos, como sensores, software y otro equipos. Todos están conectados a internet, con la capacidad de recopilar y compartir datos. Y dado que las opciones de almacenamiento se están expandiendo a través de la nube se habla hoy día de Big Data.
 
-<h1 class="titulo-principal">El Cubo</h1>
+<h1 class="amarillo">El Cubo</h1>
 
 El McCumber Cube es un marco modelo creado por John McCumber en 1991 para ayudar a las organizaciones a establecer y evaluar iniciativas de seguridad de la información. Este modelo tiene tres dimensiones.
 
@@ -181,7 +181,7 @@ Frente a un correo electrónico fraudulento, que se puede identificar como **Phi
 - URL del enlace
 - Dirección de correo electrónico
 <br><br>
-<details><summary><strong>Respuestas correctas</strong></summary><h3 class="titulo-secundario">Lengua, ortografía y gramática. <br> Gráficos. <br> URL del enlace. <br> Dirección de correo electrónico.</h3></details><br>
+<details><summary><strong>Respuestas correctas</strong></summary><h3 class="verde">Lengua, ortografía y gramática. <br> Gráficos. <br> URL del enlace. <br> Dirección de correo electrónico.</h3></details><br>
 
 El <em>Phising</em> es muy común y, a menudo funciona. Por ejemplo, en agosto 2020, la marca <strong>Razer</strong> sufrió una violación de datos que expuso la información personal de aprox 100000 clientes. Se descubrió que un clúster en la nube estaba `mal configurado y expuso un segmento de la infraestructura` de <strong>Razer</strong> a la Internet pública. <strong>Razer</strong> tardo tres semanas en 'proteger' la instancia en la nube del acceso público pero los agentes de amenaza ya se habían hecho con la información.
 
@@ -202,10 +202,10 @@ Estos ejemplos muestran que las posibles consecuencias de una violación de la s
 > **Propiedad intelectual dañada**: Puede afectar si el negocio o organización es competitivo en el mercado ya que se pueden filtrar patentes, documentos confidenciales, secretos comerciales y toda la propiedad intelectual.
 
 A pesar de las mejores intenciones y de todas las salvaguardas es imposible defenderse de todos los ciberataques, los agentes de amenaza están constantemente encontrando nuevas formas de atacar y, eventualmente, tendrán éxito.
-<h3 class="titulo-secundario">Nosotros como profesionales de ciberseguridad debemos saber como responder rápidamente.</h3>
+<h3 class="verde">Nosotros como profesionales de ciberseguridad debemos saber como responder rápidamente.</h3>
 <hr />
-<h2 id="laboratorio-1-y-2"><h2 id="subtitulo-importante">Lab 1 ¿Quién posee sus datos?</h2></h2>
-<h3 class="titulo-principal">Parte 1</h3>
+<h2 id="laboratorio-1-y-2"><h2 id="whity">Lab 1 ¿Quién posee sus datos?</h2></h2>
+<h3 class="amarillo">Parte 1</h3>
 Revisar los términos y condiciones y responder unas preguntas.
 
 1.¿Tiene una cuenta con una proveedor de servicios en línea? Si es así, ¿ha leído el acuerdo de los términos de servicio?
@@ -229,7 +229,7 @@ Revisar los términos y condiciones y responder unas preguntas.
 7.¿Qué sucede con sus datos cuando cierra su cuenta? 
 <details><summary>Respuesta</summary>Si la persona muere y Apple recibe el certificado de defunción se cancelara la cuenta y se eliminar todo el contenido. Apple se reserva el derecho en caso de evaluar contenido proporcionado por terceros de determinar si el contenido es ajustado a lo previsto y sin notificación previa eliminar contenido.</details>
 
-<h3 class="titulo-principal">Parte 2: ¿Sabe a qué se suscribió?</h3>
+<h3 class="amarillo">Parte 2: ¿Sabe a qué se suscribió?</h3>
 Luego de haber creado una cuenta y aceptado las Condiciones del servicio, ¿sabe realmente a qué se suscribió?. En la parte 2, explorará cómo los proveedores pueden interpretar y utilizar las Condiciones de servicio. 
 
 > Utilice Internet para buscar información sobre cómo se interpretan las Condiciones del servicio. A continuación se encuentran algunos artículos de ejemplo para comenzar.
@@ -240,7 +240,7 @@ Revise el artículo y responda las siguientes preguntas.
 1. ¿Qué puede hacer para protegerse, proteger su cuenta y proteger sus datos?  
   <details><summary>Respuesta</summary>Se puede realizar una encriptación de los datos para proteger lo almacenado en icloud.</details>
 <hr />
-<h2 id="subtitulo-importante">Lab 2 Reflexión Sobre comportamiento riesgoso en línea</h2>
+<h2 id="whity">Lab 2 Reflexión Sobre comportamiento riesgoso en línea</h2>
 
 2 puntos es bastante seguro, el compartir artículos y noticias por filtro de a quien se decide compartir ya es un comportamiento muy minucioso por parte de un usuario en cuanto su privacidad.
 
@@ -252,7 +252,7 @@ Retomando hay un porcentaje entre el 20/80 de amenazas externas y externas
 Guerra cibernetica es básicamente mediante gusanos, virus y sabotajes contra el poder de otros países. Stuxnet fue un auge y ha sementado un comienzo en virus y programas de espionaje y obstaculizan avances de potencias armamentistas. Es curioso como muchos de estos temas son tratados en películas y series. Otro propósito es impactar en la infraestructura y evitar avances.
 <hr />
 
-<h2 id="analizando-un-ciberataque"><h2 id="subtitulo-importante">Modulo 2 Ataques, conceptos y técnicas</h2></h2>
+<h2 id="analizando-un-ciberataque"><h2 id="whity">Modulo 2 Ataques, conceptos y técnicas</h2></h2>
 
 Hay una clasificación en los diferentes ataques que existen:
 

@@ -4,7 +4,7 @@ layout: page
 permalink: /Notas_UCP_Procesamiento_de_Lenguaje_Natural
 ---
 
-<h2 id="subtitulo-importante">Procesamiento del lenguaje natural NLP - Notas de Optativa 1</h2>
+<h2 id="whity">Procesamiento del lenguaje natural NLP - Notas de Optativa 1</h2>
 La materia está enfocada a la inteligencia artificial y se presentará un componente fuerte en investigación. La idea de la Optativa es solucionar problemas y tratar de darle enfoques de calidad, como resultado de aprendizaje el trabajo se centra en desarrollar habilidades teórico prácticas, y la capacidad de poder conceptualizar los temas con calidad.
 
 
@@ -12,7 +12,7 @@ Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Leng
 
 El procesamiento del lenguaje como su nombre indica, procesar el lenguaje. El ingeniero debe y tiene que saber gramática, saber escribir, leer y redactar textos para hacer uso de algoritmos para la creación de herramientas dotadas de inteligencia artificial.
 
-<h2 id="subtitulo-importante">Índice</h2>
+<h2 id="whity">Índice</h2>
 
 - [Introducción a la Inteligencia Artificial](#introducción-a-la-inteligencia-artificial)
 - [Introducción a Python](#introducción-a-python)
@@ -32,9 +32,9 @@ El procesamiento del lenguaje como su nombre indica, procesar el lenguaje. El in
 Para el Procesamiento del lenguaje natural hay que saber de gramática donde la idea es poder combinar el sistema de reglas con Machine Learning usando entrenamientos para hacer seguimientos. Usando reglas y patrones, árboles y semántica se trabaja bastante el tema en el lenguaje de programación Python.
 
 ------
-<h2 id="introducción-a-la-inteligencia-artificial"><h2 id="subtitulo-importante">Introducción a la Inteligencia Artificial</h2></h2>
+<h2 id="introducción-a-la-inteligencia-artificial"><h2 id="whity">Introducción a la Inteligencia Artificial</h2></h2>
 
-<h1 class="titulo-principal">Inicios de la IA</h1>
+<h1 class="amarillo">Inicios de la IA</h1>
 
 Podemos decir que el tema comienza con un **paper** que introduce conceptos sobre el sistema nervioso, el funcionamiento neural y las contribuciones de Alan Turing, así como la programación computacional.
 
@@ -75,7 +75,7 @@ En **1980**, surge el concepto de la *Habitación China*, que es la antítesis d
   <img src="/assets/images/nlp/Habitación China 1980.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h1 class="titulo-principal">Algunos Eventos importantes</h1>
+<h1 class="amarillo">Algunos Eventos importantes</h1>
 
 - **IBM (1997)**: Vence al campeón mundial de ajedrez.
 - **IBM (2011)**: Gana en el programa de televisión *Jeopardy*.
@@ -103,7 +103,7 @@ La programación funcional, con su uso intensivo de paréntesis, es extremadamen
         (* n (factorial (- n 1)))))
 ```
 
-<h1 class="titulo-principal">Definiciones y enfoques de la IA</h1>
+<h1 class="amarillo">Definiciones y enfoques de la IA</h1>
 
 La *Inteligencia Artificial* se define como la rama de la ciencia de la computación que se encarga de automatizar conductas inteligentes. Según Luger (2005), el objetivo de la IA es desarrollar capacidades inteligentes, influenciadas por la filosofía, las matemáticas y la psicología, con un enfoque en la resolución de problemas.
 
@@ -115,7 +115,7 @@ La *Inteligencia Artificial* se define como la rama de la ciencia de la computac
 
 No se limita solo a *Python*, la IA abarca múltiples disciplinas.
 
-<h1 class="titulo-principal">Principales enfoques de la IA</h1>
+<h1 class="amarillo">Principales enfoques de la IA</h1>
 
 - Robots que piensan como humanos.
 - Robots que actúan como humanos.
@@ -126,7 +126,7 @@ No se limita solo a *Python*, la IA abarca múltiples disciplinas.
 </div>
 Es importante considerar la palabra "automatización", pero, dado que es un concepto complejo, es mejor hablar de "sistematización" para evitar confusiones.
 
-<h1 class="titulo-principal">Contribuciones desde diversas disciplinas</h1>
+<h1 class="amarillo">Contribuciones desde diversas disciplinas</h1>
 
 > **Estadística y probabilidad**: La IA se nutre de estas áreas para hablar en términos científicos y lógicos.
 > **Neurociencia**: Aporta a la IA con el estudio de las neuronas, las conexiones y cómo aprenden.
@@ -154,13 +154,13 @@ Es importante considerar la palabra "automatización", pero, dado que es un conc
 - Chomsky fue el primero en establecer bases teóricas y computacionales de la lingüística, dejando una línea de trabajo clara sobre cómo representar el conocimiento, mostrar el lenguaje, sintetizar y estructurar.  
 - Por otro lado, enfrenta desafíos como las **ambigüedades**, especialmente difíciles de reconocer y resolver en el idioma español. Estas constituyen una de las principales dificultades del lenguaje.
 
-<h1 class="titulo-principal">Áreas principales de la IA</h1>
+<h1 class="amarillo">Áreas principales de la IA</h1>
 
 - Resolución de problemas.
 - Representación del conocimiento (cómo se muestra la salida en pantalla).
 - Búsquedas.
 
-<h1 class="titulo-principal">Áreas específicas</h1>
+<h1 class="amarillo">Áreas específicas</h1>
 
 - Planificación de tareas (ej. *scheduling* para la organización de productos en contenedores).
 - Procesamiento del lenguaje natural - NLP.
@@ -170,7 +170,7 @@ Es importante considerar la palabra "automatización", pero, dado que es un conc
 - Sistemas basados en el Conocimiento.
 - Aprendizaje Automático.
 
-<h1 class="titulo-principal">Problemas Reales para la IA</h1>
+<h1 class="amarillo">Problemas Reales para la IA</h1>
 
 Algunos **problemas** reales que se pueden resolver mediante IA son:
 
@@ -186,23 +186,23 @@ Algoritmos de redes como los usados en la gestión de tráfico y enrutamiento so
 
 Desde la computación podemos hablar de Hardware y herramientas para el desarrollo, ya que esta rama o área es la que más aporta a la IA.
 
-<h1 class="titulo-principal">Algunas limitaciones de la IA</h1>
+<h1 class="amarillo">Algunas limitaciones de la IA</h1>
 
 <a><strong><em style="color: red;">¿Puede una computadora lidiar con la explosión combinatoria generada por muchos problemas?</em></strong></a>
 <div style="text-align: center;">
   <img src="/assets/images/nlp/Internet de las cosas IoT.svg" alt="under" oncontextmenu="return false;">
 </div>
 
-<h1 class="titulo-secundario"><strong>¿Puede una máquina tener sentimientos?</strong></h1>
+<h1 class="verde"><strong>¿Puede una máquina tener sentimientos?</strong></h1>
 
 ------
-<h2 id="introducción-a-python"><h2 id="subtitulo-importante">Introducción a Python</h2></h2>
+<h2 id="introducción-a-python"><h2 id="whity">Introducción a Python</h2></h2>
 
 Durante la asignatura, se utilizará *Flask*. Python es un lenguaje poderoso, interpretado y multiparadigma, con características como datos estructurados, no estructurados, diccionarios, y más. Por ejemplo, el uso de índices `[:-2]`, diccionarios clave-valor (bases de NoSQL), y estructuras de procesamiento de lenguaje natural con listas anidadas.<strong> (Todos los temas importantes y relevantes se tendran en cuenta cuando llegue el momento de trabajarlos)</strong>
 
 El uso de `set` y `get` en clases de Python, la sobrecarga de métodos (mismo nombre con diferentes parámetros) también son temas importantes que se cubrirán.
 
-<h1 class="titulo-principal">Se abordaran los temas desde cero de manera secuencial y ordenada.</h1>
+<h1 class="amarillo">Se abordaran los temas desde cero de manera secuencial y ordenada.</h1>
 
 Al ser una introducción se hablará sobre:
 
@@ -216,7 +216,7 @@ Al ser una introducción se hablará sobre:
 - [Instalación](#instalacion)
 - [Ejemplos](#Ejemplos)
 
-<h1 id="concepto" class="titulo-principal">Concepto</h1>
+<h1 id="concepto" class="amarillo">Concepto</h1>
 
 Es un lenguaje de programación de tipo interpretado, multiparadigma. El lenguaje soporta orientación a objetos (POO), utiliza la programación imperativa y funcional, además es de tipado dinámico, multiplataforma y multipropósito.
 
@@ -226,7 +226,7 @@ Python es interpretado con un código legible mediante su interprete, el cual tr
 </div>
 Algo especial del lenguaje es el *Tipado Dinámico* con sus mutaciones de variables, siendo fuertemente tipado, y sus tipos de variables.
 
-<h1 class="titulo-principal">Tipos de Datos</h1>
+<h1 class="amarillo">Tipos de Datos</h1>
 Encontramos en Python los tipos de datos Simples y Estructurados, comenzando con los simples tenemos:
 > - Números del tipo **Entero** o **Flotante** siempre y cuando no sean tan grandes para requerir el tipo **Long**
 > - Booleanos **True** o **False** (Verdadero o Falso)
@@ -240,7 +240,7 @@ Entre otros como **File, None, Notimplementedtype**. Cabe resaltar que se requie
 
 A partir de este punto vendrán una serie de ejemplos de código Python (Altamente recomendado probarlos en la máquina y ejecutarlos para practicar, sobre todo entender que hacen los códigos).
 
-<h1 id="programacion-estructurada" class="titulo-principal">Python - Programación Estructurada</h1>
+<h1 id="programacion-estructurada" class="amarillo">Python - Programación Estructurada</h1>
 
 ## Variables 1
 
@@ -303,7 +303,7 @@ print(numbers[0:3]) # MUESTRA (1, 2, 3), DESDE LA POS 0 HASTA LA ULTIMA INDICADA
 print(numbers[:-2]) # MUESTRA (1, 2, 3) SIN LOS ÚLTIMOS 3 DIGITOS
 ```
 
-<h1 class="titulo-principal">Diferencias entre Listas y Tuplas</h1>
+<h1 class="amarillo">Diferencias entre Listas y Tuplas</h1>
 
 | Listas | Tuplas |
 | Son Dinámicas | Son Estáticas |
@@ -312,7 +312,7 @@ print(numbers[:-2]) # MUESTRA (1, 2, 3) SIN LOS ÚLTIMOS 3 DIGITOS
 | List = [1, 2] | Tuple = (1, 2) |
 | Acceso a elementos por [Índice] | Acceso a elementos por [Índice] |
 
-<h1 class="titulo-principal">Diccionarios - Estructura</h1>
+<h1 class="amarillo">Diccionarios - Estructura</h1>
 
 | Clave | Key |
 | Nombre | Margarita |
@@ -393,7 +393,7 @@ else:
     print('USTED NO TIENE DINERO NECESARIO!!')
 ```
 
-<h1 class='titulo-principal'>Lista de operadores Aritméticos</h1>
+<h1 class='amarillo'>Lista de operadores Aritméticos</h1>
 
 | Operador | Función | Ejemplos |
 | + | Sumar | 2 + 2 |
@@ -404,7 +404,7 @@ else:
 | ** | Exponente | 3 ** 2 |
 | // | División Entera | 8 // 4 |
 
-<h1 class='titulo-principal'>Lista de operadores Especiales</h1>
+<h1 class='amarillo'>Lista de operadores Especiales</h1>
 
 | Operador | Función | Ejemplos | Resultado |
 | In | El operador **In** devuelve True si un elemento se encuentra dentro de otro | a = [3,4] 3 in a | True Porque 3 se encuentra en a |
@@ -472,7 +472,7 @@ else:
     print('NO SE ENCONTRO')
 ```
 
-<h1 class='titulo-principal'>Funciones de Cadenas 1</h1>
+<h1 class='amarillo'>Funciones de Cadenas 1</h1>
 
 | Función | Utilidad | Ejemplo | Resultado |
 |---------|----------|---------|-----------|
@@ -481,7 +481,7 @@ else:
 | join() | Convierte en cadena utilizando una separación | Lista = ['Python','es'] '-'.join(Lista) | 'Python-es' |
 | split() | Convierte una cadena con un separador en una lista | a = ('HOLA') Lista2 = a.split() print(Lista2) | HOLA |
 
-<h1 class='titulo-principal'>Funciones de Cadenas 2</h1>
+<h1 class='amarillo'>Funciones de Cadenas 2</h1>
 
 | Función | Utilidad | Ejemplo | Resultado |
 |---------|----------|---------|-----------|
@@ -489,7 +489,7 @@ else:
 | upper() | Convierte una cadena en Mayúscula | texto = 'Manuel es mi amigo' texto.upper() | MANUEL ES MI AMIGO |
 | lower() | Convierte una cadena en Minúscula | texto = 'MANUEL ES MI AMIGO' texto.lower() | manuel es mi amigo |
 
-<h1 class='titulo-principal'>Funciones Numéricas 1</h1>
+<h1 class='amarillo'>Funciones Numéricas 1</h1>
 
 | Función | Utilidad | Ejemplo | Resultado |
 |---------|----------|---------|-----------|
@@ -498,7 +498,7 @@ else:
 | int() | Convierte a valor entero | int('22') | 22 |
 | float() | Convierte un valor a decimal | float('2.22') | 2.22 |
 
-<h1 class='titulo-principal'>Funciones Numéricas 2</h1>
+<h1 class='amarillo'>Funciones Numéricas 2</h1>
 
 | Función | Utilidad | Ejemplo | Resultado |
 |---------|----------|---------|-----------|
@@ -507,7 +507,7 @@ else:
 | sum() | Suma el total de una lista de números | `x = [0, 1, 2] print(sum(x))` | `3` |
 
 
-<h1 class='titulo-principal'>Funciones Útiles 1</h1>
+<h1 class='amarillo'>Funciones Útiles 1</h1>
 
 | Función | Utilidad | Ejemplo | Resultado |
 |---------|----------|---------|-----------|
@@ -527,7 +527,7 @@ else:
 | vars() | Devuelve un diccionario de atributos de un objeto | `vars(obj)` | Diccionario de atributos |
 | __import__() | Importa un módulo en tiempo de ejecución | `mod = __import__('math')` | Módulo importado |
 
-<h1 class='titulo-principal'>Funciones Útiles 2</h1>
+<h1 class='amarillo'>Funciones Útiles 2</h1>
 
 | Función | Utilidad | Ejemplo | Resultado |
 |---------|----------|---------|-----------|
@@ -546,7 +546,7 @@ else:
 | hasattr() | Verifica si un objeto tiene un atributo | `hasattr(obj, 'nombre')` | `True` o `False` |
 | callable() | Verifica si un objeto es llamable como función | `callable(print)` | `True` |
 
-<h1 class='titulo-principal'>Funciones Especiales 1</h1>
+<h1 class='amarillo'>Funciones Especiales 1</h1>
 
 | Función | Utilidad | Ejemplo | Resultado |
 |---------|----------|---------|-----------|
@@ -831,7 +831,7 @@ elif dinero <= 12:
 
 ```
 
-<h1 id="programacion-poo" class="titulo-principal">Python - Programación Orientada a objetos</h1>
+<h1 id="programacion-poo" class="amarillo">Python - Programación Orientada a objetos</h1>
 
 ## Clases, métodos y objetos 1 
 ```python
@@ -1000,7 +1000,7 @@ elif dinero <= 12:
 
 ```
 
-<h1 id="ejercicio-menu" class="titulo-principal">Python - Ejercicio Menú</h1>
+<h1 id="ejercicio-menu" class="amarillo">Python - Ejercicio Menú</h1>
 
 ## Menú 1 
 ```python
@@ -1029,9 +1029,9 @@ elif dinero <= 12:
 
 
 ```
-<h1 id="instalacion" class="titulo-principal">Flask - Instalación</h1>
+<h1 id="instalacion" class="amarillo">Flask - Instalación</h1>
 
-<h1 id="Ejemplos" class="titulo-principal">Ejemplos</h1>
+<h1 id="Ejemplos" class="amarillo">Ejemplos</h1>
 ##  
 ```python
 
@@ -1146,7 +1146,7 @@ elif dinero <= 12:
 ```
 
 ------
-<h2 id="subtitulo-importante">Bases NLP</h2>
+<h2 id="whity">Bases NLP</h2>
 
 El conocimiento del lenguaje y sus estructuras es esencial para trabajar con PLN:
 
@@ -1159,7 +1159,7 @@ El conocimiento del lenguaje y sus estructuras es esencial para trabajar con PLN
 
 Los elementos clave en una oración son el *sujeto* (quien realiza la acción), el *predicado* (la acción realizada por el sujeto), y el *complemento* (directo, indirecto, circunstancial).
 
-<h1 class="titulo-principal">Clases de palabras</h1>
+<h1 class="amarillo">Clases de palabras</h1>
 
 - **N**: Sustantivo.
 - **V**: Verbo.
@@ -1172,7 +1172,7 @@ Los elementos clave en una oración son el *sujeto* (quien realiza la acción), 
 Durante el curso se trabajarán las bibliotecas **NLTK** y **Spacy**, dividiendo las frases según la función de cada palabra.
 
 ------
-<h2 id="subtitulo-importante">NLP - Pipeline</h2>
+<h2 id="whity">NLP - Pipeline</h2>
 
 Un *pipeline* de NLP es una serie de pasos que permiten procesar texto de manera estructurada. Estos pasos incluyen la adquisición de datos, limpieza, preprocesamiento, extracción de características, modelado, evaluación y despliegue.
 
@@ -1191,7 +1191,7 @@ El proceso más extenso de un pipeline es la *ingeniería de características*, 
 Finalmente, la evaluación de modelos se realiza mediante métricas como la precisión (*precision*), el recuerdo (*recall*), y el tiempo de respuesta.
 
 ------
-<h2 id="subtitulo-importante">Text Representation</h2>
+<h2 id="whity">Text Representation</h2>
 
 Es necesario representar el texto de alguna manera. Tradicionalmente, se realizaba un preprocesamiento, separando párrafos y palabras, pero no es tan sencillo. Estas son las formas más comunes que tenemos para representar los textos en vectores.
 
@@ -1199,7 +1199,7 @@ Existen varias técnicas, y veremos las más conocidas. Los modelos de *deep lea
 
 La representación de texto hace referencia a la transformación de texto escrito en una representación numérica. El objetivo es convertir un texto determinado en forma numérica para que pueda incorporarse a los algoritmos de PLN (Procesamiento de Lenguaje Natural) y *Machine Learning*.
 
-<h1 class="titulo-principal">Pipeline para la Representación de Texto</h1>
+<h1 class="amarillo">Pipeline para la Representación de Texto</h1>
 
 Para la representación de texto, existen varias tareas:
 
@@ -1210,7 +1210,7 @@ Para la representación de texto, existen varias tareas:
 
 El preprocesamiento no siempre es visible, pero es esencial para evaluar el modelo.
 
-<h1 class="titulo-principal">Extracción del Significado en las Oraciones</h1>
+<h1 class="amarillo">Extracción del Significado en las Oraciones</h1>
 
 Es fundamental encontrar el sentido de las oraciones, ya que el contexto juega un papel crucial en la comprensión del texto. Es necesario saber en qué lugar está ubicada una palabra para entender de qué se está hablando. Algunos pasos importantes son:
 
@@ -1219,7 +1219,7 @@ Es fundamental encontrar el sentido de las oraciones, ya que el contexto juega u
 3. Comprender la estructura semántica.
 4. Comprender el contexto en el que aparece la frase.
 
-<h1 class="titulo-principal">Enfoques para la Clasificación de Texto</h1>
+<h1 class="amarillo">Enfoques para la Clasificación de Texto</h1>
 
 Existen diversos enfoques válidos para la representación de texto en modelos de *Machine Learning*, y se pueden crear reglas para refinar el modelo.
 
@@ -1228,7 +1228,7 @@ Existen diversos enfoques válidos para la representación de texto en modelos d
 > **Similitud del coseno**: Se utiliza para medir la similitud entre dos frases basándose en el ángulo que forman sus vectores.
 > **Distancia euclidiana**: La distancia cuadrada entre palabras se mide utilizando matrices y determinantes para evaluar su similitud.
 
-<h1 class="titulo-principal">Enfoques de Vectorización</h1>
+<h1 class="amarillo">Enfoques de Vectorización</h1>
 
 El primer paso es hablar de un corpus, una serie de documentos con un vocabulario. El corpus puede ser un PDF completo, una frase, etc., y se genera un vocabulario a partir de él. Algunos enfoques comunes incluyen:
 
@@ -1236,11 +1236,11 @@ El primer paso es hablar de un corpus, una serie de documentos con un vocabulari
 - **Bag of Words:** Es un enfoque muy utilizado donde, en lugar de una matriz, se crea una lista en la que cada palabra está encendida (1) o apagada (0).
 - **Bag of N-Grams:** Permite crear N-gramas para buscar en los corpus, logrando entender frases completas.
 
-<h1 class="titulo-principal">TF-IDF (Term Frequency-Inverse Document Frequency)</h1>
+<h1 class="amarillo">TF-IDF (Term Frequency-Inverse Document Frequency)</h1>
 
 TF-IDF es una técnica ampliamente usada en NLP. Aplica una fórmula que combina la frecuencia de término con la frecuencia inversa de documentos, multiplicando ambos valores para obtener una representación ponderada del texto.
 
-<h1 class="titulo-principal">Similitud Distributiva y Representación Distributiva</h1>
+<h1 class="amarillo">Similitud Distributiva y Representación Distributiva</h1>
 
 Otros conceptos relevantes incluyen:
 
@@ -1250,7 +1250,7 @@ Otros conceptos relevantes incluyen:
 
 La **representación distributiva** se refiere a la distribución de las palabras en el contexto en el que aparecen, utilizando vectores y matrices.
 
-<h1 class="titulo-principal">Embeddings</h1>
+<h1 class="amarillo">Embeddings</h1>
 
 Un *embedding* es una representación numérica de un conjunto de palabras en un corpus. 
 
@@ -1258,21 +1258,21 @@ Un *embedding* es una representación numérica de un conjunto de palabras en un
 
 > **Continuous Bag of Words (CBOW):** Este modelo busca encontrar la palabra central en una frase que proporciona el contexto de lo que está a su alrededor, midiendo la distancia semántica.
 
-<h1 class="titulo-principal">Representación Universal</h1>
+<h1 class="amarillo">Representación Universal</h1>
 
 La representación universal intenta generalizar las palabras para visualizar su significado en diferentes contextos.
 
-<h1 class="titulo-principal">Esfuerzo y Retorno</h1>
+<h1 class="amarillo">Esfuerzo y Retorno</h1>
 
 En el desarrollo de aplicaciones como chatbots o sistemas de procesamiento de lenguaje, es necesario invertir esfuerzo. El retorno depende de si hay una necesidad comercial o si la implementación cumple con los objetivos planteados.
 
-<h1 class="titulo-principal">Limitaciones de Infraestructura</h1>
+<h1 class="amarillo">Limitaciones de Infraestructura</h1>
 
 Es importante considerar las limitaciones de la infraestructura al implementar estos modelos, ya que pueden requerir grandes cantidades de recursos computacionales.
 
 
 ------
-<h3 class="titulo-secundario">Referencias</h3>
+<h3 class="verde">Referencias</h3>
 
 [^1]: **Turing, A. M.** (1950). *Computing Machinery and Intelligence*  
 [^2]: **Turing, A. M.** (1950). *Ibid*. 

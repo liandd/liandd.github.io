@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_PennyWorth
 ---
 
-<h2 class="titulo-principal">PennyWorth</h2>
+<h2 class="amarillo">PennyWorth</h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/PennyWorth/pennyworth.png" alt="under" oncontextmenu="return false;">
 </div>
@@ -25,7 +25,7 @@ rtt min/avg/max/mdev = 120.039/719.062/1864.712/700.349 ms, pipe 2
 ```
 
 Vemos un TTL de 63, así que estamos frente a una máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Comenzamos haciendo un escaneo rápido y sigiloso usando nmap para enumerar todo el rango de puertos en busca de servicios expuestos:
 
@@ -54,7 +54,7 @@ whatweb 10.129.245.27:8080
   <img src="/assets/images/StartingPoint/VIP/PennyWorth/whatweb.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Whatweb nos revela información más interesante como `Jenkins 2.289.1` , `Jetty 9.4.39.v20210325` y una ruta 'login?from=2F'. Así que probamos acceder a la web:
 <div style="text-align: center;">

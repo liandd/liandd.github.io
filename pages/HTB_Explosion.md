@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Explosion
 ---
 
-<h2 class="titulo-principal">Explosion</h2>
+<h2 class="amarillo">Explosion</h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Explosion/explosion.webp" alt="under" oncontextmenu="return false;">
 </div>
@@ -26,7 +26,7 @@ rtt min/avg/max/mdev = 109.585/826.837/2240.115/840.932 ms, pipe 3
 
 Podemos ver un TTL de 127 lo que significa que estamos ante un Windows.
 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Vamos a realizar un escaneo de puertos sigiloso y rápido utilizando la herramienta nmap:
 
@@ -61,7 +61,7 @@ nmap -sCV -p135,139,445,3389,5985,47001,49664,49665,49666,49667,49668,49669,4967
   <img src="/assets/images/StartingPoint/VIP/Explosion/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Podemos ver los puertos 135, 139 pero, no da mucho vector de ataque. Sin embargo, el puerto `445` nos deja ver que la máquina tiene un SMB activo. Por tanto, podemos listar los recursos compartidos a nivel de red con la herramienta `smbclient`:
 <div style="text-align: center;">
@@ -80,7 +80,7 @@ sudo pacman -S freerdp
 
 Esta herramienta nos permite entablar conexiones por el puerto 3389.
 
-<h3 class="titulo-secundario">Ejemplo de prueba</h3>
+<h3 class="verde">Ejemplo de prueba</h3>
 ```bash
 xfreerdp connection.rdp /p:Pwd123! /f
 xfreerdp /u:CONTOSO\JohnDoe /p:Pwd123! /v:rdp.contoso.com

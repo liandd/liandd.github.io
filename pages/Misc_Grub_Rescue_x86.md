@@ -4,7 +4,7 @@ layout: page
 permalink: /Misc_Grub_Rescue_x86
 ---
 
-<h2 id="subtitulo-importante">Grub Rescue de x86_64 a i386</h2>
+<h2 id="whity">Grub Rescue de x86_64 a i386</h2>
 
 
 Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricación y en como acceden al sistema operetivo. Teniendo esto presente se tiene un SSD con un sistema linux EFI/UEFI y al migrar a otro equipo que solo conoce BIOS se presenta el inconveniete a continuación:
@@ -41,7 +41,7 @@ File '/boot/grub/i386-pc/normal.mod' not found
 
 Pero no hay más información respecto a que hacer en caso del error. Esto se debe a que la configuración de GRUB se vió afectada al mover la unidad del disco a una máquina diferente, y al inspeccionar el sistema de archivos con `ls (hd0,msdos3)`, se pudo ver la carpeta /boot/grub, pero no existía la subcarpeta `i386-pc`. En su lugar, se encontro `x86_64-pc` con los módulos <strong>.mod</strong> correspondientes.
 
-<h1 class="titulo-principal">Solución al GRUB Rescue</h1>
+<h1 class="amarillo">Solución al GRUB Rescue</h1>
 
 Dado que el sistema usa GRUB en su versión de 64 bits, la solución consiste en apuntar a la ruta correcta de los módulos.
 
@@ -79,7 +79,7 @@ boot
 
 Si el comando `linux` no es reconocido, significa que GRUB sigue en modo de rescate, por lo que tenemos que reinstalar el GRUB.
 
-<h3 class="titulo-secundario">Solución desde un Live USB</h3>
+<h3 class="verde">Solución desde un Live USB</h3>
 
 Si los pasos anteriores no funcionan, la mejor opción es arrancar desde un Live USB de Arch Linux y reinstalar GRUB:
 
@@ -116,7 +116,7 @@ sudo umount /mnt/dev /mnt/proc /mnt/sys /mnt
 sudo reboot
 ```
 
-<h2 id="subtitulo-importante">Conclusión</h2>
+<h2 id="whity">Conclusión</h2>
 
 Este problema ocurrió porque el sistema tenía GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.<br><br>Sin embargo, para evitar futuros inconvenientes, se recomienda reinstalar GRUB desde un entorno **Live USB**.
 

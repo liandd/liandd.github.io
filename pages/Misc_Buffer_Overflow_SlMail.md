@@ -3,8 +3,8 @@ title: Buffer OverFlow a SLMail 5.5
 layout: page
 permalink: /Misc_Buffer_Overflow_SlMail
 ---
-<h2 id="subtitulo-importante">Buffer OverFlow a SLMail 5.5.</h2>
-<h1 class="titulo-principal">Descripción</h1>
+<h2 id="whity">Buffer OverFlow a SLMail 5.5.</h2>
+<h1 class="amarillo">Descripción</h1>
 
 En esta publicación detallo mi practica a un Buffer OverFlow usando Python3 para la ejecución remota de comandos RCE a bajo nivel, y persistencia en un sistema Windows 7 de 32 bits.
 

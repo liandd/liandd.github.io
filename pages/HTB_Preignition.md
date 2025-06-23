@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Preignition
 ---
 
-<h2 class="titulo-principal">Preignition</h2>
+<h2 class="amarillo">Preignition</h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Preignition/preignition.webp" alt="under" oncontextmenu="return false;">
 </div>
@@ -26,7 +26,7 @@ rtt min/avg/max/mdev = 109.508/112.468/119.315/3.516 ms
 
 Vemos que tiene un TTL de 63. Por tanto, estamos frente a una máquina Linux.
 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Vamos a continuar con la fase de enumeración usando nmap:
 
@@ -53,7 +53,7 @@ Vemos que estamos ante una página web con nginx pero, al acceder a esta no vemo
   <img src="/assets/images/StartingPoint/VIP/Preignition/web.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Al no encontrar nada más que el servidor activo HTTP, podemos probar a enumerar un poco directorios usando la herramienta gobuster:
 
@@ -61,7 +61,7 @@ Al no encontrar nada más que el servidor activo HTTP, podemos probar a enumerar
 gobuster dir --url http://10.129.9.0 --wordlist /opt/apps/Tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
 ```
 
-<h3 class="titulo-secundario">Explicación</h3>
+<h3 class="verde">Explicación</h3>
 
 - **dir**: Para enumerar directorios o archivos
 - **dns**: Utiliza DNS para enumerar subdominios

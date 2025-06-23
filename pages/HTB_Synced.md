@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Synced
 ---
 
-<h2 class="titulo-principal">Synced</h2>
+<h2 class="amarillo">Synced</h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Synced/synced.webp" alt="under" oncontextmenu="return false;">
 </div>
@@ -25,7 +25,7 @@ rtt min/avg/max/mdev = 109.548/113.020/119.644/3.714 ms
 ```
 
 Con un TTL de 63 vemos que estamos frente a una máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Vamos a realizar un escaneo sigiloso y rápido con nmap para descubrir puertos abiertos:
 
@@ -36,7 +36,7 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.228.37 -oG allPorts
 El escaneo fue bastante rápido ya que solo encontró un puerto abierto `873`.
 
 <hr />
-<h3 class="titulo-secundarion">¿Qué es Rsync?</h3>
+<h3 class="verden">¿Qué es Rsync?</h3>
 
 Es una herramienta de línea de comandos que permite sincronizar archivos y directorios entre sistemas.
 
@@ -75,7 +75,7 @@ La captura nos arroja un _Protocol version 31_ pero, no hay nada relacionado a v
 > El puerto TCP 873 usa el Protocolo de Control de Transmisión. TCP es uno de los protocolos principales en redes TCP/IP. TCP es un protocolo orientado en la conexión, _necesita el apretón de manos para determinar comunicaciones de principio a fin (Ejemplo)_. Solo cuando la conexión es determinada, los datos del usuario pueden ser mandados de modo bidireccional por la conexión.
 > ¡Atención! TCP puerto 873 garantiza la entrega de paquetes de datos en la misma orden, en que fueron mandados.
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Por defecto en las distribuciones Linux ya hay un binario instalado llamado `rsync` con el cual podemos intentar acceder a este protocolo para entablar una conexión. Haremos uso del comando y agregamos **--list-only** para listar recursos.
 

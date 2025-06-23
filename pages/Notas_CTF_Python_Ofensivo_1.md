@@ -4,13 +4,13 @@ layout: page
 permalink: /Notas_CTF_Python_Ofensivo_1
 ---
 
-<h2 id="subtitulo-importante">Python Ofensivo - Notas prácticas</h2>
+<h2 id="whity">Python Ofensivo - Notas prácticas</h2>
 
 Esta publicación tiene los apuntes y notas sobre el tema Python Ofensivo de nivel introductorio orientado en Python3 donde se presenta el siguiente temario:
 
 La materia tiene un enfoque orientado a seguridad informática para desplegar scripts al momento de realizar CTF en plataformas como <a href="https://app.hackthebox.com/profile/1098514"><strong><em style="color :#559">Hack The Box</em></strong></a>.
 
-<h2 id="subtitulo-importante">Índice</h2>
+<h2 id="whity">Índice</h2>
 
 - [Introducción a Python](#introducción-a-python)
 - [Conceptos Básicos](#conceptos-básicos)
@@ -30,15 +30,15 @@ Se harán prácticas y proyectos antes de ir a la parte ofensiva, primero tener 
 
 
 ------
-<h2 id="introducción-a-python"><h2 id="subtitulo-importante">Introducción a Python</h2></h2>
+<h2 id="introducción-a-python"><h2 id="whity">Introducción a Python</h2></h2>
 
-<h1 class="titulo-principal">Historia y filosofía de Python</h1>
+<h1 class="amarillo">Historia y filosofía de Python</h1>
 
 La filosofía que dio su desarrollo y porque este lenguaje es tan completo. En 1989 nació Python con la capacidad de expresar conceptos con menos líneas de código que los lenguajes comunes de aquella época como C o Java.
 
 Python debía centrarse en hacer más fácil las tareas del programador, la filosofía de Python se resume en el documento `The Zen of Python`.
 
-<h1 class="titulo-principal">Características y Ventajas</h1>
+<h1 class="amarillo">Características y Ventajas</h1>
 
 Es un lenguaje de alto nivel e interpretado, ya que se ejecuta mediante un interprete sin ser compilado, se traduce a código máquina en tiempo real mientras se ejecuta el programa, por eso Python es interpretado. Python es fácil de leer y escribir incluso para los principiantes permitiendo `Programación orientada a objetos, Programación Imperativa y Programación Funcional`. La imperativa es un estilo de programación centrado en escribir como se deben hacer las operaciones para obtener un resultado.
 
@@ -73,7 +73,7 @@ print(suma_funcional([1, 2, 3, 4, 5]))
 
 Es muy versátil y sencillo para las tareas de Hacking ético.
 
-<h1 class="titulo-principal">Diferencias entre Python2 y Python3, PIP2 Y PIP3</h1>
+<h1 class="amarillo">Diferencias entre Python2 y Python3, PIP2 Y PIP3</h1>
 
 Python2 y Python3 son versiones del lenguaje de programación y los PIP2 Y PIP3 son las herramientas de gestión de paquetes *Instalan y administran tanto bibliotecas y dependencias*.
 
@@ -132,9 +132,9 @@ pip3 install pwntools
 pip2 install pwntools
 ```
 <hr />
-<h2 id="conceptos-básicos"><h2 id="subtitulo-importante">Conceptos Básicos</h2></h2>
+<h2 id="conceptos-básicos"><h2 id="whity">Conceptos Básicos</h2></h2>
 
-<h1 class="titulo-principal">El intérprete de Python</h1>
+<h1 class="amarillo">El intérprete de Python</h1>
 
 El intérprete es el corazón del lenguaje, es el motor que ejecuta el código. *Es el encargado de leer y ejecutar el código en tiempo real*. Todo el código es ejecutado línea por línea, los programas y Scripts tienen el formato **.py** y previamente a la compilación se convierte en bitcode mejorando el rendimiento.
 
@@ -144,7 +144,7 @@ Podemos usar,
 python3 -c " "
 ```
 
-<h1 class="titulo-principal">Shebang y Convenios en Python</h1>
+<h1 class="amarillo">Shebang y Convenios en Python</h1>
 
 Son aspectos importantes que facilitan la escritura de Scripts.
 
@@ -164,7 +164,7 @@ Para Windows,
 #!"C:\Python33\python.exe"
 ```
 
-<h3 class="titulo-secundario">¿Donde utilizamos el entorno `env`?</h3>
+<h3 class="verde">¿Donde utilizamos el entorno `env`?</h3>
 
 Para proyectos que requieran versiones especificas de paquetes instaladas mediante los *PIP2 o PIP3*, y para encontrar la ubicación del binario de Python3. El caso Windows es similar pero, solo para encontrar las versiones especificas de los paquetes con los que se va a trabajar, ya que el Shebang de Windows llama la ubicación del `.exe` en donde se encuentre el binario instalado.
 
@@ -216,7 +216,7 @@ else:
 import clase5_shebang
 ```
 
-<h1 class="titulo-principal">Definición de un modulo principal</h1>
+<h1 class="amarillo">Definición de un modulo principal</h1>
 
 ```python
 if __name__ == '__main__':
@@ -224,7 +224,7 @@ if __name__ == '__main__':
 
 Se utiliza para definir el script como modulo principal, es útil para tener mejor organizado y limpio el código.
 
-<h1 class="titulo-principal">Variables y tipos de datos</h1>
+<h1 class="amarillo">Variables y tipos de datos</h1>
 
 Strings, Enteros, Floats, Protegidos, Privados
 
@@ -252,7 +252,7 @@ for port in my_ports:
 .index(num) -> Saber índice de primera ocurrencia
 ```
 
-<h1 class="titulo-principal">String Formatting</h1>
+<h1 class="amarillo">String Formatting</h1>
 
 ## String Formatting
 
@@ -309,7 +309,7 @@ for port in my_ports:
     print(f"El puerto ordenado : {port}")
 ```
 
-<h1 class="titulo-principal">Operadores Básicos en Python</h1>
+<h1 class="amarillo">Operadores Básicos en Python</h1>
 
 Suma, Resta, Multiplicación, División, residuos y el exponente es usando **
 
@@ -356,7 +356,7 @@ for element in result:
     print(element)
 ```
 
-<h1 class="titulo-principal">Operaciones con Cadenas</h1>
+<h1 class="amarillo">Operaciones con Cadenas</h1>
 
 ## Cadenas 1
 
@@ -385,7 +385,7 @@ print(f"Hola mi nombre es {name} soy un {rol}. Actualmente tengo {edad}")
 
 ```
 
-<h1 class="titulo-principal">Operaciones para Listas</h1>
+<h1 class="amarillo">Operaciones para Listas</h1>
 
 ## Listas 1
 
@@ -467,7 +467,7 @@ else:
 > <strong>Zip</strong>: Toma dos o más listas y las empareja, creando una lista de tuplas. Cada tupla contiene elementos de las listas originales que ocupan la misma posición.
 > <strong>Map<strong>: Aplica la función especifica a cada elemento de un iterable, transforma datos
 
-<h1 class="titulo-principal">String formatting, funciones e ámbitos de las variables y Lambdas anónimas</h1>
+<h1 class="amarillo">String formatting, funciones e ámbitos de las variables y Lambdas anónimas</h1>
 
 El string formatting consiste en darle un formato a las cadenas y los resultados.
 
@@ -571,9 +571,9 @@ producto = reduce(lambda x, y: x*y, numeros)
 print(f"El ultimo producto de la lista es: {producto}")
 ```
 <hr />
-<h2 id="colecciones-y-estructuras-de-datos"><h2 id="subtitulo-importante">Colecciones y estructuras de datos</h2></h2>
+<h2 id="colecciones-y-estructuras-de-datos"><h2 id="whity">Colecciones y estructuras de datos</h2></h2>
 
-<h1 class="titulo-principal">Listas y Tuplas</h1>
+<h1 class="amarillo">Listas y Tuplas</h1>
 
 Las listas permiten almacenar secuencias ordenadas de elementos (mutables), lo que significa que podemos modificar las listas después de su creación, y son dinámicas, permitiéndonos añadir o quitar elementos de ellas
 
@@ -643,7 +643,7 @@ tupla_pares = tuple(i for i in tupla if i % 2 == 0)
 print(tupla_pares)
 ```
 
-<h1 class="titulo-principal">Conjuntos (Sets)</h1>
+<h1 class="amarillo">Conjuntos (Sets)</h1>
 
 No tienen orden ni elementos repetidos.
 
@@ -704,7 +704,7 @@ print(p1_set.issubset(p2_set)) # para todos los elementos True
 # Basta con que UN SOLO elemento no esté presente, retorna False
 ```
 
-<h3 class="titulo-secundario">Repaso proyecto</h3>
+<h3 class="verde">Repaso proyecto</h3>
 
 ```python
 #!/usr/bin/env python3
@@ -758,9 +758,9 @@ ventas_totales = lambda: sum(sells for sells, _ in ventas.values())
 print(f"[i] El total de ventas de todos los productos es {ventas_totales()}")
 ```
 <hr />
-<h2 id="programación-orientada-a-objetos"><h2 id="subtitulo-importante">Programación Orientada a Objetos</h2></h2>
+<h2 id="programación-orientada-a-objetos"><h2 id="whity">Programación Orientada a Objetos</h2></h2>
 
-<h1 class="titulo-principal">Clases y objetos</h1>
+<h1 class="amarillo">Clases y objetos</h1>
 
 La programación orientada a objetos es un paradigma, empleando clases y objetos permitiendo la modularidad para hacer un código más estructurado.
 
@@ -914,7 +914,7 @@ print({Libro.precio_con_iva(mi_libro.precio)})
 print({Libro.precio_con_iva(mi_libro.precio)})
 ```
 
-<h1 class="titulo-principal">Métodos estáticos  y de clase</h1>
+<h1 class="amarillo">Métodos estáticos  y de clase</h1>
 
 Refuerzo sobre los métodos <strong>@staticmethod</strong> y <strong>@classmethod.</strong>
 
@@ -1012,7 +1012,7 @@ Estudiantes.crear_estudiante("bochim", 22)
 Estudiantes.mostrar_estudiantes()
 ```
 
-<h1 class="titulo-principal">Uso de Self</h1>
+<h1 class="amarillo">Uso de Self</h1>
 
 Refuerzo para comprender mejor el uso de *self*.
 
@@ -1050,7 +1050,7 @@ class Calculadora:
 calc = Calculadora(5)
 ```
 
-<h1 class="titulo-principal">Herencia y Polimorfismo</h1>
+<h1 class="amarillo">Herencia y Polimorfismo</h1>
 
 Estos son nuevos conceptos, siendo a muy resumidas cuentas la Herencia una clase que hereda de otra clase ya existente:
 
@@ -1319,7 +1319,7 @@ convolk = Empleado("convolk", 23, 75000)
 print(convolk.saludo())
 ```
 
-<h1 class="titulo-principal">Encapsulamiento y métodos especiales</h1>
+<h1 class="amarillo">Encapsulamiento y métodos especiales</h1>
 
 En el paradigma de la programación orientada a objetos, el encapsulamiento es un método o una estrategia que permite restringir el acceso o ciertas partes de un objeto fuera de la clase.
 
@@ -1580,7 +1580,7 @@ for i in c:
 	print(i)
 ```
 
-<h1 class="titulo-principal">Decoradores y propiedades</h1>
+<h1 class="amarillo">Decoradores y propiedades</h1>
 
 Hasta ahora se han visto algunos decoradores 
 
@@ -1780,8 +1780,8 @@ c.radio = 10
 ```
 <hr />
 
-<h2 id="módulos-y-paquetes"><h2 id="subtitulo-importante">Módulos y Paquetes</h2></h2>
-<h1 class="titulo-principal">Organización de Código en Módulos</h1>
+<h2 id="módulos-y-paquetes"><h2 id="whity">Módulos y Paquetes</h2></h2>
+<h1 class="amarillo">Organización de Código en Módulos</h1>
 
 En este punto se ha trabajado muy bien la Programación Orientada a Objetos, y la organización de nuestros programas ha sido mucho mas estructurada. Ahora podemos dar el salto a los Módulos.
 
@@ -1849,7 +1849,7 @@ python3
 
 Por otro lado, es bueno saber la diferencia entre estos módulos que el propio python tiene integrados, a los diferentes módulos que requieren de un script por ejemplo en Procesamiento de Lenguaje Natural tenemos python-keras, nltk, spicy, numpy que requieren de un script para poder ser importados.
 
-<h1 class="titulo-principal">Importación y uso de Módulos</h1>
+<h1 class="amarillo">Importación y uso de Módulos</h1>
 
 Esta sección es un breve repaso a la anterior. Hay un ataque llamado Library Hijacking ya que hay una forma de secuestrar librerias/módulos de python.
 
@@ -1950,8 +1950,8 @@ root
 Esto se debe a que python, empieza a buscar desde el directorio actual de trabajo. Esto es critico ya que nos permite la inyección de comandos en caso de tener permisos de escritura y ejecutar archivos como root.
 
 <hr />
-<h2 id="entrada-y-salida-de-datos"><h2 id="subtitulo-importante">Entrada y Salida de Datos</h2></h2>
-<h1 class="titulo-principal">Entrada y salida por teclado</h1>
+<h2 id="entrada-y-salida-de-datos"><h2 id="whity">Entrada y Salida de Datos</h2></h2>
+<h1 class="amarillo">Entrada y salida por teclado</h1>
 
 Al momento de ejecutar un script, este nos puede solicitar datos, para ingresar datos se gestiona con 'input':
 
@@ -1983,7 +1983,7 @@ contraseña = getpass("Ingresa tu contraseña: ")
 print(f"La contraseña es {contraseña}")
 ```
 
-<h1 class="titulo-principal">Lectura y escritura de archivos</h1>
+<h1 class="amarillo">Lectura y escritura de archivos</h1>
 
 Se pueden abrir archivos y leer su contenido, editarlo y es algo sencillo:
 
@@ -2019,7 +2019,7 @@ with open("/ruta/imagen.png", "rb") as f_in, open("imagen.png", w) as f_out:
 
 ```
 
-<h1 class="titulo-principal">Formateo de cadenas</h1>
+<h1 class="amarillo">Formateo de cadenas</h1>
 
 ```python
 nombre = "Tanya"
@@ -2075,9 +2075,9 @@ tabla = str.maketrans('aei','zpo') # Sustituciones avanzadas
 nueva_cadena = s.translate(tabla)
 ```
 <hr />
-<h2 id="proyectos-de-POO-para-reforzar"><h2 id="subtitulo-importante">Proyectos de POO para reforzar</h2></h2>
+<h2 id="proyectos-de-POO-para-reforzar"><h2 id="whity">Proyectos de POO para reforzar</h2></h2>
 
-<h3 class="titulo-secundario">Proyecto - Gestión de Biblioteca</h3>
+<h3 class="verde">Proyecto - Gestión de Biblioteca</h3>
 
 ```python
 #!/usr/bin/env python3
@@ -2153,7 +2153,7 @@ if __name__ == '__main__':
 
     print(f"[+] Libros en la biblioteca prestados: {biblioteca.mostrar_libros_prestado}")
 ```
-<h3 class="titulo-secundario">Proyecto - Tienda de animales</h3>
+<h3 class="verde">Proyecto - Tienda de animales</h3>
 
 ```python
 #!/usr/bin/env python3
@@ -2217,7 +2217,7 @@ if __name__ == '__main__':
 	tienda.vender_animal("Shisha")
 ```
 
-<h3 class="titulo-secundario">Proyecto - Administración de vehículos</h3>
+<h3 class="verde">Proyecto - Administración de vehículos</h3>
 
 ```python
 #!/usr/bin/env python3
@@ -2283,7 +2283,7 @@ if __name__ == '__main__':
 	
 ```
 
-<h3 class="titulo-secundario">Proyecto - Gestión de notas</h3>
+<h3 class="verde">Proyecto - Gestión de notas</h3>
 
 Aquí vamos a usar la serialización y deserialización de datos en python usando la librería **Pickle**. Esta librería nos permite transformar un objeto a un formato el cual permite ser almacenado en disco, por otro lado la deserialización trae los bytes y hace el proceso inverso para convertir los bytes a un objeto legible. 
 
@@ -2399,8 +2399,8 @@ class Nota:
 ```
 <hr />
 
-<h2 id="biblioteca-estándar-y-herramientas-adicionales"><h2 id="subtitulo-importante">Biblioteca estándar y herramientas adicionales</h2></h2>
-<h1 class="titulo-principal">Manejo de fechas y horas</h1>
+<h2 id="biblioteca-estándar-y-herramientas-adicionales"><h2 id="whity">Biblioteca estándar y herramientas adicionales</h2></h2>
+<h1 class="amarillo">Manejo de fechas y horas</h1>
 
 Después de el trabajo de todos los proyectos, se trabajará un concepto muy sencillo el cual es el manejo de fechas y horas.
 
@@ -2430,7 +2430,7 @@ segundos = ahora.second
 
 print(f"Año: {año}, mes: {mes}, día: {dia}, horas: {horas}, minutos: {minutos}, segundos: {segundos}")
 ```
-<h1 class="titulo-principal">Expresiones Regulares</h1>
+<h1 class="amarillo">Expresiones Regulares</h1>
 
 Las expresiones regulares o Regex, son patrones utilizados para encontrar una determinada combinación de caracteres dentro de una cadena de texto. Se crea un patrón o un filtro para detectar coincidencias en una cadena.
 
@@ -2509,7 +2509,7 @@ for match in re.finditer(patron, texto):
 	print(match.group(0))
 ```
 
-<h1 class="titulo-principal">Manejo de archivos y directorios</h1>
+<h1 class="amarillo">Manejo de archivos y directorios</h1>
 
 Esto es importante porque hay momento al hacer scripts en python, para leer archivos o tomar acciones en caso de que los directorios existan y tomar un rumbo de acción en la lógica de nuestro programa.
 
@@ -2580,7 +2580,7 @@ print(directorio) # mi_directorio
 
 directorio, archivo = os.path.split(ruta)
 ```
-<h1 class="titulo-principal">Conexiones de red y protocolos</h1>
+<h1 class="amarillo">Conexiones de red y protocolos</h1>
 
 Una clase muy importante en la creación de exploits, debido a que se establecen muchas comunicaciones con servicios y nosotros mismos. Vamos a usar la librería socket para TCP/UDP.
 
@@ -2839,8 +2839,8 @@ def start_chat_client():
 start_chat_client()
 ```
 <hr />
-<h1 id="manejo-de-librerías-comunes"><h1 id="subtitulo-importante">Manejo de librerías comunes</h1></h1>
-<h3 class="titulo-principal">Librería OS y SYS</h3>
+<h1 id="manejo-de-librerías-comunes"><h1 id="whity">Manejo de librerías comunes</h1></h1>
+<h3 class="amarillo">Librería OS y SYS</h3>
 
 El uso de la librería os y sys es muy comun:
 
@@ -2881,7 +2881,7 @@ sys.exit(1) # Salir con códigos de estado
 # Para el library hijacking
 python3 -c 'import sys; print(sys.path)'
 ```
-<h3 class="titulo-principal">Librería REQUEST</h3>
+<h3 class="amarillo">Librería REQUEST</h3>
 
 Se utiliza mucho para el  Hacking Web, es muy importante saber utilizarla para hacer explotaciones web, PS: no poner de nombre requests al archivo python que estemos trabajando.
 
@@ -3053,7 +3053,7 @@ for request in r.history:
 r.url # Es la url final
 ```
 
-<h3 class="titulo-principal">Librería URLLIB</h3>
+<h3 class="amarillo">Librería URLLIB</h3>
 
 En esta clase hay otra librería que guarda vínculos y una relación con la librería requests y esta es URLLIB3 y tiene sus diferencias, la más significativa es la complejidad. Siendo requests más a alto nivel y urllib3 es más completa. Con urllib3 hay más opciones para manejar las excepciones.
 
@@ -3100,7 +3100,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 http = urllib3.PoolManager(cert_reqs='CERT_NONE') # Controlador
 ```
 
-<h3 class="titulo-principal">Librería Threading y Multiprocessing</h3>
+<h3 class="amarillo">Librería Threading y Multiprocessing</h3>
 
 Los hilos nos permiten ejecutar múltiples tareas en paralelo dentro de un mismo proceso
 ```python
@@ -3133,7 +3133,7 @@ thread1.join()
 thread2.join()
 ```
 
-<h3 class="titulo-principal">Multiprocessing</h3>
+<h3 class="amarillo">Multiprocessing</h3>
 Estos procesos no comparten memoria, entonces no comparte memoria pero puede usar múltiples núcleos de la cpu con son tareas intensivas.
 ```python
 import multiprocessing
@@ -3157,7 +3157,7 @@ proceso2.join()
 Hay muchas herramientas que usan hilos para controlar el número de tareas. Gobuster, Wfuzz
 
 <hr />
-<h1 id="desarrollo-de-aplicaciones-de-escritorio"><h1 id="subtitulo-importante">Desarrollo de Aplicaciones de Escritorio</h1></h1>
+<h1 id="desarrollo-de-aplicaciones-de-escritorio"><h1 id="whity">Desarrollo de Aplicaciones de Escritorio</h1></h1>
 
 # Interfaz gráfica de usuario
 
@@ -3170,13 +3170,13 @@ El ultimo apartado antes de entrar a la parte ofensiva, la idea es tratar de dar
 # Chat Multiusuario con GUI y Cifrado E2E
 
 <hr />
-<h1 id="python-ofensivo"><h1 id="subtitulo-importante">Python Ofensivo</h1></h1>
+<h1 id="python-ofensivo"><h1 id="whity">Python Ofensivo</h1></h1>
 
 ## Previo a la explotación
 De ser necesario se puede hacer la parte de OWAS TOP 10 del Curso de Hacking 1 para practicar aun más python ofensivo.
 Installar `termcolor` y `argparse`.
 
-<h3 class="titulo-principal">Scripting - Escaner de Puertos</h3>
+<h3 class="amarillo">Scripting - Escaner de Puertos</h3>
 
 Para conocer la ip del router
 
@@ -3519,7 +3519,7 @@ if __name__ == "__main__":
 	main()
 ```
 
-<h3 class="titulo-principal">Scripting - Macchanger</h3>
+<h3 class="amarillo">Scripting - Macchanger</h3>
 
 Una herramienta para cambiar la dirección mac de la interfaz de red que proporcionemos.
 
@@ -3561,7 +3561,7 @@ if  __name__ == "__main__":
 ```
 
 
-<h3 class="titulo-principal">Scripting - Escaner de red ICMP</h3>
+<h3 class="amarillo">Scripting - Escaner de red ICMP</h3>
 El objetivo es determinar todos los equipos conectados en la misma red que nosotros.
 ```python
 #!/usr/bin/env python3
@@ -3620,7 +3620,7 @@ if __name__ == '__main__':
 
 ```
 
-<h3 class="titulo-principal">Scripting - Escaner de red ARP con Scapy</h3>
+<h3 class="amarillo">Scripting - Escaner de red ARP con Scapy</h3>
 
 La anterior herramienta funcionaba mediante ICMP, pero existen otras alternativas por ejemplo protocolo ARP address resolution protocol.
 
@@ -3670,7 +3670,7 @@ if __name__ == "__name__":
 
 ```
 
-<h3 class="titulo-principal">Scripting - ARP Spoofer con Scapy</h3>
+<h3 class="amarillo">Scripting - ARP Spoofer con Scapy</h3>
 
 Se pierde mucho control al usar herramientas como Script Kiddie, entonces para el envenenamiento ARP se hace un ataque de MITM un ATAQUE de el hombre en el medio.
 
@@ -3740,7 +3740,7 @@ ifconfig enp3s0 up
 macchanger -s enp3s0
 ```
 
-<h3 class="titulo-principal">Scripting - DNS Sniffer</h3>
+<h3 class="amarillo">Scripting - DNS Sniffer</h3>
 
 Después de hacer un envenenamiento ARP, ya prácticamente como tenemos un gran control, se debe saber filtrar y manipular paquetes para poder llevar a cabo nuestras tareas. Para este caso un sniffer DNS. Debido a que DNS trabaja por UDP y en el puerto 53.
 
@@ -3777,7 +3777,7 @@ if __name__ == “__main__”:
 
 ```
 
-<h3 class="titulo-principal">Scripting - HTTP Sniffer</h3>
+<h3 class="amarillo">Scripting - HTTP Sniffer</h3>
 
 Al lanzar el envenenamiento ARP sniffer en paralelo con el DNS Sniffer podíamos ver los dominios que la máquina consulta a nivel de navegación. Para poder ver datos y ser más intrusivos. Hay que hacer una distinción porque el three way handshake viaja en texto plano, distinto es un panel de autenticación. Página para practicar es testphp.vulnweb.com/login.php
 
@@ -3895,7 +3895,7 @@ def request(packet):
 ```
 
 
-<h3 class="titulo-principal">Scripting - HTTPS_Image Sniffer con mitmdump</h3>
+<h3 class="amarillo">Scripting - HTTPS_Image Sniffer con mitmdump</h3>
 
 En este punto se ha sniffeado un poco de todo desde ARP a https. Pero también se puede sniffear imagenes
 
@@ -3924,17 +3924,17 @@ def response(packet):
 
 ```
 
-<h3 class="titulo-principal">Scripting - DNS Spoofer con Scapy y NetfilterQueue</h3>
+<h3 class="amarillo">Scripting - DNS Spoofer con Scapy y NetfilterQueue</h3>
 
-<h3 class="titulo-principal">Scripting - Traffic Hijacking</h3>
+<h3 class="amarillo">Scripting - Traffic Hijacking</h3>
 
-<h3 class="titulo-principal">Scripting - Keylogger</h3>
+<h3 class="amarillo">Scripting - Keylogger</h3>
 
-<h3 class="titulo-principal">Scripting - Creación de Malware</h3>
+<h3 class="amarillo">Scripting - Creación de Malware</h3>
 
-<h3 class="titulo-principal">Scripting - Creación de Backdoors y Command_and_Control</h3>
+<h3 class="amarillo">Scripting - Creación de Backdoors y Command_and_Control</h3>
 
-<h3 class="titulo-principal">Scripting - Forward Shell</h3>
+<h3 class="amarillo">Scripting - Forward Shell</h3>
 
 ---
 

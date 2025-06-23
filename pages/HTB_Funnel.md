@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Funnel
 ---
 
-<h2 class="titulo-principal">Funnel</h2>
+<h2 class="amarillo">Funnel</h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Funnel/funnel.png" alt="under" oncontextmenu="return false;">
 </div>
@@ -25,7 +25,7 @@ rtt min/avg/max/mdev = 121.385/122.979/124.854/1.199 ms
 
 Por el TTL 63 sabemos que estamos frente a una máquina Linux.
 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Para la fase de enumeración de puertos abiertos vamos a usar nmap y exportar la captura en formato `-oG`:
 
@@ -52,7 +52,7 @@ nmap -sCV -p21,22 10.129.204.40 -oN targeted
   <img src="/assets/images/StartingPoint/VIP/Funnel/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 Y vemos que hay un puerto 21 con FTP `3.0.3` el cual podemos probar con el usuario `anonymous` para loguearnos.
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Funnel/ftp.png" alt="under" oncontextmenu="return false;">
@@ -109,7 +109,7 @@ Conociendo entonces el puerto y el servicio que se ejecuta localmente en la máq
 
 
 ---
-<h3 class="titulo-secundario">¿Qué es Local Port Forwarding?</h3>
+<h3 class="verde">¿Qué es Local Port Forwarding?</h3>
 
 El **Local Port Forwarding** (Reenvío de puerto local) es una técnica de SSH que te permite acceder a servicios que están **en otra máquina** (servidor remoto), **como si estuvieran en tu propia máquina**.
 

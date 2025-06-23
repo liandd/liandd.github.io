@@ -4,15 +4,15 @@ layout: page
 permalink: /Script_VpnConnection
 ---
 
-<h2 id="subtitulo-importante">vpnScript - HTB</h2>
+<h2 id="whity">vpnScript - HTB</h2>
 
 Visita a <a href="https://unkn0wn1122.github.io/" target="_blank">Unkn0wn1122</a>!!
 
-<h1 class="titulo-principal">Descripción</h1>
+<h1 class="amarillo">Descripción</h1>
 
 Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN para Hack The Box. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.
 
-<h1 class="titulo-principal">Funcionalidades del Script</h1>
+<h1 class="amarillo">Funcionalidades del Script</h1>
 
 1. **Gestión de Conexiones:** Establece o cierra la conexión con un archivo de configuración `.ovpn` detectado automáticamente.
 2. **Creación de Interfaz tun:** Verifica y configura la interfaz de red necesaria para OpenVPN.
@@ -20,40 +20,40 @@ Este script en Bash automatiza las tareas de conexión y desconexión de una VPN
 4. **Copia de IP:** Copia la IP asignada a la interfaz tun al portapapeles para un acceso rápido.
 5. **Interfaz Amigable:** Incluye un panel de ayuda accesible con `-h`.
 
-<h3 class="titulo-secundario">Situación de uso</h3>
+<h3 class="verde">Situación de uso</h3>
 
 Para utilizar este script, asegúrate de que OpenVPN esté instalado o deja que el script lo instale automáticamente. Coloca el archivo de configuración `.ovpn` en un directorio accesible.
 
 > El script se asegura de comprobar si ya hay una conexión VPN activa y, si no existe, establece una nueva. En caso de desconexión, elimina cualquier proceso de VPN en ejecución y desactiva la interfaz `tun`.
 
-<h3 class="titulo-secundario">Opciones Disponibles</h3>
+<h3 class="verde">Opciones Disponibles</h3>
 
 1. **-c**: Inicia la conexión VPN.
 2. **-d**: Finaliza la conexión VPN.
 3. **-i**: Copia la dirección IP de la VPN al portapapeles.
 4. **-h**: Muestra el panel de ayuda.
 
-<h2 id="subtitulo-importante">Iniciar conexión VPN</h2>
+<h2 id="whity">Iniciar conexión VPN</h2>
 ```bash
 ./vpnConnection.sh -c
 ```
 
-<h2 id="subtitulo-importante">Desconectar VPN</h2>
+<h2 id="whity">Desconectar VPN</h2>
 ```bash
 ./vpnConnection.sh -d
 ```
 
-<h2 id="subtitulo-importante">Copiar IP de la VPN al portapapeles</h2>
+<h2 id="whity">Copiar IP de la VPN al portapapeles</h2>
 ```bash
 ./vpnConnection.sh -i
 ```
 
-<h2 id="subtitulo-importante">Mostrar ayuda</h2>
+<h2 id="whity">Mostrar ayuda</h2>
 ```bash
 ./vpnConnection.sh -h
 ```
 
-<h1 class="titulo-principal">Código del Script</h1>
+<h1 class="amarillo">Código del Script</h1>
 ```bash
 #!/bin/bash
 #autor: Unkn0wn1122
@@ -213,7 +213,7 @@ fi
 ```
 ---
 
-<h1 class="titulo-principal">Conclusión</h1>
+<h1 class="amarillo">Conclusión</h1>
 
 Este script simplifica la gestión de conexiones VPN, proporcionando un manejo automatizado y eficiente de la interfaz tun y las configuraciones de VPN.
 

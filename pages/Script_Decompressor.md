@@ -3,15 +3,15 @@ title: Bandit 14 Custom Script
 layout: page
 permalink: /Script_Decompressor
 ---
-<h2 id="subtitulo-importante">Decompressor, Herramienta para Bandit 12-13.</h2>
+<h2 id="whity">Decompressor, Herramienta para Bandit 12-13.</h2>
 
-<h1 class="titulo-principal">Descripción</h1>
+<h1 class="amarillo">Descripción</h1>
 
 Hace un tiempo he venido obteniendo soltura en Bash. Para practicar un poco de scripting con Bandit, he terminado desarrollando un pequeño script en Bash para descomprimir un archivo que tiene una cantidad desconocida de archivos comprimidos en su interior. 
 
 La plataforma OTW presenta Bandit para el aprendizaje de Bash en forma de niveles, donde en el nivel 13-14 se presenta un caso en el cual hay un archivo con una cantidad enorme de comprimidos en su interior.
 
-<h1 class="titulo-principal">Presentación del Script</h1>
+<h1 class="amarillo">Presentación del Script</h1>
 
 <div style="text-align: center;">
   <img src="/assets/images/Bandit-Decompressor/decompressor.png" alt="bandit" oncontextmenu="return false;">
@@ -20,7 +20,7 @@ La plataforma OTW presenta Bandit para el aprendizaje de Bash en forma de nivele
 ---
 Específicamente para los niveles 13-14, el script es útil porque no tienes que estar mirando y descomprimiendo uno por uno los archivos que tiene el archivo en su interior.
 
-<h3 class="titulo-secundario">Situación de uso</h3>
+<h3 class="verde">Situación de uso</h3>
 
 Una vez descomprimido el archivo de Bandit13-14 llamado data, se debe cambiar su nombre a **content.gzip**. Después del cambio de nombre no hay necesidad de saber si el nuevo archivo está comprimido de nuevo y hacer el mismo proceso repetitivo, esto es debido al script.
 
@@ -40,7 +40,7 @@ Finalmente, el nombre del archivo descomprimido se asigna a la variable `name_de
 <br>
 <hr />
 
-<h1 class="titulo-principal">Código del Script</h1>
+<h1 class="amarillo">Código del Script</h1>
 
 > Para mayor entendimiento del script y lo que hace, recomiendo probar un poco experimentar con los comandos *grep*, *tail*, *awk* y sus parámetros:
 
@@ -79,7 +79,7 @@ liann@nk:~/bandit14$
 └──╼ $ ./decompressor content.gzip
 The password is .....
 ```
-<h1 class="titulo-principal">Conclusión</h1>
+<h1 class="amarillo">Conclusión</h1>
 
 El Script es compilado y funciona correctamente:
 

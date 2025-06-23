@@ -4,15 +4,15 @@ layout: page
 permalink: /Misc_Dotfiles_Parrot
 ---
 
-<h2 id="subtitulo-importante">Configuración personal de entorno de trabajo Bspwm.</h2>
+<h2 id="whity">Configuración personal de entorno de trabajo Bspwm.</h2>
 
-<h1 class="titulo-principal">Vista Previa</h1>
+<h1 class="amarillo">Vista Previa</h1>
 
 <div style="text-align: center;">
   <img src="/assets/images/Dotfiles-en-bspwm/fondo.png" alt="bof" oncontextmenu="return false;">
 </div>
 
-<h1 class="titulo-principal">Descripción</h1>
+<h1 class="amarillo">Descripción</h1>
 
 Este entorno de trabajo personalizado con Bspwm está diseñado para máquinas con sistema operativo GNU/Linux y distribuciones basadas en Debian. Está enfocado en el pentesting y tiene una configuración con atajos de teclado.
 

@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Starting_Point
 ---
 
-<h2 id="subtitulo-importante">Starting Point - un HTB WriteUp</h2>
+<h2 id="whity">Starting Point - un HTB WriteUp</h2>
 
 Todas las writeups del starting point como módulos introductorios a <a href="https://app.hackthebox.com/starting-point">HackTheBox</a>. Pasando por Tier1, Tier2, Tier3.
 
@@ -13,7 +13,7 @@ Todas las writeups del starting point como módulos introductorios a <a href="ht
 </div>
 
 
-<h2 id="subtitulo-importante">Índice</h2>
+<h2 id="whity">Índice</h2>
 
 - [Meow](#meow)
 - [Fawn](#fawn)
@@ -31,13 +31,13 @@ Todas las writeups del starting point como módulos introductorios a <a href="ht
 <br>
 
 <hr />
-<h2 id="subtitulo-importante">Tier 1</h2>
+<h2 id="whity">Tier 1</h2>
 
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/tier1.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 id="meow"><h1 class="titulo-principal">Meow</h1></h2>
+<h2 id="meow"><h1 class="amarillo">Meow</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/meow/meow.png" alt="under" oncontextmenu="return false;">
@@ -105,7 +105,7 @@ Como alternativa para saber donde encontrar estas direcciones podemos hacer uso 
 </div>
 Ahora que ya hemos configurado nuestra máquina y hemos encendido Meow, podremos comenzar con la resolución de la misma.
 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Creamos un directorio con el nombre de la máquina *Meow* y posterior creamos unos subdirectorios de trabajo 
 ```bash
@@ -123,7 +123,7 @@ Ahora vamos a lanzar un escaneo de reconocimiento llamado también fase de enume
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.85.116
 ```
 
-<h3 class="titulo-secundario">Explicación</h3>
+<h3 class="verde">Explicación</h3>
 
 - -p-: Escanea todo el rango de puertos (1-65535)
 - --open: Muestra solo los puertos que están abiertos, ignorando cerrados y filtrados.
@@ -176,7 +176,7 @@ Estaremos escaneando la versión y servicio para el puerto 23 en la IP de la má
 </div>
  Y vemos que se está ejecutando un `telnet` y la máquina es Linux.
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Telnet es un servicio orientado a conexiones remotas, y su mayor vulnerabilidad es establecer conexiones con credenciales por defecto.
 <div style="text-align: center;">
@@ -192,7 +192,7 @@ Ahora como nos hemos conectado a través de telnet con credenciales de `root` te
 </div>
 
 <hr />
-<h2 id="fawn"><h2 class="titulo-principal">Fawn</h2></h2>
+<h2 id="fawn"><h2 class="amarillo">Fawn</h2></h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/fawn/fawn.png" alt="under" oncontextmenu="return false;">
 </div>
@@ -203,7 +203,7 @@ Siempre es importante hacer uso de la utilidad `ifconfig` para saber nuestras di
   <img src="/assets/images/StartingPoint/fawn/interfaces.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Entonces tenemos 3 direcciones IP:
 
@@ -243,7 +243,7 @@ Ahora vamos a lanzar un escaneo de reconocimiento llamado también fase de enume
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.221.222 -oG target
 ```
 
-<h3 class="titulo-secundario">Explicación</h3>
+<h3 class="verde">Explicación</h3>
 
 - -p-: Escanea todo el rango de puertos (1-65535)
 - --open: Muestra solo los puertos que están abiertos, ignorando cerrados y filtrados.
@@ -270,7 +270,7 @@ nmap -sCV -p21 10.129.221.222 -oN targeted
   <img src="/assets/images/StartingPoint/fawn/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Una vez exportada la captura vemos una información mucho más detallada, nos encontramos con **FTP vsftpd 3.0.3** y inmediatamente nmap nos reporta que el usuario `anonymous` puede iniciar sesión en FTP sin contraseña. Por tanto, FPT no está sanitizado. También vemos que nmap nos reporta un archivo con capacidades de lectura para dueño, grupo, y otros. Donde por 'otros' seriamos nosotros con el usuario anonymous, así que podremos leer ese archivo `flag.txt` si nos conectamos a FTP.
 
@@ -285,7 +285,7 @@ ftp 10.129.221.222
 
 Nos pide credenciales y probamos con _"anonymous y sin contraseña"_. Con `ls` y `get` podremos acceder a la flag y tendremos completada la máquina.
 
-<h2 class="titulo-principal">Scripting con Python3 y C++</h2>
+<h2 class="amarillo">Scripting con Python3 y C++</h2>
 
 **C++**
 ```c++
@@ -371,14 +371,14 @@ if __name__ == "__main__":
     main()
 ```
 <hr />
-<h2 id="dancing"><h2 class="titulo-principal">Dancing</h2></h2>
+<h2 id="dancing"><h2 class="amarillo">Dancing</h2></h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/dancing/dancing.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Ya sabes como empezar, primero encendiendo la máquina, ubicando nuestras respectivas direcciones IP, creando un directorio con el nombre de la máquina **Dancing** y podremos comenzar.
 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Una vez hecho esto, creamos nuestros directorios de trabajo `nmap, content, exploits` y entramos en nmap. Revisamos que la máquina este activa enviando 5 paquetes:
 
@@ -446,7 +446,7 @@ Tratando de enumerar un poco con la herramienta `whatweb` para conocer el servic
 http://10.129.203.2:5985 [404 Not Found] Country[RESERVED][ZZ], HTTPServer[Microsoft-HTTPAPI/2.0], IP[10.129.203.2], Microsoft-HTTPAPI[2.0], Title[Not Found]
 ```
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Especial atención a el puerto `445` ya que ese puerto en especial pertenece al servicio `Server Message Block`. SMB se usa para el acceso a redes MS por TCP/IP. Podemos hacer uso de la herramienta `smbclient` que nos permite listar directorios compartidos a nivel de red.
 
@@ -484,13 +484,13 @@ Y encontramos un directorio 'James.P' donde encontramos la `flag` y hemos comple
 </div>
 
 <hr />
-<h2 id="redeemer"><h2 class="titulo-principal">Redeemer</h2></h2>
+<h2 id="redeemer"><h2 class="amarillo">Redeemer</h2></h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/redeemer/redeemer.webp" alt="under" oncontextmenu="return false;">
 </div>
 
 Estamos frente a la ultima máquina del Starting Point del Tier1. Así como hemos hecho con las anteriores máquinas es importante ir aplicando la metodología. (Encender la máquina, verificar nuestras direcciones IP, crear el directorio con el nombre de la máquina, y los subdirectorios de trabajo, ya conocer la utilidad `ifconfig` y organizar todo antes de la fase de enumeración). 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Comenzamos haciendo un ping para saber sí la máquina está activa:
 
@@ -532,7 +532,7 @@ nmap -sCV -p6379 10.129.191.232 -oN targeted
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/redeemer/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Podemos ver que el puerto 6379  pertenece a un servicio **REDIS** con una versión `5.0.7`. A pesar de buscar en la web sobre está versión y encontrar algunas CVE, ninguna tiene relación a la explotación.
 
@@ -582,13 +582,13 @@ Podemos usar `select 0` para seleccionar esa base de datos **db0**, y para ver l
 
 Y así hemos <a><strong><em>pw3nd</em></strong></a> la máquina y completado el Tier1 del Starting Point.
 <hr />
-<h2 id="subtitulo-importante">Tier 2</h2>
+<h2 id="whity">Tier 2</h2>
 
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/tier2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 id="appointment"><h1 class="titulo-principal">Appointment</h1></h2>
+<h2 id="appointment"><h1 class="amarillo">Appointment</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/appointment/appointment.png" alt="under" oncontextmenu="return false;">
@@ -610,7 +610,7 @@ rtt min/avg/max/mdev = 97.444/100.782/109.425/4.438 ms
 ```
 
 Vemos un TTL de 63. Por tanto, máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Para hacer un escaneo rápido y sigiloso usamos nmap:
 
@@ -645,7 +645,7 @@ La captura revela un servicio HTTP Apache y Login pero, poco más. Haciendo uso 
   <img src="/assets/images/StartingPoint/appointment/whatweb.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Con ayuda de nmap podemos lanzar un script programado en Lua, para identificar rutas comunes almacenadas en un diccionario de 1060-1080 entradas posibles para enumerar posibles rutas:
 
@@ -666,7 +666,7 @@ A pesar de encontrar estos directorios, no son útiles y no vemos nada más all�
 Efectivamente estamos viendo que se emplea un Login, probamos con credenciales por defecto 'admin:admin. admin:password. root:root' pero no logramos nada. Otra forma alternativa si no es por credenciales por defecto es que puede estar aplicando una Base de Datos MySQL y debamos hacer una SQL Injection.
 
 ----
-<h3 class="titulo-secundario">¿Qué es una SQL Injection?</h3>
+<h3 class="verde">¿Qué es una SQL Injection?</h3>
 
 La inyección de SQL es un tipo de ciberataque encubierto en el cual un hacker inserta código propio en un sitio web con el fin de quebrantar las medidas de seguridad y acceder a datos protegidos. Una vez dentro, puede controlar la base de datos del sitio web y secuestrar la información de los usuarios.
 
@@ -724,7 +724,7 @@ Y obtenemos la flag.
 </div>
 
 <hr />
-<h2 id="sequel"><h1 class="titulo-principal">Sequel</h1></h2>
+<h2 id="sequel"><h1 class="amarillo">Sequel</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/sequel/sequel.png" alt="under" oncontextmenu="return false;">
@@ -745,7 +745,7 @@ rtt min/avg/max/mdev = 97.428/99.446/105.501/3.059 ms
 ```
 
 Vemos un TTL 63 así que estamos frente a una máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Para la fase de enumeración vamos a lanzar un escaneo rápido y sigiloso con nmap:
 
@@ -773,7 +773,7 @@ nmap -sCV -p3306 10.129.133.7 -oG targeted
   <img src="/assets/images/StartingPoint/sequel/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Para poder explotar este puerto podemos probar a loguearnos con credenciales por defecto al servicio MySQL usando mariadb.
 
@@ -818,7 +818,7 @@ select * from config;
 Y hemos completado la máquina.
 
 <hr />
-<h2 id="crocodile"><h1 class="titulo-principal">Crocodrile</h1></h2>
+<h2 id="crocodile"><h1 class="amarillo">Crocodrile</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/cocodrile/crocodile.png" alt="under" oncontextmenu="return false;">
@@ -840,7 +840,7 @@ rtt min/avg/max/mdev = 97.627/107.604/142.192/17.327 ms
 ```
 
 El resultado de ping nos arroja un TTL de 63, entonces nos estamos enfrentando a una máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Para comenzar con la fase de enumeración vamos a realizar un escaneo rápido y sigiloso usando nmap para identificar puertos abiertos:
 
@@ -868,7 +868,7 @@ nmap -sCV -p21,80 10.129.1.15 -oN targeted
   <img src="/assets/images/StartingPoint/cocodrile/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Vemos que la máquina tiene puerto 21 FTP `3.0.3` que es vulnerable a **Anonymous Login**. Antes de revisar el servicio FTP vamos a realizar un análisis web a la 10.129.1.15:
 
@@ -926,7 +926,7 @@ Probamos con las credenciales que obtuvimos previamente desde el servicio FTP:
 Hemos completado la máquina.
 
 <hr />
-<h2 id="responder"><h1 class="titulo-principal">Responder</h1></h2>
+<h2 id="responder"><h1 class="amarillo">Responder</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/responder/responder.png" alt="under" oncontextmenu="return false;">
@@ -949,7 +949,7 @@ rtt min/avg/max/mdev = 97.862/107.099/123.071/10.278 ms
 ```
 
 Con un TTL de 127 estamos enfrentando una máquina Windows.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Lanzamos un escaneo rápido y sigiloso con nmap:
 
@@ -1039,7 +1039,7 @@ Al guardar el nuevo `/etc/hosts` y recargar la página en nuestro navegador, aho
   <img src="/assets/images/StartingPoint/responder/web2.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Es una página sencilla y no cuenta con muchos apartados pero, uno de ellos llama la atención y es cuando cambiamos el idioma de la página a Frances. Podemos ver que la URL cambia y tenemos una variable `page` que quizás podamos explotar.
 
@@ -1050,7 +1050,7 @@ Es una página sencilla y no cuenta con muchos apartados pero, uno de ellos llam
 Intentamos con un Path Trasversal:
 
 <hr />
-<h3 class="titulo-secundario">¿Qué es Path Trasversal?</h3>
+<h3 class="verde">¿Qué es Path Trasversal?</h3>
 
 Un directory traversal (o salto de directorio o cruce de directorio o path traversal) consiste en explotar una vulnerabilidad informática que ocurre cuando no existe suficiente seguridad en cuanto a la validación de un usuario, permitiéndole acceder a cualquier tipo de directorio superior (padre) sin ningún control.
 
@@ -1109,7 +1109,7 @@ No podemos hacer Path Trasversal pero, recordando que hay un puerto 7680:
 El puerto `7680` pando-pub usa el Protocolo de Control de Transmisión. TCP es uno de los protocolos principales en redes TCP/IP. TCP es un protocolo orientado en la conexión, necesita el apretón de manos para determinar comunicaciones de principio a fin. Solo cuando la conexión es determinada, los datos del usuario pueden ser mandados de modo bidireccional por la conexión.
 
 <hr />
-<h3 class="titulo-secundario">¿Qué es Local File Inclusion LFI?</h3>
+<h3 class="verde">¿Qué es Local File Inclusion LFI?</h3>
 
 LFI son vulnerabilidades web que son posibles gracias a errores por parte de los programadores. Al introducir un descuido de seguridad en las aplicaciones web, los programadores descuidados permiten que usuarios no autorizados accedan a archivos, aprovechen la funcionalidad de descarga, naveguen por la información disponible y mucho más.
 
@@ -1205,7 +1205,7 @@ Y con un poco de búsqueda encontramos la flag:
  y hemos completado la máquina.
 
 <hr />
-<h2 id="three"><h1 class="titulo-principal">Three</h1></h2>
+<h2 id="three"><h1 class="amarillo">Three</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/three/three.webp" alt="under" oncontextmenu="return false;">
@@ -1231,7 +1231,7 @@ rtt min/avg/max/mdev = 97.779/107.395/143.705/18.167 ms
 ```
 
 Con un TTL 63 sabemos que nos estamos enfrentando a una máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Para la fase de enumeración con nmap vamos a lanzar un escaneo rápido y sigiloso:
 
@@ -1269,7 +1269,7 @@ nmap --script http-enum 10.129.91.236 -oN webScan
   <img src="/assets/images/StartingPoint/three/webscan.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Al no encontrar mucha información de los escaneos web, probamos a enumerar directorios con la herramienta `gobuster`
 
@@ -1292,7 +1292,7 @@ No encontramos nada entonces abriremos la web
 Por más exhaustiva que sea la búsqueda en la web no hay nada pero, no significa que no haya nada, ya que en realidad si usamos `gobuster` para filtrar por **VHOST** la cosa cambia totalmente:
 
 <hr />
-<h3 class="titulo-secundario">¿Qué es VHOST?</h3>
+<h3 class="verde">¿Qué es VHOST?</h3>
 
 Es bastante sencillo de entender este concepto ya que un servidor tiene una dirección IP, pero puede tener multiples dominos, y en base al dominio que se acceda la información puede variar y ser diferente.
 
@@ -1306,7 +1306,7 @@ Es bastante sencillo de entender este concepto ya que un servidor tiene una dire
 Y encontramos 2 subdominios pero, el único que nos interesa es el `s3.thetoppers.htb` ya que S3 proviene de un servicio de Cloud de Amazon:
 
 <hr />
-<h3 class="titulo-secundario">¿Qué es S3 Bucket AWS?</h3>
+<h3 class="verde">¿Qué es S3 Bucket AWS?</h3>
 
 Un bucket S3 de AWS es un recurso de almacenamiento en la nube que permite guardar datos manera segura, eficiente y escalable. Es un servicio de Amazon Web Services (AWS) llamado Simple Storage Service (S3)
 
@@ -1444,7 +1444,7 @@ www-data@host:/$ export SHELL=bash
 2. export SHELL=bash` -> Para que nuestra shell sea una bash.
 
 <hr />
-<h2 id="subtitulo-importante">Tier 3</h2>
+<h2 id="whity">Tier 3</h2>
 <div style="text-align: center;">
   <img src="/assets/images/StartingPoint/Tier3.png" alt="under" oncontextmenu="return false;">
 </div>
@@ -1452,7 +1452,7 @@ www-data@host:/$ export SHELL=bash
 
 
 <hr />
-<h2 id="archetype"><h1 class="titulo-principal">Archetype</h1></h2>
+<h2 id="archetype"><h1 class="amarillo">Archetype</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/archetype/archetype.webp" alt="under" oncontextmenu="return false;">
@@ -1474,7 +1474,7 @@ rtt min/avg/max/mdev = 97.845/103.341/114.042/5.675 ms
 
 Vemos un TTL de 127. Por tanto, estamos frente a un Windows.
 
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Empezamos lanzando un escaneo rápido y sigiloso con nmap:
 
@@ -1503,7 +1503,7 @@ nmap -sCV -p135,139,445,1433,5985,47001,49664,49665,49666,49667,49668,49669 -oN 
 
 
 No nos interesa ver los puertos abiertos tan altos a partir del 5985, no son relevantes.
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 El puerto más adecuado para comenzar es el `445` porque tiene un recurso SMB compartido a nivel de red al cual nos conectaremos:
 <div style="text-align: center;">
@@ -1594,7 +1594,7 @@ Una vez dentro, ya podremos leer la flag del usuario:
 </div>
 
 
-<h2 class="titulo-principal">Escalada</h2>
+<h2 class="amarillo">Escalada</h2>
 
 Para esta parte, encontramos una carpeta interesante `PSReadLine`, con un archivo **ConsoleHost_history**:
 <div style="text-align: center;">
@@ -1624,7 +1624,7 @@ Solo será cuestión de buscar la flag y habremos completado la máquina.
 
 
 <hr />
-<h2 id="oopsie"><h1 class="titulo-principal">Oopsie</h1></h2>
+<h2 id="oopsie"><h1 class="amarillo">Oopsie</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/oopsie/oopsie.webp" alt="under" oncontextmenu="return false;">
@@ -1646,7 +1646,7 @@ rtt min/avg/max/mdev = 106.742/108.161/111.090/1.513 ms
 ```
 
 Con un TTL 63, estamos frente a una máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Usando nmap lanzamos un escaneo rápido y sigiloso:
 
@@ -1674,7 +1674,7 @@ nmap -sCV -p22,80 10.129.165.105 -oN targeted
 </div>
 
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Seguimos enumerando el servicio web
 <div style="text-align: center;">
@@ -1703,7 +1703,7 @@ Vamos al directorio '/uploads' pero, no tenemos acceso:
 Al no encontrar directorios, y la máquina no esta haciendo **vhost**, hay otra manera de enumerar una página web y mediante **Proxies**.
 
 ----
-<h3 class="titulo-secundario">¿Qué es Web Crawl?</h3>
+<h3 class="verde">¿Qué es Web Crawl?</h3>
 
 Un web crawl o rastreo de sitios web es el proceso de analizar el contenido de un sitio web. Esto se hace mediante un software automatizado llamado web crawler, araña web o bot.
 
@@ -1800,7 +1800,7 @@ Y ya tendremos la flag:
   <img src="/assets/images/StartingPoint/oopsie/user.png" alt="under" oncontextmenu="return false;">
 </div>
 
-<h2 class="titulo-principal">Escalada</h2>
+<h2 class="amarillo">Escalada</h2>
 
 Para la escalada con un `sudo -l` vemos que podemos ejecutar el binario `cat` como root. Dentro del sistema de archivo por lo general tenemos capacidad de escritura en `/dev/shm` y en `/tmp/`, entonces dentro de cualquiera de estos directorios creamos un archivo llamado **cat**, y lo abrimos con para ingresar:
 
@@ -1823,7 +1823,7 @@ Logrando que se ejecuto primero nuestro binario malicioso *cat*. Y seremos root
 
 
 <hr />
-<h2 id="vaccine"><h1 class="titulo-principal">Vaccine</h1></h2>
+<h2 id="vaccine"><h1 class="amarillo">Vaccine</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/vaccine/vaccine.webp" alt="under" oncontextmenu="return false;">
@@ -1911,7 +1911,7 @@ Limpiamos la captura con **extractPorts**:
 
 
 <hr />
-<h2 id="unified"><h1 class="titulo-principal">Unified</h1></h2>
+<h2 id="unified"><h1 class="amarillo">Unified</h1></h2>
 
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/unified/unified.webp" alt="under" oncontextmenu="return false;">

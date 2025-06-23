@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Bike
 ---
 
-<h2 class="titulo-principal">Bike</h2>
+<h2 class="amarillo">Bike</h2>
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/VIP/Bike/bike.webp" alt="under" oncontextmenu="return false;">
 </div>
@@ -25,7 +25,7 @@ rtt min/avg/max/mdev = 108.120/110.928/115.225/2.492 ms
 ```
 
 Con un TTL de 63 estamos frente a una máquina Linux.
-<h2 class="titulo-principal">Enumeración</h2>
+<h2 class="amarillo">Enumeración</h2>
 
 Para la fase de reconocimiento o enumeración lanzaremos un escaneo rápido y sigiloso con nmap sobre la dirección IP 10.129.166.121:
 
@@ -71,7 +71,7 @@ nmap --script http-enum 10.129.166.121 -oN webScan
 
 Pero no vemos nada relevante.
 
-<h2 class="titulo-principal">Explotación</h2>
+<h2 class="amarillo">Explotación</h2>
 
 Abriremos la página y nos encontramos con una página en de desarrollo con un estilo de juego similar a 'Among US', el cual nos esta pidiendo una dirección de correo para avisarnos cuando el servicio este listo.
 
@@ -88,11 +88,11 @@ En este punto podemos probar a explotar este campo 'Placeholder' intentando un X
 Pero la página parece tener sanitizado XSS. Así que intentamos otra posibilidad capturando el tráfico web con Caido. Ya que si el campo no es vulnerable a XSS puede serlo a SSTI. Server Side Template Injection
 
 <hr />
-<h2 class="titulo-principal">Explicación</h2>
+<h2 class="amarillo">Explicación</h2>
 
-<h3 class="titulo-secundario">¿Qué es Node.js?</h3>
+<h3 class="verde">¿Qué es Node.js?</h3>
 Node.js es una plataforma de código abierto que permite como backend ejecutar JavaSscript para construir aplicativos.
-<h3 class="titulo-secundario">¿Qué es Express?</h3>
+<h3 class="verde">¿Qué es Express?</h3>
 Express es una versión minimalista de Node.js para aplicativos web.
 
 <div style="text-align: center;">
@@ -100,12 +100,12 @@ Express es una versión minimalista de Node.js para aplicativos web.
 </div>
 
 Node.js y Python comúnmente hacen uso de algo llamado "Template Engines".
-<h3 class="titulo-secundario">¿Qué es un Template Engine?</h3>
+<h3 class="verde">¿Qué es un Template Engine?</h3>
 
 Template Engines son usados para generar automáticamente contenido web y ayudar al programador.
 
 Template Engines son como todo software propensos a vulnerabilidades y en este caso Server Side Template Injection (SSTI).
-<h3 class="titulo-principal">¿Qué es un SSTI?</h3>
+<h3 class="amarillo">¿Qué es un SSTI?</h3>
 Server-side template injection es una vulnerabilidad que consiste en entrada maliciosa en un placeholder o campo de input en una template para ejecutar comandos en el server.
 
 Este ataque es muy común en páginas Node.js.
