@@ -519,17 +519,166 @@ El total de hosts va incrementendo en **x2** a medida que el número de ceros au
 
 Cuando encontramos un /21 ya sabemos que la mascara es 255.255.248.0, para el ejemplo la respuesta es 255.255.192.0.
 
+Tendremos que pararnos en Clase B, luego ir al CIRD /21 y nos dice que la Subnet es 255.255.x.0. La x la remplazmos por la subnet Mask 248.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/30.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<h1 class="amarillo">Ejemplo</h1>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/31.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Supongamos que estamos en una auditoria y tenemos la siguiente dirección IP 192.168.1.0/26 y aquí están los dispositivos de red.
+
+> Para llenar los campos de red utilizaremos nuestra tabla de subnet.
+
+1. Vemos que dice /26 por tanto es una Clase C y la subnet mask tiene 192.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/32.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Según nuestra tabla de subnet, el Total hosts es de 64, pero debemos realizar una resta '-2' ya que la Network ID y la Broadcast Address son direcciones reservadas, por tanto sería '64-2' para un total de 62 hosts. Siendo la cantidad de IP libres para repartir como nos guste o para auditar.
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/33.png" alt="under" oncontextmenu="return false;">
+</div>
 ---
 
 <h2 id=""><h2 id="whity">Subnetting Interpretación de los rangos de red que el cliente nos ofrece para auditar</h2></h2>
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/33-2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Es muy importante hacer ejemplos y practicar, llegados a este punto:
+
+> La Broadcast Address o dirección de difusión permite enviar paquetes de datos a todos los usuarios de una red local.
+
+Lo recomendable es llenar la tabla y empezar a jugar con direcciones ip:
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/34.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+El 128 se debe a que debemos de saber identificar los rangos de ip, en el caso de 192.168.112.165/25 no podemos empezar en 192.168.0.0 porque nuestra ip termina en .165, por tanto, 255/2 es aproximado a 128. Por eso empezamos desde esa ip para que la broadcast pueda ser la .255.
+
+Para el último ejemplo de 10.10.13.124/19, se comparte la solución:
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/35.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 ---
 
 <h2 id=""><h2 id="whity">Subnetting Redes_curiosas_y_casos_particulares</h2></h2>
 
+Para las redes curiosas como la 13.13.13.13/13, podemos ver que tiene una mascara 255.248.0.0. 
+
+> Para calcular rápido podemos hacer uso de la calculadora y hacer lo siguiente:
+
+```
+256 * 256 = 65536 hosts
+
+desde la 13.0.0.0 hasta la 13.0.255.255, antes de llegar a la 13.1.0.0 hay 65536 hosts,
+desde la 13.1.0.0 hasta la 13.0.255.255 hay otros 65536 hosts.
+
+524288/65536 = 8
+
+de la 13.0.0.0 hasta la 13.7.255.255, pero como nuestra ip extraña es la 13.13.13.13 hay que tomar el otro rango
+de la 13.8.0.0 hasta la 13.15.255.255 terminamos.
+
+```
+
 ---
 
 <h2 id=""><h2 id="whity">Tips de subnetting y cálculo veloz de direccionamiento en redes</h2></h2>
+
+En este punto ya sabremos como atender a esta situación cuando un cliente nos de una dirección IP para auditar mediante el uso de CIDR y mascaras de red (Saber el total de hosts, la network ID, y la Broadcast). 
+
+Hay una forma rápida para hacer el cálculo.
+
+La idea es con una IP 172.14.15.16/17
+
+> Intentar primero representar la ip en binario
+
+```bash
+echo "obase=2; 172" | bc
+```
+
+10101100.
+
+```bash
+echo "obase=2; 14" | bc
+```
+
+10101100.00001110.
+
+```bash
+echo "obase=2; 15" | bc
+```
+
+10101100.00001110.00001111.
+
+```bash
+echo "obase=2; 16"
+```
+
+10101100.00001110.00001111.00010000
+
+1. Lo siguiente es averiguar la mascara de red y el network ID
+2. Como el CIDR es /17, los primeros 17bits pertenecen a la red, y los 15 restantes a hosts
+
+así que rellenamos con '1', los primeros 17bits
+
+```bash
+11111111.11111111.10000000.00000000
+```
+
+Ahora ya tenemos la **Mascara de RED**.
+
+```bash
+echo "ibase=2; 11111111" | bc
+```
+
+Nos devuelve un 255, por tanto ya tenemos un 255.255.x.0, para el x que nos falta sería:
+
+```bash
+echo "ibase=2; 100000000" | bc
+```
+
+3. Para averiguar el Network ID, hay que aplicar un AND entre la IP en binario y la mascara de red
+
+> Cuando haya una coincidencia entre '1' ponemos un '1' de resto 0
+
+```bash
+10101100.00001110.00001111.00010000 (172.14.15.16)
+11111111.11111111.10000000.00000000 (255.255.128.0)
+------------------------------------
+10101100.00001110.00000000.00000000
+```
+
+172.14.0.0 sería el network ID.
+
+4. Para la broadcast address tenemos un /17 y es hasta /32.
+```
+32-17=15
+```
+
+5. Vamos a poner en '1' 15 bits de la ip 172.14.15.16 correspondientes a host:
+```
+10101110.00001110.01111111.11111111 -> 172.14
+```
+
+```bash
+echo "ibase=2;01111111" -> 127
+```
+
+y 11111111 corresponde a 255.
+
+> La broadcast es 172.14.127.255.
 
 
 <h1 class="amarillo">Mi Script Subnetting_tool</h1>
@@ -563,6 +712,7 @@ La publicación de está herramienta <a href="https://liandd.github.io/Script_Su
 ```bash
 ./subNet.sh -i 192.168.1.1 -n 255.255.255.0
 ```
+
 Este comando calculará la información de red para la dirección IP **192.168.1.1** y la máscara de red **255.255.255.0**.
 ```bash
 #!/bin/bash
@@ -705,13 +855,11 @@ function calcularClase(){
 }
 
 function getNetID(){
-    local octetosIP=("${!1}")
-    local octetosMask=("${!2}")
-    for ((j = 0; j < ${#octetosIP[@]}; j++)); do
-        if [ $j -gt 0 ]; then
-            printf ""
-        fi
-        netID+=("$((octetosIP[j] & octetosMask[j]))")
+    local -n ip_ref=$1
+    local -n mask_ref=$2
+    netID=()
+    for ((j = 0; j < ${#ip_ref[@]}; j++)); do
+        netID+=($(( ip_ref[j] & mask_ref[j] )))
     done
 }
 
@@ -779,13 +927,17 @@ function calculoSubnet(){
     octetosMask=()
     netID=()
     netInc=1
-    getOctetosDeIP $ip getOctetosMask $netMask
+    getOctetosDeIP "$ip"
+    IFS='.' read -r -a octetosIP <<< "$ip"
+    getOctetosMask "$netMask"
+    IFS='.' read -r -a octetosMask <<< "$netMask"
     echo -e "\n${yellowColour}[+]${endColour}${grayColour} Calculo de ${endColour}${turquoiseColour}SubNetting${endColour}${greenColour} Juan Garcia${endColour} ${grayColour}(${endColour}${yellowColour}aka${endColour}${redColour} liandd${endColour}${grayColour})${endColour}"
     echo -e "\n${yellowColour}[+]${endColour}${grayColour} IP Address:${endColour}${blueColour} ${ip}${endColour}"
     echo -e "${yellowColour}[+]${endColour}${grayColour} Mascara de Red:${endColour}${blueColour} ${netMask}${endColour}"
     binaryRepresentation $ip $netMask
     echo -e "\n${greenColour}[!]${endColour}${grayColour} Informacion de Clase de red Respecto al ${endColour}${turquoiseColour}CIDR${endColour}"
-    calcularClase octetosIP[@] getNetID octetosIP[@] octetosMask[@]
+    calcularClase octetosIP[@]
+    getNetID octetosIP octetosMask
     echo -e "${yellowColour}[+]${endColour}${grayColour} Network ID: ${endColour}${blueColour}$(printf '%s.' "${netID[@]}" | sed 's/\.$//')${endColour}"
     getNetIDRange $ip $netInc $netMask
     getHostsPerSubnet $netMask
