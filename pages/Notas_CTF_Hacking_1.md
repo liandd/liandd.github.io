@@ -333,7 +333,7 @@ Pasando ahora a los servicios, cabe decir que hay infinidad de servicios pero la
 <a>**TCP**</a>
 ```bash
 21 -> FTP
-21 -> SSH
+22 -> SSH
 23 -> TELNET (Acceder a otra máquina de manera remota)
 25 -> SMTP (Correo Electronico)
 53 -> DNS
@@ -383,7 +383,7 @@ Tenemos siete capas y el **Modelo OSI** enumera desde la superior hasta la infer
 
 <strong>La segunda capa</strong> siendo la de <a>datos o enlace</a> actúa como inspector, digamos que observa sí el paquete tiene un defecto en su formato y controla el flujo con el que se envían los paquetes, en esta capa se verifican si los paquetes recibido del medio físico presentan algún error y tratar de corregirlos (Por tanto, las capas superiores asumen una transmisión de paquetes sin errores). Cabe destacar que está capa también controla el flujo de datos que se transmite.
 
-<strong>La tercera capa</strong> siendo la de<a> red</a> verifica el destinatario y remitente del paquete, en caso de que hayan demasiados mensajes, en caso de que hayan demasiados mensajes para enviar se puede priorizar cuales se enviaran primero (Actúa como una oficina de correos). Aquí es donde esta el direccionamiento IP source/destination.
+<strong>La tercera capa</strong> siendo la de<a> red</a> verifica el destinatario y remitente del paquete, en caso de que hayan demasiados mensajes para enviar se puede priorizar cuales se enviaran primero (Actúa como una oficina de correos). Aquí es donde esta el direccionamiento IP source/destination.
 
 <strong>La cuarta capa</strong> presentaría los camiones o reporteros siendo la capa de <a>transporte</a>, garantizando el envío y recepción de paquetes provenientes de la capa tres. Gestiona el transporte de los paquetes garantizando el éxito de envío de paquetes.
 
@@ -398,36 +398,559 @@ Esto viene bastante bien de cara a soporte para identificar errores subiendo des
 ---
 
 <h2 id="subnetting"><h2 id="whity">Subnetting ¿Qué es y cómo se interpreta una mascara de red?</h2></h2>
+Hemos venido hablando de las mascaras de red, podemos volver a verlo con `ifconfig`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/16.png" alt="under" oncontextmenu="return false;">
+</div>
 
+Esto que pone **255.255.255.0**, nos permite a nosotros como atacantes hacernos una idea de como está estructurada la red (Aplicar escaneos a nivel de red para saber que equipos están conectados).
+
+La mejor forma de practicar en este caso es crear una hoja de cálculo. 
+
+<h1 class="amarillo">¿Qué es el Subnetting?</h1>
+
+Esto consiste en dividir una red grande, en redes más pequeñas mediante un proceso cauteloso y con planificación previa para no desaprovechar direcciones IPv4.
+
+Vamos a representar la mascara de red **255.255.255.0** en la hoja de calculo.
+
+> Lo que estamos viendo para la mascara de red son bits.
+ <div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/17.png" alt="under" oncontextmenu="return false;">
+</div>
+
+1. Comenzaremos desde 128 e iremos dividiendo entre 2.
+2. La segunda fila la rellenamos de '1' indicando como un True en algebra boolena.
+
+<h1 class="amarillo">De ¿Dónde proviene el 255?</h1>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/18.png" alt="under" oncontextmenu="return false;">
+</div>
+
+La formula es:
+```
+=(A1*A2)+(B1*B2)+(C1*C2)+(D1*D2)+(E1*E2)+(F1*F2)+(G1*G2)+(H1*H2)
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/19.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Y hemos dado con la mascara de red, ahora vamos a agregar dos columnas más (una para el CIDR que es un estándar de red para la interpretación de redes y otra para el Total Hosts).
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/20.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Para el CIDR vamos a contar todas las posiciones donde haya un '1'.
+
+```
+=CONCATENATE("/"; COUNTIF(A2:AI2;1))
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/21.png" alt="under" oncontextmenu="return false;">
+</div>
 
 ---
 
 <h2 id="subnetting"><h2 id="whity">Subnetting CIDRs y calculo total de hosts</h2></h2>
+En función de la mascara de red o el prefijo de red viendo el CIDR <a><strong>¿Cuántos Hosts se pueden repartir?</strong></a>
+
+Para esto vamos a realizar la operación:
+
+```
+2^⁽Número total de ceros⁾
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/22.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/23.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Eso es porque tenemos 8 ceros:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/24.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Ahora solo queda contar la cantidad de hosts:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/25.png" alt="under" oncontextmenu="return false;">
+</div>
+
+El total de host pondrá 256, esto sucede porque se cuenta desde el 0 la cantidad de direcciones ip que se pueden asignar, quizás para algunos es más fácil emplear una técnica de resta para hacer los cálculos un poco más comodos:
+
+```
+2^⁽Total de hosts⁾⁻¹
+```
+
+<h1 class="amarillo">Ejemplo real</h1>
+
+El jefe interno de la empresa te dice:
+>"Como parte del equipo de auditoría interna, se te ha encomendado una tarea prioritaria: analizar y evaluar la seguridad de un segmento de red estratégico que aloja los servidores críticos de bases de datos de la empresa. Este segmento se encuentra en la dirección **10.10.148.25/18**. Tu responsabilidad es identificar vulnerabilidades, riesgos potenciales y asegurar que los controles existentes sean adecuados para proteger la integridad y confidencialidad de la información en esta subred."
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/26.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Para esto contruimos una pequeña tabla donde tendremos los 32 segmentos de red posibles para hacer más fácil el trabajo de analizar el segmento de red que nos dan.
 
 ---
 
-<h2 id="subnetting"><h2 id="whity">Subnetting ipv4-ipv6</h2></h2>
+<h2 id=""><h2 id="whity">Subnetting Mascaras de subred tipos de clase e interpretación de prefijos de red</h2></h2>
+Viene muy bien tener la tablar para entender el segmento donde esté configurada la red.
+
+El total de hosts va incrementendo en **x2** a medida que el número de ceros aumenta en la hoja de cálculo de bits
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/24.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/27.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/28.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/29.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Cuando encontramos un /21 ya sabemos que la mascara es 255.255.248.0, para el ejemplo la respuesta es 255.255.192.0.
 
 ---
 
-<h2 id="subnetting"><h2 id="whity">Subnetting ipv4-ipv6</h2></h2>
+<h2 id=""><h2 id="whity">Subnetting Interpretación de los rangos de red que el cliente nos ofrece para auditar</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="whity">Subnetting ipv4-ipv6</h2></h2>
+<h2 id=""><h2 id="whity">Subnetting Redes_curiosas_y_casos_particulares</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="whity">Direcciones ipv4-ipv6</h2></h2>
+<h2 id=""><h2 id="whity">Tips de subnetting y calculo veloz de direccionamiento en redes</h2></h2>
 
 ---
 
-<h2 id="subnetting"><h2 id="whity">Direcciones ipv4-ipv6</h2></h2>
+<h2 id=""><h2 id="whity">Nmap y sus diferentes modos de uso</h2></h2>
+
 
 ---
 
-<h2 id="subnetting"><h2 id="whity">Direcciones ipv4-ipv6</h2></h2>
+<h2 id=""><h2 id="whity">Técnicas de evasión de FireWalls - MTU DATA LENGTH SOURCE PORT DECOY ETC</h2></h2>
 
 ---
 
+<h2 id=""><h2 id="whity">Uso de Scripts y Categorias de Nmap para aplicar reconocimiento</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Nmap - Creación de Custom Scripts en Lua</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Alternativas para la enumeraciñón de puertos usando descriptores de archivo</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Descubrimiento de archivos en la red local - ARP ICMP</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Validación de un objetivo - Fijando un Target en HackerOne</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Descubrimiento de correos electronicos</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Reconocimiento de imagenes</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración de SubDominios</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Credenciales y brechas de seguridad</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Identificación de las tecnologías de una página web</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Fuzzing - Enumeración de archivos en un servidor web</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Google Dorks - Google Hacking (Los 10 Dorks más usados)</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Identificación y verificación de sistema operativo</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Docker - Introducción</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Docker - Instalación</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Docker - Definiendo la estructura básica de DockerFile</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Docker - Creación y construcción de imagenes</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Docker - Carga de instrucciones y despliegue de nuestro primer contenedor</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Docker - Comandos comunes para la gestión de contenedores</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Docker - Port Forwarding y uso de monturas</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Docker - Despligue de máquinas vulnerables con DockerCompose</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración - Servicio FTP</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración - Servicio SSH</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración - Servicio HTTP HTTPS</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración - Servicio SMB</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración - Servicio de Gestores de Contenido CMS WordPress</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración - Servicio de Gestores de Contenido CMS Joomla</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración - Servicio de Gestores de Contenido CMS Drupal</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Enumeración - Servicio de Gestores de Contenido CMS Magento</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Explotación - Introdución a explotación de vulnerabilidades</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Explotación - Reverse Shell, Bind Shells, Forward Shells</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Explotación - Tipos de Payloads STAGED NON STAGED</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Explotación - Manuales y Automatizadas</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Explotación - Enumeración del sistema</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Explotación - Introducción a BurpSuite</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - SQLI SQL Injection</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - XXS Cross Site Scripting</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - XML External Entity Injection</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - LFI Local File Inclusion</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - RFI Remote File Inclusion</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - LFI RCE Log Poisoning</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - CSRF Cross Site Request Forgery</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - SSRF Server Side Request Forgery</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - SSTI Server Side Template Injection</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - CSTI Client Side Template Injection</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - PaddingOracle Ataque de Oraculo de Relleno</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Ataque de Type Juggling</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Inyecciones NOSQL</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Inyecciones LDAP</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Ataques de Deserialización</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Inyecciones LaTeX</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Abuso de API</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Abuso de Subida de Archivos</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Prototype Pollution</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - AXFR FULL ZONE TRANSFER Ataques de transferencia de zona</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - MASS ASSIGMENT ATTACK PARAMETER BINDING Ataques de asignación masiva</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - OPEN REDIRECT</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Enumeración y Explotación WebDAV</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Enumeración y EXplotación SQUID_PROXIES</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Ataque SHELLSHOCK</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Inyecciones Xpath</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - IDORs INSECURE DIRECT OBJECT REFERENCE</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - CORs Intercambio de recursos de origen cruzado</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - SQL TRUNCATION Ataque de truncado SQL</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - SESSION PUZZLING SESSION FIXATION SESSION VARIABLE OVERLOADING</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Enumeración y Explotación JWT JS WEB TOKENS</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - RACE CONDITION Condiciones de carrera</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Inyecciones CSS</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Python Ataque de deserialización YAML</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - Python Ataque de deserialización PICKLE</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">OWASP TOP 10 - GRAPHQL INTROSPECTION MUTATIONS e IDORs</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Abusando de privilegios a nivel de sudoers</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Abusando de privilegios SUID</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Detección y explotación de tareas CRON</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - PATH HIJACKING</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Python Library Hijacking</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Abuso de permisos incorrectamente implementados</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Detección y explotación de CAPABILITIES</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Explotación de KERNEL</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Abuso de grupos, usuarios especiales</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Abuso de servicios internos del sistema</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Abuso de binarios especificos</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - Secuestro de biblioteca de objetos compartidos enlazados dinamicamente</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">PRIV_ESC - DOCKER BREAKOUT</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Introducción</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - INMUNITY DEBUGGER y creación de laboratorio de pruebas</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Fase inicial de FUZZING y tomando control del registro EIP</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Asignación del espacio para el shellcode</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Generación de ByteArrays y detección de BADCHARS</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Búsqueda de OPCODES para entrar en el ESP y cargar nuestro shellcode</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Uso de NOPS Desplazamiento de pila e interpretación del shellcode para lograr RCE</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Modificación del shellcode para controlar el comando que se desea ejecutar</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Práctica</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BufferOverflow - Funcionamiento y Creación manual de shellcodes</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Taller - Máquina 1</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Taller - Máquina 2</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Taller - Máquina 3</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Taller - Máquina 4</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">Taller - Máquina 5</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BONUS - METAEXPLOIT</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BONUS - SQLMAP</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">BONUS - EXAMEN ECPPTV2</h2></h2>
+
+---
+
+<h2 id=""><h2 id="whity">USO DE LATEX 1</h2></h2>
+
+---
 
