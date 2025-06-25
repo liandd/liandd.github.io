@@ -373,7 +373,7 @@ Tenemos siete capas y el **Modelo OSI** enumera desde la superior hasta la infer
 7 -> Aplicación
 6 -> Presentación
 5 -> Sesión
-4 -> Trasnporte 
+4 -> Transporte 
 3 -> Red
 2 -> Datos
 1 -> Física
@@ -964,8 +964,9 @@ fi
 Para la fase de reconocimiento nosotros como atacantes debemos tener claro en todo momento es conocer que puertos están abiertos. A través de estos puertos se exponen los servicios y así como dijimos anteriormente tenemos 65535 puertos y por defecto vamos a comenzar los escaneos por el protocolo **TCP**.
 
 Vamos a comenzar practicando con **NMAP** y usando la dirección IP de nuestro router:
-
-![[Pasted image 20250624210331.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/1.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Podemos hacer el comando `route -n` y en Gateway tendremos `192.168.0.1`.
 
@@ -978,34 +979,37 @@ La herramienta **NMAP** dispone de múltiples parámetros y con el `-p` le indic
 nmap -p- 192.168.0.1
 ```
 
-**Usos del -p**
+<h1 class="amarillo">Usos del -p</h1>
 ```
 nmap -p22 -> enumera únicamente el puerto 22
 nmap -p1-65535 -> enumera todo el rango de puertos
-nmap -p1-100
+nmap -p1-100 -> enumera del 1 al 100
 nmap -p- -> también enumera todo el rango de puertos
 ```
 
-Este escaneo puede tardar un poco al hacer el escaneo, y cabe resaltar que los resultados de este escaneo pueden arrojar información relevante de los puertos como lo son sus estados (Abierto, Filtrado, Cerrado).
+Este escaneo puede tardar un poco, y cabe resaltar que los resultados pueden arrojar información relevante de los puertos como lo son sus estados (Abierto, Filtrado, Cerrado).
 
 > Para el caso del estado Filtrado (Filtered) es porque **nmap** no es capaz de distinguir con certeza si el puerto está abierto o filtrado (Sea filtrado por Firewall, etc).
-
-![[Pasted image 20250624212137.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 El escaneo va bastante lento, para nuestra suerte **Nmap** nos ofrece formas de agilizar el escaneo. A menos puertos más rápido y más ágil irá el escaneo.
 
 ```bash
 nmap --top-ports 500 192.168.0.1
 ```
-
-![[Pasted image 20250624212901.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/3.png" alt="under" oncontextmenu="return false;">
+</div>
 
 1. Realmente en el primer escaneo no nos interesa que el puerto se encuentre filtrado
 2. Agregar `--open` solo representará los abiertos.
 
 > Para adelantar trabajo podemos usar el `-v` de Verbose para saber más información en tiempo de ejecución de **Nmap** los puertos descubiertos.
-
-![[Pasted image 20250624213138.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/4.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Puerto descubierto 80, 443, 22, 23, etc.
 
@@ -1014,14 +1018,146 @@ El ir rápido puede quitarnos precisión en nuestro escaneo, pero mirando la ant
 > La resolución DNS Domain Name System es un sistema para traducir los nombres de los sitios web a números IP. En lugar que acceder por IP entramos por http://google.com entre otros.
 
 En algunas ocasiones lo mejor es siempre remover esta resolución con `-n`
-
-![[Pasted image 20250624213613.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/5.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Fue mucho más rápido en este caso, pero podemos aumentar la velocidad aún más agregando Plantillas de temporizado.
 
 **Nmap** tiene 5 modos
 1. Paranoico
 2. Sigilso
+3. Amable
+4. Normal
+5. Agresivo
+6. Loco
+
+Así podemos ajustar la velocidad de nuestro escaneo
+
+```bash
+nmap -p- -T5 --open 192.168.0.1 -v -n
+```
+
+A más lento la plantilla de temporizado más silencioso será el escaneo.
+
+Otro escaneo sería con un `tcp connect scan`
+
+```bash
+nmap -p- --open -T5 -sT 192.168.0.1 -v -n
+```
+
+Aquí lo que va a pasar es que se va a establecer el **Three Way Handshake**
+
+```
+Lanzamos un SYN
+
+SYN -> (RST (cerrado))
+
+Sí el puerto está cerrado nos responderá con un RST Reset paquet, pero si está abierto
+
+SYN -> (RST (cerrado) | SYN/ACK (abierto) -> ACK)
+```
+
+Vamos a analizar con Wireshark este flujo, para ello usando **tcpdump** nos pondremos en escucha para analizar el trafico:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/6.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/7.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/8.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Dado que el puerto destino ha sido el `22`, podemos aplicar un filtro como `tcp.port == 22`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/9.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Podemos ver el filtro y como hemos enviado un SYN, y el router nos responde con SYN ACK, por último concluimos la conexión con ACK, y el RST es porque la conexión ya no se mantiene.
+
+Esto fue para un puerto abierto, pero para uno cerrado?
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/10.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Hemos intentado con `nmap -p134 -sT -v -n 192.168.0.1`
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/11.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Aplicando nuevamente el filtro para el puerto 134 vemos el SYN de nuestro lado y como el puerto está cerrado nos cierra la conexión con RST.
+
+> Esto sería todo por el `-sT` tcp connect scan.
+
+<h1 class="amarillo">Más parámetros</h1>
+
+Otro muy interesante es el `-Pn` ya que nuestros escaneos por defecto con **NMAP** es identificar si los hosts están activos y en caso de que estén apagados no procede con el escaneo y te recomienda agregar este parámetro. (Lo hace mediante el protocolo de resolución de direcciones ARP).
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/12.png" alt="under" oncontextmenu="return false;">
+</div>
+
+De que vaya un poco lento no es un problema ya que aún podemos agilizar mucho más el escaneo.
+
+<h1 class="amarillo">¿Qué tal un escaneo por UDP?</h1>
+
+Para escanear con **NMAP** los puertos por el protocolo UDP, podemos hacerlo de la siguiente manera:
+
+```
+nmap -sU
+```
+
+Pero va mucho más lento por UDP que por TCP.
+
+```
+nmap --top-ports 500 -sU --open -v -n -Pn 192.168.0.1
+```
+
+Este tipo de combinatorias hacen que vayan mucho más rápido los escaneos
+
+<h1 class="amarillo">ARP vs NMAP</h1>
+
+Hace unas clases trabajamos con `arp-scan` para identificar equipos que estén ubicados dentro nuestra red local
+
+```bash
+arp-scan -I enp3s0 --localnet
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/8.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Digamos que podemos hacerlo con **NMAP** con el parámetro `-sn`:
+
+```bash
+nmap -sn 192.168.0.0/24
+```
+
+> Se aplica un barrido con PING mediante trazas ICMP para descubrir Hosts activos.
+
+Debemos indicar el CIDR en el escaneo.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/13.png" alt="under" oncontextmenu="return false;">
+</div>
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/14.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Y en este caso hay 7 equipos y hemos logrado identificar hosts en nuestra red local.
+
+> Un pequeño bonus es el parámetro `-O` pero es muy agresivo y no se recomienda para la identificación de sistema operativo.
+
+Algo que si es de utilidad es identificar la versión y servicio para los puertos usando los parametros `-sC -sV`.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/15.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Nos brinda un poco más de información y esto para identificar versiones vulnerables o vías potenciales para explotar alguna vulnerabilidad y esta genial.
 
 ---
 
