@@ -961,6 +961,67 @@ fi
 
 <h2 id=""><h2 id="whity">Nmap y sus diferentes modos de uso</h2></h2>
 
+Para la fase de reconocimiento nosotros como atacantes debemos tener claro en todo momento es conocer que puertos están abiertos. A través de estos puertos se exponen los servicios y así como dijimos anteriormente tenemos 65535 puertos y por defecto vamos a comenzar los escaneos por el protocolo **TCP**.
+
+Vamos a comenzar practicando con **NMAP** y usando la dirección IP de nuestro router:
+
+![[Pasted image 20250624210331.png]]
+
+Podemos hacer el comando `route -n` y en Gateway tendremos `192.168.0.1`.
+
+La herramienta **NMAP** dispone de múltiples parámetros y con el `-p` le indicamos los puertos que queremos escanear:
+1. Escribimos **nmap**
+2. Especificamos los puertos que queremos escanear con `-p`
+3. Por último siempre colocamos nuestra dirección IP a escanear
+
+```bash
+nmap -p- 192.168.0.1
+```
+
+**Usos del -p**
+```
+nmap -p22 -> enumera únicamente el puerto 22
+nmap -p1-65535 -> enumera todo el rango de puertos
+nmap -p1-100
+nmap -p- -> también enumera todo el rango de puertos
+```
+
+Este escaneo puede tardar un poco al hacer el escaneo, y cabe resaltar que los resultados de este escaneo pueden arrojar información relevante de los puertos como lo son sus estados (Abierto, Filtrado, Cerrado).
+
+> Para el caso del estado Filtrado (Filtered) es porque **nmap** no es capaz de distinguir con certeza si el puerto está abierto o filtrado (Sea filtrado por Firewall, etc).
+
+![[Pasted image 20250624212137.png]]
+
+El escaneo va bastante lento, para nuestra suerte **Nmap** nos ofrece formas de agilizar el escaneo. A menos puertos más rápido y más ágil irá el escaneo.
+
+```bash
+nmap --top-ports 500 192.168.0.1
+```
+
+![[Pasted image 20250624212901.png]]
+
+1. Realmente en el primer escaneo no nos interesa que el puerto se encuentre filtrado
+2. Agregar `--open` solo representará los abiertos.
+
+> Para adelantar trabajo podemos usar el `-v` de Verbose para saber más información en tiempo de ejecución de **Nmap** los puertos descubiertos.
+
+![[Pasted image 20250624213138.png]]
+
+Puerto descubierto 80, 443, 22, 23, etc.
+
+El ir rápido puede quitarnos precisión en nuestro escaneo, pero mirando la anterior imagen dice **Initiating Parallell DNS resolution** esto significa que esta aplicando resolución DNS.
+
+> La resolución DNS Domain Name System es un sistema para traducir los nombres de los sitios web a números IP. En lugar que acceder por IP entramos por http://google.com entre otros.
+
+En algunas ocasiones lo mejor es siempre remover esta resolución con `-n`
+
+![[Pasted image 20250624213613.png]]
+
+Fue mucho más rápido en este caso, pero podemos aumentar la velocidad aún más agregando Plantillas de temporizado.
+
+**Nmap** tiene 5 modos
+1. Paranoico
+2. Sigilso
 
 ---
 
