@@ -1319,6 +1319,75 @@ Esto lo podemos manipular con `--source-port 53`
 
 En INFO vemos 53, por tanto hemos podido manipular este puerto aleatorio temporalmente eludiendo en algunos casos el Firewall.
 
+<h1 class="amarillo">Data-length</h1>
+
+Hacemos un **NMAP** al puerto 22 y lo capturamos con `tcpdump` para posteriormente abrirlo con `wireshark`
+ <div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/24.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Y donde pone **LENGTH** vemos 58, hay que tener en cuenta que algunos Firewalls conocen tamaños de paquetes específicos para ciertas herramientas (Una lista negra ejemplo: "Si el paquete tiene un Length de 58, oye cuidado porque a lo mejor nos están intentando hacer un reconocimiento con **nmap**").
+
+Podemos modificarlo con `--data-length 21`
+
+```bash
+echo $((58+21))
+79
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/32.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/33.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Por alguna razón sale 74, pero la longitud del paquete ha sido alterada.
+
+<h1 class="amarillo">--spoof-mac</h1>
+
+```bash
+nmap -p22 192.168.0.1 --spoof-mac Dell -Pn
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/34.png" alt="under" oncontextmenu="return false;">
+</div>
+
+En ciertas ocasiones hay equipos autorizados por la dirección MAC  para ciertas comunicaciones entre servicios, por tanto todo se va combinando y podemos volver a usar `arp-scan -I enp3s0 --localnet` para identificar equipos en la red local y obtener sus direcciones MAC, o incluso con el mismo **nmap** `-sn`.
+
+<h1 class="amarillo">-sS Self Scan</h1>
+
+Normal mente se tramita un SYN -> RST (Closed) | SYN ACK (Abierto) -> ACK.
+
+Pero el `-sS` cierra directamente al conexión:
+
+```
+SYN -> SYN ACK -> RST
+```
+
+Esto evita que se registren Logs ya que por defecto la mayoría de Firewalls conexiones establecidas correctamente. Entonces la conexión es cerrada forzosamente.
+
+Esto agiliza bastante la velocidad del escaneo especialmente con el `--min-rate` y 5000 paquetes (Así habrá garantía de equipos con puertos abiertos y 
+cerrados)
+
+**Así es como damos con la poderosa combinación**:
+```bash
+sudo nmap -p- --open -sS --min-rate 5000 -v -n -Pn 192.168.0.1
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/35.png" alt="under" oncontextmenu="return false;">
+</div>
+
+> Fue casi instantáneo el escaneo. 
+
+Abrimos wireshark:
+1. Aplicamos el filtro `tcp.port == 22`
+2. Vemos como la comunicación ha sido (SYN -> SYN ACK -> RST)
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/36.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
 
 ---
 
