@@ -1163,6 +1163,163 @@ Nos brinda un poco más de información y esto para identificar versiones vulner
 
 <h2 id=""><h2 id="whity">Técnicas de evasión de FireWalls - MTU DATA LENGTH SOURCE PORT DECOY ETC</h2></h2>
 
+> Un Firewall o Corta fuegos es un sistema de seguridad de red que controla el trafico de red entrante y saliente en función de reglas de seguridad predeterminadas.
+
+Normalmente al enumerar una máquina con **NMAP** hay una serie de puertos abiertos, una vez conseguido el acceso a la máquina es muy probable que con `netstats` o `ss` puede en algunas ocasiones tener la máquina puertos abiertos internos (Es bastante normal que sean únicamente visibles internamente).
+
+Se pueden acceder a estos puertos sin problemas con técnicas como **Port Forwarding** pero lo veremos más adelante, ahora lo que veremos es al hacer escaneos encontrar puertos Filtrados (Pueda ser porque hay un Firewall que impida que **Nmap** determine si está abierto o cerrado).
+
+Nmap tiene una serie de parametros que pueden ayudar a eludir posibles Firewalls.
+
+<h1 class="verde">Manual de nmap</h1>
+```
+-f; --mtu <valor>: Fragmentar paquetes
+-D <señuelo1,señuelo2[,ME],..>: Disimular análisis con señuelos
+--spoof-mac <dirección-mac/prefijo/nombre de fabricante> : Falsificar la dirección MAC
+--badsum: Envíar paquetes con una suma de comprobación TCP/UDP Falsa
+-g/--source-port <port>: Utilizar el número de puerto dado
+-S: Falsificar dirección IP origen
+--data-length
+```
+<h1 class="amarillo">Fragmentación de Paquetes</h1>
+
+Comenzando con el `-f` tenemos la Fragmentación de paquetes. Esto es al momento de realizar el escaneo enviar el paquete con todos los datos correspondientes lo enviamos fragmentado y lo podemos ver con wireshark.
+
+```bash
+namp -p22 192.168.0.1 -f
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/16.png" alt="under" oncontextmenu="return false;">
+</div>
+
+De primer vistazo no se ve mucha diferencia pero si capturamos el trafíco con `tcpdump`:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/17.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Ahora abrimos la Captura.cap con `wireshark`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/18.png" alt="under" oncontextmenu="return false;">
+</div>
+
+En este caso el filtro no será por un puerto, sino que por paquetes fragmentados. Para hacer esto escribimos el filtro `ip.flags.mf == 1`:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/19.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Podemos ver el filtro y en INFO dice Fragmented IP protocol.
+
+Estos paquetes luego son re ensamblados (Se envían fragmentados y se re ensamblan para poder identificar el contenido del paquete), podemos ver que dice **Reassembled in #48** para poder ver esto debemos quitar el filtro y buscar el #48.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/20.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Por TCP si ha tramitado una solicitud para saber si el puerto 22 está abierto, en algunos casos los Firewalls esperan un paquete concreto y el hecho de fragmentar el paquete para puertos abiertos o incluso algunos que estén filtrados ayuda a que de primeras podamos llegar a ver los puertos.
+
+<h1 class="amarillo">MTU Unidad de transmisión máxima</h1>
+
+> Esto es un valor el cual puede estar establecido en los Firewalls y normalmente son múltiplos de 8 y al poner un valor inferior al esperado podemos burlar el Firewall.
+
+```bash
+nmap -p22 192.168.0.1 --mtu 8
+```
+
+Si hacemos un `nmap --help`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/21.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Todos estos son los parámetros que podemos usar para eludir un Firewall o un IDS.
+
+> Un IDS es un sistema de detección de intrusiones para evitar accesos no autorizados.
+
+<h1 class="amarillo">Decoy</h1>
+
+El parámetro `-D` Decoy, es para spoofear direcciones IP al hacer un escaneo. El chiste de este parámetro es que no solo se vea únicamente nuestra dirección IP si no muchas más.
+
+```bash
+nmap -p22 192.168.0.1 -D 192.168.0.27
+```
+
+Vamos a verlo con wireshark:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/22.png" alt="under" oncontextmenu="return false;">
+</div>
+
+1. IP Router 192.168.0.1
+2. Mi IP 192.168.0.6
+3. IP para el Decoy y burlar un posible Firewall 192.168.0.27
+4. Capturamos el tráfico con `tcpdump`
+5. Abrimos la captura con `wireshark`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/23.png" alt="under" oncontextmenu="return false;">
+</div>
+
+6. El puerto destino es el 22, así que aplicamos el filtro `tcp.port == 22`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/24.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Donde esta el **Source** podemos ver Mi dirección IP 192.168.0.6 pero también la 192.168.0.27. Y hemos hecho que otra dirección IP tramite el paquete al destino (Router) y el caso más practico sería el siguiente:
+
+```bash
+namp --top-ports 100 192.168.0.1 -D -v -n 192.168.0.2,192.168.0.3,192.168.0.4,192.168.0.5,192.168.0.6,192.168.0.7,192.168.0.8,192.168.0.9,192.168.0.10,192.168.0.11,192.168.0.12,192.168.0.13,192.168.0.14,192.168.0.15,192.168.0.16,192.168.0.17,192.168.0.18,192.168.0.19,192.168.0.20,192.168.0.21,192.168.0.22,192.168.0.23,192.168.0.24,192.168.0.25,192.168.0.26,192.168.0.27,192.168.0.28,192.168.0.29,192.168.0.30,192.168.0.31,192.168.0.32,192.168.0.33,192.168.0.34,192.168.0.35,192.168.0.36,192.168.0.37,192.168.0.38,192.168.0.39,192.168.0.40,192.168.0.41,192.168.0.42,192.168.0.43,192.168.0.44,192.168.0.45,192.168.0.46,192.168.0.47,192.168.0.48,192.168.0.49,192.168.0.50,192.168.0.51,192.168.0.52,192.168.0.53,192.168.0.54,192.168.0.55,192.168.0.56,192.168.0.57,192.168.0.58,192.168.0.59,192.168.0.60,192.168.0.61,192.168.0.62,192.168.0.63,192.168.0.64,192.168.0.65,192.168.0.66,192.168.0.67,192.168.0.68,192.168.0.69,192.168.0.70,192.168.0.71,192.168.0.72,192.168.0.73,192.168.0.74,192.168.0.75,192.168.0.76,192.168.0.77,192.168.0.78,192.168.0.79,192.168.0.80,192.168.0.81,192.168.0.82,192.168.0.83,192.168.0.84,192.168.0.85,192.168.0.86,192.168.0.87,192.168.0.88,192.168.0.89,192.168.0.90,192.168.0.91,192.168.0.92,192.168.0.93,192.168.0.94,192.168.0.95,192.168.0.96,192.168.0.97,192.168.0.98,192.168.0.99,192.168.0.100,192.168.0.101,192.168.0.102,192.168.0.103,192.168.0.104,192.168.0.105,192.168.0.106,192.168.0.107,192.168.0.108
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/25.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Esto trae sus ventajas por ejemplo determinada IP puede ver algunos puertos o servicios abiertos, entonces el que nosotros falsifiquemos con Decoy estas entradas de origen nos puede permitir ver algunos puertos filtrados como abiertos:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/26.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Aquí debemos aplicar un filtro para poder ver en funcionamiento el Decoy `ip.dst == 192.168.0.1`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/27.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Así que como origen podemos ver todos las direcciones IP que colocamos en el Decoy con **Nmap**.
+
+La gran pregunta aquí es <a><strong>¿Quién es la IP real que está tramitando esta solicitud?</strong></a> Porque ahora es más complicado y para un IDS es difícil identificarlo.
+
+<h1 class="amarillo">--Source-port</h1>
+
+Algo que se suele realizar también es modificar el puerto de salida:
+
+```bash
+nmap -p22 --open -T5 -v -n 192.168.0.1
+```
+
+Aislado a los puertos de destino como el 22, están los de salida (Aquí un puerto aleatorio del equipo se abre para poder enviar la solicitud y es automático, pero se puede manipular).
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/28.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Puerto 22 abierto y abrimos la captura con wireshark
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/29.png" alt="under" oncontextmenu="return false;">
+</div>
+
+1. Aplicamos el filtro `tcp.port == 22`
+2. Y en INFO podemos ver el puerto `44732` el cual es el aleatorio que ha abierto nuestra máquina para tramitar el paquete
+
+
+En ocasiones el Firewall trata de identificar el Source Port y si detecta dentro de una lista blanca que tiene el puerto 53 o el que corresponda, como nuestro puerto fue el `44732` la solicitud es bloqueada por el Firewall.
+
+Esto lo podemos manipular con `--source-port 53`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/30.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/31.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+En INFO vemos 53, por tanto hemos podido manipular este puerto aleatorio temporalmente eludiendo en algunos casos el Firewall.
+
+
 ---
 
 <h2 id=""><h2 id="whity">Uso de Scripts y Categorias de Nmap para aplicar reconocimiento</h2></h2>
