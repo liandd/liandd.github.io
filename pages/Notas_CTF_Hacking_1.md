@@ -1746,19 +1746,91 @@ y podemos quitar con grep -v 403:
 
 <h2 id=""><h2 id="whity">Credenciales y brechas de seguridad</h2></h2>
 
-
+Es una realidad en la que vivimos que los agentes de amenaza al vulnerar compañías (Venden o filtran) bases de datos con información de los usuarios, internos, y son datos críticos que terceros compran o consiguen para divulgarlo en internet. Dehashed es una página de ejemplo que por 10 dolares te da cceso a este tipo de información. No se profundizará más en este tema, si quieres averiguar si tus cuentas han sido comprometidas visita Have I been Pwn3d?.
 
 ---
 
 <h2 id=""><h2 id="whity">Identificación de las tecnologías de una página web</h2></h2>
 
+Cuando hablamos de las tecnologías que una página web emplea nos referimos a los lenguajes de programación y las herramientas que se utilizan para desarrollar la web y mantenerla activa. (HTML, CSS, JS, PHP, Frameworks, Bases de datos, herramientas de gestión de contenido CMS, etc). Esta información vale oro en la enumeración.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/63.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Desde la página de HackerOne voy a seleccionar alexa.amazon.com, vamos a comenzar con la herramienta `whatweb`.
+
+> whatweb es una herramienta que permite identificar la tecnologías que corren detrás de una página web o de un gestor de contenido.
+
+Suele reportar Fugas de información, o correos electronicos en el HTML.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/64.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/65.png" alt="under" oncontextmenu="return false;">
+</div>
+
+En este caso no vemos nada, pero si encontráramos JQuery, Tengine, Nginx, Apache, Python nos ayuda con la idea de que tecnologías esta usando la página. Y así veríamos en base a las versiones sus vulnerabilidades.
+
+Otra herramienta es Wappalyzer:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/66.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Y aquí si vemos que emplea Next.js, JQuery, Format como gestor de contenido, etc.
+
 ---
 
 <h2 id=""><h2 id="whity">Fuzzing - Enumeración de archivos en un servidor web</h2></h2>
 
+La etapa de fuzzing es muy importante para la enumeración de rutas en un servidor web, (especialmente en HackTheBox) así conoceremos la rutas y posibles recursos.
+
+
+Nos hemos ido a otra página `miwifi.com`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/67.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Y para averiguar las rutas usaremos gobuster:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/68.png" alt="under" oncontextmenu="return false;">
+</div>
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/69.png" alt="under" oncontextmenu="return false;">
+</div>
+
+1. El 301 nos hace un redirect
+2. El 403 corresponde a un Forbidden, el servidor deniega la acción solicitada
+
+Para saber que extensiones hay en la página podemos agregar `-x php,html,txt`
+
+
+Otra herramienta muy interesante es `fuff`:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/70.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<a href="https://github.com/ffuf/ffuf">Visita aquí</a>
+
+1. git clone https://github.com/ffuf/ffuf
+2. cd ffuf
+3. go build -ldflags "-s -w" .
+4. upx brute ffuf
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/71.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+```bash
+ffuf -w wordlists -u url -c colored -v verbose -mc filtrar por códigos de estado
+```
+
+
 ---
 
 <h2 id=""><h2 id="whity">Google Dorks - Google Hacking (Los 10 Dorks más usados)</h2></h2>
+
+
 
 ---
 
