@@ -1701,9 +1701,52 @@ Para está parte se hará uso de sitios web gratuitos en línea, no profundizare
 
 <h2 id=""><h2 id="whity">Enumeración de SubDominios</h2></h2>
 
+En https://phonebook.cz también podemos hacer enumeración de subdominios.
+
+Algo que podemos hacer es abusar de la transparencia del certificado SSL (Puede ayudar a ver subdominios) con la herramienta **ctfr**:
+
+1. git clone https://github.com/UnaPibaGeek/ctfr
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/58.png" alt="under" oncontextmenu="return false;">
+</div>
+
+De forma pasiva podremos averiguar subdominios:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/59.png" alt="under" oncontextmenu="return false;">
+</div>
+
+1120 Subdominos para facebook, lo mejor es que no estamos haciendo fuerza bruta.
+
+<h1 class="amarillo">Forma Activa</h1>
+
+Mediante la herramienta gobuster:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/60.png" alt="under" oncontextmenu="return false;">
+</div>
+
+El parametro que nos interesa es `vhost`, la diferencia es que aquí si haremos uso de diccionarios y fuerza bruta, `-u` para la URL, `-w` para el wordlist y acompañarlo de los diccionarios de SecLists:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/61.png" alt="under" oncontextmenu="return false;">
+</div>
+
+> Simplemente es clonar el repositorio.
+
+```bash
+gobuster vhost -u https://tinder.com -w /opt/apps/Tools/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
+```
+
+Y para que vaya más rapido podemos agregar hilos con `-t` 20
+
+y podemos quitar con grep -v 403:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/62.png" alt="under" oncontextmenu="return false;">
+</div>
+
 ---
 
 <h2 id=""><h2 id="whity">Credenciales y brechas de seguridad</h2></h2>
+
+
 
 ---
 
