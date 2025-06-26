@@ -1519,16 +1519,97 @@ Vemos que hay un total de 1092 rutas las que prueba este script:
   <img src="/assets/images/notas_hacking/2/50.png" alt="under" oncontextmenu="return false;">
 </div>
 
-
-
-
 ---
 
 <h2 id=""><h2 id="whity">Nmap - Creación de Custom Scripts en Lua</h2></h2>
+Vamos a crear un script en lua sencillo
+
+**example.nse**
+
+```lua
+-- HEAD --
+
+description = [[
+Script de ejemplo que enumera y reporta puertos abiertos por TCP
+]]
+
+-- RULE --
+
+portrule = function(host, port)
+	return port.protocol == "tcp"
+		and port.state == "open"
+end
+-- ACTION --
+
+action = function(host, port)
+	return "This port is open!"
+end
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/51.png" alt="under" oncontextmenu="return false;">
+</div>
 
 ---
 
 <h2 id=""><h2 id="whity">Alternativas para la enumeraciñón de puertos usando descriptores de archivo</h2></h2>
+
+Hasta ahora hemos estado utilizando la herramienta **NMAP**, pero como pentester o analista de seguridad viene bien saber formas alternativas de realizar la misma operatoria.
+
+> Vamos a crear un script en Bash el cual se encargue de descubrir puertos abiertos con una IP que le pasemos.
+
+**portScan.sh**:
+```bash
+#!/bin/bash
+#Autor: liandd (Juan García)
+##Colours
+greenColour="\e[0;32m"
+endColour="\033[0m\e[0m"
+redColour="\e[0;31m"
+blueColour="\e[0;34m"
+yellowColour="\e[0;33m"
+purpleColour="\e[0;35m"
+turquoiseColour="\e[0;36m"
+grayColour="\e[0;37m"
+
+# Ctrl_c
+trap ctrl_c SIGINT
+
+function ctrl_c(){
+	echo -e "\n\n${redColour}[!] Saliendo...${endColour}"
+	tput cnorm; exit 1
+}
+
+declare -a ports=( $(seq 1 65535) )
+
+function checkport(){
+  (exec 3<> /dev/tcp/$1/$2) 2>/dev/null
+
+  if [ $? -eq 0 ]; then
+    echo -e "\n${yellowColour}[+]${endColour} ${grayColour}Host${endColour} ${blueColour}$1${endColour} - ${grayColour}Port${endColour} ${blueColour}$2${endColour} ${greenColour}(OPEN)${endColour}"
+  fi
+
+  exec 3<&-
+  exec 3>&-
+
+}
+
+if [ $1 ]; then
+  for port in ${ports[@]}; do
+    checkport $1 $port $ 
+  done
+else
+  echo -e "\n${yellowColour}[!]${endColour} ${grayColour}Uso:${endColour} ${yellowColour}$0${endColour} ${blueColour}<ip-address>${endColour}\n"
+fi
+
+wait
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/52.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/53.png" alt="under" oncontextmenu="return false;">
+</div>
 
 ---
 
