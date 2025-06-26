@@ -1387,11 +1387,140 @@ Abrimos wireshark:
   <img src="/assets/images/notas_hacking/2/36.png" alt="under" oncontextmenu="return false;">
 </div>
 
-
-
 ---
 
 <h2 id=""><h2 id="whity">Uso de Scripts y Categorias de Nmap para aplicar reconocimiento</h2></h2>
+
+Nmap tiene una gran cantidad de scripts programados en .lua, para encontrar estos scripts podemos hacer `locate .nse`:
+
+Yo recomiendo que antes de usar locate actualizar las bases de datos locales con `sudo updatedb`:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/37.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Todos estos scripts son de **nmap** y los podemos usar.
+
+Anteriormente vimos como el router tiene el puerto 22 ssh abierto, algo que podemos hacer es usar `-sC -sV` para lanzar una serie de scripts básicos de reconocimiento y identificar la versión y servicio para el puerto 22.
+
+```bash
+nmap -p22 -sCV 192.168.0.1
+```
+
+En mi caso tengo un total de 615 scripts
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/38.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Al utilizar `-sC` lanzara un pequeño conjunto de scripts, no todos porque sería un escaneo muy agresivo.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/39.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Vemos que ha intentado lanzar un script con error por tanto, ha encontrado alguno para intentar y lo ha hecho.
+
+Uno de los scripts que suele lanzar el es `ftp-anon.nse` y el `http-robots.nse`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/40.png" alt="under" oncontextmenu="return false;">
+</div>
+
+1. El ftp anon, algunas veces está habilitado el usuario anonymous y podemos conectarnos sin contraseña incluso hasta con capacidad de subida de archivos.
+2. el robots.txt lo único que hace es validar la ruta robots.txt porque trae algunas rutas por defecto de página web.
+
+Pero cuando usamos `--script` podemos usar uno en concreto por ejemplo el `http-enum` el cual es un diccionario pequeño como rutas posibles para enumeración de páginas web.
+
+<h1 class="amarillo">Categorias de Scripts</h1>
+
+```bash
+locate .nse
+```
+
+Así veremos todos los scripts para nmap, pero si hacemos:
+
+```bash
+locate .nse | xargs grep "categories"
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/41.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Hay muchas y están repetidas, jugando con expresiones regulares:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/42.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Tenemos 15 categorías en total.
+
+Se puede combinar  categorías lanzando checkers siendo "vuln and safe"
+
+```bash
+nmap -p22 192.168.0.1 --script="vuln and safe"
+```
+
+Una máquina que fuese vulnerable al Eternal Blue seguramente al lanzar al puerto 445 reportaría que es vulnerable.
+
+<h1 class="verde">Ejemplo</h1>
+
+1. Creamos un directorio `admin`
+2. Montamos un servidor web con python `python3 -m http.server 80`
+3. Podemos saber que servicio esta ocupando un puerto con `lsof -i:80`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/43.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/44.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Imaginad que queremos aplicar fuerza bruta para encontrar este directorio `admin`
+
+```bash
+nmap -p80 --script http-enum 192.168.0.6
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/45.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Vemos que ha descubierto el `admin`.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/46.png" alt="under" oncontextmenu="return false;">
+</div>
+
+1. Escuchamos con tcpdump en la loopback
+2. Lanzamos el servidor web con python
+3. Miramos que el puerto este en uso por python
+4. Ejecutamos el nmap
+
+Revisamos la captura pero tshark:
+
+```bash
+tshark -r Captura.cap 2>/dev/null
+```
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/47.png" alt="under" oncontextmenu="return false;">
+</div>
+
+En este punto lo que haremos será aplicar filtros:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/48.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/49.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Nos quedamos solo con las rutas
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/49-2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Vemos que hay un total de 1092 rutas las que prueba este script:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/50.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+
 
 ---
 
