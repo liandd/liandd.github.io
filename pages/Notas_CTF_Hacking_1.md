@@ -1683,9 +1683,19 @@ Esto es más un proyecto a largo plazo, ya que el objetivo es llegar al rango GU
 
 <h2 id=""><h2 id="whity">Descubrimiento de correos electronicos</h2></h2>
 
+Para está parte se hará uso de sitios web gratuitos en línea, no profundizaremos mucho en está parte:
+
+1. https://hunter.io
+2. https://phonebook.cz
+3. Clearbit Connect add-on for Gmail
+4. https://www.verifyemailaddress.org
+5. https://email-checker.net
+
 ---
 
 <h2 id=""><h2 id="whity">Reconocimiento de imagenes</h2></h2>
+
+1. PimEyes.com
 
 ---
 
