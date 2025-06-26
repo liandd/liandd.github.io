@@ -1615,9 +1615,69 @@ wait
 
 <h2 id=""><h2 id="whity">Descubrimiento de archivos en la red local - ARP ICMP</h2></h2>
 
+Ya hemos trabajado con las siguientes herramientas para hacer descubrimiento de equipos:
+1. `arp-scan -I enp3s0 --localnet` por el protocolo de resolución de direcciones ARP.
+2. `nmap -sn 192.168.0/24` utilizando Ping Swift o barrido de ping.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/54.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Pero también podemos scriptearlo en Bash:
+
+```bash
+#!/bin/bash
+#Autor: liandd (Juan García)
+##Colours
+greenColour="\e[0;32m"
+endColour="\033[0m\e[0m"
+redColour="\e[0;31m"
+blueColour="\e[0;34m"
+yellowColour="\e[0;33m"
+purpleColour="\e[0;35m"
+turquoiseColour="\e[0;36m"
+grayColour="\e[0;37m"
+
+trap ctrl_c SIGINT
+
+function ctrl_c(){
+  echo -e "\n\n${redColour}[!] Saliendo...${endColour}\n"
+  tput cnorm; exit 1
+}
+
+tput civis
+
+for i in $(seq 1 254); do 
+  for port in 21 22 23 80 443 445 8080; do
+    (echo '' > /dev/tcp/192.168.0.$i/$port) 2>/dev/null && echo -e "\n${yellowColour}[+]${endColour} ${grayColour}Host${endColour} ${blueColour}192.168.0.$i${endColour} - ${greenColour}ACTIVE${endColour} - ${grayColour}Port${endColour} ${blueColour}$port${endColour} ${greenColour}(OPEN)${endColour}" &
+  done
+done
+
+wait
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/55.png" alt="under" oncontextmenu="return false;">
+</div>
+
+En caso de trazas ICMP bloqueadas está es una buena forma alternativa.
+
+<h1 class="amarillo">Masscan</h1>
+
+Es mucho más potente que **nmap**, está herramienta **Masscan** puede escanear millones de hosts.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/56.png" alt="under" oncontextmenu="return false;">
+</div>
+
 ---
 
 <h2 id=""><h2 id="whity">Validación de un objetivo - Fijando un Target en HackerOne</h2></h2>
+
+En este punto lo mejor será crear una cuenta en HackerOne para hacer Bug Bounty.
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/57.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Esto es más un proyecto a largo plazo, ya que el objetivo es llegar al rango GURU en HackTheBox.
 
 ---
 
