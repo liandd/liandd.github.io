@@ -1883,16 +1883,48 @@ Hay una página que se llama Pentest-Tools y está dedicada a recopilar estos Do
   <img src="/assets/images/notas_hacking/2/80.png" alt="under" oncontextmenu="return false;">
 </div>
 
-![[80.png]]
 <div style="text-align: center;">
   <img src="/assets/images/notas_hacking/2/81.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Todo esto es legal porque es información pública.
 
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/82.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/83.png" alt="under" oncontextmenu="return false;">
+</div>
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/84.png" alt="under" oncontextmenu="return false;">
+</div>
+
 ---
 
 <h2 id=""><h2 id="whity">Identificación y verificación de sistema operativo</h2></h2>
+
+Antes habíamos trabajado con **nmap** y el parámetro `-o` para identificar el sistema operativo, es muy curioso que al momento de aplicar un reconocimiento de equipos en la red local con el protocolo de resolución de direcciones `arp-scan` podremos ver las máquinas conectadas a nuestra red local. Si probamos lanzando `ping -c 1` a estas direcciones IP podremos resaltar un valor importante para la identificación de sistema operativo.
+
+```bash
+arp-scan -I enp3s0 --localnet
+```
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/85.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Para el ttl Time To Live Package, es un valor que indica al destinatario cuanto tiempo debe retener el paquete, estos paquetes son diferentes con respecto a los sistemas operativos.
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/86.png" alt="under" oncontextmenu="return false;">
+</div>
+<a href="https://cronicasdeuninformatico.com/2018/08/tiempos-ttl-de-los-distintos-sistemas.html">Visita aquí</a>
+
+> En función del valor TTL se puede identificar el sistema operativo.
+
+1. Las máquinas windows suelen tener 128.
+2. Las máquinas linux suelen tener 64.
+
+Estos valores se pueden modificar pero por defecto son estos.
 
 ---
 
