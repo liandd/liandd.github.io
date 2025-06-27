@@ -1825,12 +1825,70 @@ Otra herramienta muy interesante es `fuff`:
 ffuf -w wordlists -u url -c colored -v verbose -mc filtrar por códigos de estado
 ```
 
-
 ---
 
 <h2 id=""><h2 id="whity">Google Dorks - Google Hacking (Los 10 Dorks más usados)</h2></h2>
 
+Primeramente debemos hablar de Google Hacking
 
+> Cuando hablamos de Google Hacking nos referimos a una técnica en informática que implica el uso de operadores para realizar busquedas.
+
+Iremos a google.es
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/72.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Sí buscamos tinder.com:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/73.png" alt="under" oncontextmenu="return false;">
+</div>
+
+podemos realizar filtros avanzados como `site:tinder.com`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/74.png" alt="under" oncontextmenu="return false;">
+</div>
+
+De esta forma estaríamos forzando a que el navegador solo nos muestre resultados relacionados a tinder.com y recursos bajo este dominio.
+
+Existen muchos más filtros por ejemplo `filetype:txt`
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/75.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Es público este recurso y es curioso, también podemos contemplar otros archivos como `pdf, csv, .jsons` e infinidad de otros archivos. Otro filtro sería `intext` que es una forma de decir que los resultados de búsqueda no necesariamente deben ser de tinder.com pero si los resultados que tengan la palabra tinder.com
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/76.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/77.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<h1 class="amarillo">¿Qué implica esto?</h1>
+
+El uso de metadatos en algunos archivos:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/78.png" alt="under" oncontextmenu="return false;">
+</div>
+
+y con la herramienta `exiftool` podremos verlos:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/79.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Esto para hacer inteligencia y recopilar información es tremendo.
+
+Hay una página que se llama Pentest-Tools y está dedicada a recopilar estos Dorks:
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/80.png" alt="under" oncontextmenu="return false;">
+</div>
+
+![[80.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/notas_hacking/2/81.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Todo esto es legal porque es información pública.
 
 ---
 
