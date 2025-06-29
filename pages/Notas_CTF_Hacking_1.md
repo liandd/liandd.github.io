@@ -27,7 +27,7 @@ Esta publicación tiene los apuntes y notas sobre el tema <b><i>Hacking</i></b> 
 - [Técnicas de evasión de FireWalls - MTU DATA LENGTH SOURCE PORT DECOY ETC](#)
 - [Uso de Scripts y Categorias de Nmap para aplicar reconocimiento](#)
 - [Nmap - Creación de Custom Scripts en Lua](#)
-- [Alternativas para la enumeraciñón de puertos usando descriptores de archivo](#)
+- [Alternativas para la enumeración de puertos usando descriptores de archivo](#)
 - [Descubrimiento de archivos en la red local - ARP ICMP](#)
 - [Validación de un objetivo - Fijando un Target en HackerOne](#)
 - [Descubrimiento de correos electronicos](#)
