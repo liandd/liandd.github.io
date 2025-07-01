@@ -17,9 +17,6 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 <br><br>
 <p class="beb">↓ Notas y Apuntes</p>
 
-- [ 2025_21_06 ] <a  href="\Notas_CTF_Hacking_1">Notas - Hacking Para CTF 1</a>
-- [ 2025_22_01 ] <a  href="\Notas_CTF_Python_Ofensivo_1">Notas - Python Para CTF 1</a>
-- [ 2025_?_? ] Notas - Linux Para CTF 1
 - [ 2025_28_01 ] <a  href="\Notas_UCP_Ciberseguridad_1">UCP - Ciberseguridad 1</a>
 - [ 2024_25_11 ] <a  href="\Notas_UCP_Procesamiento_de_Lenguaje_Natural">UCP - Procesamiento de Lenguaje Natural</a>
 - [ 2023_05_21 ] UTP - Estructuras de datos
