@@ -9,12 +9,6 @@ permalink: /posts
 Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada temática.
 Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, sirviendo como referencia y soporte en mi formación.
 
-<p class="beb">↓ Entradas Recientes</p>
-
-- [ 2025_22_06 ] <a  href="\Misc_Programación_Competitiva">Programación Competitiva</a>
-- [ 2025_25_03 ] HTB Writeup - Unified
-- [ 2025_25_03 ] HTB Writeup - Vaccine
-<br><br>
 <p class="beb">↓ Notas y Apuntes</p>
 
 - [ 2025_28_01 ] <a  href="\Notas_UCP_Ciberseguridad_1">UCP - Ciberseguridad 1</a>
@@ -27,6 +21,14 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ HackTheBox Máquinas Resueltas</p>
 
+- [ ?? ] HTB Writeup - PC
+- [ ?? ] HTB Writeup - Cap
+- [ ?? ] HTB Writeup - Titanic
+- [ ?? ] HTB Writeup - Base
+- [ ?? ] HTB Writeup - Markup
+- [ ?? ] HTB Writeup - Included
+- [ 2025_25_03 ] <a  href="\HTB_Starting_Point#unified">HTB Writeup - Unified
+- [ 2025_25_03 ] <a  href="\HTB_Starting_Point#vaccine">HTB Writeup - Vaccine
 - [ 2025_25_03 ] <a  href="\HTB_Starting_Point#oopsie">HTB Writeup - Oopsie</a>
 - [ 2025_25_03 ] <a  href="\HTB_Starting_Point#archetype">HTB Writeup - Archetype</a>
 - [ 2025_25_03 ] <a  href="\HTB_Tactics.html">HTB Writeup - Tactics</a>
@@ -74,12 +76,7 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ ?? ] HTB Writeup - Awkward
 - [ ?? ] HTB Writeup - Soccer
 - [ ?? ] HTB Writeup - Stocker
-- [ ?? ] HTB Writeup - PC
 - [ ?? ] HTB Writeup - MetaTwo
-- [ ?? ] HTB Writeup - Titanic
-- [ ?? ] HTB Writeup - Base
-- [ ?? ] HTB Writeup - Markup
-- [ ?? ] HTB Writeup - Included
 - [ ? ] Notas - Programación en Linux uso de comandos y shell scripting
 - [ ? ] Notas - Powershell para Administración de Servidores y Seguridad
 - [ ? ] Notas - Linux Security and Hardening

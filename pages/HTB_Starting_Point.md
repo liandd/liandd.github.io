@@ -1828,6 +1828,7 @@ Logrando que se ejecuto primero nuestro binario malicioso *cat*. Y seremos root
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/vaccine/vaccine.webp" alt="under" oncontextmenu="return false;">
 </div>
+
 Encendemos la máquina y nos da la dirección IP 10.129.122.95 y usamos ping para saber si la máquina esta activa:
 
 ```bash
@@ -1845,70 +1846,136 @@ rtt min/avg/max/mdev = 120.835/123.672/129.102/3.047 ms
 ```
 
 Vemos un TTL 63 significa que estamos frente a un Linux.
-# Enumeración
+<h1 class="amarillo">Enumeración</h1>
 
-Hacemos uso de nmap a la IP 10.129.122.95
+Hacemos uso de nmap a la IP 10.129.122.95 para comenzar toda la parte de enumeración de puertos e identificación de servicios y lo exportamos nuestro escaneo al archivo allPorts
 
 ```bash
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.122.95 -oG allPorts
 ```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/nmap.png]]
+Limpiamos la captura con **extractPorts** pasandole como argumento nuestra captura allPorts:
 
-Limpiamos la captura con **extractPorts**:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/extractPorts.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/extractPorts.png]]
+Y vemos que nos reporta los puertos `21,22,80` como abiertos, pues con esta información podemos hacer un escaneo exhaustivo con nmap para identificar la version y servicio que corren para estos puertos:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/nmap2.png]]
+ Vemos que nmap nos reporta que el puerto `21` tiene el **FTP ANON** habilitado y como hay un recurso llamado **backup.zip**, por otro lado tenemos el `ssh` y un servicio web.
+<h1 class="amarillo">Explotación</h1>
 
-
-# Explotación
-
-![[fpt.png]]
-
-![[HTB/Starting Point/Tier 3/Vaccine/Images/ftp2.png]]
-
-![[HTB/Starting Point/Tier 3/Vaccine/Images/ftp3.png]]
-
-![[HTB/Starting Point/Tier 3/Vaccine/Images/whatweb.png]]
-
-![[HTB/Starting Point/Tier 3/Vaccine/Images/web.png]]
-
-![[HTB/Starting Point/Tier 3/Vaccine/Images/web2.png]]
-
-![[HTB/Starting Point/Tier 3/Vaccine/Images/john.png]]
-
-![[john2.png]]
-
-![[zip.png]]
-
-![[zip2.png]]
-
-![[md5.png]]
+Para la explotación nos conectaremos al servicio FTP usando las credenciales de anonymous sin proporcionar contraseña y podremos ver el archivo *backup.zip* él cual podremos traer a nuestro equipo con get.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/ftp.png" alt="under" oncontextmenu="return false;">
+</div>
 
 
+Podemos intentar con 7z extraer el archivo .zip:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/ftp2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/web3.png]]
+Pero nos pide proporcionar contraseña.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/ftp3.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/web4.png]]
+Dejaremos un poco de lado el comprimido para enumerar un poco el servicio web con la utilidad `whatweb`
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/whatweb.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[cookie.png]]
+Y vemos que nos reporta lo mismo que nmap sobre el titulo de la página.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/web.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/SQL.png]]
+Accedemos desde nuestro navegador y efectivamente desde MegaCorp se nos presenta un panel de Login:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/web.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/intrusion.png]]
+Podemos intentar utilizando `zip2john` para romper la contraseña del comprimido:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/john.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/user.png]]
-# Escalada
+Y ejecutamos john con el diccionario del rockyou pasandole el hash del comprimido.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/john2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[esc1.png]]
+Y nos reporta que la contraseña es **741852863**
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/zip.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/esc2.png]]
+Vamos a mirar el contenido del backup:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/zip2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/esc3.png]]
+y vemos credenciales en texto plano, podemos probar a utilizarlas en el panel de administración de MegaCorp pero no funciona, por el formato de la contraseña podemos ver que solo cuenta con números y letras de a hasta la f, por tanto si probamos MD5:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/md5.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Vaccine/Images/root.png]]
+Vemos que la credencial para admin ->  qwerty789
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/web3.png" alt="under" oncontextmenu="return false;">
+</div>
 
+Una vez loguedos en la página podemos ver unas listas y un barra de búsqueda, si buscamos algo...
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/web4.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Vemos que está viajando por URL nuestra búsqueda, eso tiene muy mala pinta porque puede significar una base de datos por detrás, podemos probar con `SQLMAP` a intentar si es posible acontecer alguna injección SQL, debemos tomar la cookie del usuario admin:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/cookie.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Y lanzamos SQLMAP:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/SQL.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Siendo vulnerable podemos ponernos en escucha con ncat y usando rlwrap para tener un poco más de control, y podemos probar con sql ejecutar una reverse shell:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/intrusion.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Una vez dentros podemos enumerar un poco el directorio y los ficheros que tenemos y eventualmente encontraremos la flag del usuario:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/user.png" alt="under" oncontextmenu="return false;">
+</div>
+
+<h1 class="amarillo">Escalada</h1>
+
+Para la escalada husmeando entre los archivos de configuración encontramos un nombre de bases de datos `carsdb` y un usuario y contraseña.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/esc1.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Por tanto, haciendo uso de `sudo -l` para listar algún privilegio que podamos tener como sudo vemos que podemos ejecutar /bin/vi como root:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/esc2.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Podemos aprovecharnos del privilegio que tenemos sobre el binario vi para escalar privilegios
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/vaccine/root.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
+Y hemos completado la máquina.
 
 <hr />
 <h2 id="unified"><h1 class="amarillo">Unified</h1></h2>
@@ -1916,8 +1983,10 @@ Limpiamos la captura con **extractPorts**:
 <div id="imgs" style="text-align: center;">
   <img src="/assets/images/StartingPoint/unified/unified.webp" alt="under" oncontextmenu="return false;">
 </div>
-10.129.135.195
 
+Encendemos la máquina y obtenemos la dirección ip 10.129.135.195, comprobamos que se encuentre encendida utilizando ping:
+
+```bash
 ❯ ping -c 5 10.129.135.195
 PING 10.129.135.195 (10.129.135.195) 56(84) bytes of data.
 64 bytes from 10.129.135.195: icmp_seq=1 ttl=63 time=116 ms
@@ -1925,59 +1994,127 @@ PING 10.129.135.195 (10.129.135.195) 56(84) bytes of data.
 64 bytes from 10.129.135.195: icmp_seq=3 ttl=63 time=111 ms
 64 bytes from 10.129.135.195: icmp_seq=4 ttl=63 time=113 ms
 64 bytes from 10.129.135.195: icmp_seq=5 ttl=63 time=112 ms
+```
 
-# Enumeración
+Vemos un TTL de 63, por tanto estamos frente a una máquina Linux.
+<h1 class="amarillo">Enumeración</h1>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/nmap.png]]
+Comenzamos la enumeración lanzando un escaneo potente, rápido y sigiloso con nmap:
 
-![[HTB/Starting Point/Tier 3/Unified/Images/nmap2.png]]
-# Explotación
+```bash
+sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.135.195 -oG allPorts
+```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/nmap.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/web.png]]
+Hacemos Parsing a la información más relevante de la captura utilizando nuestra función **extractPorts** y lanzamos un escaneo exhaustivo con nmap:
 
-![[HTB/Starting Point/Tier 3/Unified/Images/web2.png]]
+```bash
+nmap -sCV -p22,6789,8080,8443,8843.8880 -oN targeted
+```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/nmap2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/caido.png]]
+<h1 class="amarillo">Explotación</h1>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/caido2.png]]
+Vemos algunos puertos extraños utilizando http, así tratamos de acceder a la web por el puerto 8443 y se nos redirige a este panel de login
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/web.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/caido3.png]]
+Lo primero que probaríamos es buscar en Google que es UniFi y la version 6.4.54 y buscar las credenciales por defecto:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/web2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[pay.png]]
+Pero esto no funciona, probamos a interceptar esta petición con Caido:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/caido.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[pay2.png]]
+Y vemos una variable que llama la atención "strict" en true, pero buscando más en intenet vemos que realmente el campo vulnerable es el remember, podemos introducir un payload tal que:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/caido2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/intrusion.png]]
+Mientras probamos un payload nos ponemos en escucha para saber si la web puede intentar acceder a un recurso de nuestra máquina.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/caido3.png" alt="under" oncontextmenu="return false;">
+</div>
 
+Y vemos un ldap de nuestro lado y como nos ha llegado la petición. En lugar de eso podemos probar una reverse shell en base64:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/pay.png" alt="under" oncontextmenu="return false;">
+</div>
 
+Y encontramos en internet un exploit `rogue-jndi` con java que nos permite explotar y tener ejecución remota de comandos en esta máquina. Para ello utilizamos java y que nos interprete nuestra reverse shell en base64
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/pay.png" alt="under" oncontextmenu="return false;">
+</div>
 
-# Escalada
+Vemos como el exploit de java nos responde con o=tomcat y obtenemos una shell:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/intrusion.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/esc.png]]
+De esta manera podremos ver la user.txt
 
-![[HTB/Starting Point/Tier 3/Unified/Images/esc2.png]]
+<h1 class="amarillo">Escalada</h1>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/esc3.png]]
+Para la escala no encontramos permisos SUID ni capabilities, ni tenemos permisos sobre algún binario. Probamos a filtrar los procesos que corren localmente en la máquina y vemos que nos reporta un servicio mongo:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/esc.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/esc4.png]]
+Probamos a utilizar mongo:
 
-![[HTB/Starting Point/Tier 3/Unified/Images/esc5.png]]
+```bash
+mongo --port 27117 ace --eval "db.admin.find().forEach(printjson)"
+```
 
-![[HTB/Starting Point/Tier 3/Unified/Images/esc6.png]]
+Y vemos unas credenciales:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/esc2.png" alt="under" oncontextmenu="return false;">
+</div>
 
-![[HTB/Starting Point/Tier 3/Unified/Images/root.png]]
-
---- 10.129.135.195 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 4005ms
-rtt min/avg/max/mdev = 110.743/113.041/115.996/1.709 ms
-
+```python
+administrator@unified.htb
 $6$Ry6Vdbse$8enMR5Znxoo.WfCMd/Xk65GwuQEPx1M.QP8/qHiQV0PvUc3uHuonK4WcTQFN1CRk3GwQaquyVwCVq8iQgPTt4
+```
 
-$6$zd3aCG0uN4FkSFpM$txBM8YnmCuifebw9sZ5gh56wtSwlBMFZ4O8f0MB79h0V2y3r/uaGAslpb3YkRWDtEQo8jfvn0PDUMg47EOlx8.
+Pero es un hash la contraseña que no podemos romper, pero podemos modificar la base de datos mongo, así creamos nuestra propia contraseña y vamos a cambiarsela al usuario administrator:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/esc3.png" alt="under" oncontextmenu="return false;">
+</div>
 
+Ahora vamos a escribir nuestra contraseña:
+
+```bash
 mongo --port 27117 ace --eval 'db.admin.update({"_id":
 ObjectId("61ce278f46e0fb0012d47ee4")},{$set:{"x_shadow":"$6$zd3aCG0uN4FkSFpM$txBM8YnmCuifebw9sZ5gh56wtSwlBMFZ4O8f0MB79h0V2y3r/uaGAslpb3YkRWDtEQo8jfvn0PDUMg47EOlx8."}})'
+```
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/esc4.png" alt="under" oncontextmenu="return false;">
+</div>
 
+Y cuando volvemos al panel de login podremos iniciar sesión:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/esc5.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Revisando un poco la web podemos ver que podemos ver información sobre el ssh.
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/esc6.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Usando las credenciales por ssh podremos conectarnos como root y listar la flag:
+<div style="text-align: center;">
+  <img src="/assets/images/StartingPoint/unified/root.png" alt="under" oncontextmenu="return false;">
+</div>
+
+Y así hemos completado todo el Starting Point de HackTheBox, la verdad ha sido muy útil para reforzar y dar comienzo a esta formación en un campo tan interesante como el Pentesting.
 
 ---
 
