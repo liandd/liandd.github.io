@@ -21,14 +21,39 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ HackTheBox Máquinas Resueltas</p>
 
-- [ ?? ] HTB Writeup - PC
-- [ ?? ] HTB Writeup - Cap
-- [ ?? ] HTB Writeup - Titanic
-- [ ?? ] HTB Writeup - Base
-- [ ?? ] HTB Writeup - Markup
-- [ ?? ] HTB Writeup - Included
-- [ 2025_25_03 ] <a  href="\HTB_Starting_Point#unified">HTB Writeup - Unified
-- [ 2025_25_03 ] <a  href="\HTB_Starting_Point#vaccine">HTB Writeup - Vaccine
+- [ ?? ] HTB Writeup - Jeeves
+- [ ?? ] HTB Writeup - Epsilon
+- [ ?? ] HTB Writeup - Driver
+- [ ?? ] HTB Writeup - GoodGames
+- [ ?? ] HTB Writeup - NunChucks
+- [ ?? ] HTB Writeup - NodeBlog
+- [ ?? ] HTB Writeup - Love
+- [ ?? ] HTB Writeup - Horizontall
+- [ ?? ] HTB Writeup - Return
+- [ ?? ] HTB Writeup - Validation
+- [ ?? ] HTB Writeup - Sau
+- [ ?? ] HTB Writeup - Búsqueda
+- [ ?? ] HTB Writeup - Investigation
+- [ ?? ] HTB Writeup - Precious
+- [ ?? ] HTB Writeup - Photobomb
+- [ ?? ] HTB Writeup - Pollution
+- [ ?? ] HTB Writeup - MetaTwo
+- [ ?? ] HTB Writeup - Awkward
+- [ ?? ] HTB Writeup - Soccer
+- [ ?? ] HTB Writeup - Stocker
+- [ ?? ] HTB Writeup - Explore
+- [ ?? ] HTB Writeup - Ophiuchi
+- [ ?? ] HTB Writeup - Magic
+- [ ?? ] HTB Writeup - OpenAdmin
+- [ ?? ] HTB Writeup - Ready
+- [ 2025_11_07 ] <a  href="\HTB_PC.html">HTB Writeup - PC</a>
+- [ 2025_11_07 ] <a  href="\HTB_Cap.html">HTB Writeup - Cap</a>
+- [ 2025_17_05 ] <a  href="\HTB_Titanic.html">HTB Writeup - Titanic</a>
+- [ 2025_28_03 ] <a  href="\HTB_Base.html">HTB Writeup - Base</a>
+- [ 2025_28_03 ] <a  href="\HTB_Markup.html">HTB Writeup - Markup</a>
+- [ 2025_26_03 ] <a  href="\HTB_Included.html">HTB Writeup - Included</a>
+- [ 2025_25_03 ] <a  href="\HTB_Starting_Point#unified">HTB Writeup - Unified</a>
+- [ 2025_25_03 ] <a  href="\HTB_Starting_Point#vaccine">HTB Writeup - Vaccine</a>
 - [ 2025_25_03 ] <a  href="\HTB_Starting_Point#oopsie">HTB Writeup - Oopsie</a>
 - [ 2025_25_03 ] <a  href="\HTB_Starting_Point#archetype">HTB Writeup - Archetype</a>
 - [ 2025_25_03 ] <a  href="\HTB_Tactics.html">HTB Writeup - Tactics</a>
@@ -72,11 +97,6 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 <br><br>
 <p class="beb">↓ more soon</p>
 
-- [ ?? ] HTB Writeup - Pollution
-- [ ?? ] HTB Writeup - Awkward
-- [ ?? ] HTB Writeup - Soccer
-- [ ?? ] HTB Writeup - Stocker
-- [ ?? ] HTB Writeup - MetaTwo
 - [ ? ] Notas - Programación en Linux uso de comandos y shell scripting
 - [ ? ] Notas - Powershell para Administración de Servidores y Seguridad
 - [ ? ] Notas - Linux Security and Hardening
