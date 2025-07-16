@@ -28,7 +28,10 @@ permalink: /portafolio
       color: "red";
 
     }
-    -->
+    img {
+      pointer-events: none;
+    }
+       -->
   </style>
 </head>
 
@@ -136,7 +139,7 @@ permalink: /portafolio
         <font face="Garmond, Serif" size="3">
 
           <img align="LEFT" hspace="3" src="/assets/images/portafolio/ielogo.gif" width="35" height="35" alt=""
-            border="0" style="padding-top: 10px;">
+            border="0" style="padding-top: 10px;" oncontextmenu="return false;">
           <img src="/assets/images/portafolio/1ptrans.gif" width="1" height="4" alt="" border="0"><br>
           Internet Explorer<br>
           <a href="https://internet-explorer-7.softonic.com/">Descargalo</a> gratis!
@@ -261,8 +264,8 @@ permalink: /portafolio
       <td colspan="6" valign="TOP">
         <font face="Garamond, Serif" size="3">
 
-          <a href="" target="_top"><img align="LEFT" hspace="0" src="/assets/images/portafolio/pfp2.PNG" width="110"
-              height="100" alt="Foto" border="0"></a>
+          <img align="LEFT" hspace="0" src="/assets/images/portafolio/pfp2.PNG" width="110"
+              height="100" alt="Foto" border="0" oncontextmenu="return false;">
           <!--IMAGE SPACER--><img align="LEFT" hspace="0" src="/assets/images/portafolio/1ptrans.gif" width="10"
             height="110" alt="" border="0">
           <a href="" target="_top"><b>Ing. Juan David García Acevedo, BSc.</b></a>
@@ -348,7 +351,46 @@ permalink: /portafolio
       </td>
 
     </tr>
-
+<script type="text/javascript">
+        function mousehandler(e) {
+          var myevent = (isNS) ? e : event;
+          var eventbutton = (isNS) ? myevent.which : myevent.button;
+          if ((eventbutton == 2) || (eventbutton == 3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        function disableCtrlKeyCombination(e) {
+          var forbiddenKeys = new Array("a", "s", "c", "x", "u");
+          var key;
+          var isCtrl;
+          if (window.event) {
+            key = window.event.keyCode;
+            //IE
+            if (window.event.ctrlKey)
+              isCtrl = true;
+            else
+              isCtrl = false;
+          }
+          else {
+            key = e.which;
+            //firefox
+            if (e.ctrlKey)
+              isCtrl = true;
+            else
+              isCtrl = false;
+          }
+          if (isCtrl) {
+            for (i = 0; i < forbiddenKeys.length; i++) {
+              //case-insensitive comparation
+              if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                return false;
+              }
+            }
+          }
+          return true;
+        }
+      </script>
     <!-- horizontal gray line -->
     <tr>
       <td colspan="5">
