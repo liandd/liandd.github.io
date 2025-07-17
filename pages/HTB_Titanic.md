@@ -4,7 +4,7 @@ layout: page
 permalink: /HTB_Titanic
 ---
 
-<h2 class="amarillo">Titanic</h2>
+<h2 class="amarillo">HackTheBox - Titanic WriteUp - Máquina retirada</h2>
 <div id="logos" style="text-align: center;">
   <img src="/assets/images/HTB/Titanic/Titanic.png" alt="under" oncontextmenu="return false;">
 </div>
