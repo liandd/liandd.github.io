@@ -9,16 +9,7 @@ permalink: /Script_VpnConnection
 Visita a <a href="https://unkn0wn1122.github.io/" target="_blank">Unkn0wn1122</a>!!
 
 <h1 class="amarillo">Descripción</h1>
-
-Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN para Hack The Box. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.
-
-<h1 class="amarillo">Funcionalidades del Script</h1>
-
-1. **Gestión de Conexiones:** Establece o cierra la conexión con un archivo de configuración `.ovpn` detectado automáticamente.
-2. **Creación de Interfaz tun:** Verifica y configura la interfaz de red necesaria para OpenVPN.
-3. **Soporte para Distros:** Compatible con sistemas basados en Debian y Arch para instalación automática de OpenVPN.
-4. **Copia de IP:** Copia la IP asignada a la interfaz tun al portapapeles para un acceso rápido.
-5. **Interfaz Amigable:** Incluye un panel de ayuda accesible con `-h`.
+Este script simplifica la gestión de conexiones VPN, proporcionando un manejo automatizado y eficiente de la interfaz tun y las configuraciones de VPN.
 
 <h3 class="verde">Situación de uso</h3>
 
@@ -215,7 +206,6 @@ fi
 
 <h1 class="amarillo">Conclusión</h1>
 
-Este script simplifica la gestión de conexiones VPN, proporcionando un manejo automatizado y eficiente de la interfaz tun y las configuraciones de VPN.
 
 Esta publicación ha sido creada como parte del aprendizaje en Bash y scripting avanzado. Todos los creditos para <a><strong><em>Unkn0wn1122</em></strong></a>.
 
