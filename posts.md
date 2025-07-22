@@ -11,11 +11,19 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ Notas y Apuntes</p>
 
+- [ ?? ] Notas - Pentester Academy x86 Assembly
 - [ 2025_28_01 ] <a  href="\Notas_UCP_Ciberseguridad_1">UCP - Ciberseguridad 1</a>
 - [ 2024_25_11 ] <a  href="\Notas_UCP_Procesamiento_de_Lenguaje_Natural">UCP - Procesamiento de Lenguaje Natural</a>
-- [ 2023_05_21 ] UTP - Estructuras de datos
+- [ 2024_25_11 ] <a  href="\Notas_UCP_Sistemas_Operativos">UCP - Sistemas Operativos</a>
+- [ 2023_08_05 ] <a  href="\Notas_UCP_Convergencia_de_sistemas">UCP - Convergencia de sistemas</a>
+- [ 2023_08_01 ] <a  href="\Notas_UCP_Telecomunicaciones_3">UCP - Telecomuniacaiones 3</a>
+- [ 2022_01_07 ] <a  href="\Notas_UCP_Redes_de_datos_2">UCP - Redes de datos 2</a>
+- [ 2022_02_07 ] <a  href="\Notas_UCP_Telecomunicaciones_2">UCP - Telecomunicaciones 2</a> 
+- [ 2023_02_01 ] <a  href="\Notas_UCP_Telecomunicaciones_1">UCP - Telecomunicaciones 1</a>
+- [ 2023_01_07 ] <a  href="\Notas_UCP_Redes_de_datos_1">UCP - Redes de datos 1</a> 
+- [ 2023_05_21 ] <a  href="\Notas_UTP_Estructuras_de_datos">UTP - Estructuras de datos</a>
 - [ 2023_27_01 ] UCP - SQL
-- [ 2023_27_01 ] UCP - Java
+- [ 2023_27_01 ] <a  href="\Notas_UCP_Programacion_Orientada_a_Objetos">UCP - Java
 - [ 2022_01_07 ] <a  href="\Notas_UCP_Programación_Estructurada">UCP - C++</a> 
 <br><br>
 
@@ -79,12 +87,14 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ Scripting</p>
 
+- [ ? ] Scripting - Over The Wire Bandit
 - [ 2024_28_10 ] <a  href="\Script_VpnConnection">Script - VpnConnection / unkn0wn1122</a>
 - [ 2023_30_11 ] <a  href="\Script_SubNet">Script - SubNet</a>
 - [ 2023_12_02 ] <a  href="\Script_Decompressor">Script - Decompressor OTW (Bandit)</a>
 <br><br>
 <p class="beb">↓ Publicaciones varias</p>
 
+- [ 2025_06_15 ] <a  href="\Misc_Suicide_algorithm_review">Suicide Algorithm Review</a>
 - [ 2025_22_06 ] <a  href="\Misc_Programación_Competitiva">Programación Competitiva</a>
 - [ 2025_31_01 ] <a  href="\Misc_Grub_Rescue_x86">Grub Rescue de x86_64 a i386</a>
 - [ 2024_21_07 ] <a  href="\Misc_Guía_Instalación_Arch_Linux">Guía Instalación Arch Linux Bspwm</a>
@@ -101,7 +111,3 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ ? ] Notas - Powershell para Administración de Servidores y Seguridad
 - [ ? ] Notas - Linux Security and Hardening
 - [ ? ] Notas - Fundamentos de Windows Scripting
-- [ ? ] Notas - x86 Assembly
-- [ ? ] Notas - IvNLP Asesorias
-- [ ? ] Notas - Sistemas Operativos
-- [ ? ] Scripting - Over The Wire Bandit
