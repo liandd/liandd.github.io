@@ -29,12 +29,8 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ ?? ] HTB Writeup - NodeBlog
 - [ ?? ] HTB Writeup - Love
 - [ ?? ] HTB Writeup - Horizontall
-- [ ?? ] HTB Writeup - Return
-- [ ?? ] HTB Writeup - Validation
 - [ ?? ] HTB Writeup - Sau
-- [ ?? ] HTB Writeup - Búsqueda
 - [ ?? ] HTB Writeup - Investigation
-- [ ?? ] HTB Writeup - Precious
 - [ ?? ] HTB Writeup - Photobomb
 - [ ?? ] HTB Writeup - Pollution
 - [ ?? ] HTB Writeup - MetaTwo
@@ -44,8 +40,12 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ ?? ] HTB Writeup - Explore
 - [ ?? ] HTB Writeup - Ophiuchi
 - [ ?? ] HTB Writeup - Magic
-- [ ?? ] HTB Writeup - OpenAdmin
 - [ ?? ] HTB Writeup - Ready
+- [ 2025_21_07 ] HTB Writeup - Búsqueda
+- [ 2025_21_07 ] HTB Writeup - Return
+- [ 2025_21_07 ] HTB Writeup - Validation
+- [ 2025_21_07 ] HTB Writeup - OpenAdmin
+- [ 2025_21_07 ] HTB Writeup - Precious
 - [ 2025_11_07 ] <a  href="\HTB_PC.html">HTB Writeup - PC</a>
 - [ 2025_11_07 ] <a  href="\HTB_Cap.html">HTB Writeup - Cap</a>
 - [ 2025_17_05 ] <a  href="\HTB_Titanic.html">HTB Writeup - Titanic</a>
