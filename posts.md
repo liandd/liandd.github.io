@@ -29,31 +29,37 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 
 <p class="beb">↓ HackTheBox Máquinas Resueltas</p>
 
+- [ ?? ] HTB Writeup - Active
 - [ ?? ] HTB Writeup - Jeeves
 - [ ?? ] HTB Writeup - Epsilon
 - [ ?? ] HTB Writeup - Driver
-- [ ?? ] HTB Writeup - GoodGames
-- [ ?? ] HTB Writeup - NunChucks
-- [ ?? ] HTB Writeup - NodeBlog
 - [ ?? ] HTB Writeup - Love
-- [ ?? ] HTB Writeup - Horizontall
-- [ ?? ] HTB Writeup - Sau
-- [ ?? ] HTB Writeup - Investigation
-- [ ?? ] HTB Writeup - Photobomb
-- [ ?? ] HTB Writeup - Pollution
-- [ ?? ] HTB Writeup - MetaTwo
 - [ ?? ] HTB Writeup - Awkward
-- [ ?? ] HTB Writeup - Soccer
+- [ ?? ] HTB Writeup - Investigation
+- [ ?? ] HTB Writeup - Pollution
+- [ ?? ] HTB Writeup - Photobomb
 - [ ?? ] HTB Writeup - Stocker
-- [ ?? ] HTB Writeup - Explore
-- [ ?? ] HTB Writeup - Ophiuchi
-- [ ?? ] HTB Writeup - Magic
-- [ ?? ] HTB Writeup - Ready
-- [ 2025_21_07 ] HTB Writeup - Búsqueda
-- [ 2025_21_07 ] HTB Writeup - Return
-- [ 2025_21_07 ] HTB Writeup - Validation
-- [ 2025_21_07 ] HTB Writeup - OpenAdmin
-- [ 2025_21_07 ] HTB Writeup - Precious
+- [ ?? ] HTB Writeup - Soccer
+- [ ?? ] HTB Writeup - Editorial
+- [ ?? ] HTB Writeup - Perfection
+- [ ?? ] HTB Writeup - Codify
+- [ ?? ] HTB Writeup - Chemistry
+- [ 2025_21_07 ] <a  href="\HTB_MonitorsTwo.html">HTB Writeup - MonitorsTwo</a>
+- [ 2025_21_07 ] <a  href="\HTB_Broker.html">HTB Writeup - Broker</a>
+- [ 2025_21_07 ] <a  href="\HTB_Nibbles.html">HTB Writeup - Nibbles</a>
+- [ 2025_21_07 ] <a  href="\HTB_Lame.html">HTB Writeup - Lame</a>
+- [ 2025_21_07 ] <a  href="\HTB_BountyHunter.html">HTB Writeup - BountyHunter</a>
+- [ 2025_21_07 ] <a  href="\HTB_Knife.html">HTB Writeup - Knife</a>
+- [ 2025_21_07 ] <a  href="\HTB_Late.html">HTB Writeup - Late</a>
+- [ 2025_21_07 ] <a  href="\HTB_GoodGames.html">HTB Writeup - GoodGames</a>
+- [ 2025_21_07 ] <a  href="\HTB_Nunchucks.html">HTB Writeup - NunChucks</a>
+- [ 2025_21_07 ] <a  href="\HTB_Horizontall.html">HTB Writeup - Horizontall</a>
+- [ 2025_21_07 ] <a  href="\HTB_Sau.html">HTB Writeup - Sau</a>
+- [ 2025_21_07 ] <a  href="\HTB_Busqueda.html">HTB Writeup - Busqueda</a>
+- [ 2025_21_07 ] <a  href="\HTB_Return.html">HTB Writeup - Return</a>
+- [ 2025_21_07 ] <a  href="\HTB_Validation.html">HTB Writeup - Validation</a>
+- [ 2025_21_07 ] <a  href="\HTB_OpenAdmin.html">HTB Writeup - OpenAdmin</a>
+- [ 2025_21_07 ] <a  href="\HTB_Precious.html">HTB Writeup - Precious</a>
 - [ 2025_11_07 ] <a  href="\HTB_PC.html">HTB Writeup - PC</a>
 - [ 2025_11_07 ] <a  href="\HTB_Cap.html">HTB Writeup - Cap</a>
 - [ 2025_17_05 ] <a  href="\HTB_Titanic.html">HTB Writeup - Titanic</a>
