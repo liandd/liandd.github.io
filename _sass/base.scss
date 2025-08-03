@@ -137,6 +137,10 @@ body {
   scrollbar-face-color: #7e73ff;
   scrollbar-highlight-color: 2a2680;
   scrollbar-shadow-color: #000000;
+  cursor: url("/assets/ico/icons8-cursor-16.png") 16 5, auto;
+  a, button, [role="button"], input[type="submit"], input[type="button"] {
+  cursor: url("/assets/ico/icons8-hand-cursor-16.png") 16 5, pointer;
+}
 }
 
 h1,
@@ -172,7 +176,7 @@ ol {
 }
 
 .verde {
-  color: #ff009b;
+  color: #c4d5ff;
   /* Este estilo se aplicará solo a h3*/
 }
 
@@ -182,7 +186,7 @@ ol {
 
 a {
   text-decoration: none;
-  color: #ff199a;
+  color: #a9bbee;
 }
 
 /* publicaciones*/
@@ -242,7 +246,7 @@ footer {
 }
 
 p.beb {
-  color: #ff199a;
+  color: #91a6e1;
 }
 
 //comment

@@ -6,7 +6,14 @@ permalink: /dashboard
 
 <!DOCTYPE html>
 <html lang="en" data-astro-cid-ouamjn2i>
-
+<style>
+            body {
+  cursor: url("/assets/ico/icons8-cursor-16.png") 10 5, auto;
+  a, button, [role="button"], input[type="submit"], input[type="button"] {
+  cursor: url("/assets/ico/icons8-hand-cursor-16.png") 10 5, pointer;
+}
+}
+</style>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#C1DBE3"><!-- Global Metadata -->
@@ -31,7 +38,7 @@ permalink: /dashboard
       const i = document.getElementById("splash-screen"), k = document.getElementById("enter-button"), e = document.getElementById("background-audio"), f = document.getElementById("play-pause"), v = document.getElementById("prev-track"), E = document.getElementById("next-track"), y = document.getElementById("now-playing-text"), S = document.getElementById("taskbar-time"), b = document.querySelector(".start-button-inner"), l = document.getElementById("start-menu"), g = document.getElementById("taskbar-apps"); x(); const I = localStorage.getItem("hasEnteredSite"); (() => {(L() || !I) && i && o ? i.style.display = "flex" : I && i && (i.style.display = "none", o && e && e.play().catch(t => {console.error("Autoplay blocked:", t), i && (i.style.display = "flex", localStorage.removeItem("hasEnteredSite"))}))})(), k && i && e && k.addEventListener("click", function () {i.style.display = "none", localStorage.setItem("hasEnteredSite", "true"), e.play().then(() => {o = !0, c(), d()}).catch(t => {console.error("Still couldn't play audio after user interaction:", t), o = !1, c(), d()})}); function T(t) {if (a = t, e && a >= 0 && a < s.length) {const n = s[a]; typeof n == "string" && (e.src = n, o && e.play())} h(), d()} function P() {let t = a + 1; t >= s.length && (t = 0), T(t), !o && e && (e.play(), o = !0), c()} function M() {let t = a - 1; t < 0 && (t = s.length - 1), T(t), !o && e && (e.play(), o = !0), c()} function A() {e && (e.paused ? (e.play(), o = !0) : (e.pause(), o = !1), c(), d())} function c() {f && (o ? f.innerHTML = '<span style="font-weight: bold;">❚❚</span>' : f.innerHTML = '<span style="font-weight: bold;">►</span>')} function h() {if (a >= 0 && a < s.length) {const t = s[a]; if (t && y) {const r = t.split("/").pop(), u = r ? r.replace(".mp3", "") : "Unknown"; y.textContent = `Now playing: ${u}`, y.setAttribute("title", `Now Playing: ${u}`)} } } function d() {const t = {currentTrackIndex: a, isPlaying: o, currentTime: e ? e.currentTime : 0}; localStorage.setItem("audioState", JSON.stringify(t))} function x() {const t = localStorage.getItem("audioState"); if (t) {const n = JSON.parse(t), r = n.currentTrackIndex, u = n.isPlaying, p = n.currentTime; if (a = typeof r == "number" ? r : 0, o = !!u, e && a >= 0 && a < s.length) {const m = s[a]; typeof m == "string" && (e.src = m, typeof p == "number" && (e.currentTime = p))} c(), h()} else {if (a = Math.floor(Math.random() * s.length), e && a >= 0 && a < s.length) {const n = s[a]; typeof n == "string" && (e.src = n)} h()} } f && f.addEventListener("click", A), E && E.addEventListener("click", P), v && v.addEventListener("click", M), e && (e.addEventListener("ended", function () {P()}), e.addEventListener("timeupdate", function () {e && Math.floor(e.currentTime) % 5 === 0 && d()})); function w() {const t = new Date, n = t.getHours(), r = t.getMinutes(), u = n >= 12 ? "PM" : "AM", p = n % 12 || 12, m = r.toString().padStart(2, "0"); S && (S.textContent = `${p}:${m} ${u}`)} w(), setInterval(w, 6e4), b && l && b.addEventListener("click", function () {l.style.display = l.style.display === "block" ? "none" : "block"}), document.addEventListener("click", function (t) {const n = t.target; l && n && !n.closest(".start-button") && l.style.display === "block" && (l.style.display = "none")}); function B() {
         let t = document.title; if (t || (t = "liandd"), g) {
           g.innerHTML = ""; const n = document.createElement("div"); n.className = "taskbar-app active", n.innerHTML = `
-              <img src="https://lastfm.freetls.fastly.net/i/u/avatar170s/1d9dce624a67b03d99b7c9787db2da85.png" width="16" height="16" alt="liandd" style="border-radius: 2px;">
+              <img src="/assets/images/headers/chrome.png" width="16" height="16" alt="liandd" style="border-radius: 2px;">
               <span>${t}</span>
             `, g.appendChild(n)
         }
@@ -227,13 +234,13 @@ permalink: /dashboard
               </div>
             </div>
             <div class="window-body" style="font-size: 13px;" data-astro-cid-j7pv25f6>
-              <p style="margin-bottom: 8px;" data-astro-cid-j7pv25f6> <img src="/assets/images/headers/trump2.webp"
+              <p style="margin-bottom: 8px;" data-astro-cid-j7pv25f6> <img src="/assets/images/headers/trump3.png"
                   width="150" height="130" alt="liandd button" style="display: block; margin: 5px auto;"
                   data-astro-cid-j7pv25f6> </p>
               <textarea readonly
                 style="width: 100%; height: 80px; font-family: monospace; font-size: 11px; overflow-x: auto; white-space: pre-wrap; resize: none;"
                 data-astro-cid-j7pv25f6>&lt;a href="https://liandd.github.io/" target="_blank" rel="noopener"&gt;
-                &lt;img src="https://liandd.github.io/assets/images/headers/trump2.webp" alt="liandd" width="150"
+                &lt;img src="https://liandd.github.io/assets/images/headers/trump3.png" alt="liandd" width="150"
                 height="130" /&gt;
                 &lt;/a&gt;</textarea>
               <div style="text-align: right; margin-top: 5px;" data-astro-cid-j7pv25f6> <button
@@ -255,7 +262,7 @@ permalink: /dashboard
                 data-astro-cid-j7pv25f6></button> </div>
           </div>
           <div class="window-body" data-astro-cid-j7pv25f6>
-            <h1 style="display: none" data-astro-cid-j7pv25f6>vmfunc</h1> <!-- for seo -->
+            <h1 style="display: none" data-astro-cid-j7pv25f6>liandd</h1> <!-- for seo -->
             <div class="wrapper" data-astro-cid-j7pv25f6>
               <pre data-astro-cid-j7pv25f6>
 ██▓     ██▓ ▄▄▄       ███▄    █ ▓█████▄ ▓█████▄ 
@@ -263,7 +270,7 @@ permalink: /dashboard
 ▒██░    ▒██▒▒██  ▀█▄  ▓██  ▀█ ██▒░██   █▌░██   █▌
 ▒██░    ░██░░██▄▄▄▄██ ▓██▒  ▐▌██▒░▓█▄   ▌░▓█▄   ▌
 ░██████▒░██░ ▓█   ▓██▒▒██░   ▓██░░▒████▓ ░▒████▓ 
-<img src="/assets/images/bin_files/Polygonman-sony.png" width="50px" class="cornerimage"
+<img src="/assets/images/bin_files/silver.png" width="200px" class="cornerimage"
                   data-astro-cid-j7pv25f6></pre>
               <div style="text-align: center; font-size: larger;" data-astro-cid-j7pv25f6> <noscript>
                   <p data-astro-cid-j7pv25f6> <b data-astro-cid-j7pv25f6><br data-astro-cid-j7pv25f6><br
