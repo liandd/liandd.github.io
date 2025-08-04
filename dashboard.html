@@ -1126,10 +1126,14 @@ fkN6niLs
             // Add a link to view more on GitHub
             activityHTML += `
               <div style="text-align: right; margin-top: 5px;">
-                <a href="https://github.com/${githubUsername}" target="_blank" rel="noopener" style="font-size: 11px; text-decoration: none;">
-                  Ver Perfil →
-                </a>
-              </div>
+  <img src="https://camo.githubusercontent.com/32d92757d28005707c196c49a9446b4d8798ad590b5e7cda9c1badbea2ee0069/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d6c69616e646426636f6c6f723d303030303030"
+       alt="GitHub Profile Views"
+       style="max-width: 100%; height: auto; display: inline-block; vertical-align: middle;"><br>
+  <a href="https://github.com/${githubUsername}" target="_blank" rel="noopener"
+     style="font-size: 11px; text-decoration: none; margin-left: 8px;">
+    Ver Perfil →
+  </a>
+</div>
             `;
 
             activityContainer.innerHTML = activityHTML;
