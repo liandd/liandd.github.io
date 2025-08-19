@@ -58,11 +58,13 @@ permalink: /blog
         </div>
         <div class="menu-links">
           <ul class="menu-links">
-            <li><a href="/">/</a></li>
+            <li><a href="/">/inicio</a></li>
+            <li><a href="/dashboard">/principal</a></li>
             <li><a href="/blog">/blog</a></li>
-            <li><a href="/posts">/posts</a></li>
-            <li><a href="/culture">/culture</a></li>
-            <li><a href="/dashboard">/dashboard</a></li>
+            <li><a href="/posts">/publicaciones</a></li>
+            <li><a href="/portafolio">/portafolio</a></li>
+            <li><a href="/culture">/cultura</a></li>
+            <li><a href="/contacto">/contacto</a></li>
             <li>
               <a href="/about" class="bob">/about
                 <img src="/assets/images/headers/face.gif" alt="masthead" width="12" />
@@ -467,7 +469,7 @@ permalink: /blog
                     {
                       title: "Grub Rescue de x86_64 a i386",
                       link: "https://liandd.github.io/Misc_Grub_Rescue_x86",
-                      description: "Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricación y en como acceden al sistema operetivo.<br>Este problema ocurrió porque el sistema tenía GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.",
+                      description: "Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricación y en como acceden al sistema operativo.<br>Este problema ocurrió porque el sistema tenía GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.",
                       author: "liandd",
                       date: "Jan 31, 2025",
                       cus: {url: "https://phoenixnap.com/kb/grub-rescue", art: "Misc"}
@@ -523,7 +525,7 @@ permalink: /blog
                     {
                       title: "Preignition Writeup",
                       link: "http://liandd.github.io/HTB_Preignition.html",
-                      description: "La máquina Preignition de HackTheBox es de una dificultad muy fácil y Linux, que presenta un servicio APACHE y requiere de técnicas de DirBusting para enumerar posibles rutas por defecto. Mediante credenciales debiles y una mala configuración de APACHE se puede comprometer está máquina.<br><p><strong>Tags:</strong> Linux, Apache, Web, Weak Credentials</p> ",
+                      description: "La máquina Preignition de HackTheBox es de una dificultad muy fácil y Linux, que presenta un servicio APACHE y requiere de técnicas de DirBusting para enumerar posibles rutas por defecto. Mediante credenciales débiles y una mala configuración de APACHE se puede comprometer está máquina.<br><p><strong>Tags:</strong> Linux, Apache, Web, Weak Credentials</p> ",
                       author: "liandd",
                       date: "Mar 20, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -532,7 +534,7 @@ permalink: /blog
                     {
                       title: "Explosion Writeup",
                       link: "http://liandd.github.io/HTB_Explosion.html",
-                      description: "La máquina Explosion de HackTheBox es de una dificultad muy fácil y Windows, presenta un RPD Remote Desktop Protocol el cual no está sanitizado y es vulnerable a credenciales debiles a través de un certificado.<br><p><strong>Tags:</strong> Windows, RPD, Weak Credentials</p>",
+                      description: "La máquina Explosion de HackTheBox es de una dificultad muy fácil y Windows, presenta un RPD Remote Desktop Protocol el cual no está sanitizado y es vulnerable a credenciales débiles a través de un certificado.<br><p><strong>Tags:</strong> Windows, RPD, Weak Credentials</p>",
                       author: "liandd",
                       date: "Mar 20, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -548,7 +550,7 @@ permalink: /blog
                     {
                       title: "Mongod Writeup",
                       link: "http://liandd.github.io/HTB_Mongod.html",
-                      description: "La máquina Mongod de HackTheBox es de una dificultad muy fácil y Linux, que a través de malas configuraciones se explota un servicio MongoDB y de manera anonima dumpear colecciones con información sensible.<br><p><strong>Tags:</strong> Linux, MongoDB, Bypass</p>",
+                      description: "La máquina Mongod de HackTheBox es de una dificultad muy fácil y Linux, que a través de malas configuraciones se explota un servicio MongoDB y de manera anónima dumpear colecciones con información sensible.<br><p><strong>Tags:</strong> Linux, MongoDB, Bypass</p>",
                       author: "liandd",
                       date: "Mar 21, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -581,7 +583,7 @@ permalink: /blog
                     {
                       title: "Tactics Writeup",
                       link: "http://127.0.0.1:4000/HTB_Tactics.html",
-                      description: "La máquina Tactics de HackTheBox es de una dificultad muy fácil y Windows, que mediante enumeración SMB y credenciales debiles tenemos acceso total.<br><p><strong>Tags:</strong> Windows, SMB Weak Credentials</p>",
+                      description: "La máquina Tactics de HackTheBox es de una dificultad muy fácil y Windows, que mediante enumeración SMB y credenciales débiles tenemos acceso total.<br><p><strong>Tags:</strong> Windows, SMB Weak Credentials</p>",
                       author: "liandd",
                       date: "Mar 24, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -589,7 +591,7 @@ permalink: /blog
                     {
                       title: "PennyWorth Writeup",
                       link: "http://127.0.0.1:4000/HTB_PennyWorth",
-                      description: "La máquina PennyWorth de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web que tiene una versión vulnerable de Jenkins y credenciales debiles, Y con Groovy Script podemos hacer RCE para control total.<br><p><strong>Tags:</strong> Linux, Web, Jenkins Weak Credentials, Groovy Script, RCE</p>",
+                      description: "La máquina PennyWorth de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web que tiene una versión vulnerable de Jenkins y credenciales débiles, Y con Groovy Script podemos hacer RCE para control total.<br><p><strong>Tags:</strong> Linux, Web, Jenkins Weak Credentials, Groovy Script, RCE</p>",
                       author: "liandd",
                       date: "Mar 24, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -661,7 +663,7 @@ permalink: /blog
                     {
                       title: "Oopsie Writeup",
                       link: "https://liandd.github.io/HTB_Starting_Point#oopsie",
-                      description: "La máquina Oopsie de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web la cual requiere de una técnica de enumeración alternativa, mediante un RCE se obtiene control total. Para la escalada abusar del Path del sistema.<br><p><strong>Tags:</strong> Linux, Web, Web Crawling, Information Disclasure Vulnerability, RCE, Path Hijacking(Escalada) </p>",
+                      description: "La máquina Oopsie de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web la cual requiere de una técnica de enumeración alternativa, mediante un RCE se obtiene control total. Para la escalada abusar del Path del sistema.<br><p><strong>Tags:</strong> Linux, Web, Web Crawling, Information Disclosure Vulnerability, RCE, Path Hijacking(Escalada) </p>",
                       author: "liandd",
                       date: "April 19, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -677,7 +679,7 @@ permalink: /blog
                     {
                       title: "Included Writeup",
                       link: "https://liandd.github.io/HTB_Included.html",
-                      description: "La máquina Included de HackTheBox es de una dificultad muy fácil y Linux, presenta una web php no sanitizada que nos permite abusar de la mala configuración y mediante un escaeno alternativo encotramos la posibilidad de subir archivos maliciosos php obteniendo Ejecución remota de comandos. Abusamos de un contenedor(Escalada).<br><p><strong>Tags:</strong> Linux, Web, Path Trasversal, LFI, UDP TFTP, RCE, LogCredentials, LXDAbuse(Escalada)</p>",
+                      description: "La máquina Included de HackTheBox es de una dificultad muy fácil y Linux, presenta una web php no sanitizada que nos permite abusar de la mala configuración y mediante un escaneo alternativo encontramos la posibilidad de subir archivos maliciosos php obteniendo Ejecución remota de comandos. Abusamos de un contenedor(Escalada).<br><p><strong>Tags:</strong> Linux, Web, Path Trasversal, LFI, UDP TFTP, RCE, LogCredentials, LXDAbuse(Escalada)</p>",
                       author: "liandd",
                       date: "April 21, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -685,7 +687,7 @@ permalink: /blog
                     {
                       title: "MarkUp Writeup",
                       link: "https://liandd.github.io/HTB_Markup.html",
-                      description: "La máquina MarkUp de HackTheBox es de una dificultad muy fácil y Windows, en una página web con un panel de inicio de sesión con credenciales debiles encontraremos un formulario XML vulnerable a XXE para obtener acceso al sistema, para la escalada podremos abusar de un binario con ciertos privelegios que nos permiten acceso a NT Authority System.<br><p><strong>Tags:</strong> Windows, Web, XXE, JobAbuse(Escalada)</p>",
+                      description: "La máquina MarkUp de HackTheBox es de una dificultad muy fácil y Windows, en una página web con un panel de inicio de sesión con credenciales débiles encontraremos un formulario XML vulnerable a XXE para obtener acceso al sistema, para la escalada podremos abusar de un binario con ciertos privilegios que nos permiten acceso a NT Authority System.<br><p><strong>Tags:</strong> Windows, Web, XXE, JobAbuse(Escalada)</p>",
                       author: "liandd",
                       date: "April 22, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -701,7 +703,7 @@ permalink: /blog
                     {
                       title: "Titanic Writeup",
                       link: "https://liandd.github.io/HTB_Titanic.html",
-                      description: "La máquina Titanic de HackTheBox es de una dificultad fácil y Linux, tiene una página web para hacer reservas de crucero con un párametro php vulnerable a LFI pero es un RabbitHole, mediante subdomnios se encuentra una version de gitea relativamente nueva sin vulnerabilidades pero la información de los repositorios contiene información privilegiada expuesta lo que nos permite con el LFI dumpear la base de datos que seguido de un HashCracking obtenemos acceso a la máquina, para la escalada se explota un script para el procesamiento de imagenes y un LibraryHacking. <br><p><strong>Tags:</strong> Linux, Web, LFI, Vhosting, Gitea 1.211.1, Information Disclasure Vulnerability, Sqlite3, HashCraking, ArbitraryCodeExecution, ImageMagick(Escalada) </p>",
+                      description: "La máquina Titanic de HackTheBox es de una dificultad fácil y Linux, tiene una página web para hacer reservas de crucero con un parámetro php vulnerable a LFI pero es un RabbitHole, mediante subdominios se encuentra una version de gitea relativamente nueva sin vulnerabilidades pero la información de los repositorios contiene información privilegiada expuesta lo que nos permite con el LFI dumpear la base de datos que seguido de un HashCracking obtenemos acceso a la máquina, para la escalada se explota un script para el procesamiento de imágenes y un LibraryHacking. <br><p><strong>Tags:</strong> Linux, Web, LFI, Vhosting, Gitea 1.211.1, Information Disclosure Vulnerability, Sqlite3, HashCraking, ArbitraryCodeExecution, ImageMagick(Escalada) </p>",
                       author: "liandd",
                       date: "April 24, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -709,7 +711,7 @@ permalink: /blog
                     {
                       title: "Cap WriteUp",
                       link: "https://liandd.github.io/HTB_Cap.html",
-                      description: "La máquina Cap de HackTheBox es de una dificultad fácil y Linux, aborda una página web de la cual podremos leer y analizar tráfico de red con Wireshark donde encontraremos credenciales en texto plano para el servicio FTP, una vez logrado esto podremos acceder a la máquina con un poco de intuisión donde buscando los privilegios que tenemos podremos aprovecharnos de error de permisos para convertirnos en root.<br><p><strong>Tags:</strong> Linux, Web, Information Disclosure, Wireshark Análisis Y FTP(Intrusión), SUID CAP(Escalada)</strong> </p>",
+                      description: "La máquina Cap de HackTheBox es de una dificultad fácil y Linux, aborda una página web de la cual podremos leer y analizar tráfico de red con Wireshark donde encontraremos credenciales en texto plano para el servicio FTP, una vez logrado esto podremos acceder a la máquina con un poco de intuición donde buscando los privilegios que tenemos podremos aprovecharnos de error de permisos para convertirnos en root.<br><p><strong>Tags:</strong> Linux, Web, Information Disclosure, Wireshark Análisis Y FTP(Intrusión), SUID CAP(Escalada)</strong> </p>",
                       author: "liandd",
                       date: "July 10, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -717,13 +719,13 @@ permalink: /blog
                     {
                       title: "PC Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                      description: "La máquina PC de HackTheBox es de una dificultad fácil y Linux, esta máquina tiene un servicio gRPC el cual nos permite acceder a información privilegiada de una base de datos, que mediante un SQLi podremos obtener acceso al sistema. Para la escalada se explota una librería deprecated de Python(Escalada).<br><p><strong>Tags: Linux, gRPC, SQLi, Custom Exploit</strong> pyload 5.0.0(Escalada)</p>",
                       author: "liandd",
                       date: "July 16, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Precious Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -731,7 +733,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "OpenAdmin Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -739,7 +741,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Validation Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -747,7 +749,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Return Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -755,7 +757,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Busqueda Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -763,7 +765,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Sau Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -771,7 +773,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Horizontall Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -779,7 +781,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "NunChucks Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -787,7 +789,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "GoodGames Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -795,7 +797,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Late Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -803,7 +805,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Knife Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -811,7 +813,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "BountyHunter Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -819,7 +821,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Lame Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -827,7 +829,7 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Nibbles Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
@@ -835,7 +837,15 @@ permalink: /blog
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
-                      title: "PC Writeup",
+                      title: "Broker Writeup",
+                      link: "https://liandd.github.io/HTB_PC.html",
+                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                      author: "liandd",
+                      date: "July 16, 2025",
+                      cus: {url: "https://github.com/liandd", art: "HTB"}
+                    },
+                    {
+                      title: "MonitorsTwo Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
                       description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                       author: "liandd",
