@@ -16,7 +16,7 @@ Cada entrada forma parte de mi proceso de aprendizaje y desarrollo profesional, 
 - [ 2024_25_11 ] <a  href="\Notas_UCP_Procesamiento_de_Lenguaje_Natural">UCP - Procesamiento de Lenguaje Natural</a>
 - [ 2024_25_11 ] <a  href="\Notas_UCP_Sistemas_Operativos">UCP - Sistemas Operativos</a>
 - [ 2023_08_05 ] <a  href="\Notas_UCP_Convergencia_de_sistemas">UCP - Convergencia de sistemas</a>
-- [ 2023_08_01 ] <a  href="\Notas_UCP_Telecomunicaciones_3">UCP - Telecomuniacaiones 3</a>
+- [ 2023_08_01 ] <a  href="\Notas_UCP_Telecomunicaciones_3">UCP - Telecomunicaciones 3</a>
 - [ 2022_01_07 ] <a  href="\Notas_UCP_Redes_de_datos_2">UCP - Redes de datos 2</a>
 - [ 2022_02_07 ] <a  href="\Notas_UCP_Telecomunicaciones_2">UCP - Telecomunicaciones 2</a> 
 - [ 2023_02_01 ] <a  href="\Notas_UCP_Telecomunicaciones_1">UCP - Telecomunicaciones 1</a>
