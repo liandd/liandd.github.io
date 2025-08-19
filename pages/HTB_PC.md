@@ -4,7 +4,11 @@ layout: page
 permalink: /HTB_PC
 ---
 
-Pasted image 20250818124139.png]]
+<h2 class="amarillo">HackTheBox - PC WriteUp - Máquina retirada</h2>
+<div id="logos" style="text-align: center;">
+  <img src="/assets/images/HTB/PC/PC.png" alt="under" oncontextmenu="return false;">
+</div>
+
 Encedemos la maquina PC y obtenemos la direccion 10.129.56.82, para confirmar que la maquina esta activa lanzamos una traza ICMP
 
 <div style="text-align: center;">
@@ -14,7 +18,7 @@ Encedemos la maquina PC y obtenemos la direccion 10.129.56.82, para confirmar qu
 
 Y vemos que recibimos las 5 trazas enviadas seguido de un TTL de 63, por tanto estamos frente a una maquina Linux
 
-# Enumeracion
+<h2 class="amarillo">Enumeración</h2>
 
 Para la enumeracion lanzamos un escaneo con nmap a todo el rango de puertos y exportamos la captura en el formato "G" para pasarlo a la utilidad de extractPorts: 
 
@@ -57,15 +61,14 @@ Vemos algunos parametros interesantes como `-plaintext, list, describe, etc`
 <div style="text-align: center;">
   <img src="/assets/images/HTB/PC/7.png" alt="under" oncontextmenu="return false;">
 </div>
+
 Y vemos que la maquina tiene un servicio llamado SimpleApp, donde usando "describe" podemos ver los metodos o servicios para la API en este servicio de SimpleApp
-<div style="text-align: center;">
-  <img
+
 Podemos ver que es un servicio y los metodos que tiene. Usando la funcion "getInfo" tendremos la informacion de los parametros que espera cada uno de los metodos
 
 ```bash
 grpcurl -plaintext 10.129.56.82:50051 SimpleApp.getInfo
 ```
-
 
 <div style="text-align: center;">
   <img src="/assets/images/HTB/PC/8.png" alt="under" oncontextmenu="return false;">
@@ -129,6 +132,7 @@ order by 1-- -
 ```
 
 Generando la estructura
+
 ```bash
 {"id": "536 order by 1-- -"}
 ```
@@ -139,6 +143,7 @@ Pero nos responde con will update soon
 </div>
 
 Seguido me hace pensar en que hay 1 columna valida, por tanto probando la consulta
+
 ```sql
 union select 1-- -
 ```
@@ -156,7 +161,7 @@ Tratamos de listar las version de la base da datos pero obtenemos un error, hast
 </div>
 Al conocer la version de la base de datos ya solo nos queda probar una injeccion:
 
-```sqlite
+```sql
 tbl_name FROM sqlite_master WHERE type=\"table"\
 ```
 
@@ -166,7 +171,7 @@ tbl_name FROM sqlite_master WHERE type=\"table"\
 
 Y vemos que la tabla se llama accounts, como siempre en una buena enumeracion de base de datos podemos usar group_concat
 
-```sqlite
+```sql
 union select group_concat(username) from accounts limit 1
 ```
 
@@ -176,7 +181,7 @@ union select group_concat(username) from accounts limit 1
 
 Seguido de saber que los usuarios son (admin y sau) recuperamos sus contrasenas
 
-```sqlite
+```sql
 union select group_concat(password) from accounts limit 1
 ```
 
@@ -188,90 +193,93 @@ Probamos a reutilizar credenciales con el servicio expuesto ssh sau:HereIsYourPa
   <img src="/assets/images/HTB/PC/23.png" alt="under" oncontextmenu="return false;">
 </div>
 
-# Escalada
+<h2 class="amarillo">Escalada</h2>
 
 Para la escalada vemos que no tenemos permisos o privilegios asignado a nivel de sudoers.
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/24.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Probamos a enumerar por binarios con privilegio SUID
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/25.png" alt="under" oncontextmenu="return false;">
 </div>
 Pero no encontramos nada asi que seguimos con la enumeracion al sistema
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/26.png" alt="under" oncontextmenu="return false;">
 </div>
 Vemos que el directorio /opt tiene una aplicacion en python pero enumerando estos archivos no encontramos nada interesante
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/27.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Mirando la informacion de puertos abiertos internamente en la maquina con `netstat -nat` vemos el puerto 8000 y el puerto 9666
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/28.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Gracias a que estamos con ssh podemos hacer uso de un Local Port Forwarding
+
 ```bash
 ssh sau@10.129.56.82 -L 8000:127.0.0.1:8000 -L 9666:127.0.0.1:9666
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/29.png" alt="under" oncontextmenu="return false;">
 </div>
 De esta forma podemos acceder desde nuestro navegador al puerto 8000
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/30.png" alt="under" oncontextmenu="return false;">
 </div>
 Y vemos un panel de autenticacion pyLoad. Haciendo uso del commando `ps -eo command` vemos que alguien en el sistema esta ejecutando `/usr/bin/python3 /usr/local/bin/pyload`
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/31.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Entonces mirando la informacion del dueno de este binario vemos que root lo esta ejecutando y que si tratamos de ejecutarlo no podremos hacerlo. Lo que si podemos hacer el leer el contenido del archivo entonces lo revisaremos con cat
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/32.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Mas alla de entender como funciona el codigo podemos ver que importa una libreria llamada pyload, por lo tatno se me ocurre mirar la version y vemos pyload 0.5.0
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/33.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Lo primero a intentar sera un exploit encontrado en exploitdb para pyload 0.5.0, rapidamente para lograr esto nos iremos a /dev/shm el cual es un directorio donde tendremos capacidades rwx.
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/34.png" alt="under" oncontextmenu="return false;">
 </div>
 
 La idea es copiar el script en python haciendo uso de base64 y darle permisos de ejecucion en la maquina.
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/35.png" alt="under" oncontextmenu="return false;">
 </div>
 y vemos que el exploit funciona porque hemos logrado meter el output de un comando "whoami" en el archivo file en la maquina.
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/36.png" alt="under" oncontextmenu="return false;">
 </div>
 siguiendo este principio le asignamos el privilegio SUID a la bash para poder ejecutarla temporalmente como el propietario haciendo uso de "bash -p"
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/PC/1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/PC/37.png" alt="under" oncontextmenu="return false;">
 </div>
- Asi habremos completado la maquina PC
+Asi habremos completado la maquina PC
 
-Pasted image 20250818123839.png
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/PC/38.png" alt="under" oncontextmenu="return false;">
+</div>
 
-root:9046cf387dacadc30030523f56c5367a
-user:36403386c155cc56ecdd22d4845902af
-
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/PC/pwn3d.png" alt="under" oncontextmenu="return false;">
+</div>
