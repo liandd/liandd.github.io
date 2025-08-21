@@ -21,17 +21,17 @@ La maquina esta activa y vemos un TLL de 63, por tanto, estamos frente a una maq
 
 <h2 class="amarillo">Enumeración</h2>
 
-Cuando hacemos la enumeracion en nmap unicamente encotramos los puertos abiertos (22,80), y al momento de hacer un whatweb para enumerar un poco las tecnologias que podria estar usando la web y vemos informacion interesante como:
+Cuando hacemos la enumeración en nmap unicamente encontramos los puertos abiertos (22,80), y al momento de hacer un whatweb para enumerar un poco las tecnologías que podría estar usando la web y vemos información interesante como:
 1. Un dominio **precious.htb**
-2. Una tecnologia llamada Ruby-on-rails
+2. Una tecnología llamada Ruby-on-rails
 
-Buscando esta tecnologia en searchsploit para averiguar si encontramos alguna vulnerabilidad asociada a Ruby-on-rails pero sin suerte
+Buscando esta tecnología en searchsploit para averiguar si encontramos alguna vulnerabilidad asociada a Ruby-on-rails pero sin suerte
 
 <div style="text-align: center;">
   <img src="/assets/images/HTB/Precious/3.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Seguimos con la enumeracion agregando el dominio, abrimos el archivo /etc/hosts y probamos nuevamente la enumeracion de las tecnologias pero no encontramos informacion relevante. Asi que abrimos la web en Firefox
+Seguimos con la enumeración agregando el dominio, abrimos el archivo /etc/hosts y probamos nuevamente la enumeración de las tecnologías pero no encontramos información relevante. Asi que abrimos la web en Firefox
 
 <div style="text-align: center;">
   <img src="/assets/images/HTB/Precious/4.png" alt="under" oncontextmenu="return false;">
@@ -43,13 +43,13 @@ Vemos que podemos convertir una pagina web en PDF, probamos a crear un archivo c
   <img src="/assets/images/HTB/Precious/5.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Colocamos en la url nuestra direccion http://10.10.16.54/cmd.php
+Colocamos en la url nuestra dirección http://10.10.16.54/cmd.php
 
 <div style="text-align: center;">
   <img src="/assets/images/HTB/Precious/6.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Y vemos que el servidor nos muestra una peticion GET
+Y vemos que el servidor nos muestra una petición GET
 
 <div style="text-align: center;">
   <img src="/assets/images/HTB/Precious/7.png" alt="under" oncontextmenu="return false;">
@@ -60,13 +60,13 @@ Y vemos que la pagina nos a creado un PDF con el contenido de nuestro archivo ph
   <img src="/assets/images/HTB/Precious/8.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Sin lograr ejecutar comandos, aun tenemos el PDF generado por la web entonces para enumerar un poco que tecnologia nos esta generando este PDF probamos a leer los metadatos con la herramienta exiftool
+Sin lograr ejecutar comandos, aun tenemos el PDF generado por la web entonces para enumerar un poco que tecnología nos esta generando este PDF probamos a leer los metadatos con la herramienta exiftool
 
 <div style="text-align: center;">
   <img src="/assets/images/HTB/Precious/9.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Y vemos que la tecnologia empleada para la creacion del PDF fue hecha por **pdfkit v0.8.6** y esta tiene vulnerabilidades asociadas. De esta manera logramos acceso a la maquina
+Y vemos que la tecnología empleada para la creación del PDF fue hecha por **pdfkit v0.8.6** y esta tiene vulnerabilidades asociadas. De esta manera logramos acceso a la maquina
 
 <div style="text-align: center;">
   <img src="/assets/images/HTB/Precious/10.png" alt="under" oncontextmenu="return false;">
