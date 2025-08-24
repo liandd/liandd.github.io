@@ -245,5 +245,5 @@ if __name__ == '__main__':
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/Validation/pwned.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/Validation/pwn3d.png" alt="under" oncontextmenu="return false;">
 </div>
