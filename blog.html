@@ -518,7 +518,7 @@ permalink: /blog
                       link: "https://liandd.github.io/HTB_Starting_Point",
                       description: "Esta publicación se centra en una rápida introducción a <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. 13 Máquinas.<br><br>Tier1 (Meow, Fawn, Dancing, Redeemer).<br>Tier2 (Appointment, Sequel, Crocodile, Responder, Three).<br>Tier3 (Archetype, Oopsie, Vaccine, Unified).<br><br>13 Máquinas de introducción y 12 son VIP+, solo se abordan las FREE.",
                       author: "liandd",
-                      date: "Mar 16, 2025",
+                      date: "Jan 16, 2022",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
@@ -704,7 +704,7 @@ permalink: /blog
                       link: "https://liandd.github.io/HTB_Titanic.html",
                       description: "La máquina Titanic de HackTheBox es de una dificultad fácil y Linux, tiene una página web para hacer reservas de crucero con un parámetro php vulnerable a LFI pero es un RabbitHole, mediante subdominios se encuentra una version de gitea relativamente nueva sin vulnerabilidades pero la información de los repositorios contiene información privilegiada expuesta lo que nos permite con el LFI dumpear la base de datos que seguido de un HashCracking obtenemos acceso a la máquina, para la escalada se explota un script para el procesamiento de imágenes y un LibraryHacking. <br><p><strong>Tags:</strong> Linux, Web, LFI, Vhosting, Gitea 1.211.1, Information Disclosure Vulnerability, Sqlite3, HashCraking, ArbitraryCodeExecution, ImageMagick(Escalada) </p>",
                       author: "liandd",
-                      date: "April 24, 2025",
+                      date: "April 9, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
@@ -712,39 +712,39 @@ permalink: /blog
                       link: "https://liandd.github.io/HTB_Cap.html",
                       description: "La máquina Cap de HackTheBox es de una dificultad fácil y Linux, aborda una página web de la cual podremos leer y analizar tráfico de red con Wireshark donde encontraremos credenciales en texto plano para el servicio FTP, una vez logrado esto podremos acceder a la máquina con un poco de intuición donde buscando los privilegios que tenemos podremos aprovecharnos de error de permisos para convertirnos en root.<br><p><strong>Tags:</strong> Linux, Web, Information Disclosure, Wireshark Análisis Y FTP(Intrusión), SUID CAP(Escalada)</strong> </p>",
                       author: "liandd",
-                      date: "July 10, 2025",
+                      date: "July 11, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
                       title: "PC Writeup",
                       link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y Linux, esta máquina tiene un servicio gRPC el cual nos permite acceder a información privilegiada de una base de datos, que mediante un SQLi podremos obtener acceso al sistema. Para la escalada se explota una librería deprecated de Python(Escalada).<br><p><strong>Tags: Linux, gRPC, SQLi, Custom Exploit</strong> pyload 5.0.0(Escalada)</p>",
+                      description: "La máquina PC de HackTheBox es de una dificultad fácil y Linux, esta máquina tiene un servicio gRPC el cual nos permite acceder a información privilegiada de una base de datos, que mediante un SQLi podremos obtener acceso al sistema. Para la escalada se explota una librería deprecated de Python(Escalada).<br><p><strong>Tags: </strong>Linux, gRPC, SQLi, Custom Exploit pyload 5.0.0(Escalada)</p>",
                       author: "liandd",
-                      date: "July 16, 2025",
+                      date: "July 28, 2023",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
                       title: "Precious Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                      link: "https://liandd.github.io/HTB_Precious.html",
+                      description: "La máquina Precious de HackTheBox es de una dificultad fácil y Linux, presenta una pagina web que toma cualquier input del usuario y lo transforma en PDF, examinando a mas detalle el PDF veremos una vulnerabilidad que nos permite inyectar comandos. Dentro de la maquina tendremos que hacer User Pivoting para acceder a la flag del usuario. Para la escalada se presenta un privilegio a nivel de sudoers en un archivo Ruby el cual podremos abusar con la deserialization.<br><p><strong>Tags: </strong>Linux, PDF KIT v0.8.6, Information Leakage, Abusing sudoers + YAML, Deserialization Attack (Escalada)</p>",
                       author: "liandd",
-                      date: "July 16, 2025",
+                      date: "Feb 15, 2023",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
                       title: "OpenAdmin Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                      link: "https://liandd.github.io/HTB_OpenAdmin.html",
+                      description: "La máquina OpenAdmin de HackTheBox es de una dificultad fácil y Linux, cuenta con un servicio web http el cual con fuzzing encontraremos acceso a rutas con servicios web los cuales nos llevaran a un panel de administración vulnerable a RCE. Dentro de la maquina tendremos que hacer User Pivoting y es posible gracias a un information leakage y un servicio web mal sanitizado que nos permite ver credenciales ssh las cuales podremos romper con fuerza bruta. Para la escalada se abusa del binario nano.<br><p><strong>Tags:</strong> Linux, web, Fuzzing, OpenNetAdmin Command Injection, Information Leakage User Pivoting, Nano SUID  (Escalada)</p>",
                       author: "liandd",
-                      date: "July 16, 2025",
+                      date: "July 19, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
                       title: "Validation Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                      link: "https://liandd.github.io/HTB_Validation.html",
+                      description: "La máquina Validation de HackTheBox es de una dificultad fácil y Linux, tiene un servicio web el cual nos permite ingresar input y es interpretado por la pagina, por tanto, mediante un XSS ejecutamos una sentencia SQLi para obtener información privilegiada a medias, ya que se debe jugar con queries para inyectar una reverse shell. Dentro de la maquina tendremos un Information Leakage que nos permitirá escalar privilegios (Escalada). Como adicional se crea un Script en Python Autopwn.<br><p><strong>Tags:</strong> Linux, SQLi Error Based, SQLI -> RCE, Information Leakage(Escalada)</p>",
                       author: "liandd",
-                      date: "July 16, 2025",
+                      date: "July 19, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
