@@ -757,10 +757,10 @@ permalink: /blog
                     },
                     {
                       title: "Busqueda Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                      link: "https://liandd.github.io/HTB_Busqueda.html",
+                      description: "La máquina Busqueda de HackTheBox es de una dificultad fácil y Linux, esta maquina tiene un servicio web que tiene parámetros mal sanitizados que nos permiten ejecucion remota de comandos. Dentro de la maquina el vector de ataque se centra en comprometer un subdominio Gitea, importante destacar que un Information Leakage nos permite hacer User Pivoting. Para la escalada reutilizando credenciales vemos que tenemos privilegios a nivel de sudoers sobre un script de python, con el cual mediante un abuso del mismo podremos conectarnos al servicio Mysql de un contenedor dentro del subdominio para conseguir las credenciales de Gitea. Seguido de un Hashcracking y un Análisis de Código vemos que mediante el secuestro de un binario podremos aprovecharnos para escalar privilegios (Escalada). Se crea como Extra un script Autopwn.<br><p><strong>Tags:</strong> Linux, Web Params -> RCE, Gitea v1.12, Information Leakage, Code Analysis, Binary Hijacking (Escalada)</p>",
                       author: "liandd",
-                      date: "July 16, 2025",
+                      date: "July 25, 2025",
                       cus: {url: "https://github.com/liandd", art: "HTB"}
                     },
                     {
