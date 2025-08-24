@@ -84,8 +84,7 @@ Y logramos entrar a la maquina
   <img src="/assets/images/HTB/Busqueda/10.png" alt="under" oncontextmenu="return false;">
 </div>
 
-
-# Escalada
+<h2 class="amarillo">Escalada</h2>
 
 Para la escalada enumerando un poco el sistema veremos que hay un directorio oculto .git el cual cuenta con un usuario cody y nos permite acceder a un nuevo dominio **gitea.searcher.htb**
 <div  style="text-align: center;">
@@ -118,9 +117,7 @@ Y correcto, vemos que podemos ejecutar el binario de python3 sobre un script, as
 
 
 Probamos a enumerar un poco, en especial el gitea
-<div  style="text-align: center;">
-  <img src="/assets/images/HTB/Busqueda/16.png" alt="under" oncontextmenu="return false;">
-</div>
+
 <div  style="text-align: center;">
   <img src="/assets/images/HTB/Busqueda/17.png" alt="under" oncontextmenu="return false;">
 </div>
@@ -185,7 +182,11 @@ Simplemente tendremos que secuestrar ese binario creando nuestro propio full-che
   <img src="/assets/images/HTB/Busqueda/26.png" alt="under" oncontextmenu="return false;">
 </div>
 
+Así habremos completado la maquina.
 
+<div  style="text-align: center;">
+  <img src="/assets/images/HTB/Busqueda/pwned.png" alt="under" oncontextmenu="return false;">
+</div>
 
 De paso compartir el script autopwn para la maquina:
 ```python
