@@ -243,7 +243,3 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-
-<div style="text-align: center;">
-  <img src="/assets/images/HTB/Validation/pwn3d.png" alt="under" oncontextmenu="return false;">
-</div>
