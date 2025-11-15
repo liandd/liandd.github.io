@@ -84,7 +84,7 @@ container.innerHTML = `
     <h3 style="margin: 0 0 5px 0; font-size: 16px;">${username}</h3>
     <p style="margin: 0; font-size: 12px; color: #666;">${scrobbles} scrobbles</p>
     <p style="margin: 5px 0 0 0; font-size: 11px;">
-      <a href="${profileUrl}" target="_blank" style="color: #0000ff;">View Full Profile</a>
+      <a href="${profileUrl}" target="_blank" style="color: #fff;">View Full Profile</a>
     </p>
   </div>
 </div>
@@ -99,15 +99,15 @@ container.innerHTML += `<p style="color: red;">Error loading user data.</p>`;
 function generateTopTracksTable(tracks) {
 let rowsHTML = "";
 tracks.forEach((track, index) => {
-const rowStyle = index % 2 === 0 ? "" : "background-color: #f0f0f0;";
+const rowStyle = index % 2 === 0 ? "" : "background-color: rgba(92, 75, 113, 0.5);";
 rowsHTML += `
 <tr style="${rowStyle}">
   <td style="padding: 4px; text-align: center; font-weight: bold;">
     ${track.rank}
   </td>
   <td style="padding: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;">
-    <a href="${track.url}" target="_blank" style="color: #0000ff; text-decoration: none;">
-      ${track.name} <span style="color: #808080; font-size: 11px;">- ${track.artist}</span>
+    <a href="${track.url}" target="_blank" style="color: #fff; text-decoration: none;">
+      ${track.name} <span style="color: #fff; font-size: 11px;">- ${track.artist}</span>
     </a>
   </td>
   <td style="padding: 4px; text-align: right; white-space: nowrap;">
@@ -129,7 +129,7 @@ throw new Error(data.message);
 const topTracks = data.toptracks.track.map((track, index) => ({
 rank: index + 1,
 name: track.name,
-artist: track.artist["#text"],
+artist: track.artist.name,
 url: track.url,
 playcount: track.playcount
 }));
@@ -149,7 +149,7 @@ topTracksContainer.innerHTML = `
   <div style="height: 180px; overflow-y: auto;">
     <table style="width: 100%; font-size: 12px; border-collapse: collapse;">
       <thead>
-        <tr style="background-color: #c0c0c0;">
+        <tr style="background-color: rgba(92, 75, 113, 0.5);">
           <th style="text-align: center; padding: 4px; width: 30px;">#</th>
           <th style="text-align: left; padding: 4px;">Track</th>
           <th style="text-align: right; padding: 4px;">Plays</th>
@@ -196,7 +196,7 @@ container.innerHTML = `
   <div style="height: 180px; overflow-y: auto;">
     <table style="width: 100%; font-size: 12px; border-collapse: collapse;">
       <thead>
-        <tr style="background-color: #c0c0c0;">
+        <tr style="background-color: rgba(92, 75, 113, 0.5);">
           <th style="text-align: center; padding: 4px; width: 30px;">#</th>
           <th style="text-align: left; padding: 4px;">Artist</th>
           <th style="text-align: right; padding: 4px;">Plays</th>
@@ -204,10 +204,10 @@ container.innerHTML = `
       </thead>
       <tbody>
         ${topArtists.map(artist =>
-        `<tr style="${artist.rank % 2 === 0 ? 'background-color: #f0f0f0;' : ''}">
+        `<tr style="${artist.rank % 2 === 0 ? 'background-color: rgba(92, 75, 113, 0.5)' : ''}">
           <td style="padding: 4px; text-align: center; font-weight: bold;">${artist.rank}</td>
           <td style="padding: 4px;">
-            <a href="${artist.url}" target="_blank" style="color: #0000ff;">${artist.name}</a>
+            <a href="${artist.url}" target="_blank" style="color: #fff;">${artist.name}</a>
           </td>
           <td style="padding: 4px; text-align: right;">${artist.playcount}</td>
         </tr>`
@@ -254,7 +254,7 @@ if (diff < 60) { time=`${diff} second${diff !==1 ? "s" : "" } ago`; } else if (d
   <div style="height: 180px; overflow-y: auto;">
     <table style="width: 100%; font-size: 12px; border-collapse: collapse;">
       <thead>
-        <tr style="background-color: #c0c0c0;">
+        <tr style="background-color:rgba(92, 75, 113, 0.5);">
           <th style="text-align: left; padding: 4px;">Track</th>
           <th style="text-align: left; padding: 4px;">Artist</th>
           <th style="text-align: right; padding: 4px;">Time</th>
@@ -277,11 +277,11 @@ if (diff < 60) { time=`${diff} second${diff !==1 ? "s" : "" } ago`; } else if (d
 
   function generateRecentlyPlayedTable(tracks) {
   return tracks.map((track, index) => {
-  const rowStyle = index % 2 === 0 ? "" : "background-color: #f0f0f0;";
+  const rowStyle = index % 2 === 0 ? "" : "background-color: rgba(92, 75, 113, 0.5);";
   return `
   <tr style="${rowStyle}">
     <td style="padding: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;">
-      <a href="${track.url}" target="_blank" style="color: #0000ff; text-decoration: none;">
+      <a href="${track.url}" target="_blank" style="color: #fff; text-decoration: none;">
         ${track.name}
       </a>
     </td>
