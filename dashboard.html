@@ -34,16 +34,7 @@ permalink: /dashboard
   <link id="theme-stylesheet" rel="stylesheet" href="/assets/images/bin_files/98.css">
   <!-- Add View Transitions for smooth page navigation -->
   <meta name="view-transition" content="same-origin"><!-- Vercel Analytics -->
-  <script type="module">const s = ["/assets/images/bin_files/aud.mp", "/assets/images/bin_files/aud.mp", "/assets/images/bin_files/aud.mp"]; let a = 0, o = !1; function L() {return !document.referrer || !document.referrer.includes(window.location.host)} document.addEventListener("DOMContentLoaded", function () {
-      const i = document.getElementById("splash-screen"), k = document.getElementById("enter-button"), e = document.getElementById("background-audio"), f = document.getElementById("play-pause"), v = document.getElementById("prev-track"), E = document.getElementById("next-track"), y = document.getElementById("now-playing-text"), S = document.getElementById("taskbar-time"), b = document.querySelector(".start-button-inner"), l = document.getElementById("start-menu"), g = document.getElementById("taskbar-apps"); x(); const I = localStorage.getItem("hasEnteredSite"); (() => {(L() || !I) && i && o ? i.style.display = "flex" : I && i && (i.style.display = "none", o && e && e.play().catch(t => {console.error("Autoplay blocked:", t), i && (i.style.display = "flex", localStorage.removeItem("hasEnteredSite"))}))})(), k && i && e && k.addEventListener("click", function () {i.style.display = "none", localStorage.setItem("hasEnteredSite", "true"), e.play().then(() => {o = !0, c(), d()}).catch(t => {console.error("Still couldn't play audio after user interaction:", t), o = !1, c(), d()})}); function T(t) {if (a = t, e && a >= 0 && a < s.length) {const n = s[a]; typeof n == "string" && (e.src = n, o && e.play())} h(), d()} function P() {let t = a + 1; t >= s.length && (t = 0), T(t), !o && e && (e.play(), o = !0), c()} function M() {let t = a - 1; t < 0 && (t = s.length - 1), T(t), !o && e && (e.play(), o = !0), c()} function A() {e && (e.paused ? (e.play(), o = !0) : (e.pause(), o = !1), c(), d())} function c() {f && (o ? f.innerHTML = '<span style="font-weight: bold;">❚❚</span>' : f.innerHTML = '<span style="font-weight: bold;">►</span>')} function h() {if (a >= 0 && a < s.length) {const t = s[a]; if (t && y) {const r = t.split("/").pop(), u = r ? r.replace(".mp3", "") : "Unknown"; y.textContent = `Now playing: ${u}`, y.setAttribute("title", `Now Playing: ${u}`)} } } function d() {const t = {currentTrackIndex: a, isPlaying: o, currentTime: e ? e.currentTime : 0}; localStorage.setItem("audioState", JSON.stringify(t))} function x() {const t = localStorage.getItem("audioState"); if (t) {const n = JSON.parse(t), r = n.currentTrackIndex, u = n.isPlaying, p = n.currentTime; if (a = typeof r == "number" ? r : 0, o = !!u, e && a >= 0 && a < s.length) {const m = s[a]; typeof m == "string" && (e.src = m, typeof p == "number" && (e.currentTime = p))} c(), h()} else {if (a = Math.floor(Math.random() * s.length), e && a >= 0 && a < s.length) {const n = s[a]; typeof n == "string" && (e.src = n)} h()} } f && f.addEventListener("click", A), E && E.addEventListener("click", P), v && v.addEventListener("click", M), e && (e.addEventListener("ended", function () {P()}), e.addEventListener("timeupdate", function () {e && Math.floor(e.currentTime) % 5 === 0 && d()})); function w() {const t = new Date, n = t.getHours(), r = t.getMinutes(), u = n >= 12 ? "PM" : "AM", p = n % 12 || 12, m = r.toString().padStart(2, "0"); S && (S.textContent = `${p}:${m} ${u}`)} w(), setInterval(w, 6e4), b && l && b.addEventListener("click", function () {l.style.display = l.style.display === "block" ? "none" : "block"}), document.addEventListener("click", function (t) {const n = t.target; l && n && !n.closest(".start-button") && l.style.display === "block" && (l.style.display = "none")}); function B() {
-        let t = document.title; if (t || (t = "liandd"), g) {
-          g.innerHTML = ""; const n = document.createElement("div"); n.className = "taskbar-app active", n.innerHTML = `
-              <img src="/assets/images/headers/chrome.png" width="16" height="16" alt="liandd" style="border-radius: 2px;">
-              <span>${t}</span>
-            `, g.appendChild(n)
-        }
-      } B(), document.addEventListener("astro:after-swap", function () {B(), x(), o && e && e.play().catch(t => {console.error("Autoplay blocked after navigation:", t), i && (i.style.display = "flex", localStorage.removeItem("hasEnteredSite"))})}), window.addEventListener("popstate", function () {o && e && (L() ? i && (i.style.display = "flex", localStorage.removeItem("hasEnteredSite")) : e.play().catch(t => {console.error("Autoplay blocked after browser navigation:", t), i && (i.style.display = "flex", localStorage.removeItem("hasEnteredSite"))}))}), window.addEventListener("beforeunload", function () {d()})
-    });</script>
+ 
   <link rel="stylesheet" href="/assets/images/bin_files/index.RLSollZa.css">
   <link rel="stylesheet" href="/assets/images/bin_files/defeating-llm-safeguards.2KxEbIxo.css">
 </head>
@@ -94,13 +85,13 @@ permalink: /dashboard
         <div class="title-bar" data-astro-cid-ouamjn2i>
           <div class="title-bar-text" style="width: 100px;" data-astro-cid-ouamjn2i>рад_тебя_слышать</div>
           <div class="title-bar-controls" data-astro-cid-ouamjn2i> <button aria-label="Minimize"
-              data-astro-cid-ouamjn2i></button> <button aria-label="Maximize" data-astro-cid-ouamjn2i></button> <button
+              data-astro-cid-ouamjn2i></button> <button aria-label="Maximize" data-astro-cid-ouamjn2i></button><button
               aria-label="Close" data-astro-cid-ouamjn2i></button> </div>
         </div>
         <div class="window-body" style="text-align:center;" data-astro-cid-ouamjn2i>
           <p data-astro-cid-ouamjn2i> <span class="idk" data-astro-cid-ouamjn2i>ALERTA</span><br
-              data-astro-cid-ouamjn2i>Entrando...<br data-astro-cid-ouamjn2i>Camino a la fortuna.
-          </p> <button id="enter-button" data-astro-cid-ouamjn2i>Hay mucho virus, no hacer click!</button><br
+              data-astro-cid-ouamjn2i>Entrando...<br data-astro-cid-ouamjn2i>
+          </p> <button id="enter-button" data-astro-cid-ouamjn2i>A lot of Virus deployed here!</button><br
             data-astro-cid-ouamjn2i><br data-astro-cid-ouamjn2i>
         </div>
       </div>
@@ -750,18 +741,7 @@ fkN6niLs
         const startMenu = document.getElementById('start-menu');
         const taskbarTime = document.getElementById('taskbar-time');
 
-        // Toggle start menu
-        startButton.addEventListener('click', function () {
-          startMenu.style.display = startMenu.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // Close start menu when clicking elsewhere
-        document.addEventListener('click', function (event) {
-          if (!event.target.closest('.start-button') && startMenu.style.display === 'block') {
-            startMenu.style.display = 'none';
-          }
-        });
-
+       
         // Update taskbar time
         function updateTaskbarTime() {
           const now = new Date();
@@ -776,16 +756,7 @@ fkN6niLs
         updateTaskbarTime();
         setInterval(updateTaskbarTime, 60000); // Update every minute
 
-        // Create a single taskbar entry for the site
-        const taskbarApps = document.querySelector('.open-apps');
-        const mainAppButton = document.createElement('div');
-        mainAppButton.className = 'taskbar-app active';
-        mainAppButton.innerHTML = `
-          <img src="https://avatars.githubusercontent.com/u/114973749?v=4" width="16" height="16" alt="liandd" style="border-radius: 2px;">
-          <span>liandd</span>
-        `;
-        taskbarApps.appendChild(mainAppButton);
-      });
+              });
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -981,7 +952,26 @@ fkN6niLs
         mainAppButton.className = 'taskbar-app active';
         mainAppButton.innerHTML = `
           <img src="https://avatars.githubusercontent.com/u/114973749?v=4" width="16" height="16" alt="liandd" style="border-radius: 2px;">
-          <span>liandd</span>
+          <span><a href="https://liandd.github.io/portafolio">liandd</a></span>
+          <img src="https://unkn0wn1122.github.io/assets/images/avatar.jpg" width="16" height="16" alt="duke" style="border-radius: 2px;">
+          <span><a href="https://unkn0wn1122.github.io">unkn0wn1122</a></span>
+          <img src="https://avatars.githubusercontent.com/u/111206866?v=4" width="16" height="16" alt="nico2603" style="border-radius: 2px;">
+          <span><a href="https://nico2603.github.io/PersonalPage/">nico2603</a></span>
+          <img src="https://avatars.githubusercontent.com/u/113046973?v=4" width="16" height="16" alt="camCy" style="border-radius: 2px;">
+          <span><a href="https://www.linkedin.com/in/camilo-castaneda-yepes-a24a5628a/">camCy</a></span>
+          <img src="https://uruena2603.github.io/Personal-blog/img/perfil/pfp.jpg" width="16" height="16" alt="uruena2603" style="border-radius: 2px;">
+          <span><a href="https://uruena2603.github.io/Personal-blog/">uruena2603</a></span>
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.fortnitecreativehq.com%2Fwp-content%2Fuploads%2F2024%2F02%2F02043047%2Flandscape_comp-446.jpeg&f=1&nofb=1&ipt=1d2f4529894c7d71203fdee92750b340c31abd2ad93689d3eb7b864771f53251" width="16" height="16" alt="bochim" style="border-radius: 2px;">
+          <span><a href="https://www.linkedin.com/in/jhosua-orrego-garc%C3%ADa-ba8b361bb/">bochim</a></span>
+          <img src="https://avatars.githubusercontent.com/u/134547565?v=4" width="16" height="16" alt="afk pipo" style="border-radius: 2px;">
+          <span><a href="https://github.com/DanielUrregoL">afk pipo</a></span>
+          <img src="https://www.alejo-morales.com/me.webp" width="16" height="16" alt="alejomora" style="border-radius: 2px;">
+          <span><a href="https://www.alejo-morales.com/">alejomora</a></span>
+          <img src="https://avatars.githubusercontent.com/u/166647853?v=4" width="16" height="16" alt="zokzz" style="border-radius: 2px;">
+          <span><a href="https://github.com/ZokZzz">zokzz</a></span>
+
+
+
         `;
         taskbarApps.appendChild(mainAppButton);
 
