@@ -15,9 +15,6 @@ permalink: /blog
 <style type="text/css"></style>
 
 <body bgcolor="#000000" text="#c4d5ff" link="#91a6e1" vlink="#91a6e1" alink="#ffffff" oncontextmenu="return false">
-  <!-- BEGIN WAYBACK TOOLBAR INSERT -->
-
-
   <center>
     <table border="0" cellpadding="0" cellspacing="0" width="630" bgcolor="#000000">
       <tbody>
@@ -210,10 +207,6 @@ permalink: /blog
                 return true;
               }
             </script>
-
-
-
-
             </p>
             <p>
             </p>
@@ -256,9 +249,6 @@ permalink: /blog
                   }
                 }
               </style>
-
-
-
             <div id="master-view">
               <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table" id="intro-table">
                 <tbody>
@@ -389,11 +379,7 @@ permalink: /blog
                                     const parser2 = new DOMParser();
                                     const doc2 = parser2.parseFromString(html2, "text/html");
                                     const posts2 = doc2.querySelectorAll(".list__item");
-
-                                    // Tomamos los dos últimos posts
                                     const latestPosts2 = Array.from(posts2).slice(0, 2);
-
-                                    // Contenedor donde agregaremos las publicaciones
                                     const postContainer2 = document.getElementById("post-list2");
                                     postContainer2.innerHTML = ""; // Limpiar contenido previo
 
@@ -456,10 +442,17 @@ permalink: /blog
               .back-link:hover {
                 color: #ff0078;
               }
+
+              .post-detail-disabled {
+                color: #666666;
+                text-decoration: none;
+                cursor: default;
+              }
             </style>
             <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
             <script>
               document.addEventListener("DOMContentLoaded", async function () {
+                await loadScopedDetailCss();
                 const url = "https://unkn0wn1122.github.io/";
                 const postsPerPage = 4;
                 let currentPage = 1;
@@ -501,9 +494,6 @@ permalink: /blog
                 if (defaultBtn) {
                   defaultBtn.classList.add("filter-button--active");
                 }
-
-
-
                 function renderPagination() {
                   const totalPages = Math.ceil(allPosts.length / postsPerPage);
                   const paginationContainer = document.getElementById("pagination-links");
@@ -533,64 +523,72 @@ permalink: /blog
                     const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
                     const globalIndex = start + index;
 
+                    const canEnter = post.author !== "unkn0wn1122";
+
+                    const enterHtml = canEnter
+                      ? `
+        <span class="post-detail-btn"
+              data-index="${globalIndex}">
+          Entrar...
+        </span>`
+                      : `
+        <span class="post-detail-disabled">
+          Visita a mi colega en su blog!
+        </span>`;
+
                     const postHTML = `
-            <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
-              <tbody>
-                <tr>
-                  <td valign="top" bgcolor="#c8c1f9">
-                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
-                      <tbody>
-                        <tr>
-                          <td align="left">
-                            <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
-                          </td>
-                          <td align="right">
-                            <font face="arial" size="-1">${post.date}</font>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <font face="arial" size="-1" color="#D9D9D9">
-                              ${post.description}
-                              ${tagsHTML}
-                            </font>
-                            <p>
-                              <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                      <font face="arial" size="-1">
-                                        <b>&gt;&gt;
-                                        <span class="post-detail-btn"
-                                              data-index="${globalIndex}">
-                                          Entrar...
-                                        </span>
-                                        </b>
-                                      </font>
-                                    </td>
-                                    <td align="right">
-                                      <font face="arial" size="-1">
-                                        <b><a href="${post.cus.url}" target="_blank">${post.cus.art}</a></b>
-                                      </font>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <p></p>
-          `;
+      <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
+        <tbody>
+          <tr>
+            <td valign="top" bgcolor="#c8c1f9">
+              <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
+                <tbody>
+                  <tr>
+                    <td align="left">
+                      <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
+                    </td>
+                    <td align="right">
+                      <font face="arial" size="-1">${post.date}</font>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
+                <tbody>
+                  <tr>
+                    <td>
+                      <font face="arial" size="-1" color="#D9D9D9">
+                        ${post.description}
+                        ${tagsHTML}
+                      </font>
+                      <p>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <font face="arial" size="-1">
+                                  <b>&gt;&gt; ${enterHtml}</b>
+                                </font>
+                              </td>
+                              <td align="right">
+                                <font face="arial" size="-1">
+                                  <b><a href="${post.cus.url}" target="_blank">${post.cus.art}</a></b>
+                                </font>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
+    `;
                     postContainer.innerHTML += postHTML;
                   });
 
@@ -617,6 +615,32 @@ permalink: /blog
                   return md;
                 }
 
+                async function loadScopedDetailCss() {
+                  // URL pública al main.css de tu sitio
+                  const cssUrl = "/assets/sapo.css"; // ajusta si el path es otro
+
+                  try {
+                    const resp = await fetch(cssUrl);
+                    let css = await resp.text();
+
+                    // Prefijar selectores con #detail-view
+                    // - Ignora reglas que empiezan por @ (media, keyframes, etc.)
+                    // - Para cada bloque `selector { ... }`, convierte a `#detail-view selector { ... }`
+                    css = css.replace(/(^|})\s*([^@}{][^{]+)\{/g, (match, brace, selector) => {
+                      // Opcional: NO tocar reglas globales de html/body si no quieres que se apliquen ni siquiera dentro
+                      if (/\bhtml\b|\bbody\b/.test(selector)) {
+                        return match; // las dejas como están o las puedes eliminar
+                      }
+                      return `${brace} #detail-view ${selector}{`;
+                    });
+
+                    const styleTag = document.createElement("style");
+                    styleTag.textContent = css;
+                    document.head.appendChild(styleTag);
+                  } catch (e) {
+                    console.error("Error cargando CSS de detalle:", e);
+                  }
+                }
 
                 async function showPostDetail(post) {
                   const masterView = document.getElementById("master-view");
@@ -629,25 +653,28 @@ permalink: /blog
 
                   let detailHtml = "";
 
-                  if (post.detailUrl) {
+
+
+                  if (post.link) {
                     try {
-                      const resp = await fetch(post.detailUrl);
-                      const mdTextRaw = await resp.text();
+                      const resp = await fetch(post.link);
+                      const html = await resp.text();
+                      const parser = new DOMParser();
+                      const doc = parser.parseFromString(html, "text/html");
 
-                      // Tus .md tienen front-matter y HTML incrustado (h2, div, img, etc.)
-                      // EJEMPLO: HTB_Base.md [attached_file:1]
-                      const mdText = stripFrontmatter(mdTextRaw);
+                      // Ajusta el selector al contenedor real de contenido en tu layout
+                      const contentEl =
+                        doc.querySelector(".page__content") ||
+                        doc.querySelector(".post") ||
+                        doc.querySelector("main");
 
-                      // Convierte Markdown + HTML embebido a HTML
-                      detailHtml = marked.parse(mdText);
+                      detailHtml = contentEl ? contentEl.innerHTML : "<p>No se pudo extraer el contenido.</p>";
                     } catch (e) {
-                      console.error("Error cargando detalle MD:", e);
+                      console.error("Error cargando detalle HTML:", e);
                       detailHtml = "<p>No se pudo cargar el detalle de esta publicación.</p>";
                     }
-                  } else if (post.detail) {
-                    detailHtml = post.detail; // si ya tienes HTML preparado
                   } else {
-                    detailHtml = post.description || "";
+                    detailHtml = post.detail || post.description || "";
                   }
 
                   detailView.innerHTML = `
@@ -768,7 +795,6 @@ permalink: /blog
                     title: "UCP - Procesamiento de Lenguaje Natural",
                     link: "https://liandd.github.io/Notas_UCP_Procesamiento_de_Lenguaje_Natural",
                     description: "Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio. Para el PLN hay que saber de gramática donde la idea es poder combinar el sistema de reglas con ML. Usando reglas y patrones, árboles y semántica se trabaja bastante la Inteligencia Artificial en el lenguaje de programación Python.",
-                    detailUrl: "https://raw.githubusercontent.com/liandd/liandd.github.io/refs/heads/main/pages/Notas_UCP_Procesamiento_de_Lenguaje_Natural.md",
                     author: "liandd",
                     date: "Mar 9, 2025",
                     cus: {url: "", art: "Notas"}
