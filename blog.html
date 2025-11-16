@@ -422,15 +422,9 @@ permalink: /blog
                 </tr>
               </tbody>
             </table>
-            <p id="post-list">
-            <div id="post-unkn0wn" class="post-unkn0wn">
-            </div>
-            <div id="post-local-container">
-
-            </div>
-            </p>
+            <p id="post-list"></p>
+    </div>
 <div id="detail-view" style="display:none;"></div>
-
             <script>
               document.addEventListener("DOMContentLoaded", async function () {
                 const url = "https://unkn0wn1122.github.io/";
@@ -439,8 +433,6 @@ permalink: /blog
                 let allPosts = [];
                 let basePosts = [];
                 let originalPosts = generateLocalPosts();
-
-
 
                 renderPosts();
                 renderPagination();
@@ -476,8 +468,242 @@ permalink: /blog
       if (defaultBtn) {
         defaultBtn.classList.add("filter-button--active");
       }
+                
+
                
-                function generateLocalPosts() {
+               function renderPagination() {
+        const totalPages = Math.ceil(allPosts.length / postsPerPage);
+        const paginationContainer = document.getElementById("pagination-links");
+        paginationContainer.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement("a");
+          pageLink.href = "#";
+          pageLink.innerText = `${i} `;
+          pageLink.onclick = function (e) {
+            e.preventDefault();
+            currentPage = i;
+            renderPosts();
+          };
+          paginationContainer.appendChild(pageLink);
+        }
+      }
+       
+      function renderPosts() {
+        const start = (currentPage - 1) * postsPerPage;
+        const end = start + postsPerPage;
+        const postsToShow = allPosts.slice(start, end);
+        const postContainer = document.getElementById("post-list");
+        postContainer.innerHTML = "";
+
+        postsToShow.forEach((post, index) => {
+          const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
+          const globalIndex = start + index;
+
+          const postHTML = `
+            <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
+              <tbody>
+                <tr>
+                  <td valign="top" bgcolor="#c8c1f9">
+                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
+                      <tbody>
+                        <tr>
+                          <td align="left">
+                            <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
+                          </td>
+                          <td align="right">
+                            <font face="arial" size="-1">${post.date}</font>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <font face="arial" size="-1" color="#D9D9D9">
+                              ${post.description}
+                              ${tagsHTML}
+                            </font>
+                            <p>
+                              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <font face="arial" size="-1">
+                                        <b>&gt;&gt;
+                                          <button type="button"
+                                                  class="post-detail-btn"
+                                                  data-index="${globalIndex}">
+                                            Entrar...
+                                          </button>
+                                        </b>
+                                      </font>
+                                    </td>
+                                    <td align="right">
+                                      <font face="arial" size="-1">
+                                        <b><a href="${post.cus.url}" target="_blank">${post.cus.art}</a></b>
+                                      </font>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+          `;
+          postContainer.innerHTML += postHTML;
+        });
+
+        attachDetailHandlers();
+      }
+
+      function attachDetailHandlers() {
+        const buttons = document.querySelectorAll(".post-detail-btn");
+        buttons.forEach(btn => {
+          btn.addEventListener("click", function () {
+            const index = parseInt(this.getAttribute("data-index"), 10);
+            const post = allPosts[index];
+            showPostDetail(post);
+          });
+        });
+      }
+
+      function showPostDetail(post) {
+        const masterView = document.getElementById("master-view");
+        const detailView = document.getElementById("detail-view");
+
+        masterView.style.display = "none";
+        detailView.style.display = "block";
+
+        const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
+
+        detailView.innerHTML = `
+          <p>
+            <button type="button" id="back-to-list-top">&lt;&lt; Volver al listado</button>
+          </p>
+
+          <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
+            <tbody>
+              <tr>
+                <td valign="top" bgcolor="#c8c1f9">
+                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
+                        </td>
+                        <td align="right">
+                          <font face="arial" size="-1">${post.date}</font>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <font face="arial" size="-1" color="#D9D9D9">
+                            ${post.description}
+                            ${tagsHTML}
+                          </font>
+                          <p>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <font face="arial" size="-1">
+                                      <b>&gt;&gt; <a href="${post.link}" target="_blank">Abrir publicación original</a></b>
+                                    </font>
+                                  </td>
+                                  <td align="right">
+                                    <font face="arial" size="-1">
+                                      <b><a href="${post.cus.url}" target="_blank">${post.cus.art}</a></b>
+                                    </font>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            <button type="button" id="back-to-list-bottom">&lt;&lt; Volver al listado</button>
+          </p>
+        `;
+
+        document.getElementById("back-to-list-top")
+          .addEventListener("click", backToList);
+        document.getElementById("back-to-list-bottom")
+          .addEventListener("click", backToList);
+      }
+
+      function backToList() {
+        const masterView = document.getElementById("master-view");
+        const detailView = document.getElementById("detail-view");
+
+        detailView.style.display = "none";
+        masterView.style.display = "block";
+
+        renderPosts();
+        renderPagination();
+      }
+                try {
+                  const response = await fetch(url);
+                  const html = await response.text();
+                  const parser = new DOMParser();
+                  const doc = parser.parseFromString(html, "text/html");
+                  const posts = doc.querySelectorAll(".list__item");
+                  const latestPosts = Array.from(posts).slice(0, 2);
+
+                  latestPosts.forEach((post, index) => {
+                    const title = post.querySelector(".archive__item-title a").innerText.trim();
+                    const link = post.querySelector(".archive__item-title a").getAttribute("href");
+                    const fullLink = `https://unkn0wn1122.github.io${link}`;
+                    const description = post.querySelector(".archive__item-excerpt").innerText.trim();
+                    const tags = Array.from(post.querySelectorAll(".page__meta.btn")).map(tag => tag.innerText.trim());
+                    const date = post.querySelector(".page__meta time")?.innerText.trim() || "Fecha desconocida";
+
+                    // Personalizar "cus" por post
+                    const cusData = [
+                      {url: "https://app.hackthebox.com/profile/700813", art: "Unkn0wn1122 HTB Account"},
+                      {url: "https://github.com/unkn0wn1122", art: "Unkn0wn1122 GitHub Account"}
+                    ];
+
+                    allPosts.push({
+                      title,
+                      link: fullLink,
+                      description,
+                      author: "unkn0wn1122",
+                      date,
+                      tags,
+                      cus: cusData[index] || {url: "#", art: "Default Profile"}
+                    });
+                  });
+
+                  basePosts = allPosts.concat(generateLocalPosts());
+                  allPosts = [...basePosts];
+                  renderPagination();
+                  renderPosts();
+                } catch (error) {
+                  console.error("Error obteniendo las publicaciones:", error);
+                }
+              });
+               function generateLocalPosts() {
                   let local = [
                     {
                       title: "UCP - Procesamiento de Lenguaje Natural",
@@ -878,129 +1104,6 @@ permalink: /blog
                   return local;
                 }
 
-                function renderPagination() {
-                  const totalPages = Math.ceil(allPosts.length / postsPerPage);
-                  const paginationContainer = document.getElementById("pagination-links");
-                  paginationContainer.innerHTML = "";
-
-                  for (let i = 1; i <= totalPages; i++) {
-                    const pageLink = document.createElement("a");
-                    pageLink.href = "#";
-                    pageLink.innerText = `${i} `;
-                    pageLink.onclick = function (e) {
-                      e.preventDefault();
-                      currentPage = i;
-                      renderPosts();
-                    };
-                    paginationContainer.appendChild(pageLink);
-                  }
-                }
-
-                function renderPosts() {
-                  const start = (currentPage - 1) * postsPerPage;
-                  const end = start + postsPerPage;
-                  const postsToShow = allPosts.slice(start, end);
-                  const postContainer = document.getElementById("post-list");
-                  postContainer.innerHTML = "";
-
-                  postsToShow.forEach(post => {
-                    const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
-                    const postHTML = `
-          <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
-            <tbody>
-              <tr>
-                <td valign="top" bgcolor="#c8c1f9">
-                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
-                    <tbody>
-                      <tr>
-                        <td align="left">
-                          <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
-                        </td>
-                        <td align="right"><font face="arial" size="-1">${post.date}</font></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <font face="arial" size="-1" color="#D9D9D9">
-                            ${post.description}
-                            ${tagsHTML}
-                          </font>
-                          <p>
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    <font face="arial" size="-1">
-                                      <b>&gt;&gt; <a href="${post.link}">Entrar...</a></b>
-                                    </font>
-                                  </td>
-                                  <td align="right">
-                                    <font face="arial" size="-1">
-                                      <b><a href="${post.cus.url}">${post.cus.art}</a></b>
-                                    </font>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p></p>
-        `;
-                    postContainer.innerHTML += postHTML;
-                  });
-                }
-
-                try {
-                  const response = await fetch(url);
-                  const html = await response.text();
-                  const parser = new DOMParser();
-                  const doc = parser.parseFromString(html, "text/html");
-                  const posts = doc.querySelectorAll(".list__item");
-                  const latestPosts = Array.from(posts).slice(0, 2);
-
-                  latestPosts.forEach((post, index) => {
-                    const title = post.querySelector(".archive__item-title a").innerText.trim();
-                    const link = post.querySelector(".archive__item-title a").getAttribute("href");
-                    const fullLink = `https://unkn0wn1122.github.io${link}`;
-                    const description = post.querySelector(".archive__item-excerpt").innerText.trim();
-                    const tags = Array.from(post.querySelectorAll(".page__meta.btn")).map(tag => tag.innerText.trim());
-                    const date = post.querySelector(".page__meta time")?.innerText.trim() || "Fecha desconocida";
-
-                    // Personalizar "cus" por post
-                    const cusData = [
-                      {url: "https://app.hackthebox.com/profile/700813", art: "Unkn0wn1122 HTB Account"},
-                      {url: "https://github.com/unkn0wn1122", art: "Unkn0wn1122 GitHub Account"}
-                    ];
-
-                    allPosts.push({
-                      title,
-                      link: fullLink,
-                      description,
-                      author: "unkn0wn1122",
-                      date,
-                      tags,
-                      cus: cusData[index] || {url: "#", art: "Default Profile"}
-                    });
-                  });
-
-                  basePosts = allPosts.concat(generateLocalPosts());
-                  allPosts = [...basePosts];
-                  renderPagination();
-                  renderPosts();
-                } catch (error) {
-                  console.error("Error obteniendo las publicaciones:", error);
-                }
-              });
             </script>
             <style>
               #pagination-links a {
