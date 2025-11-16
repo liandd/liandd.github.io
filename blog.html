@@ -61,8 +61,6 @@ permalink: /blog
             <li><a href="/">/inicio</a></li>
             <li><a href="/dashboard">/principal</a></li>
             <li><a href="/blog">/blog</a></li>
-            <li><a href="/posts">/publicaciones</a></li>
-            <li><a href="/portafolio">/portafolio</a></li>
             <li><a href="/culture">/cultura</a></li>
             <li>
               <a href="/about" class="bob">/about
@@ -259,53 +257,49 @@ permalink: /blog
             <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
               <tbody>
                 <tr>
-                  <td valign="top" bgcolor="#262626">
+                  <td valign="top" bgcolor="#c8c1f9">
                     <!--- TITLE ----->
-                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
+                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
                       <tbody>
                         <tr>
                           <td align="left">
                             <font face="arial" size="-1">
                               <b>
-                                <font color="#c4d5ff">Haz entrado al espacio... NEWS!!
+                                <font color="#fff">Haz entrado al espacio... NEWS!!
                                 </font>
                               </b>
                             </font>
                           </td>
                           <td align="right">
-                            <font face="arial" size="-1">May 1, 2025
+                            <font color="#fff" face="arial" size="-1">Nov 15, 2025
                             </font>
                           </td>
                         </tr>
                       </tbody>
                     </table>
                     <!--- END TITLE ---->
-                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
+                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
                       <tbody>
                         <tr>
                           <td valign="top">
                             <font face="arial" size="-1" color="#D9D9D9">
-                              This is the SPACE, donde se alojan las notas y prácticas, cosas de redes de datos y temas
-                              de interés tanto código y comandos.
-                              <br><br>He estado trabajando offline en las publicaciones, ya que considero
-                              importante el aprendizaje visual. Agregar imágenes lleva su tiempo, pero de seguro valdrá
-                              la pena.
+                                 Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada temática.
                             </font>
                             <p>
                               <font face="arial" size="-1" color="#D9D9D9">
                                 Estas publicaciones han sido creadas como soporte en mi formación académica y
                                 crecimiento
-                                profesional.
+                                    profesional.<br><br>Estos botones ayudarán a filtrar rápidamente por las diversas publicaciones a través de su categoría.
                               </font>
                             </p>
-                            <p>
+                            <pi id="filters">
                               <font face="arial" size="-1" color="#D9D9D9">
 
                                 <span data-filter="HTB" class="filter-button">HTB</span> |
                                 <span data-filter="Scripts" class="filter-button">Scripts</span> |
                                 <span data-filter="Notas" class="filter-button">Notas</span> |
                                 <span data-filter="Misc" class="filter-button">Misc</span> |
-                                <span data-filter="All" class="filter-button">Default</span>
+                                <span data-filter="All" class="filter-button filter-button--active">Default</span>
                               </font>
                             </p>
                             <style>
@@ -329,7 +323,7 @@ permalink: /blog
                                 box-shadow: inset 2px 2px 0px #000000, inset -2px -2px 0px #ffffff;
                                 text-shadow: 1px 1px 0px #000000;
                               }
-                            </style>
+                                                         </style>
                           </td>
                           <td>&nbsp;&nbsp;&nbsp;</td>
                           <td valign="top" nowrap="nowrap">
@@ -454,7 +448,7 @@ permalink: /blog
                     renderPagination();
                   });
                 });
-
+               
                 function generateLocalPosts() {
                   let local = [
                     {
@@ -887,18 +881,18 @@ permalink: /blog
           <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
             <tbody>
               <tr>
-                <td valign="top" bgcolor="#262626">
-                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#444444">
+                <td valign="top" bgcolor="#c8c1f9">
+                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
                     <tbody>
                       <tr>
                         <td align="left">
-                          <font face="arial" size="-1" color="#c4d5ff"><b>${post.title} - ${post.author}</b></font>
+                          <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
                         </td>
                         <td align="right"><font face="arial" size="-1">${post.date}</font></td>
                       </tr>
                     </tbody>
                   </table>
-                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#262626">
+                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
                     <tbody>
                       <tr>
                         <td>
@@ -1034,9 +1028,8 @@ permalink: /blog
                         href="https://github.com/">Visita GitHub</a></font>
                   </td>
                   <td align="right">
-                    <font face="arial" size="-1">Resolución de máquinas <a
-                        href="https://www.youtube.com/playlist?list=PLWys0ZbXYUy4x2gR3LFDa0bZw4OZ1m8k-">Linux por
-                        @s4vitar</a>!</font>
+                    <font face="arial" size="-1">Recuerda visitar la playlist de resolución de máquinas <a
+                        href="">link</a>!</font>
                   </td>
                 </tr>
               </tbody>
@@ -1047,7 +1040,7 @@ permalink: /blog
               <tbody>
                 <tr>
                   <td align="center">
-                    <font size="-1" face="ARIAL"><b>slava:!</b></font>
+                    <font size="-1" face="ARIAL"><b>La mayoría de las personas sólo juzgan a los hombres por el crédito de que gozan o por su buena suerte. La Rochefoucauld, F. (1665). Reflexiones; Sentencias y Máximas Morales.</b></font>
                   </td>
                 </tr>
               </tbody>
@@ -1067,48 +1060,24 @@ permalink: /blog
                             <td>
                             </td>
                             <td>
-                              <font face="arial" size="-1" color="#c4d5ff"><b>
-
-                                  <script language="javascript">
-                                    < !-
-                                    var total = localStorage.getItem("gold_posts") ? parseInt(localStorage.getItem("gold_posts")) : 0;
-
-                                    document.write('<span id="goldCounter">Gold_Posts: ' + total + '</span>');
-
-                                    function incrementCounter() {
-                                      total++;
-                                      localStorage.setItem("gold_posts", total);
-                                      document.getElementById("goldCounter").innerText = "Gold_Posts: " + total;
-                                    }
-
-                                    function openAWindow(pageToLoad, winName, width, height, center) {
-                                      xposition = 0; yposition = 0;
-                                      if ((parseInt(navigator.appVersion) >= 4) && (center)) {
-                                        xposition = (screen.width - width) / 2;
-                                        yposition = (screen.height - height) / 2;
-                                      }
-                                      args = "width=" + width + "," + "height=" + height + ","
-                                        + "location=0," + "menubar=0," + "resizable=1," + "scrollbars=0,"
-                                        + "status=0," + "titlebar=0," + "toolbar=0," + "hotkeys=0,"
-                                        + "screenx=" + xposition + "," + "screeny=" + yposition + ","
-                                        + "left=" + xposition + "," + "top=" + yposition;
-                                      window.open(pageToLoad, winName, args);
-                                    }
-                                    // -->
-                                  </script>
-                                </b><br>
-                              </font>
-                            </td>
+                                                          </td>
                           </tr>
                           <tr>
                             <td colspan="2">
-                              <b><a
-                                  href="https://www.youtube.com/shorts/cpyxu6tZ3Ns">
-                                  <font face="arial" size="-1" color="#c4d5ff">Sam Shamoun</font>
-                                </a><br><br>
-                                <font face="arial" size="-1" color="#c4d5ff">gg?</font><br><br>
+                      <b><a href="https://n1ce-est.neocities.org/">
+                        <img src="assets/images/headers/archlinux.gif"  alt="ucp"
+                          border="0"></a>
+<a href="https://animalcrossing.fandom.com/wiki/Bob">
+                        <img src="assets/images/headers/button-bob.gif"  alt="ucp"
+                          border="0"></a>
+                        <a href="https://spyware.neocities.org/articles/discord">
+                        <img src="assets/images/bin_files/discord-no-way-2.gif"  alt="ucp"
+                          border="0"></a>
                                 <img src="assets/images/bin_files/konata.gif"  alt="ucp"
                                   border="0">
+                          <img src="assets/images/headers/welcome.gif"  alt="ucp"
+                                  border="0">
+
                                 </a>
                               </b>
                             </td>
@@ -1118,28 +1087,8 @@ permalink: /blog
 
 
                     </td>
-                    <td align="center" width="235" valign="top">
-
-                      <br>
-
-                      <font face="arial" size="-1" color="#ffffff">
-                        <a href="https://liandd.github.io/posts">
-                          <font color="#aec1c8">Volver arriba</font>
-                        </a> | <a href="https://liandd.github.io/contact">
-                          <font color="#aec1c8">Mi contacto</font>
-                        </a> | <a href="https://x.com/lianndd_">
-                          <font color="#aec1c8">twitter</font>
-                        </a> | <a href="https://www.linkedin.com/in/juan-garciaa2/">
-                          <font color="#aec1c8">linkedin</font>
-                        </a> | <a href="https://www.youtube.com/@liandd">
-                          <font color="#aec1c8">youtube</font>
-                        </a> | <a href="https://app.hackthebox.com/profile/1098514">
-                          <font color="#aec1c8">htb</font>
-                        </a>
-                      </font>
-                      <br>
-                      <br>
-                      <img src="assets/images/headers/learn.gif" width="180" height="120" alt="ucp" border="0">
+            <td align="center" width="235" valign="top"><a href="https://github.com/Uruena2603">
+                      <img src="assets/images/headers/uruena wasted.jpeg" width="180" height="120" alt="ucp" border="0">
 
                     </td>
 
