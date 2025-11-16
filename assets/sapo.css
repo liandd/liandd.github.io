@@ -309,6 +309,8 @@ blockquote cite:before {
 /**
 * Code and syntax highlighting
 **/
+
+
 div.highlighter-rouge,
 figure.highlight {
   position: relative;
@@ -326,6 +328,8 @@ div.highlighter-rouge pre.highlight,
 figure.highlight>pre,
 figure.highlight pre.highlight {
   margin: 0;
+  max-width: 100%;
+  white-space: pre;
   overflow-x: auto;
   /* add scrollbars to wide code blocks*/
   padding: 1em;
@@ -385,6 +389,8 @@ img {
 }
 
 .highlight pre {
+  max-width: 100%;
+  overflow-x: auto;
   width: 100%;
 }
 

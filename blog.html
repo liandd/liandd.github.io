@@ -67,7 +67,6 @@ permalink: /blog
             <li><a href="/contact">/contacto</a></li>
           </ul>
         </div>
-
         <style>
           body {
             cursor: url("/assets/ico/icons8-cursor-16.png") 10 5, auto;
@@ -616,18 +615,13 @@ permalink: /blog
                 }
 
                 async function loadScopedDetailCss() {
-                  // URL pública al main.css de tu sitio
-                  const cssUrl = "/assets/sapo.css"; // ajusta si el path es otro
+                  const cssUrl = "/assets/sapo.css";
 
                   try {
                     const resp = await fetch(cssUrl);
                     let css = await resp.text();
 
-                    // Prefijar selectores con #detail-view
-                    // - Ignora reglas que empiezan por @ (media, keyframes, etc.)
-                    // - Para cada bloque `selector { ... }`, convierte a `#detail-view selector { ... }`
                     css = css.replace(/(^|})\s*([^@}{][^{]+)\{/g, (match, brace, selector) => {
-                      // Opcional: NO tocar reglas globales de html/body si no quieres que se apliquen ni siquiera dentro
                       if (/\bhtml\b|\bbody\b/.test(selector)) {
                         return match; // las dejas como están o las puedes eliminar
                       }
