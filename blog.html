@@ -440,11 +440,20 @@ permalink: /blog
               .post-detail-btn {
                 cursor: pointer;
                 color: #aec1c8;
-                /* o el color que uses para enlaces */
                 text-decoration: underline;
               }
 
               .post-detail-btn:hover {
+                color: #ff0078;
+              }
+
+              .back-link {
+                cursor: pointer;
+                color: #aec1c8;
+                text-decoration: underline;
+              }
+
+              .back-link:hover {
                 color: #ff0078;
               }
             </style>
@@ -608,9 +617,6 @@ permalink: /blog
                   const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
 
                   detailView.innerHTML = `
-          <p>
-            <button type="button" id="back-to-list-top">&lt;&lt; Volver al listado</button>
-          </p>
 
           <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
             <tbody>
@@ -623,7 +629,7 @@ permalink: /blog
                           <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
                         </td>
                         <td align="right">
-                          <font face="arial" size="-1">${post.date}</font>
+                          <font face="arial" size="-1">${post.date}, <span id="back-link-top" class="back-link">&lt;&lt; Volver al listado</span></font>
                         </td>
                       </tr>
                     </tbody>
@@ -642,7 +648,7 @@ permalink: /blog
                                 <tr>
                                   <td>
                                     <font face="arial" size="-1">
-                                      <b>&gt;&gt; <a href="${post.link}" target="_blank">Abrir publicación original</a></b>
+                                      <b><span id="back-link-bottom" class="back-link">&lt;&lt; Volver al listado</span></b>
                                     </font>
                                   </td>
                                   <td align="right">
@@ -662,15 +668,11 @@ permalink: /blog
               </tr>
             </tbody>
           </table>
+                 `;
 
-          <p>
-            <button type="button" id="back-to-list-bottom">&lt;&lt; Volver al listado</button>
-          </p>
-        `;
-
-                  document.getElementById("back-to-list-top")
+                  document.getElementById("back-link-top")
                     .addEventListener("click", backToList);
-                  document.getElementById("back-to-list-bottom")
+                  document.getElementById("back-link-bottom")
                     .addEventListener("click", backToList);
                 }
 
