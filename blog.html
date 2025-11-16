@@ -75,9 +75,15 @@ permalink: /blog
           body {
             cursor: url("/assets/ico/icons8-cursor-16.png") 10 5, auto;
           }
-          a, button, [role="button"], input[type="submit"], input[type="button"] {
+
+          a,
+          button,
+          [role="button"],
+          input[type="submit"],
+          input[type="button"] {
             cursor: url("/assets/ico/icons8-hand-cursor-16.png") 10 5, pointer;
           }
+
           .menu {
             display: flex;
             align-items: center;
@@ -253,178 +259,195 @@ permalink: /blog
 
 
 
-<div id="master-view">
-            <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table" id="intro-table">
-              <tbody>
-                <tr>
-                  <td valign="top" bgcolor="#c8c1f9">
-                    <!--- TITLE ----->
-                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
-                      <tbody>
-                        <tr>
-                          <td align="left">
-                            <font face="arial" size="-1">
-                              <b>
-                                <font color="#fff">Haz entrado al espacio... NEWS!!
-                                </font>
-                              </b>
-                            </font>
-                          </td>
-                          <td align="right">
-                            <font color="#fff" face="arial" size="-1">Nov 15, 2025
-                            </font>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <!--- END TITLE ---->
-                    <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
-                      <tbody>
-                        <tr>
-                          <td valign="top">
-                            <font face="arial" size="-1" color="#D9D9D9">
-                                 Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada temática.
-                            </font>
-                            <p>
-                              <font face="arial" size="-1" color="#D9D9D9">
-                                Estas publicaciones han sido creadas como soporte en mi formación académica y
-                                crecimiento
-                                    profesional.<br><br>Estos botones ayudarán a filtrar rápidamente por las diversas publicaciones a través de su categoría.
-                              </font>
-                            </p>
-                            <p id="filters">
-                              <font face="arial" size="-1" color="#D9D9D9">
-
-                                <span data-filter="HTB" class="filter-button">HTB</span> |
-                                <span data-filter="Scripts" class="filter-button">Scripts</span> |
-                                <span data-filter="Notas" class="filter-button">Notas</span> |
-                                <span data-filter="Misc" class="filter-button">Misc</span> |
-                                <span data-filter="All" class="filter-button filter-button--active">Default</span>
-                              </font>
-                            </p>
-                            <style>
-              .filter-button {
-      background: #c0c0c0;
-      color: black;
-      border: 2px outset #ffffff;
-      padding: 4px 10px;
-      margin: 2px;
-      font-family: "Arial", monospace;
-      font-size: 10px;
-      cursor: pointer;
-      transition: none;
-      box-shadow: inset -1px -1px 0px #000000,
-                  inset 1px 1px 0px #ffffff;
-    }
-
-    .filter-button:hover {
-      background: #9b9b9b;
-      color: #ff0078;
-      border: 2px inset #808080;
-      box-shadow: inset 2px 2px 0px #000000,
-                  inset -2px -2px 0px #ffffff;
-      text-shadow: 1px 1px 0px #000000;
-    }
-
-    /* Estado presionado */
-    .filter-button.filter-button--active {
-      background: #9b9b9b;
-      color: #ff0078;
-      border: 2px inset #808080;
-      box-shadow: inset 2px 2px 0px #000000,
-                  inset -2px -2px 0px #ffffff;
-      text-shadow: 1px 1px 0px #000000;
-    }
-
-                                                                                       </style>
-                          </td>
-                          <td>&nbsp;&nbsp;&nbsp;</td>
-                          <td valign="top" nowrap="nowrap">
-                            <font face="arial" size="-1">
-                              Lo más picante:
-                              <ol>
-                                <li><a style="color:#aec1c8;"
-                                    href="https://liandd.github.io/Misc_Gu%C3%ADa_Instalaci%C3%B3n_Arch_Linux">Guía de
-                                    Arch
-                                    Linux!</a></li>
-                                <li><a style="color:#aec1c8;"
-                                    href="https://liandd.github.io/Notas_UCP_Procesamiento_de_Lenguaje_Natural">NLP En
-                                    Python -
-                                    Optativa I</a></li>
-                                <li><a style="color:#aec1c8;"
-                                    href="https://liandd.github.io/Notas_UCP_Ciberseguridad_1">Ciberseguridad - Optativa
-                                    II</a></li>
-                                <li><a style="color:#aec1c8;"
-                                    href="https://liandd.github.io/Script_VpnConnection">VpnScript.sh - Unkn0wn1122</a>
-                                </li>
-
-                            </font>
-                            </ol>
-                            <font face="arial" size="-1">
-                              Lo ultimo de unkn0wn1122:
-                            </font>
-                            <ol>
+            <div id="master-view">
+              <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table" id="intro-table">
+                <tbody>
+                  <tr>
+                    <td valign="top" bgcolor="#c8c1f9">
+                      <!--- TITLE ----->
+                      <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
+                        <tbody>
+                          <tr>
+                            <td align="left">
                               <font face="arial" size="-1">
-                                <p id="post-list2"></p>
+                                <b>
+                                  <font color="#fff">Haz entrado al espacio... NEWS!!
+                                  </font>
+                                </b>
                               </font>
-                            </ol>
-                            <script>
-                              document.addEventListener("DOMContentLoaded", async function () {
-                                const url2 = "https://unkn0wn1122.github.io/";
+                            </td>
+                            <td align="right">
+                              <font color="#fff" face="arial" size="-1">Nov 15, 2025
+                              </font>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!--- END TITLE ---->
+                      <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
+                        <tbody>
+                          <tr>
+                            <td valign="top">
+                              <font face="arial" size="-1" color="#D9D9D9">
+                                Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub
+                                hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en
+                                Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada
+                                temática.
+                              </font>
+                              <p>
+                                <font face="arial" size="-1" color="#D9D9D9">
+                                  Estas publicaciones han sido creadas como soporte en mi formación académica y
+                                  crecimiento
+                                  profesional.<br><br>Estos botones ayudarán a filtrar rápidamente por las diversas
+                                  publicaciones a través de su categoría.
+                                </font>
+                              </p>
+                              <p id="filters">
+                                <font face="arial" size="-1" color="#D9D9D9">
 
-                                try {
-                                  const response2 = await fetch(url2);
-                                  const html2 = await response2.text();
-                                  const parser2 = new DOMParser();
-                                  const doc2 = parser2.parseFromString(html2, "text/html");
-                                  const posts2 = doc2.querySelectorAll(".list__item");
+                                  <span data-filter="HTB" class="filter-button">HTB</span> |
+                                  <span data-filter="Scripts" class="filter-button">Scripts</span> |
+                                  <span data-filter="Notas" class="filter-button">Notas</span> |
+                                  <span data-filter="Misc" class="filter-button">Misc</span> |
+                                  <span data-filter="All" class="filter-button filter-button--active">Default</span>
+                                </font>
+                              </p>
+                              <style>
+                                .filter-button {
+                                  background: #c0c0c0;
+                                  color: black;
+                                  border: 2px outset #ffffff;
+                                  padding: 4px 10px;
+                                  margin: 2px;
+                                  font-family: "Arial", monospace;
+                                  font-size: 10px;
+                                  cursor: pointer;
+                                  transition: none;
+                                  box-shadow: inset -1px -1px 0px #000000,
+                                    inset 1px 1px 0px #ffffff;
+                                }
 
-                                  // Tomamos los dos últimos posts
-                                  const latestPosts2 = Array.from(posts2).slice(0, 2);
+                                .filter-button:hover {
+                                  background: #9b9b9b;
+                                  color: #ff0078;
+                                  border: 2px inset #808080;
+                                  box-shadow: inset 2px 2px 0px #000000,
+                                    inset -2px -2px 0px #ffffff;
+                                  text-shadow: 1px 1px 0px #000000;
+                                }
 
-                                  // Contenedor donde agregaremos las publicaciones
-                                  const postContainer2 = document.getElementById("post-list2");
-                                  postContainer2.innerHTML = ""; // Limpiar contenido previo
+                                /* Estado presionado */
+                                .filter-button.filter-button--active {
+                                  background: #9b9b9b;
+                                  color: #ff0078;
+                                  border: 2px inset #808080;
+                                  box-shadow: inset 2px 2px 0px #000000,
+                                    inset -2px -2px 0px #ffffff;
+                                  text-shadow: 1px 1px 0px #000000;
+                                }
+                              </style>
+                            </td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td valign="top" nowrap="nowrap">
+                              <font face="arial" size="-1">
+                                Lo más picante:
+                                <ol>
+                                  <li><a style="color:#aec1c8;"
+                                      href="https://liandd.github.io/Misc_Gu%C3%ADa_Instalaci%C3%B3n_Arch_Linux">Guía de
+                                      Arch
+                                      Linux!</a></li>
+                                  <li><a style="color:#aec1c8;"
+                                      href="https://liandd.github.io/Notas_UCP_Procesamiento_de_Lenguaje_Natural">NLP En
+                                      Python -
+                                      Optativa I</a></li>
+                                  <li><a style="color:#aec1c8;"
+                                      href="https://liandd.github.io/Notas_UCP_Ciberseguridad_1">Ciberseguridad -
+                                      Optativa
+                                      II</a></li>
+                                  <li><a style="color:#aec1c8;"
+                                      href="https://liandd.github.io/Script_VpnConnection">VpnScript.sh -
+                                      Unkn0wn1122</a>
+                                  </li>
 
-                                  latestPosts2.forEach(post => {
-                                    const title2 = post.querySelector(".archive__item-title a").innerText.trim();
-                                    const link2 = post.querySelector(".archive__item-title a").getAttribute("href");
-                                    const fullLink2 = `https://unkn0wn1122.github.io${link2}`;
+                              </font>
+                              </ol>
+                              <font face="arial" size="-1">
+                                Lo ultimo de unkn0wn1122:
+                              </font>
+                              <ol>
+                                <font face="arial" size="-1">
+                                  <p id="post-list2"></p>
+                                </font>
+                              </ol>
+                              <script>
+                                document.addEventListener("DOMContentLoaded", async function () {
+                                  const url2 = "https://unkn0wn1122.github.io/";
 
-                                    const postHTML2 = `
+                                  try {
+                                    const response2 = await fetch(url2);
+                                    const html2 = await response2.text();
+                                    const parser2 = new DOMParser();
+                                    const doc2 = parser2.parseFromString(html2, "text/html");
+                                    const posts2 = doc2.querySelectorAll(".list__item");
+
+                                    // Tomamos los dos últimos posts
+                                    const latestPosts2 = Array.from(posts2).slice(0, 2);
+
+                                    // Contenedor donde agregaremos las publicaciones
+                                    const postContainer2 = document.getElementById("post-list2");
+                                    postContainer2.innerHTML = ""; // Limpiar contenido previo
+
+                                    latestPosts2.forEach(post => {
+                                      const title2 = post.querySelector(".archive__item-title a").innerText.trim();
+                                      const link2 = post.querySelector(".archive__item-title a").getAttribute("href");
+                                      const fullLink2 = `https://unkn0wn1122.github.io${link2}`;
+
+                                      const postHTML2 = `
           <li><a href="${fullLink2}" target="_blank">${title2}</a></li>
         `;
 
-                                    postContainer2.innerHTML += postHTML2;
-                                  });
+                                      postContainer2.innerHTML += postHTML2;
+                                    });
 
-                                } catch (error) {
-                                  console.error("Error obteniendo las publicaciones:", error);
-                                }
-                              });
-                            </script>
-                            </ol>
-                            </font>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td colspan="3">
-                            <font face="arial" size="-1" color="#D9D9D9">
-                              <b>&gt;&gt; <a href="#" id="main-title">Entradas al blog...</a>
-                                <span id="pagination-links"></span>
-                              </b>
-                            </font>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <p id="post-list"></p>
-    </div>
-<div id="detail-view" style="display:none;"></div>
+                                  } catch (error) {
+                                    console.error("Error obteniendo las publicaciones:", error);
+                                  }
+                                });
+                              </script>
+                              </ol>
+                              </font>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">
+                              <font face="arial" size="-1" color="#D9D9D9">
+                                <b>&gt;&gt; <a href="#" id="main-title">Entradas al blog...</a>
+                                  <span id="pagination-links"></span>
+                                </b>
+                              </font>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p id="post-list"></p>
+            </div>
+            <div id="detail-view" style="display:none;"></div>
+            <style>
+              .post-detail-btn {
+                cursor: pointer;
+                color: #aec1c8;
+                /* o el color que uses para enlaces */
+                text-decoration: underline;
+              }
+
+              .post-detail-btn:hover {
+                color: #ff0078;
+              }
+            </style>
             <script>
               document.addEventListener("DOMContentLoaded", async function () {
                 const url = "https://unkn0wn1122.github.io/";
@@ -457,50 +480,50 @@ permalink: /blog
                 });
                 const filterButtons = document.querySelectorAll("[data-filter]");
 
-      filterButtons.forEach(btn => {
-        btn.addEventListener("click", function () {
-          filterButtons.forEach(b => b.classList.remove("filter-button--active"));
-          this.classList.add("filter-button--active");
-        });
-      });
+                filterButtons.forEach(btn => {
+                  btn.addEventListener("click", function () {
+                    filterButtons.forEach(b => b.classList.remove("filter-button--active"));
+                    this.classList.add("filter-button--active");
+                  });
+                });
 
-      const defaultBtn = document.querySelector('[data-filter="All"]');
-      if (defaultBtn) {
-        defaultBtn.classList.add("filter-button--active");
-      }
-                
+                const defaultBtn = document.querySelector('[data-filter="All"]');
+                if (defaultBtn) {
+                  defaultBtn.classList.add("filter-button--active");
+                }
 
-               
-               function renderPagination() {
-        const totalPages = Math.ceil(allPosts.length / postsPerPage);
-        const paginationContainer = document.getElementById("pagination-links");
-        paginationContainer.innerHTML = "";
 
-        for (let i = 1; i <= totalPages; i++) {
-          const pageLink = document.createElement("a");
-          pageLink.href = "#";
-          pageLink.innerText = `${i} `;
-          pageLink.onclick = function (e) {
-            e.preventDefault();
-            currentPage = i;
-            renderPosts();
-          };
-          paginationContainer.appendChild(pageLink);
-        }
-      }
-       
-      function renderPosts() {
-        const start = (currentPage - 1) * postsPerPage;
-        const end = start + postsPerPage;
-        const postsToShow = allPosts.slice(start, end);
-        const postContainer = document.getElementById("post-list");
-        postContainer.innerHTML = "";
 
-        postsToShow.forEach((post, index) => {
-          const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
-          const globalIndex = start + index;
+                function renderPagination() {
+                  const totalPages = Math.ceil(allPosts.length / postsPerPage);
+                  const paginationContainer = document.getElementById("pagination-links");
+                  paginationContainer.innerHTML = "";
 
-          const postHTML = `
+                  for (let i = 1; i <= totalPages; i++) {
+                    const pageLink = document.createElement("a");
+                    pageLink.href = "#";
+                    pageLink.innerText = `${i} `;
+                    pageLink.onclick = function (e) {
+                      e.preventDefault();
+                      currentPage = i;
+                      renderPosts();
+                    };
+                    paginationContainer.appendChild(pageLink);
+                  }
+                }
+
+                function renderPosts() {
+                  const start = (currentPage - 1) * postsPerPage;
+                  const end = start + postsPerPage;
+                  const postsToShow = allPosts.slice(start, end);
+                  const postContainer = document.getElementById("post-list");
+                  postContainer.innerHTML = "";
+
+                  postsToShow.forEach((post, index) => {
+                    const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
+                    const globalIndex = start + index;
+
+                    const postHTML = `
             <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
               <tbody>
                 <tr>
@@ -532,11 +555,10 @@ permalink: /blog
                                     <td>
                                       <font face="arial" size="-1">
                                         <b>&gt;&gt;
-                                          <button type="button"
-                                                  class="post-detail-btn"
-                                                  data-index="${globalIndex}">
-                                            Entrar...
-                                          </button>
+                                        <span class="post-detail-btn"
+                                              data-index="${globalIndex}">
+                                          Entrar...
+                                        </span>
                                         </b>
                                       </font>
                                     </td>
@@ -559,33 +581,33 @@ permalink: /blog
             </table>
             <p></p>
           `;
-          postContainer.innerHTML += postHTML;
-        });
+                    postContainer.innerHTML += postHTML;
+                  });
 
-        attachDetailHandlers();
-      }
+                  attachDetailHandlers();
+                }
 
-      function attachDetailHandlers() {
-        const buttons = document.querySelectorAll(".post-detail-btn");
-        buttons.forEach(btn => {
-          btn.addEventListener("click", function () {
-            const index = parseInt(this.getAttribute("data-index"), 10);
-            const post = allPosts[index];
-            showPostDetail(post);
-          });
-        });
-      }
+                function attachDetailHandlers() {
+                  const buttons = document.querySelectorAll(".post-detail-btn");
+                  buttons.forEach(btn => {
+                    btn.addEventListener("click", function () {
+                      const index = parseInt(this.getAttribute("data-index"), 10);
+                      const post = allPosts[index];
+                      showPostDetail(post);
+                    });
+                  });
+                }
 
-      function showPostDetail(post) {
-        const masterView = document.getElementById("master-view");
-        const detailView = document.getElementById("detail-view");
+                function showPostDetail(post) {
+                  const masterView = document.getElementById("master-view");
+                  const detailView = document.getElementById("detail-view");
 
-        masterView.style.display = "none";
-        detailView.style.display = "block";
+                  masterView.style.display = "none";
+                  detailView.style.display = "block";
 
-        const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
+                  const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
 
-        detailView.innerHTML = `
+                  detailView.innerHTML = `
           <p>
             <button type="button" id="back-to-list-top">&lt;&lt; Volver al listado</button>
           </p>
@@ -646,22 +668,22 @@ permalink: /blog
           </p>
         `;
 
-        document.getElementById("back-to-list-top")
-          .addEventListener("click", backToList);
-        document.getElementById("back-to-list-bottom")
-          .addEventListener("click", backToList);
-      }
+                  document.getElementById("back-to-list-top")
+                    .addEventListener("click", backToList);
+                  document.getElementById("back-to-list-bottom")
+                    .addEventListener("click", backToList);
+                }
 
-      function backToList() {
-        const masterView = document.getElementById("master-view");
-        const detailView = document.getElementById("detail-view");
+                function backToList() {
+                  const masterView = document.getElementById("master-view");
+                  const detailView = document.getElementById("detail-view");
 
-        detailView.style.display = "none";
-        masterView.style.display = "block";
+                  detailView.style.display = "none";
+                  masterView.style.display = "block";
 
-        renderPosts();
-        renderPagination();
-      }
+                  renderPosts();
+                  renderPagination();
+                }
                 try {
                   const response = await fetch(url);
                   const html = await response.text();
@@ -703,406 +725,406 @@ permalink: /blog
                   console.error("Error obteniendo las publicaciones:", error);
                 }
               });
-               function generateLocalPosts() {
-                  let local = [
-                    {
-                      title: "UCP - Procesamiento de Lenguaje Natural",
-                      link: "https://liandd.github.io/Notas_UCP_Procesamiento_de_Lenguaje_Natural",
-                      description: "Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio. Para el PLN hay que saber de gramática donde la idea es poder combinar el sistema de reglas con ML. Usando reglas y patrones, árboles y semántica se trabaja bastante la Inteligencia Artificial en el lenguaje de programación Python.",
-                      author: "liandd",
-                      date: "Mar 9, 2025",
-                      cus: {url: "", art: "Notas"}
-                    },
-                    {
-                      title: "Grub Rescue de x86_64 a i386",
-                      link: "https://liandd.github.io/Misc_Grub_Rescue_x86",
-                      description: "Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricación y en como acceden al sistema operativo.<br>Este problema ocurrió porque el sistema tenía GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.",
-                      author: "liandd",
-                      date: "Jan 31, 2025",
-                      cus: {url: "https://phoenixnap.com/kb/grub-rescue", art: "Misc"}
-                    },
-                    {
-                      title: "Script - VpnConnection / unkn0wn1122",
-                      link: "https://liandd.github.io/Script_VpnConnection",
-                      description: "Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN para <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.",
-                      author: "Unkn0wn1122 y liandd",
-                      date: "Oct 28, 2024",
-                      cus: {url: "https://github.com/liandd/Vpn_Script_for_HTB", art: "Scripts"}
-                    },
-                    {
-                      title: "Configuración Parrot Bspwm - (Deprecated)",
-                      link: "https://liandd.github.io/Misc_Dotfiles_Parrot",
-                      description: "Este entorno de trabajo personalizado con Bspwm está diseñado para máquinas con sistema operativo GNU/Linux y distribuciones basadas en Debian. Está enfocado en el pentesting y tiene una configuración con atajos de teclado.<br>Para este entorno se utiliza el gestor de ventanas Bspwm, que se basa en el concepto de ventanas flotantes. Es altamente personalizable, lo que permite organizar y controlar las ventanas de forma efectiva.<br>Se han configurado atajos de teclado optimizados para agilizar el flujo de trabajo, asignando comandos a combinaciones de teclas para realizar acciones rápidas y sencillas.",
-                      author: "liandd",
-                      date: "Jul 16, 2023",
-                      cus: {url: "https://github.com/liandd", art: "Misc"}
-                    },
-                    {
-                      title: "Script - Decompressor OTW (Bandit)",
-                      link: "https://liandd.github.io/Script_Decompressor",
-                      description: "Hace un tiempo he venido obteniendo soltura en Bash. Para practicar un poco de scripting con Bandit, he terminado desarrollando un pequeño script en Bash para descomprimir un archivo que tiene una cantidad desconocida de archivos comprimidos en su interior.<br>La plataforma OTW presenta Bandit para el aprendizaje de Bash en forma de niveles, donde en el nivel 13-14 se presenta un caso en el cual hay un archivo con una cantidad enorme de comprimidos en su interior.",
-                      author: "liandd",
-                      date: "Feb 12, 2023",
-                      cus: {url: "https://github.com/liandd", art: "Scripts"}
-                    },
-                    {
-                      title: "Guía Instalación Arch Linux Bspwm",
-                      link: "https://liandd.github.io/Misc_Gu%C3%ADa_Instalaci%C3%B3n_Arch_Linux",
-                      description: "Esta publicación tiene la guía de instalación de Arch Linux, suponiendo que ya se ha lanzado su instalador y ya ha sido quemado en un USB Booteable, o una máquina virtual.<br>Se han configurado atajos de teclado optimizados para agilizar el flujo de trabajo, asignando comandos a combinaciones de teclas para realizar acciones rápidas y sencillas.",
-                      author: "liandd",
-                      date: "Nov 3, 2024",
-                      cus: {url: "https://github.com/liandd", art: "Misc"}
-                    },
-                    {
-                      title: "Script - Subnetting_tool",
-                      link: "https://liandd.github.io/Script_SubNet",
-                      description: "Herramienta para calcular Subnetting basados en IP y NetMask, cálculo de (Total Host, Network ID, Broadcast IP) mediante Bash y Lenguaje C++.",
-                      author: "liandd",
-                      date: "Nov 30, 2024",
-                      cus: {url: "https://github.com/liandd", art: "Scripts"}
-                    },
-                    {
-                      title: "HTB Writeup - Starting Point",
-                      link: "https://liandd.github.io/HTB_Starting_Point",
-                      description: "Esta publicación se centra en una rápida introducción a <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. 13 Máquinas.<br><br>Tier1 (Meow, Fawn, Dancing, Redeemer).<br>Tier2 (Appointment, Sequel, Crocodile, Responder, Three).<br>Tier3 (Archetype, Oopsie, Vaccine, Unified).<br><br>13 Máquinas de introducción y 12 son VIP+, solo se abordan las FREE.",
-                      author: "liandd",
-                      date: "Jan 16, 2022",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Preignition Writeup",
-                      link: "http://liandd.github.io/HTB_Preignition.html",
-                      description: "La máquina Preignition de HackTheBox es de una dificultad muy fácil y Linux, que presenta un servicio APACHE y requiere de técnicas de DirBusting para enumerar posibles rutas por defecto. Mediante credenciales débiles y una mala configuración de APACHE se puede comprometer está máquina.<br><p><strong>Tags:</strong> Linux, Apache, Web, Weak Credentials</p> ",
-                      author: "liandd",
-                      date: "Mar 20, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
+              function generateLocalPosts() {
+                let local = [
+                  {
+                    title: "UCP - Procesamiento de Lenguaje Natural",
+                    link: "https://liandd.github.io/Notas_UCP_Procesamiento_de_Lenguaje_Natural",
+                    description: "Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio. Para el PLN hay que saber de gramática donde la idea es poder combinar el sistema de reglas con ML. Usando reglas y patrones, árboles y semántica se trabaja bastante la Inteligencia Artificial en el lenguaje de programación Python.",
+                    author: "liandd",
+                    date: "Mar 9, 2025",
+                    cus: {url: "", art: "Notas"}
+                  },
+                  {
+                    title: "Grub Rescue de x86_64 a i386",
+                    link: "https://liandd.github.io/Misc_Grub_Rescue_x86",
+                    description: "Hacer cambios de una unidad de almacenamiento ya sea un disco duro, o un disco de estado solido con un sistema operativo instalado puede causar algunos inconvenientes, puesto que los equipos pueden contar con una diferencia de fabricación y en como acceden al sistema operativo.<br>Este problema ocurrió porque el sistema tenía GRUB de 64 bits, pero GRUB buscaba archivos en la carpeta incorrecta (i386-pc en lugar de x86_64-pc). Ajustando la ruta correctamente en grub rescue, fue posible recuperar el sistema.",
+                    author: "liandd",
+                    date: "Jan 31, 2025",
+                    cus: {url: "https://phoenixnap.com/kb/grub-rescue", art: "Misc"}
+                  },
+                  {
+                    title: "Script - VpnConnection / unkn0wn1122",
+                    link: "https://liandd.github.io/Script_VpnConnection",
+                    description: "Este script en Bash automatiza las tareas de conexión y desconexión de una VPN utilizando OpenVPN para <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. También permite copiar la dirección IP asignada a la interfaz tun al portapapeles. Es ideal para entornos donde es necesario establecer conexiones seguras de manera eficiente y sin intervención manual.",
+                    author: "Unkn0wn1122 y liandd",
+                    date: "Oct 28, 2024",
+                    cus: {url: "https://github.com/liandd/Vpn_Script_for_HTB", art: "Scripts"}
+                  },
+                  {
+                    title: "Configuración Parrot Bspwm - (Deprecated)",
+                    link: "https://liandd.github.io/Misc_Dotfiles_Parrot",
+                    description: "Este entorno de trabajo personalizado con Bspwm está diseñado para máquinas con sistema operativo GNU/Linux y distribuciones basadas en Debian. Está enfocado en el pentesting y tiene una configuración con atajos de teclado.<br>Para este entorno se utiliza el gestor de ventanas Bspwm, que se basa en el concepto de ventanas flotantes. Es altamente personalizable, lo que permite organizar y controlar las ventanas de forma efectiva.<br>Se han configurado atajos de teclado optimizados para agilizar el flujo de trabajo, asignando comandos a combinaciones de teclas para realizar acciones rápidas y sencillas.",
+                    author: "liandd",
+                    date: "Jul 16, 2023",
+                    cus: {url: "https://github.com/liandd", art: "Misc"}
+                  },
+                  {
+                    title: "Script - Decompressor OTW (Bandit)",
+                    link: "https://liandd.github.io/Script_Decompressor",
+                    description: "Hace un tiempo he venido obteniendo soltura en Bash. Para practicar un poco de scripting con Bandit, he terminado desarrollando un pequeño script en Bash para descomprimir un archivo que tiene una cantidad desconocida de archivos comprimidos en su interior.<br>La plataforma OTW presenta Bandit para el aprendizaje de Bash en forma de niveles, donde en el nivel 13-14 se presenta un caso en el cual hay un archivo con una cantidad enorme de comprimidos en su interior.",
+                    author: "liandd",
+                    date: "Feb 12, 2023",
+                    cus: {url: "https://github.com/liandd", art: "Scripts"}
+                  },
+                  {
+                    title: "Guía Instalación Arch Linux Bspwm",
+                    link: "https://liandd.github.io/Misc_Gu%C3%ADa_Instalaci%C3%B3n_Arch_Linux",
+                    description: "Esta publicación tiene la guía de instalación de Arch Linux, suponiendo que ya se ha lanzado su instalador y ya ha sido quemado en un USB Booteable, o una máquina virtual.<br>Se han configurado atajos de teclado optimizados para agilizar el flujo de trabajo, asignando comandos a combinaciones de teclas para realizar acciones rápidas y sencillas.",
+                    author: "liandd",
+                    date: "Nov 3, 2024",
+                    cus: {url: "https://github.com/liandd", art: "Misc"}
+                  },
+                  {
+                    title: "Script - Subnetting_tool",
+                    link: "https://liandd.github.io/Script_SubNet",
+                    description: "Herramienta para calcular Subnetting basados en IP y NetMask, cálculo de (Total Host, Network ID, Broadcast IP) mediante Bash y Lenguaje C++.",
+                    author: "liandd",
+                    date: "Nov 30, 2024",
+                    cus: {url: "https://github.com/liandd", art: "Scripts"}
+                  },
+                  {
+                    title: "HTB Writeup - Starting Point",
+                    link: "https://liandd.github.io/HTB_Starting_Point",
+                    description: "Esta publicación se centra en una rápida introducción a <a href='https://app.hackthebox.com/machines'>HackTheBox</a>. 13 Máquinas.<br><br>Tier1 (Meow, Fawn, Dancing, Redeemer).<br>Tier2 (Appointment, Sequel, Crocodile, Responder, Three).<br>Tier3 (Archetype, Oopsie, Vaccine, Unified).<br><br>13 Máquinas de introducción y 12 son VIP+, solo se abordan las FREE.",
+                    author: "liandd",
+                    date: "Jan 16, 2022",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Preignition Writeup",
+                    link: "http://liandd.github.io/HTB_Preignition.html",
+                    description: "La máquina Preignition de HackTheBox es de una dificultad muy fácil y Linux, que presenta un servicio APACHE y requiere de técnicas de DirBusting para enumerar posibles rutas por defecto. Mediante credenciales débiles y una mala configuración de APACHE se puede comprometer está máquina.<br><p><strong>Tags:</strong> Linux, Apache, Web, Weak Credentials</p> ",
+                    author: "liandd",
+                    date: "Mar 20, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
 
-                    {
-                      title: "Explosion Writeup",
-                      link: "http://liandd.github.io/HTB_Explosion.html",
-                      description: "La máquina Explosion de HackTheBox es de una dificultad muy fácil y Windows, presenta un RPD Remote Desktop Protocol el cual no está sanitizado y es vulnerable a credenciales débiles a través de un certificado.<br><p><strong>Tags:</strong> Windows, RPD, Weak Credentials</p>",
-                      author: "liandd",
-                      date: "Mar 20, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Synced Writeup",
-                      link: "http://liandd.github.io/HTB_Synced.html",
-                      description: "La máquina Synced de HackTheBox es de una dificultad muy fácil y Linux, con un protocolo para entablar conexiones no muy común Rsync orientada a la transferencia de archivos tal que FTP (Pero mejor, y más nuevo), pero con una jugadilla podemos hacer bypass para tener acceso total.<br><p><strong>Tags:</strong> Linux, Rsync, Bypass</p>",
-                      author: "liandd",
-                      date: "Mar 21, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Mongod Writeup",
-                      link: "http://liandd.github.io/HTB_Mongod.html",
-                      description: "La máquina Mongod de HackTheBox es de una dificultad muy fácil y Linux, que a través de malas configuraciones se explota un servicio MongoDB y de manera anónima dumpear colecciones con información sensible.<br><p><strong>Tags:</strong> Linux, MongoDB, Bypass</p>",
-                      author: "liandd",
-                      date: "Mar 21, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
+                  {
+                    title: "Explosion Writeup",
+                    link: "http://liandd.github.io/HTB_Explosion.html",
+                    description: "La máquina Explosion de HackTheBox es de una dificultad muy fácil y Windows, presenta un RPD Remote Desktop Protocol el cual no está sanitizado y es vulnerable a credenciales débiles a través de un certificado.<br><p><strong>Tags:</strong> Windows, RPD, Weak Credentials</p>",
+                    author: "liandd",
+                    date: "Mar 20, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Synced Writeup",
+                    link: "http://liandd.github.io/HTB_Synced.html",
+                    description: "La máquina Synced de HackTheBox es de una dificultad muy fácil y Linux, con un protocolo para entablar conexiones no muy común Rsync orientada a la transferencia de archivos tal que FTP (Pero mejor, y más nuevo), pero con una jugadilla podemos hacer bypass para tener acceso total.<br><p><strong>Tags:</strong> Linux, Rsync, Bypass</p>",
+                    author: "liandd",
+                    date: "Mar 21, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Mongod Writeup",
+                    link: "http://liandd.github.io/HTB_Mongod.html",
+                    description: "La máquina Mongod de HackTheBox es de una dificultad muy fácil y Linux, que a través de malas configuraciones se explota un servicio MongoDB y de manera anónima dumpear colecciones con información sensible.<br><p><strong>Tags:</strong> Linux, MongoDB, Bypass</p>",
+                    author: "liandd",
+                    date: "Mar 21, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
 
-                    {
-                      title: "Crocodile Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#crocodile",
-                      description: "La máquina Crocodile de HackTheBox es de una dificultad muy fácil y Linux, es una máquina con un apartado web y a traves de técnicas de DirBusting y explotando un FPT ganamos acceso total.<br><p><strong>Tags:</strong> Linux, Web, Dir Busting, Information Leakage</p>",
-                      author: "liandd",
-                      date: "Mar 23, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Sequel Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#sequel",
-                      description: "La máquina Sequel de HackTheBox es de una dificultad muy fácil y Linux, es una máquina introductoria a los principios de SQL Dump.<br><p><strong>Tags:</strong> Linux, SQL</p>",
-                      author: "liandd",
-                      date: "Mar 22, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Appointment Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#appointment",
-                      description: "La máquina Appointment de HackTheBox es de una dificultad muy fácil y Linux, está diseñada para comprender los principios básicos de enumeración web y SQL Injection.<br><p><strong>Tags:</strong> Linux, Web, SQL Injection, Bypass</p>",
-                      author: "liandd",
-                      date: "Mar 22, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Tactics Writeup",
-                      link: "http://127.0.0.1:4000/HTB_Tactics.html",
-                      description: "La máquina Tactics de HackTheBox es de una dificultad muy fácil y Windows, que mediante enumeración SMB y credenciales débiles tenemos acceso total.<br><p><strong>Tags:</strong> Windows, SMB Weak Credentials</p>",
-                      author: "liandd",
-                      date: "Mar 24, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "PennyWorth Writeup",
-                      link: "http://127.0.0.1:4000/HTB_PennyWorth",
-                      description: "La máquina PennyWorth de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web que tiene una versión vulnerable de Jenkins y credenciales débiles, Y con Groovy Script podemos hacer RCE para control total.<br><p><strong>Tags:</strong> Linux, Web, Jenkins Weak Credentials, Groovy Script, RCE</p>",
-                      author: "liandd",
-                      date: "Mar 24, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Funnel Writeup",
-                      link: "http://127.0.0.1:4000/HTB_Funnel.html",
-                      description: "La máquina Funnel de HackTheBox es de una dificultad muy fácil y Linux, presenta un FTP y Información sensible no sanitizada que permite acceso SSH, se ataca un PostgresSQL que se ejecutaba localmente en la máquina con un Local Port Forwarding.<br><p><strong>Tags:</strong> Linux, FTP, Information Leakage, Local Port Forwarding, PSQL</p>",
-                      author: "liandd",
-                      date: "Mar 24, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Bike Writeup",
-                      link: "http://liandd.github.io/HTB_Bike.html",
-                      description: "La máquina Bike de HackTheBox es de una dificultad muy fácil y Linux, tiene un servidor web donde hay una etiqueta html input que con un Server Side Template Injection (SSTI) Y RCE controlando las peticiones web con Caido se puede obtener información sensible.<br><p><strong>Tags:</strong> Linux, Web, SSTI, Caido</p>",
-                      author: "liandd",
-                      date: "Mar 24, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Ignition Writeup",
-                      link: "http://liandd.github.io/HTB_Ignition.html",
-                      description: "La máquina Ignition de HackTheBox es de una dificultad muy fácil y Linux, cuenta con un servicio web el cual utiliza un servicio Magento de formularios vulnerable.<br><p><strong>Tags:</strong> Linux, Magento, Weak Credentials</p>",
-                      author: "liandd",
-                      date: "Mar 24, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Three Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#three",
-                      description: "La máquina Three de HackTheBox es de una dificultad muy fácil y Linux, tiene un apartado web que mediante DirBusting se explota un servicio mal configurado de Amazon para ejecución arbitraria de comandos.<br><p><strong>Tags:</strong> Linux, Web, DirBustin, AWS S3, RCE</p>",
-                      author: "liandd",
-                      date: "Mar 24, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Responder Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#responder",
-                      description: "La máquina Responder de HackTheBox es de una dificultad muy fácil y Windows, tiene un apartado web que mediante una variable PHP mal sanitizada nos brinda un LFI para el NetNTLMv2 que nos permite mediante un desafío de hashes obtener acceso total .<br><p><strong>Tags:</strong> Windows, Web, Path Trasversal, LFI, NetNTLMv2, Hash Cracking</p>",
-                      author: "liandd",
-                      date: "Mar 24, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Archetype Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#archetype",
-                      description: "La máquina Archetype de HackTheBox es de una dificultad muy fácil y Windows, que mediante enumeración SMB hay información sensible no sanitizada, luego se presenta un MSSQL que nos permite un RCE para entablarnos una conexión que nos permite acceso al sistema. Para la escalada hay un Information Leakage mediante Logs.<br><p><strong>Tags:</strong> Windows, SMB Information Leakage, MSSQL, RCE, Log Credentials(Escalada)</p>",
-                      author: "liandd",
-                      date: "Mar 25, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Unified Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#unified",
-                      description: "La máquina Unified de HackTheBox es de una dificultad muy fácil y Linux, en una página web UniFI vulneramos un LOG4j con maven y Java, Para la escalada se explota un BAD LDAP con RCE con mongoDB y obtenemos un webBYpass(Escalada).<br><p><strong>Tags:</strong> Linux, Web, LOG4j, Maven JAVA, BAD LDAP RCE, MongoDB, webByPass(Escalada)</p>",
-                      author: "liandd",
-                      date: "April 20, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Vaccine Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#vaccine",
-                      description: "La máquina Vaccine de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web con un Login, a través de un FTP y zip Hash Cracking conseguimos un SQL Injection para acceder a la máquina. Para la escalada explotamos Vi(Escalada).<br><p><strong>Tags:</strong> Linux, Web, FTP 3.0.3, Hash Cracking, SQL Injection, Information Leakage, Vi Sudo Abuse(Escalada)</p>",
-                      author: "liandd",
-                      date: "April 20, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Oopsie Writeup",
-                      link: "https://liandd.github.io/HTB_Starting_Point#oopsie",
-                      description: "La máquina Oopsie de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web la cual requiere de una técnica de enumeración alternativa, mediante un RCE se obtiene control total. Para la escalada abusar del Path del sistema.<br><p><strong>Tags:</strong> Linux, Web, Web Crawling, Information Disclosure Vulnerability, RCE, Path Hijacking(Escalada) </p>",
-                      author: "liandd",
-                      date: "April 19, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Programación Competitiva",
-                      link: "https://liandd.github.io/Misc_Programación_Competitiva",
-                      description: "Después de dos años de participación activa en programación competitiva ha sido gratificante y ha proporcionado una base sólida en C++ y algoritmos. El compromiso continuo con la práctica y la mejora constante garantizó un progreso importante en mi formación.<br><p><strong>Tags:</strong> C++, Algoritmia, Estructuras de datos</p>",
-                      author: "liandd",
-                      date: "June 22, 2025",
-                      cus: {url: "https://github.com/liandd", art: "MISC"}
-                    },
-                    {
-                      title: "Included Writeup",
-                      link: "https://liandd.github.io/HTB_Included.html",
-                      description: "La máquina Included de HackTheBox es de una dificultad muy fácil y Linux, presenta una web php no sanitizada que nos permite abusar de la mala configuración y mediante un escaneo alternativo encontramos la posibilidad de subir archivos maliciosos php obteniendo Ejecución remota de comandos. Abusamos de un contenedor(Escalada).<br><p><strong>Tags:</strong> Linux, Web, Path Trasversal, LFI, UDP TFTP, RCE, LogCredentials, LXDAbuse(Escalada)</p>",
-                      author: "liandd",
-                      date: "April 21, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "MarkUp Writeup",
-                      link: "https://liandd.github.io/HTB_Markup.html",
-                      description: "La máquina MarkUp de HackTheBox es de una dificultad muy fácil y Windows, en una página web con un panel de inicio de sesión con credenciales débiles encontraremos un formulario XML vulnerable a XXE para obtener acceso al sistema, para la escalada podremos abusar de un binario con ciertos privilegios que nos permiten acceso a NT Authority System.<br><p><strong>Tags:</strong> Windows, Web, XXE, JobAbuse(Escalada)</p>",
-                      author: "liandd",
-                      date: "April 22, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Base Writeup",
-                      link: "https://liandd.github.io/HTB_Base.html",
-                      description: "La máquina Base de HackTheBox es de una dificultad muy fácil y Linux, está máquina cuenta con una página web la cual podremos eludir por malas prácticas por parte de los desarrolladores usando Type Juggling, la web nos permite subir archivos php de los cuales nos aprovechamos para tener acceso a la máquina. Para la Escalada abusaremos de un binario muy común en sistemas Linux.<br><p><strong>Tags:</strong> Linux, Web, Type Juggling (Credentials), Arbitrary File Upload, Information Disclosure, Sudo abuse FIND(Escalada)</p>",
-                      author: "liandd",
-                      date: "April 23, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Titanic Writeup",
-                      link: "https://liandd.github.io/HTB_Titanic.html",
-                      description: "La máquina Titanic de HackTheBox es de una dificultad fácil y Linux, tiene una página web para hacer reservas de crucero con un parámetro php vulnerable a LFI pero es un RabbitHole, mediante subdominios se encuentra una version de gitea relativamente nueva sin vulnerabilidades pero la información de los repositorios contiene información privilegiada expuesta lo que nos permite con el LFI dumpear la base de datos que seguido de un HashCracking obtenemos acceso a la máquina, para la escalada se explota un script para el procesamiento de imágenes y un LibraryHacking. <br><p><strong>Tags:</strong> Linux, Web, LFI, Vhosting, Gitea 1.211.1, Information Disclosure Vulnerability, Sqlite3, HashCraking, ArbitraryCodeExecution, ImageMagick(Escalada) </p>",
-                      author: "liandd",
-                      date: "April 9, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Cap WriteUp",
-                      link: "https://liandd.github.io/HTB_Cap.html",
-                      description: "La máquina Cap de HackTheBox es de una dificultad fácil y Linux, aborda una página web de la cual podremos leer y analizar tráfico de red con Wireshark donde encontraremos credenciales en texto plano para el servicio FTP, una vez logrado esto podremos acceder a la máquina con un poco de intuición donde buscando los privilegios que tenemos podremos aprovecharnos de error de permisos para convertirnos en root.<br><p><strong>Tags:</strong> Linux, Web, Information Disclosure, Wireshark Análisis Y FTP(Intrusión), SUID CAP(Escalada)</strong> </p>",
-                      author: "liandd",
-                      date: "July 11, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "PC Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y Linux, esta máquina tiene un servicio gRPC el cual nos permite acceder a información privilegiada de una base de datos, que mediante un SQLi podremos obtener acceso al sistema. Para la escalada se explota una librería deprecated de Python(Escalada).<br><p><strong>Tags: </strong>Linux, gRPC, SQLi, Custom Exploit pyload 5.0.0(Escalada)</p>",
-                      author: "liandd",
-                      date: "July 28, 2023",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Precious Writeup",
-                      link: "https://liandd.github.io/HTB_Precious.html",
-                      description: "La máquina Precious de HackTheBox es de una dificultad fácil y Linux, presenta una pagina web que toma cualquier input del usuario y lo transforma en PDF, examinando a mas detalle el PDF veremos una vulnerabilidad que nos permite inyectar comandos. Dentro de la maquina tendremos que hacer User Pivoting para acceder a la flag del usuario. Para la escalada se presenta un privilegio a nivel de sudoers en un archivo Ruby el cual podremos abusar con la deserialization.<br><p><strong>Tags: </strong>Linux, PDF KIT v0.8.6, Information Leakage, Abusing sudoers + YAML, Deserialization Attack (Escalada)</p>",
-                      author: "liandd",
-                      date: "Feb 15, 2023",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "OpenAdmin Writeup",
-                      link: "https://liandd.github.io/HTB_OpenAdmin.html",
-                      description: "La máquina OpenAdmin de HackTheBox es de una dificultad fácil y Linux, cuenta con un servicio web http el cual con fuzzing encontraremos acceso a rutas con servicios web los cuales nos llevaran a un panel de administración vulnerable a RCE. Dentro de la maquina tendremos que hacer User Pivoting y es posible gracias a un information leakage y un servicio web mal sanitizado que nos permite ver credenciales ssh las cuales podremos romper con fuerza bruta. Para la escalada se abusa del binario nano.<br><p><strong>Tags:</strong> Linux, web, Fuzzing, OpenNetAdmin Command Injection, Information Leakage User Pivoting, Nano SUID  (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 19, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Validation Writeup",
-                      link: "https://liandd.github.io/HTB_Validation.html",
-                      description: "La máquina Validation de HackTheBox es de una dificultad fácil y Linux, tiene un servicio web el cual nos permite ingresar input y es interpretado por la pagina, por tanto, mediante un XSS ejecutamos una sentencia SQLi para obtener información privilegiada a medias, ya que se debe jugar con queries para inyectar una reverse shell. Dentro de la maquina tendremos un Information Leakage que nos permitirá escalar privilegios (Escalada). Como adicional se crea un Script en Python Autopwn.<br><p><strong>Tags:</strong> Linux, SQLi Error Based, SQLI -> RCE, Information Leakage(Escalada)</p>",
-                      author: "liandd",
-                      date: "July 19, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Return Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Busqueda Writeup",
-                      link: "https://liandd.github.io/HTB_Busqueda.html",
-                      description: "La máquina Busqueda de HackTheBox es de una dificultad fácil y Linux, esta maquina tiene un servicio web que tiene parámetros mal sanitizados que nos permiten ejecución remota de comandos. Dentro de la maquina el vector de ataque se centra en comprometer un subdominio Gitea, importante destacar que un Information Leakage nos permite hacer User Pivoting. Para la escalada reutilizando credenciales vemos que tenemos privilegios a nivel de sudoers sobre un script de python, con el cual mediante un abuso del mismo podremos conectarnos al servicio Mysql de un contenedor dentro del subdominio para conseguir las credenciales de Gitea. Seguido de un Hashcracking y un Análisis de Código vemos que mediante el secuestro de un binario podremos aprovecharnos para escalar privilegios (Escalada). Se crea como Extra un script Autopwn.<br><p><strong>Tags:</strong> Linux, Web Params -> RCE, Gitea v1.12, Information Leakage, Code Analysis, Binary Hijacking (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 25, 2023",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Sau Writeup",
-                      link: "https://liandd.github.io/HTB_Sau.html",
-                      description: "La máquina Sau de HackTheBox es de una dificultad fácil y Linux, la maquina tiene un panel web que permite crear baskets los cuales mediante un SSRF podremos redirigir el trafico a nuestra red interna para ejecutar comandos RCE, para la escalada de privilegios abusamos de un privilegio a nivel de sudoers del binario systemctl (Escalada).<br><p><strong>Tags:</strong> Linux, request-baskets 1.2.1, SSRF, Mailtrail RCE, Abusing sudoers systemctl (Escalada). Como adicional se crea un script autopwn.</p>",
-                      author: "liandd",
-                      date: "July 27, 2023",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Horizontall Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "NunChucks Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "GoodGames Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Late Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Knife Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "BountyHunter Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Lame Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Nibbles Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "Broker Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    },
-                    {
-                      title: "MonitorsTwo Writeup",
-                      link: "https://liandd.github.io/HTB_PC.html",
-                      description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
-                      author: "liandd",
-                      date: "July 16, 2025",
-                      cus: {url: "https://github.com/liandd", art: "HTB"}
-                    }
-                  ];
-                  local.sort((a, b) => new Date(b.date) - new Date(a.date));
-                  return local;
-                }
+                  {
+                    title: "Crocodile Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#crocodile",
+                    description: "La máquina Crocodile de HackTheBox es de una dificultad muy fácil y Linux, es una máquina con un apartado web y a traves de técnicas de DirBusting y explotando un FPT ganamos acceso total.<br><p><strong>Tags:</strong> Linux, Web, Dir Busting, Information Leakage</p>",
+                    author: "liandd",
+                    date: "Mar 23, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Sequel Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#sequel",
+                    description: "La máquina Sequel de HackTheBox es de una dificultad muy fácil y Linux, es una máquina introductoria a los principios de SQL Dump.<br><p><strong>Tags:</strong> Linux, SQL</p>",
+                    author: "liandd",
+                    date: "Mar 22, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Appointment Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#appointment",
+                    description: "La máquina Appointment de HackTheBox es de una dificultad muy fácil y Linux, está diseñada para comprender los principios básicos de enumeración web y SQL Injection.<br><p><strong>Tags:</strong> Linux, Web, SQL Injection, Bypass</p>",
+                    author: "liandd",
+                    date: "Mar 22, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Tactics Writeup",
+                    link: "http://127.0.0.1:4000/HTB_Tactics.html",
+                    description: "La máquina Tactics de HackTheBox es de una dificultad muy fácil y Windows, que mediante enumeración SMB y credenciales débiles tenemos acceso total.<br><p><strong>Tags:</strong> Windows, SMB Weak Credentials</p>",
+                    author: "liandd",
+                    date: "Mar 24, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "PennyWorth Writeup",
+                    link: "http://127.0.0.1:4000/HTB_PennyWorth",
+                    description: "La máquina PennyWorth de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web que tiene una versión vulnerable de Jenkins y credenciales débiles, Y con Groovy Script podemos hacer RCE para control total.<br><p><strong>Tags:</strong> Linux, Web, Jenkins Weak Credentials, Groovy Script, RCE</p>",
+                    author: "liandd",
+                    date: "Mar 24, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Funnel Writeup",
+                    link: "http://127.0.0.1:4000/HTB_Funnel.html",
+                    description: "La máquina Funnel de HackTheBox es de una dificultad muy fácil y Linux, presenta un FTP y Información sensible no sanitizada que permite acceso SSH, se ataca un PostgresSQL que se ejecutaba localmente en la máquina con un Local Port Forwarding.<br><p><strong>Tags:</strong> Linux, FTP, Information Leakage, Local Port Forwarding, PSQL</p>",
+                    author: "liandd",
+                    date: "Mar 24, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Bike Writeup",
+                    link: "http://liandd.github.io/HTB_Bike.html",
+                    description: "La máquina Bike de HackTheBox es de una dificultad muy fácil y Linux, tiene un servidor web donde hay una etiqueta html input que con un Server Side Template Injection (SSTI) Y RCE controlando las peticiones web con Caido se puede obtener información sensible.<br><p><strong>Tags:</strong> Linux, Web, SSTI, Caido</p>",
+                    author: "liandd",
+                    date: "Mar 24, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Ignition Writeup",
+                    link: "http://liandd.github.io/HTB_Ignition.html",
+                    description: "La máquina Ignition de HackTheBox es de una dificultad muy fácil y Linux, cuenta con un servicio web el cual utiliza un servicio Magento de formularios vulnerable.<br><p><strong>Tags:</strong> Linux, Magento, Weak Credentials</p>",
+                    author: "liandd",
+                    date: "Mar 24, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Three Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#three",
+                    description: "La máquina Three de HackTheBox es de una dificultad muy fácil y Linux, tiene un apartado web que mediante DirBusting se explota un servicio mal configurado de Amazon para ejecución arbitraria de comandos.<br><p><strong>Tags:</strong> Linux, Web, DirBustin, AWS S3, RCE</p>",
+                    author: "liandd",
+                    date: "Mar 24, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Responder Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#responder",
+                    description: "La máquina Responder de HackTheBox es de una dificultad muy fácil y Windows, tiene un apartado web que mediante una variable PHP mal sanitizada nos brinda un LFI para el NetNTLMv2 que nos permite mediante un desafío de hashes obtener acceso total .<br><p><strong>Tags:</strong> Windows, Web, Path Trasversal, LFI, NetNTLMv2, Hash Cracking</p>",
+                    author: "liandd",
+                    date: "Mar 24, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Archetype Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#archetype",
+                    description: "La máquina Archetype de HackTheBox es de una dificultad muy fácil y Windows, que mediante enumeración SMB hay información sensible no sanitizada, luego se presenta un MSSQL que nos permite un RCE para entablarnos una conexión que nos permite acceso al sistema. Para la escalada hay un Information Leakage mediante Logs.<br><p><strong>Tags:</strong> Windows, SMB Information Leakage, MSSQL, RCE, Log Credentials(Escalada)</p>",
+                    author: "liandd",
+                    date: "Mar 25, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Unified Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#unified",
+                    description: "La máquina Unified de HackTheBox es de una dificultad muy fácil y Linux, en una página web UniFI vulneramos un LOG4j con maven y Java, Para la escalada se explota un BAD LDAP con RCE con mongoDB y obtenemos un webBYpass(Escalada).<br><p><strong>Tags:</strong> Linux, Web, LOG4j, Maven JAVA, BAD LDAP RCE, MongoDB, webByPass(Escalada)</p>",
+                    author: "liandd",
+                    date: "April 20, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Vaccine Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#vaccine",
+                    description: "La máquina Vaccine de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web con un Login, a través de un FTP y zip Hash Cracking conseguimos un SQL Injection para acceder a la máquina. Para la escalada explotamos Vi(Escalada).<br><p><strong>Tags:</strong> Linux, Web, FTP 3.0.3, Hash Cracking, SQL Injection, Information Leakage, Vi Sudo Abuse(Escalada)</p>",
+                    author: "liandd",
+                    date: "April 20, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Oopsie Writeup",
+                    link: "https://liandd.github.io/HTB_Starting_Point#oopsie",
+                    description: "La máquina Oopsie de HackTheBox es de una dificultad muy fácil y Linux, tiene una página web la cual requiere de una técnica de enumeración alternativa, mediante un RCE se obtiene control total. Para la escalada abusar del Path del sistema.<br><p><strong>Tags:</strong> Linux, Web, Web Crawling, Information Disclosure Vulnerability, RCE, Path Hijacking(Escalada) </p>",
+                    author: "liandd",
+                    date: "April 19, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Programación Competitiva",
+                    link: "https://liandd.github.io/Misc_Programación_Competitiva",
+                    description: "Después de dos años de participación activa en programación competitiva ha sido gratificante y ha proporcionado una base sólida en C++ y algoritmos. El compromiso continuo con la práctica y la mejora constante garantizó un progreso importante en mi formación.<br><p><strong>Tags:</strong> C++, Algoritmia, Estructuras de datos</p>",
+                    author: "liandd",
+                    date: "June 22, 2025",
+                    cus: {url: "https://github.com/liandd", art: "MISC"}
+                  },
+                  {
+                    title: "Included Writeup",
+                    link: "https://liandd.github.io/HTB_Included.html",
+                    description: "La máquina Included de HackTheBox es de una dificultad muy fácil y Linux, presenta una web php no sanitizada que nos permite abusar de la mala configuración y mediante un escaneo alternativo encontramos la posibilidad de subir archivos maliciosos php obteniendo Ejecución remota de comandos. Abusamos de un contenedor(Escalada).<br><p><strong>Tags:</strong> Linux, Web, Path Trasversal, LFI, UDP TFTP, RCE, LogCredentials, LXDAbuse(Escalada)</p>",
+                    author: "liandd",
+                    date: "April 21, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "MarkUp Writeup",
+                    link: "https://liandd.github.io/HTB_Markup.html",
+                    description: "La máquina MarkUp de HackTheBox es de una dificultad muy fácil y Windows, en una página web con un panel de inicio de sesión con credenciales débiles encontraremos un formulario XML vulnerable a XXE para obtener acceso al sistema, para la escalada podremos abusar de un binario con ciertos privilegios que nos permiten acceso a NT Authority System.<br><p><strong>Tags:</strong> Windows, Web, XXE, JobAbuse(Escalada)</p>",
+                    author: "liandd",
+                    date: "April 22, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Base Writeup",
+                    link: "https://liandd.github.io/HTB_Base.html",
+                    description: "La máquina Base de HackTheBox es de una dificultad muy fácil y Linux, está máquina cuenta con una página web la cual podremos eludir por malas prácticas por parte de los desarrolladores usando Type Juggling, la web nos permite subir archivos php de los cuales nos aprovechamos para tener acceso a la máquina. Para la Escalada abusaremos de un binario muy común en sistemas Linux.<br><p><strong>Tags:</strong> Linux, Web, Type Juggling (Credentials), Arbitrary File Upload, Information Disclosure, Sudo abuse FIND(Escalada)</p>",
+                    author: "liandd",
+                    date: "April 23, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Titanic Writeup",
+                    link: "https://liandd.github.io/HTB_Titanic.html",
+                    description: "La máquina Titanic de HackTheBox es de una dificultad fácil y Linux, tiene una página web para hacer reservas de crucero con un parámetro php vulnerable a LFI pero es un RabbitHole, mediante subdominios se encuentra una version de gitea relativamente nueva sin vulnerabilidades pero la información de los repositorios contiene información privilegiada expuesta lo que nos permite con el LFI dumpear la base de datos que seguido de un HashCracking obtenemos acceso a la máquina, para la escalada se explota un script para el procesamiento de imágenes y un LibraryHacking. <br><p><strong>Tags:</strong> Linux, Web, LFI, Vhosting, Gitea 1.211.1, Information Disclosure Vulnerability, Sqlite3, HashCraking, ArbitraryCodeExecution, ImageMagick(Escalada) </p>",
+                    author: "liandd",
+                    date: "April 9, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Cap WriteUp",
+                    link: "https://liandd.github.io/HTB_Cap.html",
+                    description: "La máquina Cap de HackTheBox es de una dificultad fácil y Linux, aborda una página web de la cual podremos leer y analizar tráfico de red con Wireshark donde encontraremos credenciales en texto plano para el servicio FTP, una vez logrado esto podremos acceder a la máquina con un poco de intuición donde buscando los privilegios que tenemos podremos aprovecharnos de error de permisos para convertirnos en root.<br><p><strong>Tags:</strong> Linux, Web, Information Disclosure, Wireshark Análisis Y FTP(Intrusión), SUID CAP(Escalada)</strong> </p>",
+                    author: "liandd",
+                    date: "July 11, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "PC Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y Linux, esta máquina tiene un servicio gRPC el cual nos permite acceder a información privilegiada de una base de datos, que mediante un SQLi podremos obtener acceso al sistema. Para la escalada se explota una librería deprecated de Python(Escalada).<br><p><strong>Tags: </strong>Linux, gRPC, SQLi, Custom Exploit pyload 5.0.0(Escalada)</p>",
+                    author: "liandd",
+                    date: "July 28, 2023",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Precious Writeup",
+                    link: "https://liandd.github.io/HTB_Precious.html",
+                    description: "La máquina Precious de HackTheBox es de una dificultad fácil y Linux, presenta una pagina web que toma cualquier input del usuario y lo transforma en PDF, examinando a mas detalle el PDF veremos una vulnerabilidad que nos permite inyectar comandos. Dentro de la maquina tendremos que hacer User Pivoting para acceder a la flag del usuario. Para la escalada se presenta un privilegio a nivel de sudoers en un archivo Ruby el cual podremos abusar con la deserialization.<br><p><strong>Tags: </strong>Linux, PDF KIT v0.8.6, Information Leakage, Abusing sudoers + YAML, Deserialization Attack (Escalada)</p>",
+                    author: "liandd",
+                    date: "Feb 15, 2023",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "OpenAdmin Writeup",
+                    link: "https://liandd.github.io/HTB_OpenAdmin.html",
+                    description: "La máquina OpenAdmin de HackTheBox es de una dificultad fácil y Linux, cuenta con un servicio web http el cual con fuzzing encontraremos acceso a rutas con servicios web los cuales nos llevaran a un panel de administración vulnerable a RCE. Dentro de la maquina tendremos que hacer User Pivoting y es posible gracias a un information leakage y un servicio web mal sanitizado que nos permite ver credenciales ssh las cuales podremos romper con fuerza bruta. Para la escalada se abusa del binario nano.<br><p><strong>Tags:</strong> Linux, web, Fuzzing, OpenNetAdmin Command Injection, Information Leakage User Pivoting, Nano SUID  (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 19, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Validation Writeup",
+                    link: "https://liandd.github.io/HTB_Validation.html",
+                    description: "La máquina Validation de HackTheBox es de una dificultad fácil y Linux, tiene un servicio web el cual nos permite ingresar input y es interpretado por la pagina, por tanto, mediante un XSS ejecutamos una sentencia SQLi para obtener información privilegiada a medias, ya que se debe jugar con queries para inyectar una reverse shell. Dentro de la maquina tendremos un Information Leakage que nos permitirá escalar privilegios (Escalada). Como adicional se crea un Script en Python Autopwn.<br><p><strong>Tags:</strong> Linux, SQLi Error Based, SQLI -> RCE, Information Leakage(Escalada)</p>",
+                    author: "liandd",
+                    date: "July 19, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Return Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Busqueda Writeup",
+                    link: "https://liandd.github.io/HTB_Busqueda.html",
+                    description: "La máquina Busqueda de HackTheBox es de una dificultad fácil y Linux, esta maquina tiene un servicio web que tiene parámetros mal sanitizados que nos permiten ejecución remota de comandos. Dentro de la maquina el vector de ataque se centra en comprometer un subdominio Gitea, importante destacar que un Information Leakage nos permite hacer User Pivoting. Para la escalada reutilizando credenciales vemos que tenemos privilegios a nivel de sudoers sobre un script de python, con el cual mediante un abuso del mismo podremos conectarnos al servicio Mysql de un contenedor dentro del subdominio para conseguir las credenciales de Gitea. Seguido de un Hashcracking y un Análisis de Código vemos que mediante el secuestro de un binario podremos aprovecharnos para escalar privilegios (Escalada). Se crea como Extra un script Autopwn.<br><p><strong>Tags:</strong> Linux, Web Params -> RCE, Gitea v1.12, Information Leakage, Code Analysis, Binary Hijacking (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 25, 2023",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Sau Writeup",
+                    link: "https://liandd.github.io/HTB_Sau.html",
+                    description: "La máquina Sau de HackTheBox es de una dificultad fácil y Linux, la maquina tiene un panel web que permite crear baskets los cuales mediante un SSRF podremos redirigir el trafico a nuestra red interna para ejecutar comandos RCE, para la escalada de privilegios abusamos de un privilegio a nivel de sudoers del binario systemctl (Escalada).<br><p><strong>Tags:</strong> Linux, request-baskets 1.2.1, SSRF, Mailtrail RCE, Abusing sudoers systemctl (Escalada). Como adicional se crea un script autopwn.</p>",
+                    author: "liandd",
+                    date: "July 27, 2023",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Horizontall Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "NunChucks Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "GoodGames Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Late Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Knife Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "BountyHunter Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Lame Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Nibbles Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "Broker Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  },
+                  {
+                    title: "MonitorsTwo Writeup",
+                    link: "https://liandd.github.io/HTB_PC.html",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    author: "liandd",
+                    date: "July 16, 2025",
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                  }
+                ];
+                local.sort((a, b) => new Date(b.date) - new Date(a.date));
+                return local;
+              }
 
             </script>
             <style>
@@ -1141,7 +1163,6 @@ permalink: /blog
                 width: 300%;
                 pointer-events: none;
               }
-              
             </style>
             </p>
             <p>
@@ -1171,7 +1192,9 @@ permalink: /blog
               <tbody>
                 <tr>
                   <td align="center">
-                    <font size="-1" face="ARIAL"><b>La mayoría de las personas sólo juzgan a los hombres por el crédito de que gozan o por su buena suerte. La Rochefoucauld, F. (1665). Reflexiones; Sentencias y Máximas Morales.</b></font>
+                    <font size="-1" face="ARIAL"><b>La mayoría de las personas sólo juzgan a los hombres por el crédito
+                        de que gozan o por su buena suerte. La Rochefoucauld, F. (1665). Reflexiones; Sentencias y
+                        Máximas Morales.</b></font>
                   </td>
                 </tr>
               </tbody>
@@ -1191,23 +1214,20 @@ permalink: /blog
                             <td>
                             </td>
                             <td>
-                                                          </td>
+                            </td>
                           </tr>
                           <tr>
                             <td colspan="2">
-                      <b><a href="https://ransei.neocities.org/home">
-                        <img src="https://ransei.neocities.org/assets/img/embeded.gif"  alt="ucp"
-                          border="0"></a>
-<a href="https://animalcrossing.fandom.com/wiki/Bob">
-                        <img src="assets/images/headers/button-bob.gif"  alt="ucp"
-                          border="0"></a>
-                        <a href="https://spyware.neocities.org/articles/discord">
-                        <img src="assets/images/bin_files/discord-no-way-2.gif"  alt="ucp"
-                            border="0"></a><a href="https://robertosuazo.com/wp-content/uploads/2025/04/727354678-don-quijote-de-la-mancha.pdf">
-                                <img src="assets/images/bin_files/konata.gif"  alt="ucp"
-                            border="0"></a>
-                          <img src="assets/images/headers/welcome.gif"  alt="ucp"
-                                  border="0">
+                              <b><a href="https://ransei.neocities.org/home">
+                                  <img src="https://ransei.neocities.org/assets/img/embeded.gif" alt="ucp"
+                                    border="0"></a>
+                                <a href="https://animalcrossing.fandom.com/wiki/Bob">
+                                  <img src="assets/images/headers/button-bob.gif" alt="ucp" border="0"></a>
+                                <a href="https://spyware.neocities.org/articles/discord">
+                                  <img src="assets/images/bin_files/discord-no-way-2.gif" alt="ucp" border="0"></a><a
+                                  href="https://robertosuazo.com/wp-content/uploads/2025/04/727354678-don-quijote-de-la-mancha.pdf">
+                                  <img src="assets/images/bin_files/konata.gif" alt="ucp" border="0"></a>
+                                <img src="assets/images/headers/welcome.gif" alt="ucp" border="0">
 
                                 </a>
                               </b>
@@ -1219,8 +1239,9 @@ permalink: /blog
 
 
                     </td>
-            <td align="center" width="235" valign="top"><a href="https://github.com/Uruena2603">
-                      <img src="assets/images/headers/uruena wasted.jpeg" width="180" height="120" alt="ucp" border="0">
+                    <td align="center" width="235" valign="top"><a href="https://github.com/Uruena2603">
+                        <img src="assets/images/headers/uruena wasted.jpeg" width="180" height="120" alt="ucp"
+                          border="0">
 
                     </td>
 
