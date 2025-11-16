@@ -5,13 +5,10 @@
 header_pages:
   - index.html
   - dashboard.html
-  - portafolio.html
   - blog.html
-  - posts.md
   - culture.md
   - about.html
   - contact.md
-  
 
 name: lianaovn
 
@@ -21,12 +18,10 @@ author:
 
 logourl: /assets/images/masthead.png"
 
-footer: 'Red Social <a href="https://x.com/lianndd_">twitter</a>, <a href="https://www.linkedin.com/in/juan-garciaa2/">linkedin</a>, <a href="https://github.com/liandd">GitHub</a>, <a href="https://www.youtube.com/@liandd">YouTube</a>, <a href="https://app.hackthebox.com/profile/1098514">HTB</a>'
+footer: "La mayoría de las personas sólo juzgan a los hombres por el crédito de que gozan o por su buena suerte. La Rochefoucauld, F. (1665). Reflexiones; Sentencias y Máximas Morales."
 
 #style: light # dark (default) or light
 #listen_for_clients_preferred_style: true # true or false (default)
 
 plugins:
   - jekyll-seo-tag
-
-
