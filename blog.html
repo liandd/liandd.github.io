@@ -457,6 +457,7 @@ permalink: /blog
                 color: #ff0078;
               }
             </style>
+            <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
             <script>
               document.addEventListener("DOMContentLoaded", async function () {
                 const url = "https://unkn0wn1122.github.io/";
@@ -606,8 +607,18 @@ permalink: /blog
                     });
                   });
                 }
+                function stripFrontmatter(md) {
+                  if (md.startsWith("---")) {
+                    const end = md.indexOf("---", 3);
+                    if (end !== -1) {
+                      return md.slice(end + 3).trim();
+                    }
+                  }
+                  return md;
+                }
 
-                function showPostDetail(post) {
+
+                async function showPostDetail(post) {
                   const masterView = document.getElementById("master-view");
                   const detailView = document.getElementById("detail-view");
 
@@ -616,66 +627,90 @@ permalink: /blog
 
                   const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
 
-                  detailView.innerHTML = `
+                  let detailHtml = "";
 
-          <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
-            <tbody>
-              <tr>
-                <td valign="top" bgcolor="#c8c1f9">
-                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
-                    <tbody>
-                      <tr>
-                        <td align="left">
-                          <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
-                        </td>
-                        <td align="right">
-                          <font face="arial" size="-1">${post.date}, <span id="back-link-top" class="back-link">&lt;&lt; Volver al listado</span></font>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <font face="arial" size="-1" color="#D9D9D9">
-                            ${post.description}
-                            ${tagsHTML}
-                          </font>
-                          <p>
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    <font face="arial" size="-1">
-                                      <b><span id="back-link-bottom" class="back-link">&lt;&lt; Volver al listado</span></b>
-                                    </font>
-                                  </td>
-                                  <td align="right">
-                                    <font face="arial" size="-1">
-                                      <b><a href="${post.cus.url}" target="_blank">${post.cus.art}</a></b>
-                                    </font>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-                 `;
+                  if (post.detailUrl) {
+                    try {
+                      const resp = await fetch(post.detailUrl);
+                      const mdTextRaw = await resp.text();
+
+                      // Tus .md tienen front-matter y HTML incrustado (h2, div, img, etc.)
+                      // EJEMPLO: HTB_Base.md [attached_file:1]
+                      const mdText = stripFrontmatter(mdTextRaw);
+
+                      // Convierte Markdown + HTML embebido a HTML
+                      detailHtml = marked.parse(mdText);
+                    } catch (e) {
+                      console.error("Error cargando detalle MD:", e);
+                      detailHtml = "<p>No se pudo cargar el detalle de esta publicación.</p>";
+                    }
+                  } else if (post.detail) {
+                    detailHtml = post.detail; // si ya tienes HTML preparado
+                  } else {
+                    detailHtml = post.description || "";
+                  }
+
+                  detailView.innerHTML = `
+    <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
+      <tbody>
+        <tr>
+          <td valign="top" bgcolor="#c8c1f9">
+            <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#362f42">
+              <tbody>
+                <tr>
+                  <td align="left">
+                    <font face="arial" size="-1" color="#fff"><b>${post.title} - ${post.author}</b></font>
+                  </td>
+                  <td align="right">
+                    <font face="arial" size="-1">
+                      ${post.date},
+                      <span id="back-link-top" class="back-link">&lt;&lt; Volver al listado</span>
+                    </font>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table border="0" width="100%" cellpadding="3" cellspacing="0" bgcolor="#1D172E">
+              <tbody>
+                <tr>
+                  <td>
+                    <font face="arial" size="-1" color="#D9D9D9">
+                      ${detailHtml}
+                      ${tagsHTML}
+                    </font>
+                    <p>
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <font face="arial" size="-1">
+                                <b><span id="back-link-bottom" class="back-link">&lt;&lt; Volver al listado</span></b>
+                              </font>
+                            </td>
+                            <td align="right">
+                              <font face="arial" size="-1">
+                                <b><a href="${post.cus.url}" target="_blank">${post.cus.art}</a></b>
+                              </font>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
 
                   document.getElementById("back-link-top")
                     .addEventListener("click", backToList);
                   document.getElementById("back-link-bottom")
                     .addEventListener("click", backToList);
                 }
-
                 function backToList() {
                   const masterView = document.getElementById("master-view");
                   const detailView = document.getElementById("detail-view");
@@ -733,6 +768,7 @@ permalink: /blog
                     title: "UCP - Procesamiento de Lenguaje Natural",
                     link: "https://liandd.github.io/Notas_UCP_Procesamiento_de_Lenguaje_Natural",
                     description: "Esta publicación tiene los apuntes y notas sobre el tema Procesamiento del Lenguaje Natural en Python3 de nivel introductorio. Para el PLN hay que saber de gramática donde la idea es poder combinar el sistema de reglas con ML. Usando reglas y patrones, árboles y semántica se trabaja bastante la Inteligencia Artificial en el lenguaje de programación Python.",
+                    detailUrl: "https://raw.githubusercontent.com/liandd/liandd.github.io/refs/heads/main/pages/Notas_UCP_Procesamiento_de_Lenguaje_Natural.md",
                     author: "liandd",
                     date: "Mar 9, 2025",
                     cus: {url: "", art: "Notas"}
