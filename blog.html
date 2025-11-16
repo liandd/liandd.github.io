@@ -252,9 +252,9 @@ permalink: /blog
               </style>
 
 
-              <a name="news"></a>
 
-            <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
+<div id="master-view">
+            <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table" id="intro-table">
               <tbody>
                 <tr>
                   <td valign="top" bgcolor="#c8c1f9">
@@ -292,7 +292,7 @@ permalink: /blog
                                     profesional.<br><br>Estos botones ayudarán a filtrar rápidamente por las diversas publicaciones a través de su categoría.
                               </font>
                             </p>
-                            <pi id="filters">
+                            <p id="filters">
                               <font face="arial" size="-1" color="#D9D9D9">
 
                                 <span data-filter="HTB" class="filter-button">HTB</span> |
@@ -303,27 +303,40 @@ permalink: /blog
                               </font>
                             </p>
                             <style>
-                              .filter-button {
-                                background: #c0c0c0;
-                                color: black;
-                                border: 2px outset #ffffff;
-                                padding: 4px 10px;
-                                margin: 2px;
-                                font-family: "Arial", monospace;
-                                font-size: 10px;
-                                cursor: pointer;
-                                transition: none;
-                                box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff;
-                              }
+              .filter-button {
+      background: #c0c0c0;
+      color: black;
+      border: 2px outset #ffffff;
+      padding: 4px 10px;
+      margin: 2px;
+      font-family: "Arial", monospace;
+      font-size: 10px;
+      cursor: pointer;
+      transition: none;
+      box-shadow: inset -1px -1px 0px #000000,
+                  inset 1px 1px 0px #ffffff;
+    }
 
-                              .filter-button:hover {
-                                background: #9b9b9b;
-                                color: #ff0078;
-                                border: 2px inset #808080;
-                                box-shadow: inset 2px 2px 0px #000000, inset -2px -2px 0px #ffffff;
-                                text-shadow: 1px 1px 0px #000000;
-                              }
-                                                         </style>
+    .filter-button:hover {
+      background: #9b9b9b;
+      color: #ff0078;
+      border: 2px inset #808080;
+      box-shadow: inset 2px 2px 0px #000000,
+                  inset -2px -2px 0px #ffffff;
+      text-shadow: 1px 1px 0px #000000;
+    }
+
+    /* Estado presionado */
+    .filter-button.filter-button--active {
+      background: #9b9b9b;
+      color: #ff0078;
+      border: 2px inset #808080;
+      box-shadow: inset 2px 2px 0px #000000,
+                  inset -2px -2px 0px #ffffff;
+      text-shadow: 1px 1px 0px #000000;
+    }
+
+                                                                                       </style>
                           </td>
                           <td>&nbsp;&nbsp;&nbsp;</td>
                           <td valign="top" nowrap="nowrap">
@@ -355,7 +368,6 @@ permalink: /blog
                                 <p id="post-list2"></p>
                               </font>
                             </ol>
-
                             <script>
                               document.addEventListener("DOMContentLoaded", async function () {
                                 const url2 = "https://unkn0wn1122.github.io/";
@@ -417,6 +429,7 @@ permalink: /blog
 
             </div>
             </p>
+<div id="detail-view" style="display:none;"></div>
 
             <script>
               document.addEventListener("DOMContentLoaded", async function () {
@@ -426,6 +439,8 @@ permalink: /blog
                 let allPosts = [];
                 let basePosts = [];
                 let originalPosts = generateLocalPosts();
+
+
 
                 renderPosts();
                 renderPagination();
@@ -448,6 +463,19 @@ permalink: /blog
                     renderPagination();
                   });
                 });
+                const filterButtons = document.querySelectorAll("[data-filter]");
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+          filterButtons.forEach(b => b.classList.remove("filter-button--active"));
+          this.classList.add("filter-button--active");
+        });
+      });
+
+      const defaultBtn = document.querySelector('[data-filter="All"]');
+      if (defaultBtn) {
+        defaultBtn.classList.add("filter-button--active");
+      }
                
                 function generateLocalPosts() {
                   let local = [
@@ -1064,22 +1092,23 @@ permalink: /blog
                           </tr>
                           <tr>
                             <td colspan="2">
-                      <b><a href="https://n1ce-est.neocities.org/">
-                        <img src="assets/images/headers/archlinux.gif"  alt="ucp"
+                      <b><a href="https://ransei.neocities.org/home">
+                        <img src="https://ransei.neocities.org/assets/img/embeded.gif"  alt="ucp"
                           border="0"></a>
 <a href="https://animalcrossing.fandom.com/wiki/Bob">
                         <img src="assets/images/headers/button-bob.gif"  alt="ucp"
                           border="0"></a>
                         <a href="https://spyware.neocities.org/articles/discord">
                         <img src="assets/images/bin_files/discord-no-way-2.gif"  alt="ucp"
-                          border="0"></a>
+                            border="0"></a><a href="https://robertosuazo.com/wp-content/uploads/2025/04/727354678-don-quijote-de-la-mancha.pdf">
                                 <img src="assets/images/bin_files/konata.gif"  alt="ucp"
-                                  border="0">
+                            border="0"></a>
                           <img src="assets/images/headers/welcome.gif"  alt="ucp"
                                   border="0">
 
                                 </a>
                               </b>
+
                             </td>
                           </tr>
                         </tbody>
