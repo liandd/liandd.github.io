@@ -420,7 +420,6 @@ permalink: /blog
               </table>
               <p id="post-list"></p>
             </div>
-            <div id="detail-view" style="display:none;"></div>
             <style>
               .post-detail-btn {
                 cursor: pointer;
@@ -449,6 +448,8 @@ permalink: /blog
               }
             </style>
             <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+
+            <div id="detail-view" style="display:none;"></div>
             <script>
               document.addEventListener("DOMContentLoaded", async function () {
                 await loadScopedDetailCss();
@@ -672,7 +673,7 @@ permalink: /blog
                   }
 
                   detailView.innerHTML = `
-    <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
+    <table border="0" cellpadding="2" cellspacing="0"  class="responsive-table">
       <tbody>
         <tr>
           <td valign="top" bgcolor="#c8c1f9">
@@ -1372,7 +1373,102 @@ showContent(1);
 <a href="https://www.ucp.edu.co/noticias/semillero-coders-participa-en-la-xxxviii-maraton-nacional-de-programacion/" target="_BLANK"><img src="assets/images/headers/ucp_.png" width="88" height="31" alt="ucp" border="0"></a>
 </font>
 </p></td>
+            <style>
+  /* Contenedor del visor con ancho máximo y sin desbordamiento lateral */
+  #detail-view {
+    width: 90%;
+    max-width: 900px !important;
+    margin: 0 auto;
+    overflow-x: hidden !important;  /* evita que NADA se salga */
+    overflow-y: visible;
+  }
 
+  /* Contenedor de código Rouge: aislado para manejar su propio scroll */
+  #detail-view div.highlighter-rouge,
+  #detail-view figure.highlight {
+    max-width: 100% !important;
+    margin-bottom: 1em;
+    background: rgb(10.5, 12, 14);
+    color: #e1f0f1;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+    font-size: 1em;
+    line-height: 1.2;
+    border-radius: 4px;
+    overflow: hidden !important;  /* contener el pre */
+    box-sizing: border-box !important;
+  }
+
+  /* El <pre> con scroll horizontal DENTRO de su contenedor */
+  #detail-view div.highlighter-rouge > pre,
+  #detail-view div.highlighter-rouge pre.highlight,
+  #detail-view figure.highlight > pre,
+  #detail-view figure.highlight pre.highlight {
+    margin: 0 !important;
+    max-width: 100% !important;
+    white-space: pre !important;
+    overflow-x: auto !important;   /* SOLO aquí hay scroll horizontal */
+    overflow-y: visible !important;
+    padding: 1em;
+    box-sizing: border-box !important;
+  }
+
+  /* Pre sueltos (sin Rouge wrapper) */
+  #detail-view pre {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    white-space: pre !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Tablas: ajustar al ancho disponible sin romper */
+  #detail-view table {
+    max-width: 100% !important;
+    table-layout: fixed !important;  /* importante: fuerza que se ajusten */
+    box-sizing: border-box !important;
+  }
+
+  #detail-view .responsive-table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Celdas de tabla: permitir wrap de contenido */
+  #detail-view td,
+  #detail-view th {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  /* Imágenes: siempre responsive */
+  #detail-view img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Contenido general: wrap de texto largo */
+  #detail-view .page__content,
+  #detail-view .post,
+  #detail-view main {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+  }
+
+  /* Párrafos y texto: break en URLs o palabras largas */
+  #detail-view p,
+  #detail-view li,
+  #detail-view div {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+  }
+
+  /* Enlaces largos: permitir ruptura */
+  #detail-view a {
+    overflow-wrap: break-word !important;
+    word-break: break-all !important;
+  }
+</style>
 </tr></tbody></table>
 </center>
 </center>
