@@ -39,13 +39,7 @@ Other
 */
 
 
-body a,
-body button,
-body [role=button],
-body input[type=submit],
-body input[type=button] {
-  cursor: url("/assets/ico/icons8-hand-cursor-16.png") 16 5, pointer;
-}
+
 
 h1,
 h2,
