@@ -16,7 +16,8 @@ Encendemos la máquina Broker y obtenemos la dirección ip 10.129.230.87, para v
 
 La máquina está encendida y tiene un TTL de 63, por tanto estamos frente a un sistema Linux.
 
-# Enumeración
+<h2 class="amarillo">Enumeración</h2>
+
 Para la enumeración hacemos uso de nmap para identificar que puertos están abiertos con: `nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.230.87`.
 <div style="text-align: center;">
   <img src="/assets/images/HTB/Broker/2.png" alt="under" oncontextmenu="return false;">
@@ -39,8 +40,12 @@ No disponemos de credenciales válidas, sin embargo, podemos hacer uso de creden
 
 Y nos encontramos con el index del sitio ActiveMQ, revisando en Internet si existe alguna vulnerabilidad asociada a ActiveMQ encontramos que tiene el CVE-2023-46604:
 ```c
-CVE-2023-46604 is a vulnerability in the Java OpenWire protocol marshaller used by Apache ActiveMQ, which allows remote code execution by attackers with network access to the broker or client. Users are advised to upgrade to the latest versions to mitigate this security risk.
-The vulnerability arises from unsafe deserialization practices within the OpenWire protocol. An attacker can exploit this by sending a crafted request to the server, which may lead to executing arbitrary shell commands.
+CVE-2023-46604 is a vulnerability in the Java OpenWire protocol marshaller used by Apache ActiveMQ,
+which allows remote code execution by attackers with network access to the broker or client.
+Users are advised to upgrade to the latest versions to mitigate this security risk.
+The vulnerability arises from unsafe deserialization practices within the OpenWire protocol.
+An attacker can exploit this by sending a crafted request to the server,
+which may lead to executing arbitrary shell commands.
 ```
 
 La deserializacion se puede construir de la siguiente manera:
@@ -62,7 +67,7 @@ La deserializacion se puede construir de la siguiente manera:
     </beans>
 ```
 
-Más allá de la prueba de concepto con xml, aquí comparto el script en go que utiliza el xml del poc: https://github.com/X1r0z/ActiveMQ-RCE
+Más allá de la prueba de concepto con xml, aquí comparto el script en go que utiliza el xml del poc: <a href="https://github.com/X1r0z/ActiveMQ-RCE">ActiveMQ-RCE</a>
 
 > Se construye y se envía un paquete malicioso serializado usando el protocolo openwire de activeqm, el payload trabaja serializando la clase `org.springframework.context.support.ClassPathXmlApplicationContext` con la URL que le pasemos. Por tanto, la vulnerabilidad existe porque ActiveMQ deserializa objetos Java sin validación adecuada en el protocolo OpenWire, y la clase de Spring Framework tiene un constructor que acepta una URL como parámetro y automáticamente carga y parsea el archivo XML de esa ubicación durante la instanciación, ejecutando nuestro XML gracias a ProcessBuilder.
 
@@ -152,6 +157,13 @@ Para ejecutar el servicio nginx hacemos `sudo /usr/sbin/nginx -c /dev/shm/prives
 <div style="text-align: center;">
   <img src="/assets/images/HTB/Broker/8.png" alt="under" oncontextmenu="return false;">
 </div>
+
+Escogimos la ruta /dev/shm porque tenemos capacidad de escribir archivos, pero tambien puede ser en el directorio /dev/tmp o haciendo uso de mktemp -d.
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Broker/pwn.png" alt="under" oncontextmenu="return false;">
+</div>
+
+
 
 
 

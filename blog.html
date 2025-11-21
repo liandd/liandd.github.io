@@ -1003,7 +1003,7 @@ permalink: /blog
                   {
                     title: "Titanic Writeup",
                     link: "/HTB_Titanic.html",
-                    description: "La máquina Titanic de HackTheBox es de una dificultad fácil y Linux, tiene una página web para hacer reservas de crucero con un parámetro php vulnerable a LFI pero es un RabbitHole, mediante subdominios se encuentra una version de gitea relativamente nueva sin vulnerabilidades pero la información de los repositorios contiene información privilegiada expuesta lo que nos permite con el LFI dumpear la base de datos que seguido de un HashCracking obtenemos acceso a la máquina, para la escalada se explota un script para el procesamiento de imágenes y un LibraryHacking. <br><p><strong>Tags:</strong> Linux, Web, LFI, Vhosting, Gitea 1.211.1, Information Disclosure Vulnerability, Sqlite3, HashCraking, ArbitraryCodeExecution, ImageMagick(Escalada) </p>",
+                    description: "La máquina Titanic de HackTheBox es de una dificultad fácil y Linux, tiene una página web para hacer reservas de crucero con un parámetro php vulnerable a LFI pero es un RabbitHole, mediante subdominios se encuentra una version de gitea relativamente nueva sin vulnerabilidades, pero la información de los repositorios contiene información privilegiada expuesta lo que nos permite con el LFI dumpear la base de datos que seguido de un HashCracking obtenemos acceso a la máquina, para la escalada se explota un script para el procesamiento de imágenes y un LibraryHacking. <br><p><strong>Tags:</strong> Linux, Web, LFI, Vhosting, Gitea 1.211.1, Information Disclosure Vulnerability, Sqlite3, HashCraking, ArbitraryCodeExecution, ImageMagick(Escalada) </p>",
                     author: "liandd",
                     date: "April 9, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1011,7 +1011,7 @@ permalink: /blog
                   {
                     title: "Cap WriteUp",
                     link: "/HTB_Cap.html",
-                    description: "La máquina Cap de HackTheBox es de una dificultad fácil y Linux, aborda una página web de la cual podremos leer y analizar tráfico de red con Wireshark donde encontraremos credenciales en texto plano para el servicio FTP, una vez logrado esto podremos acceder a la máquina con un poco de intuición donde buscando los privilegios que tenemos podremos aprovecharnos de error de permisos para convertirnos en root.<br><p><strong>Tags:</strong> Linux, Web, Information Disclosure, Wireshark Análisis Y FTP(Intrusión), SUID CAP(Escalada)</strong> </p>",
+                    description: "La máquina Cap de HackTheBox es de una dificultad fácil y Linux, aborda una página web de la cual podremos leer y analizar tráfico de red con Wireshark donde encontraremos credenciales en texto plano para el servicio FTP, una vez logrado esto podremos acceder a la máquina con un poco de intuición, en donde, buscando los privilegios que tenemos podremos aprovecharnos de error de permisos para convertirnos en root.<br><p><strong>Tags:</strong> Linux, Web, Information Disclosure, Wireshark Análisis Y FTP(Intrusión), SUID CAP(Escalada)</strong> </p>",
                     author: "liandd",
                     date: "July 11, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1027,7 +1027,7 @@ permalink: /blog
                   {
                     title: "Precious Writeup",
                     link: "/HTB_Precious.html",
-                    description: "La máquina Precious de HackTheBox es de una dificultad fácil y Linux, presenta una pagina web que toma cualquier input del usuario y lo transforma en PDF, examinando a mas detalle el PDF veremos una vulnerabilidad que nos permite inyectar comandos. Dentro de la maquina tendremos que hacer User Pivoting para acceder a la flag del usuario. Para la escalada se presenta un privilegio a nivel de sudoers en un archivo Ruby el cual podremos abusar con la deserialization.<br><p><strong>Tags: </strong>Linux, PDF KIT v0.8.6, Information Leakage, Abusing sudoers + YAML, Deserialization Attack (Escalada)</p>",
+                    description: "La máquina Precious de HackTheBox es de una dificultad fácil y Linux, presenta una página web que toma cualquier input del usuario y lo transforma en PDF, examinando a más detalle el PDF veremos una vulnerabilidad que nos permite inyectar comandos. Dentro de la máquina tendremos que hacer User Pivoting para acceder a la flag del usuario. Para la escalada se presenta un privilegio a nivel de sudoers en un archivo Ruby el cual podremos abusar con la deserialization.<br><p><strong>Tags: </strong>Linux, PDF KIT v0.8.6, Information Leakage, Abusing sudoers + YAML, Deserialization Attack (Escalada)</p>",
                     author: "liandd",
                     date: "February 15, 2023",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1035,7 +1035,7 @@ permalink: /blog
                   {
                     title: "OpenAdmin Writeup",
                     link: "/HTB_OpenAdmin.html",
-                    description: "La máquina OpenAdmin de HackTheBox es de una dificultad fácil y Linux, cuenta con un servicio web http el cual con fuzzing encontraremos acceso a rutas con servicios web los cuales nos llevaran a un panel de administración vulnerable a RCE. Dentro de la maquina tendremos que hacer User Pivoting y es posible gracias a un information leakage y un servicio web mal sanitizado que nos permite ver credenciales ssh las cuales podremos romper con fuerza bruta. Para la escalada se abusa del binario nano.<br><p><strong>Tags:</strong> Linux, web, Fuzzing, OpenNetAdmin Command Injection, Information Leakage User Pivoting, Nano SUID  (Escalada)</p>",
+                    description: "La máquina OpenAdmin de HackTheBox es de una dificultad fácil y Linux, cuenta con un servicio web http el cual con fuzzing encontraremos acceso a rutas con servicios web los cuales nos llevaran a un panel de administración vulnerable a RCE. Dentro de la máquina tendremos que hacer User Pivoting y es posible gracias a un information leakage y un servicio web mal sanitizado que nos permite ver credenciales ssh las cuales podremos romper con fuerza bruta. Para la escalada se abusa del binario nano.<br><p><strong>Tags:</strong> Linux, web, Fuzzing, OpenNetAdmin Command Injection, Information Leakage User Pivoting, Nano SUID  (Escalada)</p>",
                     author: "liandd",
                     date: "July 19, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1043,7 +1043,7 @@ permalink: /blog
                   {
                     title: "Validation Writeup",
                     link: "/HTB_Validation.html",
-                    description: "La máquina Validation de HackTheBox es de una dificultad fácil y Linux, tiene un servicio web el cual nos permite ingresar input y es interpretado por la pagina, por tanto, mediante un XSS ejecutamos una sentencia SQLi para obtener información privilegiada a medias, ya que se debe jugar con queries para inyectar una reverse shell. Dentro de la maquina tendremos un Information Leakage que nos permitirá escalar privilegios (Escalada). Como adicional se crea un Script en Python Autopwn.<br><p><strong>Tags:</strong> Linux, SQLi Error Based, SQLI -> RCE, Information Leakage(Escalada)</p>",
+                    description: "La máquina Validation de HackTheBox es de una dificultad fácil y Linux, tiene un servicio web el cual nos permite ingresar input y es interpretado por la página, por tanto, mediante un XSS ejecutamos una sentencia SQLi para obtener información privilegiada a medias, ya que se debe jugar con queries para inyectar una reverse shell. Dentro de la máquina tendremos un Information Leakage que nos permitirá escalar privilegios (Escalada). Como adicional se crea un Script en Python Autopwn.<br><p><strong>Tags:</strong> Linux, SQLi Error Based, SQLI -> RCE, Information Leakage(Escalada)</p>",
                     author: "liandd",
                     date: "July 19, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1059,7 +1059,7 @@ permalink: /blog
                   {
                     title: "Busqueda Writeup",
                     link: "/HTB_Busqueda.html",
-                    description: "La máquina Busqueda de HackTheBox es de una dificultad fácil y Linux, esta maquina tiene un servicio web que tiene parámetros mal sanitizados que nos permiten ejecución remota de comandos. Dentro de la maquina el vector de ataque se centra en comprometer un subdominio Gitea, importante destacar que un Information Leakage nos permite hacer User Pivoting. Para la escalada reutilizando credenciales vemos que tenemos privilegios a nivel de sudoers sobre un script de python, con el cual mediante un abuso del mismo podremos conectarnos al servicio Mysql de un contenedor dentro del subdominio para conseguir las credenciales de Gitea. Seguido de un Hashcracking y un Análisis de Código vemos que mediante el secuestro de un binario podremos aprovecharnos para escalar privilegios (Escalada). Se crea como Extra un script Autopwn.<br><p><strong>Tags:</strong> Linux, Web Params -> RCE, Gitea v1.12, Information Leakage, Code Analysis, Binary Hijacking (Escalada)</p>",
+                    description: "La máquina Busqueda de HackTheBox es de una dificultad fácil y Linux, esta máquina tiene un servicio web que tiene parámetros mal sanitizados que nos permiten ejecución remota de comandos. Dentro de la máquina el vector de ataque se centra en comprometer un subdominio Gitea, importante destacar que un Information Leakage nos permite hacer User Pivoting. Para la escalada reutilizando credenciales vemos que tenemos privilegios a nivel de sudoers sobre un script de python, con el cual mediante un abuso del mismo podremos conectarnos al servicio Mysql de un contenedor dentro del subdominio para conseguir las credenciales de Gitea. Seguido de un Hashcracking y un Análisis de Código vemos que mediante el secuestro de un binario podremos aprovecharnos para escalar privilegios (Escalada). Se crea como Extra un script Autopwn.<br><p><strong>Tags:</strong> Linux, Web Params -> RCE, Gitea v1.12, Information Leakage, Code Analysis, Binary Hijacking (Escalada)</p>",
                     author: "liandd",
                     date: "July 25, 2023",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1067,7 +1067,7 @@ permalink: /blog
                   {
                     title: "Sau Writeup",
                     link: "/HTB_Sau.html",
-                    description: "La máquina Sau de HackTheBox es de una dificultad fácil y Linux, la maquina tiene un panel web que permite crear baskets los cuales mediante un SSRF podremos redirigir el trafico a nuestra red interna para ejecutar comandos RCE, para la escalada de privilegios abusamos de un privilegio a nivel de sudoers del binario systemctl (Escalada).<br><p><strong>Tags:</strong> Linux, request-baskets 1.2.1, SSRF, Mailtrail RCE, Abusing sudoers systemctl (Escalada). Como adicional se crea un script autopwn.</p>",
+                    description: "La máquina Sau de HackTheBox es de una dificultad fácil y Linux, la máquina tiene un panel web que permite crear baskets los cuales mediante un SSRF podremos redirigir el tráfico a nuestra red interna para ejecutar comandos RCE, para la escalada de privilegios abusamos de un privilegio a nivel de sudoers del binario systemctl (Escalada).<br><p><strong>Tags:</strong> Linux, request-baskets 1.2.1, SSRF, Mailtrail RCE, Abusing sudoers systemctl (Escalada). Como adicional se crea un script autopwn.</p>",
                     author: "liandd",
                     date: "July 27, 2023",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1131,7 +1131,7 @@ permalink: /blog
                   {
                     title: "Nibbles Writeup",
                     link: "/HTB_Nibbles.html",
-                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    description: "La máquina Nibbles de HackTheBox es de una dificultad fácil y Linux, cuenta con una página web vulnerable a un File Upload no sanitizado que nos da control total, para la escalada abusamos de un privilegio a nivel de sudoers sobre un script monitor.sh (Escalada).<br><p><strong>Tags:</strong> Abusing Nibbleblog - RCE via File Upload, Abusing Sudoers Privilege(Escalada)</p>",
                     author: "liandd",
                     date: "August 2, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1139,7 +1139,7 @@ permalink: /blog
                   {
                     title: "Broker Writeup",
                     link: "/HTB_Broker.html",
-                    description: "La máquina Broker de HackTheBox es de una dificultad fácil y Linux,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    description: "La máquina Broker de HackTheBox es de una dificultad fácil y Linux. Esta máquina tiene un servicio web con un panel de autenticación débil el cual con un password guessing podremos loguearnos a un servicio ActiveQM el cual es vulnerable a un ataque de deserilizacion en Java, para escalar privilegios tendremos permisos sobre un binario nginx que nos permite hacer un directory listing de los recursos del sistema como root.<br><p><strong>Tags:</strong> Credential guessing, ActiveMQ Exploitation - Deserialization Attack (CVE-2023-46604) [RCE], Abusing sudoers privilege (nginx)(Escalada)</p>",
                     author: "liandd",
                     date: "August 2, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1147,7 +1147,7 @@ permalink: /blog
                   {
                     title: "MonitorsTwo Writeup",
                     link: "/HTB_MonitorsTwo.html",
-                    description: "La máquina MonitorsTwo de HackTheBox es de una dificultad fácil y Linux, la maquina tiene una pagina web que es vulnerable a RCE authenticated pero nos llevara a un contenedor, este tendra un binario capsh Capability Shell Wrapper el cual permite alterar privilegios, permitiendo asi enumerar archivos de configuracion de una base de datos. Utilizando Hashcat se crackean las credenciales encontradas. Para la Escalada encontramos una forma curiosa de monturas, las cuales nos permiten escribir y alterar permisos como root.<br><p><strong>Tags:</strong> Cacti 1.2.22 RCE throught command injection, CAPSH Binary SUID, Cracking Hashes, Docker Exploitation CVE-2021-41091 (Escalada)</p>",
+                    description: "La máquina MonitorsTwo de HackTheBox es de una dificultad fácil y Linux, la máquina tiene una página web que es vulnerable a RCE authenticated, pero nos llevará a un contenedor, este tendrá un binario capsh Capability Shell Wrapper el cual permite alterar privilegios, permitiendo así enumerar archivos de configuración de una base de datos. Utilizando Hashcat se crackean las credenciales encontradas. Para la Escalada encontramos una forma curiosa de monturas, las cuales nos permiten escribir y alterar permisos como root.<br><p><strong>Tags:</strong> Cacti 1.2.22 RCE throught command injection, CAPSH Binary SUID, Cracking Hashes, Docker Exploitation CVE-2021-41091 (Escalada)</p>",
                     author: "liandd",
                     date: "August 3, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
