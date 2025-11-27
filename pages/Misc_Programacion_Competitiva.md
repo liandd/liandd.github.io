@@ -8,7 +8,8 @@ permalink: /Misc_Programación_Competitiva
 
 Mi recorrido dentro de las `RPC` (*Red de Programación Competitiva*) y eventos como ICPC, UTP Contests.
 
-
+Muchas gracias a PhD Juan Carlos Blandón, MSc Carlos Mario Medina, MSc Hugo Humberto Morales por sus clases y acompanamiento.
+Tambien a MSc Alejandro Morales, BSc Brahin Gil, BSc Mario Marin, BSc Miguel Angel Galvez, BSc Camilo Castaneda.
 
 <h3 class="verde">Eventos donde participé.</h3>
 
