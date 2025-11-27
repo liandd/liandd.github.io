@@ -57,7 +57,7 @@ Podemos probar un ataque de XXE.
 
 <h2 class="amarillo">XXE External Entity Injection + XXE PHP base64File Wrapper</h2>
 
-Capturando la información de enviada con submit, vemos una cadena en URL Encode de base64, la cual si revisamos tenemos lo siguiente:
+Capturando la información enviada con submit, vemos una cadena en URL Encode de base64, la cual si revisamos tenemos lo siguiente:
 <div style="text-align: center;">
   <img src="/assets/images/HTB/BountyHunter/9.5.png" alt="under" oncontextmenu="return false;">
 </div>
@@ -125,19 +125,19 @@ Revisando si poseemos algún privilegio a nivel de sudoers con sudo -l, veremos 
   <img src="/assets/images/HTB/BountyHunter/18.png" alt="under" oncontextmenu="return false;">
 </div>
 
-Haciendo una análisis del código se ve bien a primera instancia, pero hay una función que llama mucho la atención por que ha sido la causa de muchos problemas de seguridad y es eval().
+Haciendo un análisis del código se ve bien a primera instancia, pero hay una función que llama mucho la atención por que ha sido la causa de muchos problemas de seguridad y es eval().
 
 <h2 class="amarillo">Eval() Background</h2>
 
-Eval() es una función que espera recibir una expresión regular y aplicarla sobre un string en el código ticketer, es decir, que por la naturaleza de eval() de interpretar si el string tiene una correcta sintaxis de python lo ejecutara, en caso contrario y hay un error de sintaxis tendremos un error de compilación.
+Eval() es una función que espera recibir una expresión regular y aplicarla sobre un string en el código ticketer, es decir, que por la naturaleza de eval() de interpretar si el string tiene una correcta sintaxis de python lo ejecutará, en caso contrario y se de un error de sintaxis tendremos un error de compilación.
 
 Eval() solo servirá en cuanto al contexto del script.
 
-Vemos que el script comienza leyendo un archivo .md y debe tener una estructura especial:
-1. Revisa si el archivo termine en extensión .md.
-2. La función evaluate(ticket) recibe nuestro archivo maliciso.md y lo itera siendo i las lineas y x el contenido de cada linea.
+Vemos que el script comienza leyendo un archivo .md y debe tener una estructura especial, a partir del análisis del contenido de ticketer llegamos a su abuso:
+1. Revisa si el archivo termina en extensión .md.
+2. La función evaluate(ticket) recibe nuestro archivo malicioso.md y lo itera siendo i las lineas y x el contenido de cada linea.
 3. La primera linea debe comenzar con `# Skytrain Inc` como lo indica la función evaluate() cuando i == 0 para x.startwith().
-4. La segunda linea debe comenzar con `## Ticket to `, si es correcto aplica con continue a la tercera linea.
+4. La segunda linea debe comenzar con `## Ticket to `, si es correcto aplica un `continue` para saltar a la tercera linea.
 5. Esta linea debe comenzar con `__Ticket Code:__`, y code_line vale None, pero aquí valdría i=2+1=3.
 6. Si code_line=3 y i=3 == code_line=3 revisa que la cuarta linea comience con `**`.
 7. La sentencia de `ticketCode = x.replace("**". "").split("+")[0]` significa que hay 2 números separados por una suma y está guardando el primero a la izquierda del +.
