@@ -1115,7 +1115,7 @@ permalink: /blog
                   {
                     title: "BountyHunter Writeup",
                     link: "/HTB_BountyHunter.html",
-                    description: "La máquina BountyHunter de HackTheBox es de una dificultad fácil y Linux, .<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    description: "La máquina BountyHunter de HackTheBox es de una dificultad fácil y Linux, tiene una página web que nos permite reportar vulnerabilidades como un programa de recompensas. Analizando la web y cómo viajan las peticiones, vemos que hay una estructura XML que nos representa el output directamente en la web y tenemos el control de los campos que queremos representar, dando así paso a un XXE con el cual podremos leer archivos privilegiados. Para la escalada tenemos el análisis de un script en Python donde, siguiendo ciertas condiciones, podremos aprovecharnos del infame eval() para ejecutar comandos como root..<br><p><strong>Tags:</strong> XXE (XML External Entity Injection) Exploitation, XXE PHP File Read - Base64 Wrapper, Abusing Sudoers Privilege - Python eval() Command Ijection(Escalada)</p>",
                     author: "liandd",
                     date: "August 2, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
