@@ -616,6 +616,9 @@ permalink: /blog
                   masterView.style.display = "none";
                   detailView.style.display = "block";
 
+                  window.scrollTo(0, 0);
+
+
                   const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
 
                   let detailHtml = "";
@@ -1083,7 +1086,7 @@ permalink: /blog
                   {
                     title: "NunChucks Writeup",
                     link: "/HTB_NunChucks.html",
-                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    description: "La máquina NunChuck de HackTheBox es de una dificultad fácil y Linux, la máquina tiene una página web y no presenta nada raro, pero mediante técnicas de fuzzing a dominios se encuentra una página que permite notificarnos para recibir notificaciones de la web. Resulta que la información que digitemos será representada por pantalla, es decir, tenemos en frente un SSTI Server Side Template Injection, pero uno muy especial, ya que es con Nodejs y Nunjucks. Se crea un script en Python autopwn para conseguir una reverse shell. Para la escalada tenemos un binario Perl con Capabilities SUID, pero por detrás hay un AppArmor que nos impedirá escalar privilegios. Sin embargo, a través de un bug con los shebangs podremos aprovecharnos para escalar privilegios. (Escalada).<br><p><strong>Tags:</strong> NodeJS SSTI (Server Side Template Injection), AppArmor Profile Bypass (Escalada)</p>",
                     author: "liandd",
                     date: "July 26, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1115,7 +1118,7 @@ permalink: /blog
                   {
                     title: "BountyHunter Writeup",
                     link: "/HTB_BountyHunter.html",
-                    description: "La máquina BountyHunter de HackTheBox es de una dificultad fácil y Linux, tiene una página web que nos permite reportar vulnerabilidades como un programa de recompensas. Analizando la web y cómo viajan las peticiones, vemos que hay una estructura XML que nos representa el output directamente en la web y tenemos el control de los campos que queremos representar, dando así paso a un XXE con el cual podremos leer archivos privilegiados. Para la escalada tenemos el análisis de un script en Python donde, siguiendo ciertas condiciones, podremos aprovecharnos del infame eval() para ejecutar comandos como root..<br><p><strong>Tags:</strong> XXE (XML External Entity Injection) Exploitation, XXE PHP File Read - Base64 Wrapper, Abusing Sudoers Privilege - Python eval() Command Ijection(Escalada)</p>",
+                    description: "La máquina BountyHunter de HackTheBox es de una dificultad fácil y Linux, tiene una página web que nos permite reportar vulnerabilidades como un programa de recompensas. Analizando la web y cómo viajan las peticiones, vemos que hay una estructura XML que nos representa el output directamente en la web y tenemos el control de los campos que queremos representar, dando así paso a un XXE con el cual podremos leer archivos privilegiados. Para la escalada tenemos el análisis de un script en Python donde, siguiendo ciertas condiciones, podremos aprovecharnos del infame eval() para ejecutar comandos como root..<br><p><strong>Tags:</strong> XXE (XML External Entity Injection) Exploitation, XXE PHP File Read - Base64 Wrapper, Abusing Sudoers Privilege - Python eval() Command Injection(Escalada)</p>",
                     author: "liandd",
                     date: "August 2, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
