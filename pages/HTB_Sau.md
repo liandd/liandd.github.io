@@ -4,15 +4,17 @@ layout: page
 permalink: /HTB_Sau
 ---
 
-<h2 class="amarillo">HackTheBox - Sau WriteUp - Máquina retirada</h2>
+<h2 class="amarillo">Sau</h2>
 <div id="logos" style="text-align: center;">
-  <img src="/assets/images/HTB/Sau/Sau.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/Sau/sau.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Encendemos la maquina Sau y nos da la direccion IP 10.129.229.26, probamos a lanzarle 5 trazas ICMP y de paso mirar el TLL para identificar si estamos frente a una maquina Linux o Windows
 
-![[HTB/Machines/Sau/Images/1.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/1.png" alt="under" oncontextmenu="return false;">
+</div>
 
 En base al TTL vemos un valor de 63 por tanto estamos frente a una maquina Linux
 
@@ -25,72 +27,120 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.229.26
 ```
 
 Y vemos que la maquina tiene los puertos 22 y 55555
-![[HTB/Machines/Sau/Images/2.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/2.png" alt="under" oncontextmenu="return false;">
+</div>
 
 Probamos a analizar con nmap con una serie de scripts basicos de reconocimiento y identificando la version y servicio que corren para cada uno de estos puertos
-![[HTB/Machines/Sau/Images/3.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/3.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Vemos que el puerto 55555 presenta un servicio http entonces intentamos enumerarlo con whatweb pero no encontramos informacion relevante
-![[HTB/Machines/Sau/Images/4.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/4.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Seguido abrimos la pagina desde el navegador
-![[HTB/Machines/Sau/Images/5.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/5.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Y vemos que tenemos la capacidad de crear baskets, y mirando el codigo fuente de la pagina vemos que la pagina se comunica con un /api/baskets
 
-![[HTB/Machines/Sau/Images/6.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/6.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 
 Pero antes seguimos con la creacion del basket para obtener el token
-![[HTB/Machines/Sau/Images/7.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/7.png" alt="under" oncontextmenu="return false;">
+</div>
 
-```
-0XRfH5GKhrDM78SaDK8osM1C4iDzlUU6OIstqTqeKn5-
-```
+
 
 La pagina nos pide enviar requests HTTP al basket
-![[HTB/Machines/Sau/Images/8.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/8.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Si le mandamos una peticion GET tendremos un codigo de estado exitoso
-![[HTB/Machines/Sau/Images/9.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/9.png" alt="under" oncontextmenu="return false;">
+</div>
+
 Y en la web podremos ver la informacion de la peticion
 
-![[HTB/Machines/Sau/Images/10.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/10.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 aqui el vector de ataca esta en que la pagina permite que nuestros baskets tengan un redirect de tipo forwarding del cual podremos aprovecharnos para crear un script
 
-![[10.5.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/10.5.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Este es un exploit que traimos de Github buscando vulnerabilidades asociadas a los baskets y como nos permite crear un Forwarding, hacemos que el basket apunte a nuestra direccion IP
 
-![[HTB/Machines/Sau/Images/11.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/11.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Aprovechandonos del Forwarding en los Baskets para enumerar contenido interno de la maquina vemos que cambiar el forwarding al puerto 80 interno me permite ver el contenido del puerto filtrado 80:
-![[HTB/Machines/Sau/Images/12.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/12.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Pero mas alla de poder listar contenido la idea es conseguir una consola interactiva
-![[12.5.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/12.5.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Ejecutando el script obtendremos la reverse shell y estaremos dentro de la maquina
-![[HTB/Machines/Sau/Images/13.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/13.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Enumerando un poco el sistema encontraremos archivos de configuracion
 # Escalada
 
-1b6815788fcc3a4525ab2a80d97e5f2e
 
 Mirando los privilegios que podamos tener asignados a nivel de sudoers vemos que podemos ejecutar systemctl
 
-![[HTB/Machines/Sau/Images/15.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/15.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 Vemos que estamos frente a una version vulnerable de systemctl ya que podemos ejecutar la instruccion `!sh` para conseguir una consola interactiva
-![[HTB/Machines/Sau/Images/16.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/16.png" alt="under" oncontextmenu="return false;">
+</div>
 
-8a1980f272a3103cc1300d260db9e888
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/pwn.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 De paso compartir el script autopwn
 
-![[Pasted image 20250722234146.png]]
+<div style="text-align: center;">
+  <img src="/assets/images/HTB/Sau/script.png" alt="under" oncontextmenu="return false;">
+</div>
+
 
 ```python
 #!/usr/bin/env python3
