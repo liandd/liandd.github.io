@@ -1873,7 +1873,7 @@ Y vemos que nos reporta los puertos `21,22,80` como abiertos, pues con esta info
 
 Para la explotación nos conectaremos al servicio FTP usando las credenciales de anonymous sin proporcionar contraseña y podremos ver el archivo *backup.zip* él cual podremos traer a nuestro equipo con get.
 <div style="text-align: center;">
-  <img src="/assets/images/HTB/StartingPoint/vaccine/ftp.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/vaccine/fpt.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
