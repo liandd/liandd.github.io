@@ -74,7 +74,7 @@ Este comando calculará la información de red para la dirección IP **192.168.1
 El script de Bash ha sido mejorado y ajustado para proporcionar resultados más precisos y evitar posibles errores. Se recomienda su uso para cálculos de red a través de comandos en una terminal Bash.
 
 <div style="text-align: center;">
-<img src="/assets/images/calcular_subnet/teaser.png" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Scripts/Subnetting-tool/teaser.png" alt="Maraton" oncontextmenu="return false;" >
 </div>
 
 <strong>Script en Bash</strong>
@@ -323,7 +323,7 @@ fi
 
 <h3 class="verde">Version en C++</h3>
 <div style="text-align: center;">
-<img src="/assets/images/calcular_subnet/c1.png" alt="Maraton" oncontextmenu="return false;">
+<img src="/assets/images/Scripts/Subnetting-tool/c1.png" alt="Maraton" oncontextmenu="return false;">
 </div>
 <strong>Script en C++</strong>
 
