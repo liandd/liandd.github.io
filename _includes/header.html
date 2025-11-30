@@ -2,21 +2,21 @@
 <header>
   <div class="menu">
     <ul>
-      <img src="{{ site.baseurl }}/assets/images/headers/masthead3.png" alt="masthead" width="48"  />
-      <img src="{{ site.baseurl }}/assets/images/headers/ucp_.png" alt="masthead" width="70"  />
-      <img src="{{ site.baseurl }}/assets/images/headers/linux.gif" alt="masthead" width="95"  />
-      <img src="{{ site.baseurl }}/assets/images/headers/saynotoweb3.gif" alt="masthead" width="100"  />
-      <img src="{{ site.baseurl }}/assets/images/headers/archlinux.gif" alt="masthead" width="95"  />
-      <img src="{{ site.baseurl }}/assets/images/headers/button-vk.png" alt="masthead" width="95"  />
-      <img src="{{ site.baseurl }}/assets/images/headers/htmldream.gif" alt="masthead" width="95"  />
-      <img src="{{ site.baseurl }}/assets/images/headers/css.png" alt="masthead" width="95"  />
-      <img src="{{ site.baseurl }}/assets/images/headers/botao08.gif" alt="masthead" width="95"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/masthead3.png" alt="masthead" width="48"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/ucp_.png" alt="masthead" width="70"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/linux.gif" alt="masthead" width="95"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/saynotoweb3.gif" alt="masthead" width="100"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/archlinux.gif" alt="masthead" width="95"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/button-vk.png" alt="masthead" width="95"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/htmldream.gif" alt="masthead" width="95"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/css.png" alt="masthead" width="95"  />
+      <img src="{{ site.baseurl }}/assets/images/web-images/botao08.gif" alt="masthead" width="95"  />
       {%- for path in page_paths -%}
         {%- assign my_page = site.pages | where: "path", path | first -%}
         {%- if my_page.title -%}
           {%- if my_page.title == "/about" -%}
             <li><a href="{{ my_page.url | relative_url }}" class="bob">
-              {{ my_page.title | escape }} <img src="/assets/images/headers/face.gif" alt="masthead" width="12" />
+              {{ my_page.title | escape }} <img src="/assets/images/web-images/face.gif" alt="masthead" width="12" />
             </a></li>
           {%- else -%}
             <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
