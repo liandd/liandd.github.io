@@ -14,7 +14,7 @@ La plataforma OTW presenta Bandit para el aprendizaje de Bash en forma de nivele
 <h1 class="amarillo">Presentación del Script</h1>
 
 <div style="text-align: center;">
-  <img src="/assets/images/Bandit-Decompressor/decompressor.png" alt="bandit" oncontextmenu="return false;">
+  <img src="/assets/images/Scripts/Bandit-Decompressor/decompressor.png" alt="bandit" oncontextmenu="return false;">
 </div>
 
 ---
@@ -84,7 +84,7 @@ The password is .....
 El Script es compilado y funciona correctamente:
 
 <div style="text-align: center;">
-  <img src="/assets/images/Bandit-Decompressor/result.png" alt="bandit" oncontextmenu="return false;">
+  <img src="/assets/images/Scripts/Bandit-Decompressor/result.png" alt="bandit" oncontextmenu="return false;">
 </div>
 
 ---
