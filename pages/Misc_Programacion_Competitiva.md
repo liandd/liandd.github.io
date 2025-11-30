@@ -18,10 +18,10 @@ Tambien a MSc Alejandro Morales, BSc Brahin Gil, BSc Mario Marin, BSc Miguel Ang
 
 🗳️ Durante el día 25 de noviembre hice mi participación en `UTP Open Contest 2023` en la *Universidad Tecnológica de Pereira*.
 
-<img src="/assets/images/comp_prog/Foto1.jpg" alt="utpopen" oncontextmenu="return false;">
-<img src="/assets/images/comp_prog/m1.jpg" alt="utpopen" oncontextmenu="return false;">
-<img src="/assets/images/comp_prog/m2.jpg" alt="utpopen" oncontextmenu="return false;">
-<img src="/assets/images/comp_prog/m3.jpg" width="800px" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/Foto1.jpg" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/m1.jpg" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/m2.jpg" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/m3.jpg" width="800px" alt="utpopen" oncontextmenu="return false;">
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/semillero-coders-obtiene-primer-puesto-en-utp-open-2023/)
 
@@ -36,22 +36,22 @@ Tambien a MSc Alejandro Morales, BSc Brahin Gil, BSc Mario Marin, BSc Miguel Ang
 
 <a><strong><em>Galería fotográfica</em></strong></a>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/ev.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Misc/Competitive-Programming/ev.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/ev4.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Misc/Competitive-Programming/ev4.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/ev1.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Misc/Competitive-Programming/ev1.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/ev2.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Misc/Competitive-Programming/ev2.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/ev3.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Misc/Competitive-Programming/ev3.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/Maraton.jpg" alt="Maraton" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/Maraton.jpg" alt="Maraton" oncontextmenu="return false;">
 </div>
 
 [Link de la publicación hecho por la Universidad Católica de Pereira!](https://www.ucp.edu.co/noticias/los-programas-ist-y-tds-participan-en-la-xxxvii-maraton-nacional-de-programacion/)
@@ -62,7 +62,7 @@ Tambien a MSc Alejandro Morales, BSc Brahin Gil, BSc Mario Marin, BSc Miguel Ang
 
 🗳️ Hice hice mi participación en la Maratón Regional Colombiana en UTP Codeforces (RPC Invitado).
 
-<img src="/assets/images/comp_prog/20231028_091618.jpg" alt="utpopen" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/20231028_091618.jpg" alt="utpopen" oncontextmenu="return false;">
 
 ---
 
@@ -72,10 +72,10 @@ Tambien a MSc Alejandro Morales, BSc Brahin Gil, BSc Mario Marin, BSc Miguel Ang
 🗳️ Durante el día 23 de junio hice mi participación de `Primera Fecha Gran Premio de México 2024` en la Universidad Tecnologíca de Pereira.
 
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/m4.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Misc/Competitive-Programming/m4.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/m5.jpg" alt="Maraton" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/m5.jpg" alt="Maraton" oncontextmenu="return false;">
 </div>
 
 [Link de la publicación hecho por la Universidad Tecnologíca de Pereira!](https://www.facebook.com/share/p/1Je6oRcy8u/)
@@ -88,16 +88,16 @@ Tambien a MSc Alejandro Morales, BSc Brahin Gil, BSc Mario Marin, BSc Miguel Ang
 🗳️ Durante el día 5 de noviembre hice mi participación de `XXXVIII Maratón Nacional de Programación 2024` en la ciudad de Manizales.
 
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/maraton2.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Misc/Competitive-Programming/maraton2.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/DSC02441.JPG" alt="Maraton" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/DSC02441.JPG" alt="Maraton" oncontextmenu="return false;">
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/20241019_114030.jpg" alt="Maraton" oncontextmenu="return false;" >
+<img src="/assets/images/Misc/Competitive-Programming/20241019_114030.jpg" alt="Maraton" oncontextmenu="return false;" >
 </div>
 <div style="text-align: center;">
-<img src="/assets/images/comp_prog/DSC02422.JPG" alt="Maraton" oncontextmenu="return false;">
+<img src="/assets/images/Misc/Competitive-Programming/DSC02422.JPG" alt="Maraton" oncontextmenu="return false;">
 </div>
 
 
