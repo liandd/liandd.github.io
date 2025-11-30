@@ -6,7 +6,7 @@ permalink: /Misc_Guía_Instalación_Arch_Linux
 <h2 id="whity">Entorno Arch</h2>
 
 <div style="text-align: center;">
-  <img src="/assets/images/GuiaArch/entorno.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Misc/Arch-Dotfiles/entorno.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Esta publicación tiene la guía de instalación de Arch Linux, suponiendo que ya se ha lanzado su instalador y ya ha sido quemado en un USB Booteable, o una máquina virtual.
@@ -190,7 +190,6 @@ Si contamos con una máquina virtual podemos hacer el particionado de nuestro di
 
 1. En la terminal escribimos el comando **cfdisk**[^5].
 2. Nos enfrentaremos a un menú como el siguiente:
-![[Pasted image 20240725222934.png]]
 3. Seleccionamos la opción *gpt*[^4] para crear nuestras particiones.
 4. Centraremos nuestra atención al apartado *Device*, ya que ahí estarán nuestras particiones.
 5. En caso de que debajo del apartado *Device* existan algunas particiones del tipo `/dev/sda1 /dev/sda2 /dev/sda3`, tendremos que movernos usando nuestras flechas en el teclado `↑ ↓ → ←`, seguidamente hacer un *Enter* en nuestro teclado en `[ Delete ]`, de esta forma eliminaremos las particiones existentes en caso de que estén ahí.
