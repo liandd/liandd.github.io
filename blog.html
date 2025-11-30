@@ -271,7 +271,7 @@ permalink: /blog
                               </p>
                               <p id="filters">
                                 <font face="arial" size="-1" color="#D9D9D9">
-
+                                  <span data-filter="proximamente" class="filter-button">Coming Soon</span> |
                                   <span data-filter="HTB" class="filter-button">HTB</span> |
                                   <span data-filter="Scripts" class="filter-button">Scripts</span> |
                                   <span data-filter="Notas" class="filter-button">Notas</span> |
@@ -495,18 +495,20 @@ permalink: /blog
                     const tagsHTML = post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : "";
                     const globalIndex = start + index;
 
-                    const canEnter = post.author !== "unkn0wn1122";
+                    // Validar si el post está en desarrollo o es externo
+                    const isInDevelopment = post.cus && post.cus.art === "proximamente";
+                    const isExternal = post.author === "unkn0wn1122";
+                    const canEnter = !isInDevelopment && !isExternal;
 
-                    const enterHtml = canEnter
-                      ? `
-        <span class="post-detail-btn"
-              data-index="${globalIndex}">
-          Entrar...
-        </span>`
-                      : `
-        <span class="post-detail-disabled">
-          Visita a mi colega en su blog!
-        </span>`;
+                    // Generar el HTML según el estado
+                    let enterHtml;
+                    if (isInDevelopment) {
+                      enterHtml = `<span class="post-detail-disabled">En desarrollo...</span>`;
+                    } else if (isExternal) {
+                      enterHtml = `<span class="post-detail-disabled">Visita a mi colega en su blog!</span>`;
+                    } else {
+                      enterHtml = `<span class="post-detail-btn" data-index="${globalIndex}">Entrar...</span>`;
+                    }
 
                     const postHTML = `
       <table border="0" cellpadding="2" cellspacing="0" width="600" class="responsive-table">
@@ -1054,10 +1056,10 @@ permalink: /blog
                   {
                     title: "Return Writeup",
                     link: "/HTB_Return.html",
-                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    description: "La máquina Return de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                     author: "liandd",
                     date: "July 21, 2025",
-                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                    cus: {url: "https://github.com/liandd", art: "proximamente"}
                   },
                   {
                     title: "Busqueda Writeup",
@@ -1081,7 +1083,7 @@ permalink: /blog
                     description: "La máquina Horizontall de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                     author: "liandd",
                     date: "July 23, 2025",
-                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                    cus: {url: "https://github.com/liandd", art: "proximamente"}
                   },
                   {
                     title: "NunChucks Writeup",
@@ -1094,15 +1096,15 @@ permalink: /blog
                   {
                     title: "GoodGames Writeup",
                     link: "/HTB_GoodGames.html",
-                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    description: "La máquina GoodGames de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
                     author: "liandd",
                     date: "July 27, 2025",
-                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                    cus: {url: "https://github.com/liandd", art: "proximamente"}
                   },
                   {
                     title: "Late Writeup",
                     link: "/HTB_Late.html",
-                    description: "La máquina PC de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    description: "La máquina PC de HackTheBox es de una dificultad fácil y Linux, la máquina tiene una página web que presenta un subdominio dentro del código fuente, revisando este subdominio, vemos una página web que nos ofrece la capacidad de convertir imágenes a texto, pero mediante un abuso de metadatos logramos identificar la ruta y usuario que tiene este servicio en ejecución. Haciendo entonces uso de un SSTI con Flask, podremos comprometer al usuario. Para la escalada encontramos un binario siendo ejecutado por root que analiza las conexiones establecidas por ssh, pero este binario cuenta con un privilegio avanzado 'append' únicamente legible mediante lsatter, permitiéndonos así asignar el privilegio SUID a la bash y convertirnos en root del sistema..<br><p><strong>Tags:</strong> Virtual Hosting Enumeration, Abusing Upload File - Image to Text Flask Utility, Exiftool PNG Comment Command Injection (Failed) - Provided error message with the user account in use, SSTI - Server Side Template Injection, Reading files through SSTI - SSH Private Key, Abusing Cron Job (Escalada)</p>",
                     author: "liandd",
                     date: "July 30, 2025",
                     cus: {url: "https://github.com/liandd", art: "HTB"}
@@ -1161,7 +1163,7 @@ permalink: /blog
                     description: "La máquina Active de HackTheBox es de una dificultad fácil y Windows, (Escalada).<br><p><strong>Tags:</strong> SMB Enum, GPP Password, Decrypt GPP, Kerberoasting Attack (GetUsersSPNs.py) (Escalada)</p>",
                     author: "liandd",
                     date: "October 13, 2025",
-                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                    cus: {url: "https://github.com/liandd", art: "proximamente"}
                   },
                   {
                     title: "Sauna Writeup",
@@ -1169,7 +1171,7 @@ permalink: /blog
                     description: "La máquina Sauna de HackTheBox es de una dificultad fácil y Windows, (Escalada).<br><p><strong>Tags:</strong> Information Leakage, Ldap Enum, Kerberos User Enum (Kerbrute), ASRepRoast Attack (GetNPUsers), Cracking Hashes, System Enum WINPEAS, AutoLog Credentials, DCSync Attack - SecretsDump.py, Pass the hash(Escalada)</p>",
                     author: "liandd",
                     date: "October 14, 2025",
-                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                    cus: {url: "https://github.com/liandd", art: "proximamente"}
                   },
                   {
                     title: "Forest Writeup",
@@ -1177,7 +1179,7 @@ permalink: /blog
                     description: "La máquina Forest de HackTheBox es de una dificultad fácil y Windows, (Escalada).<br><p><strong>Tags:</strong> AXFR - Domain Zone Transfer Attack (Failed), RPC Enum, ASRepRoast Attack, Cracking Hashes, Abusing WinRM - EvilWinRM, Ldap Enum - ldapdomaindump, BloodHound Enum SharpHound.exe, BloodHound Graphs Representation, Abusing Account Operators Group - Creating a new user - Assigning a group to the newly created user, Abusing WriteDacl in the domain - Granting DCSync Privileges, DCSync Exploitation - Secretsdump.py (Escalada)</p>",
                     author: "liandd",
                     date: "October 14, 2025",
-                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                    cus: {url: "https://github.com/liandd", art: "proximamente"}
                   },
                   {
                     title: "Fuse Writeup",
@@ -1185,7 +1187,7 @@ permalink: /blog
                     description: "La máquina Fuse de HackTheBox es de una dificultad media y Windows, (Escalada).<br><p><strong>Tags:</strong> Information Leakage, Creating a Custom Dictionary with Cewl, BruteForce with Netexec to SMB to Obtain Valid Credentials, Changing a User's Password with smbpasswd.py, Information Leakage through Printer Enum with rpcclient, Abusing SeLoadDriverPrivilege, Loading a Vulnerable Driver (EoPLoadDriver & Capcom.sys), Driver Exploitation (ExploitCapcom)(Escalada)</p>",
                     author: "liandd",
                     date: "October 20, 2025",
-                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                    cus: {url: "https://github.com/liandd", art: "proximamente"}
                   },
                   {
                     title: "Support Writeup",
@@ -1193,7 +1195,7 @@ permalink: /blog
                     description: "La máquina Support de HackTheBox es de una dificultad fácil y Windows, <br><p><strong>Tags:</strong> SMB Enumeration, EXE Binary Analysis, Debugging with DNSpy, Setting breakpoints and getting an LDAP password in clear text (DNSpy), Kerberos User Enum (kerbrute), Ldap Enum (ldapsearch), Information Leakage, Abusing WIN-RM (Evil-WinRM), SharpHound + BloodHound Enum, Abusing Shared Support Accounts (GenericAll) (rbcd Attack) [Resource Based Constrained Delegation], Resource Based Constrained Delegation Attack - Creating a Computer Object (powermad.ps1), Resource Based Constrained Delegation Attack - PowerView.ps1, Resource Based Constrained Delegation Attack - Getting the impersonated service ticket (getST.py), Using the ticket to gain Administrator access (Escalada)</p>",
                     author: "liandd",
                     date: "October 20, 2025",
-                    cus: {url: "https://github.com/liandd", art: "HTB"}
+                    cus: {url: "https://github.com/liandd", art: "proximamente"}
                   },
                   {
                     title: "Mi recorrido por la Programación Competitiva",
