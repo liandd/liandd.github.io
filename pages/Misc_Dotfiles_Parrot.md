@@ -9,7 +9,7 @@ permalink: /Misc_Dotfiles_Parrot
 <h1 class="amarillo">Vista Previa</h1>
 
 <div style="text-align: center;">
-  <img src="/assets/images/Dotfiles-en-bspwm/fondo.png" alt="bof" oncontextmenu="return false;">
+  <img src="/assets/images/Misc/Parrot-Dotfiles/fondo.png" alt="bof" oncontextmenu="return false;">
 </div>
 
 <h1 class="amarillo">Descripción</h1>
