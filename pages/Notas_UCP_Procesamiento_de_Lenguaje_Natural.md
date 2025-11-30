@@ -39,32 +39,32 @@ Para el Procesamiento del lenguaje natural hay que saber de gramática donde la 
 Podemos decir que el tema comienza con un **paper** que introduce conceptos sobre el sistema nervioso, el funcionamiento neural y las contribuciones de Alan Turing, así como la programación computacional.
 
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Inicios IA.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Inicios IA.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 La inteligencia artificial hizo su aparición en 1943, y Alan Turing realizó contribuciones significativas con su paper "*Computing Machinery and Intelligence*"[^1]. En este trabajo, Turing presentó conceptos innovadores como el aprendizaje automático, los algoritmos genéricos, el aprendizaje por refuerzo, y el famoso *Test de Turing*.
 
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Computing Machinery and Intelligence.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Computing Machinery and Intelligence.png" alt="under" oncontextmenu="return false;">
 </div>
 
 El *Test de Turing* involucra a dos humanos: uno formula preguntas, mientras que un humano y una máquina responden. El objetivo del test es que el entrevistador no pueda distinguir quién respondió, lo que indicaría que la inteligencia artificial ha alcanzado un grado significativo al poder engañar al entrevistador humano. Este concepto fue propuesto por Turing en **1950**[^2].
 
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Test de Turing (1950).png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Test de Turing (1950).png" alt="under" oncontextmenu="return false;">
 </div>
 
 El término *inteligencia artificial* (IA) fue acuñado en **1956** por John McCarthy, quien definió este enfoque como "la ciencia de crear máquinas inteligentes y programas de cómputo inteligentes". Esta idea sirvió como una forma de evaluar el progreso de los algoritmos de IA hasta ese momento[^3].
 
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/1956 Nace la IA.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/1956 Nace la IA.png" alt="under" oncontextmenu="return false;">
 </div>
 
 En **1967**, el *Perceptrón Mark 1* surgió como una implementación de redes neuronales básicas[^4], donde las entradas pasan por un proceso para generar una salida. Este modelo se centra en replicar aspectos de la naturaleza humana: el perceptrón recibe entradas, las procesa a través de neuronas, y con *deep learning* (aprendizaje profundo) la cantidad de neuronas influye en la precisión del sistema, aunque también tiene desventajas y ventajas: mayor precisión requiere más capacidad de procesamiento. Por ejemplo, procesar media página es diferente a procesar 10 páginas.
 
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Perceptrón 1967.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Perceptrón 1967.png" alt="under" oncontextmenu="return false;">
 </div>
 
 En el *Deep Learning*, las redes están formadas por muchas neuronas conectadas entre sí. Hoy en día, hablamos de capas de neuronas, que se comunican para dar una respuesta binaria, como 0 o 1.
@@ -72,7 +72,7 @@ En el *Deep Learning*, las redes están formadas por muchas neuronas conectadas 
 En **1980**, surge el concepto de la *Habitación China*, que es la antítesis del *Test de Turing*. Este argumento refuta la idea de que una máquina que pasa el *Test de Turing* tenga inteligencia real. Se afirma que solo simula la inteligencia, sin comprender el contenido semántico, solo el sintáctico.
 
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Habitación China 1980.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Habitación China 1980.png" alt="under" oncontextmenu="return false;">
 </div>
 
 <h1 class="amarillo">Algunos Eventos importantes</h1>
@@ -83,7 +83,7 @@ En **1980**, surge el concepto de la *Habitación China*, que es la antítesis d
 - **2017**: Nace la base de los generadores de texto modernos, sobre los principios de generación de texto y avances hacia el futuro.
 
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/events.webp" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/events.webp" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -122,7 +122,7 @@ No se limita solo a *Python*, la IA abarca múltiples disciplinas.
 - Lógica formal y sistemas expertos, como sistemas con sensores para enviar correos electrónicos o detectar enfermedades.
 - Agentes inteligentes y asistentes virtuales que actúan racionalmente.
 <div class="bgd">
-  <img src="/assets/images/nlp/Sistema IA.svg" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Sistema IA.svg" alt="under" oncontextmenu="return false;">
 </div>
 Es importante considerar la palabra "automatización", pero, dado que es un concepto complejo, es mejor hablar de "sistematización" para evitar confusiones.
 
@@ -131,24 +131,24 @@ Es importante considerar la palabra "automatización", pero, dado que es un conc
 > **Estadística y probabilidad**: La IA se nutre de estas áreas para hablar en términos científicos y lógicos.
 > **Neurociencia**: Aporta a la IA con el estudio de las neuronas, las conexiones y cómo aprenden.
 <div class="bgd" style="text-align: center;">
-  <img src="/assets/images/nlp/Neurociencia.svg" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Neurociencia.svg" alt="under" oncontextmenu="return false;">
 </div>
 > **Psicología**: Se conecta con la IA a través del estudio de cómo piensan y actúan las personas, ayudando a replicar la conducta humana.
 <div class="bgd" style="text-align: center;">
-  <img src="/assets/images/nlp/Psicología.svg" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Psicología.svg" alt="under" oncontextmenu="return false;">
 </div>
 > **Economía**: Contribuye en la toma de decisiones, ya que una máquina debe pensar en beneficios, competidores y el balance entre ellos.
 > **Lingüística**: Desde la lingüística, al conocer muy bien el idioma, se aportan bases fundamentales. 
 <div class="bgd" style="text-align: center;">
-  <img src="/assets/images/nlp/Lingüística.svg" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Lingüística.svg" alt="under" oncontextmenu="return false;">
 </div>
 > **Lingüística computacional**: Esta rama requiere un profundo conocimiento de las normas que rigen nuestra gramática.
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Sistemas Dinámicos y Economía.svg" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Sistemas Dinámicos y Economía.svg" alt="under" oncontextmenu="return false;">
 </div>
 
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Computación.svg" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Computación.svg" alt="under" oncontextmenu="return false;">
 </div>
 
 - Chomsky fue el primero en establecer bases teóricas y computacionales de la lingüística, dejando una línea de trabajo clara sobre cómo representar el conocimiento, mostrar el lenguaje, sintetizar y estructurar.  
@@ -190,7 +190,7 @@ Desde la computación podemos hablar de Hardware y herramientas para el desarrol
 
 <a><strong><em style="color: red;">¿Puede una computadora lidiar con la explosión combinatoria generada por muchos problemas?</em></strong></a>
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Internet de las cosas IoT.svg" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Internet de las cosas IoT.svg" alt="under" oncontextmenu="return false;">
 </div>
 
 <h1 class="verde"><strong>¿Puede una máquina tener sentimientos?</strong></h1>
@@ -222,7 +222,7 @@ Es un lenguaje de programación de tipo interpretado, multiparadigma. El lenguaj
 
 Python es interpretado con un código legible mediante su interprete, el cual traduce y ejecuta. Es multiplataforma (Windows, Linux, Mac OS).
 <div style="text-align: center;">
-  <img src="/assets/images/nlp/Python.svg" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/Notas/Notas-NLP/Python.svg" alt="under" oncontextmenu="return false;">
 </div>
 Algo especial del lenguaje es el *Tipado Dinámico* con sus mutaciones de variables, siendo fuertemente tipado, y sus tipos de variables.
 
