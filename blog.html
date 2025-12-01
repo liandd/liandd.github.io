@@ -1080,10 +1080,10 @@ permalink: /blog
                   {
                     title: "Horizontall Writeup",
                     link: "/HTB_Horizontall.html",
-                    description: "La máquina Horizontall de HackTheBox es de una dificultad fácil y ,(Escalada).<br><p><strong>Tags:</strong> (Escalada)</p>",
+                    description: "La máquina Horizontall de HackTheBox es de una dificultad fácil y Linux, tiene una página web en donde los desarrolladores dejaron en el código expuesto que consumen una API en un subdominio al cual inicialmente no tenemos acceso. Pasando por el subdominio, encontramos una página en desarrollo, la cual, mediante fuzzing de rutas, encontramos un panel administrativo de Strapi, el cual resulta ser vulnerable a un \"set new password UNAUTHENTICATED\" que nos lleva posteriormente a un RCE. Para la escalada de privilegios nos enfrentamos por primera vez al infame pkexec con permisos SUID (CVE-2021-4034) .<br><p><strong>Tags:</strong> Information Leakage, Scripting AutoPWN - Strapi CMS Exploitation, PWNKIT polkit [Privelege Escalation]</p>",
                     author: "liandd",
                     date: "July 23, 2025",
-                    cus: {url: "https://github.com/liandd", art: "proximamente"}
+                    cus: {url: "https://github.com/liandd", art: "HTB"}
                   },
                   {
                     title: "NunChucks Writeup",
