@@ -6,7 +6,7 @@ permalink: /HTB_Preignition
 
 <h2 class="amarillo">Preignition</h2>
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/preignition.webp" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/preignition.webp" alt="under" oncontextmenu="return false;">
 </div>
 
 Vamos a encender la máquina, y nos da la dirección IP 10.129.9.0 y comenzaremos a lanzar 5 paquetes para saber si la máquina está activa:
@@ -36,7 +36,7 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.9.0 -oG allPorts
 
 El escaneo ha ido bastante rápido y como no, si el único puerto abierto es el `80`. Pero aun sabemos muy poco así que sigamos enumerando. 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/nmap.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Vamos a analizar el puerto 80 con una serie de scripts básicos de reconocimiento usando nmap para identificar la versión y servicio:
@@ -45,12 +45,12 @@ Vamos a analizar el puerto 80 con una serie de scripts básicos de reconocimient
 nmap -sCV -p80 10.129.9.0 -oN targeted
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/nmap2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Vemos que estamos ante una página web con nginx pero, al acceder a esta no vemos información relevante más que el servidor HTTP está funcionando.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/web.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/web.png" alt="under" oncontextmenu="return false;">
 </div>
 
 <h2 class="amarillo">Explotación</h2>
@@ -73,7 +73,7 @@ gobuster dir --url http://10.129.9.0 --wordlist /opt/apps/Tools/SecLists/Discove
 <br><br>
 **Más flags**
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/dirbust2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/dirbust2.png" alt="under" oncontextmenu="return false;">
 </div>
 Usamos `--url` para indicar la página de la máquina y `--wordlist` para decirle el diccionario que queremos utilizar.
 
@@ -93,22 +93,22 @@ gobuster dir --url http://10.129.9.0 --wordlist /opt/apps/Tools/SecLists/Discove
 
 En este caso hemos filtrado por contenido .PHP:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/dirbust.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/dirbust.png" alt="under" oncontextmenu="return false;">
 </div>
 
 El panorama se ilumina puesto hemos encontrado una ruta llamada '/admin.php'.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/web.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/web.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Agregamos `/admin.php` a la url de la máquina 10.129.9.0/admin.php y nos encontramos con el típico panel de iniciar sesión. 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/web2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/web2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Probamos con las típicas credenciales por defecto 'admin:admin' 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Preignition/flag.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Preignition/flag.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Y hemos completado la máquina Preignition.
