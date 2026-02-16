@@ -256,7 +256,7 @@ permalink: /blog
                           <tr>
                             <td valign="top">
                               <font face="arial" size="-1" color="#D9D9D9">
-                                Este espacio reúne todas mis publicaciones y registros, desde CTFs en HTB y VulnHub
+                                Este espacio reúne todas mis publicaciones y writeups de diversos CTFs (HackTheBox, TryHackMe, VulnHub)
                                 hasta apuntes sobre NLP, ML y redes de datos. También encontrarás notas prácticas en
                                 Python3, C, Java y Bash, junto con un rastro de códigos y comandos explorados en cada
                                 temática.
@@ -271,7 +271,7 @@ permalink: /blog
                               </p>
                               <p id="filters">
                                 <font face="arial" size="-1" color="#D9D9D9">
-                                  <span data-filter="proximamente" class="filter-button">Coming Soon</span> |
+                                  <span data-filter="proximamente" class="filter-button">Pronto...</span> |
                                   <span data-filter="HTB" class="filter-button">HTB</span> |
                                   <span data-filter="Scripts" class="filter-button">Scripts</span> |
                                   <span data-filter="Notas" class="filter-button">Notas</span> |
@@ -317,7 +317,7 @@ permalink: /blog
                             <td>&nbsp;&nbsp;&nbsp;</td>
                             <td valign="top" nowrap="nowrap">
                               <font face="arial" size="-1">
-                                Lo más picante:
+                                Visita también:
                                 <ol>
                                   <li><a href="/">/inicio</a></li>
                                   <li><a href="/dashboard">/principal</a></li>
@@ -505,7 +505,7 @@ permalink: /blog
                     if (isInDevelopment) {
                       enterHtml = `<span class="post-detail-disabled">En desarrollo...</span>`;
                     } else if (isExternal) {
-                      enterHtml = `<span class="post-detail-disabled">Visita a mi colega en su blog!</span>`;
+                      enterHtml = `<span class="post-detail-disabled">Visita a mi colega en su <a href="https://unkn0wn1122.github.io/">blog!</a></span>`;
                     } else {
                       enterHtml = `<span class="post-detail-btn" data-index="${globalIndex}">Entrar...</span>`;
                     }
@@ -598,7 +598,7 @@ permalink: /blog
 
                     css = css.replace(/(^|})\s*([^@}{][^{]+)\{/g, (match, brace, selector) => {
                       if (/\bhtml\b|\bbody\b/.test(selector)) {
-                        return match; // las dejas como están o las puedes eliminar
+                        return match;
                       }
                       return `${brace} #detail-view ${selector}{`;
                     });
@@ -634,7 +634,7 @@ permalink: /blog
                       const parser = new DOMParser();
                       const doc = parser.parseFromString(html, "text/html");
 
-                      // Ajusta el selector al contenedor real de contenido en tu layout
+                      
                       const contentEl =
                         doc.querySelector(".page__content") ||
                         doc.querySelector(".post") ||
@@ -1291,8 +1291,8 @@ permalink: /blog
                         href="https://github.com/">Visita GitHub</a></font>
                   </td>
                   <td align="right">
-                    <font face="arial" size="-1">Recuerda visitar la playlist de resolución de máquinas <a
-                        href="">link</a>!</font>
+                    <font face="arial" size="-1">Recuerda visitar mi canal de youtube <a
+                        href="https://youtube.com/@liandd">link</a>!</font>
                   </td>
                 </tr>
               </tbody>

@@ -802,32 +802,93 @@ elif dinero <= 12:
 
 ```
 
-## Archivos 1
+## Archivos
 ```python
+# Crear un archivo de forma clasica
+f = open("archivo.txt", "w")
+f.write("se crea un archivo como prueba con python")
+f.close()
 
+# Crear un archivo con with as
+with open("archivo.txt", "w") as f:
+  f.write("se crear un archivo como prueba en python con with as")
+  f.close()
 
-```
+# Abrir archivo de forma clasica
+f = open("archivo.txt", "w")
+f.write("cambio de contenido del archivo")
+f.close()
 
-## Archivos 2
-```python
-
-
+# Ejemplo
+dirarchivo = "archivo.txt"
+while True:
+  try:
+    with open(dirachivo, "r+") as f:
+      contenido = f.read()
+      print(contenido)
+      break
+  except:
+    print("Error al abrir el archivo")
+    print(("No se encuentra el archivo"), (dirarchivo), ("Escriba la ubicacion:"))
+    dirarchivo = input("FILE:")
 ```
 
 ## Iterables por comprensión
 ```python
+numeros = []
+while True:
+  n1 = (int(input("INGRESE UN NUMERO MAYOR A 5 Y MENOR QUE 10\n")))
+  numeros.append(n1)
+  n2 = (int(input("INGRESE UN NUMERO MAYOR A 5 Y MENOS QUE 10\n")))
+  numeros.append(n2)
+  print(numeros)
+  if all (numero >= 5 and numero <= 10 for numero in numeros):
+    print("Correcto, los 2 numeros estan entre 5 y 10")
+    print("HASTA PRONTO.")
+    break
+  elif any (numero >= 5 and numero <= 10):
+    print("ALGUN NUMERO NO ES CORRECTO")
+    numeros = []
+  else:
+    print("SOLO INGRESAR NUMEROS")
+    break
 
+# Ejemplo
+semaforo = {'rojo':'detener', 'amarillo':'precaucion', 'verde':'pasar'}
+colores = semaforo.keys()
+for color in colores:
+  print(color)
 
+acciones = semaforo.values()
+for accion in acciones:
+  print(accion)
+
+for k,v in semaforo.items():
+  print((k), ('equivale a'), (v))
 ```
 
 ## Diccionarios por compresión 
 ```python
+lista = [('HOLA', 'MUCHACHOS')]
+diccionario = {k:v for k,v in lista}
+print(diccionario)
 
-
+# Funcion zip. Fusionar listas y convierte a diccionarios
+l1 = ['pablo', 'juan', 'maria']
+l2 = [14, 16, 18]
+diccionario = (dict(zip(11,22)))
+print(diccionario)
 ```
 
 ## Format y Join
 ```python
+nombre = input(str("INGRESA TU NOMBRE:"))
+edad = int(input("INGRESA TU EDAD:"))
+print("TU NOMBRE ES {0} Y TIENES {1} YEARS".format(nombre,edad))
+
+# alinear tablas
+for x in range(1,11):
+  print('{3}{0:2d}{3} {3}{1:3d}{3} {3}{2:4d}{3}'.format(x,x*x,x*x*x,'|'))
 
 ```
 
@@ -835,14 +896,23 @@ elif dinero <= 12:
 
 ## Clases, métodos y objetos 1 
 ```python
+class Humano():
+  def __init__(self, edad, nombre, ocupacion):
+    self.edad = edad
+    self.nombre = nombre
+    self.ocupacion = ocupacion
+  def presentar(self):
+    presentacion = ("soy {}, mi edad es {} y mi ocupacion es {}".format(self.edad, self.nombre, self.ocupacion))
+    print(presentacion)
+  def contratar(self, puesto):
+    self.puesto = puesto
+    print("{} ha sido contratado como {}".format(self.nombre, self.puesto))
+    self.ocupacion = puesto
 
-
-```
-
-## Clases, métodos y objetos 2 
-```python
-
-
+persona1 = Humano(31, "Fabio", "desocupado")
+persona1.presentar()
+persona1.contratar("OPERARIO")
+persona1.presentar()
 ```
 
 ## Herencia Multiple 1 
