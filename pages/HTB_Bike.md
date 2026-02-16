@@ -6,7 +6,7 @@ permalink: /HTB_Bike
 
 <h2 class="amarillo">Bike</h2>
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/bike.webp" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/bike.webp" alt="under" oncontextmenu="return false;">
 </div>
 
 Comenzamos encendiendo la máquina y nos da la dirección IP 10.129.166.121, enviaremos un paquete para saber a que nos estamos enfrentando:
@@ -34,13 +34,13 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.166.121 -oG allPorts
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/nmap.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Vemos dos puertos abiertos pero, para limpiar un poco el ruido de la captura de nmap usamos la herramienta previamente definida en la .zshrc **extractPorts**:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/extractPorts.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/extractPorts.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Vemos el puerto `22` y `80`, vamos a lanzar un escaneo con una serie de scripts básicos de reconocimiento con nmap para identificar la versión y servicio:
@@ -50,13 +50,13 @@ nmap -sCV -p22,80 10.129.166.121 -oN targeted
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/nmap2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Vemos puerto 22 SSH aunque sin credenciales, por ahora será tenerlo en cuenta y vemos también el puerto 80 HTTP. Probamos con la herramienta whatweb a enumerar un poco este servicio:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/whatweb.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/whatweb.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Solo encontramos que ejecuta Express, entonces haremos uso de un script programado en Lua para que nmap utilice un diccionario corto de rutas comunes para el servicio web:
@@ -66,7 +66,7 @@ nmap --script http-enum 10.129.166.121 -oN webScan
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/webscan.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/webscan.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Pero no vemos nada relevante.
@@ -76,7 +76,7 @@ Pero no vemos nada relevante.
 Abriremos la página y nos encontramos con una página en de desarrollo con un estilo de juego similar a 'Among US', el cual nos esta pidiendo una dirección de correo para avisarnos cuando el servicio este listo.
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/web.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/web.png" alt="under" oncontextmenu="return false;">
 </div>
 
 En este punto podemos probar a explotar este campo 'Placeholder' intentando un XSS:
@@ -96,7 +96,7 @@ Node.js es una plataforma de código abierto que permite como backend ejecutar J
 Express es una versión minimalista de Node.js para aplicativos web.
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/stti0.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/stti0.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Node.js y Python comúnmente hacen uso de algo llamado "Template Engines".
@@ -111,7 +111,7 @@ Server-side template injection es una vulnerabilidad que consiste en entrada mal
 Este ataque es muy común en páginas Node.js.
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/stti1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/stti1.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Podemos probar las siguientes combinaciones para hacer el SSTI:
@@ -129,13 +129,13 @@ ${ {7*7}}
 Capturamos con Caido el SSTI `{ {7*7}}` y lo convertimos a URL encode:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/ssti.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/ssti.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Hacemos un forward a la petición y vemos un mensaje de error por parte de la página y el servidor:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/ssti2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/ssti2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Debería de ejecutar la operatorio '7 x 7' pero, en su lugar el mensaje de error muestra que si ha funcionado la inyección, y aparte de eso nos está mostrando 'root/Backend/node_modules/handlebars/dist/cjs/handlebars/compiler....'. Esto es bueno porque ahora sabemos que la plantilla se llama Handlebars.
@@ -170,7 +170,7 @@ Donde como script para hacer pruebas a Node.js encontramos:
 El cual debe ir en formato URL encode ya que viaja como parámetro en una petición web:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/ssti3.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/ssti3.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Y vemos que hay un error en la linea 19 de la respuesta de Caido. Eso es porque Node.js trabaja con unas globales https://nodejs.org/api/globals.html. Pero que algunas funciones parecen ser también globales y son:
@@ -210,7 +210,7 @@ El problema es que necesitamos `require()` para poder ejecutar comandos pero, no
 Lo pasamos a URL encode y vemos la respuesta:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/ssti4.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/ssti4.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Se verifica la disponibilidad del objeto `process` en Node.js y el uso de su propiedad `mainModule`, esta propiedad aún puede ser utilizada para cargar el módulo principal y, desde allí, acceder a `require`.
@@ -264,7 +264,7 @@ Se proporciona un payload en Handlebars para comprobar si `mainModule` es accesi
 Finalmente, se confirma que `require` ha sido llamado con éxito y `child_process` ha sido cargado, lo que permite ejecutar comandos en el sistema:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/ssti5.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/ssti5.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Le mandamos otra petición con un `whoami`:
@@ -292,23 +292,23 @@ Le mandamos otra petición con un `whoami`:
 ```
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/ssti6.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/ssti6.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Ya siendo root podemos listar la flag:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/intrusion.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/intrusion.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Podemos dentro de Caido ver la respuesta del servidor y vemos la flag en texto plano:
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/flag.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/flag.png" alt="under" oncontextmenu="return false;">
 </div>
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Bike/pwn.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Bike/pwn.png" alt="under" oncontextmenu="return false;">
 </div>
 
 ---

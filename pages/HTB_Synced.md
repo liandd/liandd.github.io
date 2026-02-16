@@ -6,7 +6,7 @@ permalink: /HTB_Synced
 
 <h2 class="amarillo">Synced</h2>
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Synced/synced.webp" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Synced/synced.webp" alt="under" oncontextmenu="return false;">
 </div>
 
 Encendemos la máquina Synced y nos la dirección IP 10.129.228.37, así vamos a realizar un ping para saber si la máquina está activa y ver a que sistema nos estamos enfrentando.
@@ -58,17 +58,17 @@ rsync original/* duplicate/
 
 Después de contextualizar un poco `RSYNC` le pasamos la captura 'allPorts' a la función extractPorts
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Synced/extractPorts.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Synced/extractPorts.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Ahora que ya tenemos el puerto `873` copiado a la clipboard comenzaremos a hacer una serie de scripts básicos de reconocimiento para saber la version y servicio de RSYNC.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Synced/extractPorts1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Synced/extractPorts1.png" alt="under" oncontextmenu="return false;">
 </div>
 
 La captura nos arroja un _Protocol version 31_ pero, no hay nada relacionado a vulnerabilidades.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Synced/nmap.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Synced/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
 **Como nota adicional**
@@ -83,12 +83,12 @@ Por defecto en las distribuciones Linux ya hay un binario instalado llamado `rsy
 rsync --list-only 10.129.228.37
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Synced/rsync.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Synced/rsync.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Vemos un recurso anónimo compartido llamado `public`, podemos listar agregando al final del comando 'rsync 10.129.228.37::public' y encontramos la flag, así que para verla la actualizamos desde la máquina a un archivo nuevo en nuestro host con el mismo nombre.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Synced/flag.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Synced/flag.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Y hemos terminado la máquina Synced.

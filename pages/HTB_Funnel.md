@@ -6,7 +6,7 @@ permalink: /HTB_Funnel
 
 <h2 class="amarillo">Funnel</h2>
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/funnel.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/funnel.png" alt="under" oncontextmenu="return false;">
 </div>
 Comenzamos encendiendo la máquina y nos da una dirección IP 10.129.204.40, le enviamos un ping para saber si está encendida.
 
@@ -33,13 +33,13 @@ Para la fase de enumeración de puertos abiertos vamos a usar nmap y exportar la
 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.204.40 -oG allPorts
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/nmap.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Eliminamos el ruido de la captura de nmap con la herramienta **extractPorts**:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/extractPorts.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/extractPorts.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -49,36 +49,36 @@ Pasamos a hacer un escaneo exhaustivo para identificar versión y servicio de lo
 nmap -sCV -p21,22 10.129.204.40 -oN targeted
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/nmap2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 <h2 class="amarillo">Explotación</h2>
 Y vemos que hay un puerto 21 con FTP `3.0.3` el cual podemos probar con el usuario `anonymous` para loguearnos.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/ftp.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/ftp.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Después de loguearnos encontramos un directorio llamado 'mail_backup', entramos y vemos 2 archivos interesantes:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/ftp2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/ftp2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Con el comando **get** podemos descargar estos 2 archivos a nuestra máquina y ver su contenido:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/file1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/file1.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 El archivo `welcome` nos revela unos usuarios potenciales para explotar como credenciales, y se le pide a estos usuarios cambiar la contraseña lo más pronto posible:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/file2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/file2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Al abrir el archivo `password_policy` encontramos que la contraseña por defecto es **funnel123#!#**, recordando que tenemos usuarios potenciales y el puerto `22` abierto, podemos probar a entablar una conexión por SSH.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/ssh.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/ssh.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -92,19 +92,19 @@ Y logramos entrar como el usuario 'christine', ahora dentro de la máquina no en
 -n: Para no resolver el nombre del servicio
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/ssh2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/ssh2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Si filtramos en el archivo '/etc/passwd' encontramos que hay 2 usuarios con una bash "root:christine".
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/intrusion.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/intrusion.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Conociendo entonces el puerto y el servicio que se ejecuta localmente en la máquina podemos probar a hacer un Local Port Forwarding.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/psql.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/psql.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -139,19 +139,19 @@ Una vez hecho el Local Port Forwarding podemos probar con el cliente de terminal
 psql -U christine -h localhost -p 1234
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/intrusion2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/intrusion2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Dentro de la base de datos podemos listar contenido con `\l` o `\list`:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/intrusion3.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/intrusion3.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Vemos una base de datos interesante llamada `secrets`, utilizamos el comando `\c o connect` y secrets.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/intrusion4.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/intrusion4.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -161,13 +161,13 @@ Para ver el contenido de secrets debemos dumpear la base de datos con `\dt` y ve
 select * from flag;
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/flag.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/flag.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Y habremos completado la máquina.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Funnel/pwn.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Funnel/pwn.png" alt="under" oncontextmenu="return false;">
 </div>
 ---
 
