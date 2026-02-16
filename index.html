@@ -23,14 +23,17 @@ permalink: /
       line-height: 1.2em;
       align-items: center;
       text-align: center;
-      cursor: url("/assets/ico/icons8-cursor-16.png") 10 5, auto;
+      cursor: url("/assets/ico/wii-pointer-blue-ccw.cur") 10 5, auto;
 
+      #wii {
+        cursor: url("/assets/ico/wii-pointer-blue-ccw.cur") 10 5, auto;
+      }
       a,
       button,
       [role="button"],
       input[type="submit"],
       input[type="button"] {
-        cursor: url("/assets/ico/icons8-hand-cursor-16.png") 10 5, pointer;
+        cursor: url("/assets/ico/wii-pointer-blue-ccw") 10 5, pointer;
       }
     }
 
@@ -39,7 +42,7 @@ permalink: /
     }
 
     h3 {
-      text-shadow: 0 0 5px #ff009b;
+      text-shadow: 0 0 5px #a268ff;
     }
 
     img {
@@ -86,7 +89,7 @@ permalink: /
     }
 
     .blink {
-      color: #ee678f;
+      color: #a26ff;
       margin-left: -6px;
       vertical-align: top;
       width: 6px;
@@ -95,14 +98,6 @@ permalink: /
       -webkit-animation: blink-animation 1s steps(5, start) infinite;
     }
 
-    /*
-    #radialBackground {
-      background-color: #020202;
-      background-image: radial-gradient(circle farthest-corner at center, #b72b8c78 29%, #000000 60%);
-      display: block;
-      margin-top: 20px;
-    }
-    */
     @keyframes blink-animation {
       to {
         visibility: hidden;
@@ -116,14 +111,13 @@ permalink: /
     }
 
     a:link {
-      color: #f40fe6;
+      color: #a268ff;
       background-color: transparent;
     }
 
-    /* visited link mi color azul color: #ff009b;, mi rojo : #ee678f, rojo #e82e2e rgb(241, 44, 125)*/
     a:visited {
-      color: #ff009b;
-      text-shadow: 0 0 5px #ff009b;
+      color: #a268ff;
+      text-shadow: 0 0 5px #a268ff;
     }
   </style>
 </head>
@@ -134,26 +128,23 @@ permalink: /
 
       <div class="bio">
 
-        <h2 style="margin-bottom: 0px;"><span style="color: #ee678f;text-shadow: 0 0 5px #ff009b;">cat</span>
+        <h2 style="margin-bottom: 0px;"><span style="color: #a26ff;text-shadow: 0 0 5px #a268ff;">cat</span>
           ~/liandd.md
-          <span class="blink" style="text-shadow: 0 0 5px #ff009b;">|</span>
+          <span class="blink" style="text-shadow: 0 0 5px #a268ff;">|</span>
 
         </h2>
       </div>
       <hr />
-      <h4 align="left">Creé esta página para registrar mis scripts y apuntes, además de ser un pasatiempo.<br>
-        Hago scripts y herramientas que espero poder compartir con la comunidad en (Python, C, GO, Bash).<br>
-        Estas herramientas suelen ser complementarias a las máquinas en HTB, THM y VulnHub.<br><br>
-        Certs: CRTA, Próximo objetivo: eJPT<br>
+      <h4 align="left">Creé esta página para registrar mis scripts y apuntes como un pasatiempo.<br>
+        Resuelvo máquinas en HTB, THM y VulnHub, disfruto entender a bajo nivel lo que sucede en las máquinas.<br><br>
+        Certificaciones que actualmente dispongo:<br>CRTA, AD-RTS, Web-RTA, eJPT.<br><br>Próximo objetivo: eCCPT, eWPTX, OSCP, OSWE<br>
       </h4>
-      <h4 style="text-align:left;">dm me <a href="https://x.com/lianndd_" style="font-weight: bold;">@lianndd_</a><br>
+      <h4 style="text-align:left;">dm me <a href="https://crosstalk.im/profile/+lianndd" style="font-weight: bold;">@lianndd</a><br>
         most used socials <a href="https://www.linkedin.com/in/juan-garciaa2/" style="font-weight: bold;">linkedin</a>,
-        <a href="https://app.hackthebox.com/profile/1098514" style="font-weight: bold;">HTB</a>
-      </h4>
-      <div id="radialBackground">
-        <img width="295" src="/assets/images/web-images/beer.gif">
-      </div>
-      <h3>- <a href="/dashboard">Entrar...</a> -
+        <a href="https://x.com/lianndd_" style="font-weight: bold;">twitter</a>
+      </h4><br><br>
+      <img width="295" src="/assets/images/web-images/bonzi buddy swag.gif">
+      <h3>- <a href="/dashboard" id="wii">Entrar...</a> -
       </h3>
 
       <hr />
