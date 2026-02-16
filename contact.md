@@ -19,6 +19,6 @@ permalink: /contact
 <h2 id="whity">Contact with me</h2>
 
 
--> email me - <a  href="mailto:ymrcuz@gmail.com">ymrcuz@gmail.com</a>
+-> Chat with me in MSN - <a  href="mailto:liannddx@hotmail.com">liannddx@hotmail.com</a>
 
 <h3 class="verde">## todo...</h3>
