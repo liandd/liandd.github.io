@@ -6,7 +6,7 @@ permalink: /HTB_Explosion
 
 <h2 class="amarillo">Explosion</h2>
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/explosion.webp" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/explosion.webp" alt="under" oncontextmenu="return false;">
 </div>
 
 Vamos a encender la máquina, y nos da la dirección IP 10.129.54.191 y a realizar un ping para saber si la máquina está activa:
@@ -36,7 +36,7 @@ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.54.191 -oG allPorts
 
 El escaneo arroja una gran cantidad de puertos abiertos:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/nmap.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -44,12 +44,12 @@ Vamos a hacer uso de la herramienta **extractPorts** para copiar los puertos en 
 
 **extractPorts**
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/extractPorts.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/extractPorts.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Y vemos una gran cantidad de puertos abiertos:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/ports.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/ports.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Aun necesitamos un poco mas de información ya que hay una gran cantidad de puertos abiertos, para ello haremos uso de nmap para saber la versión y servicio:
@@ -58,14 +58,14 @@ Aun necesitamos un poco mas de información ya que hay una gran cantidad de puer
 nmap -sCV -p135,139,445,3389,5985,47001,49664,49665,49666,49667,49668,49669,49670,49671 10.129.54.191 -oN targeted
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/nmap2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 <h2 class="amarillo">Explotación</h2>
 
 Podemos ver los puertos 135, 139 pero, no da mucho vector de ataque. Sin embargo, el puerto `445` nos deja ver que la máquina tiene un SMB activo. Por tanto, podemos listar los recursos compartidos a nivel de red con la herramienta `smbclient`:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/smb1.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/smb1.png" alt="under" oncontextmenu="return false;">
 </div>
 
 A pesar de listar los recursos compartidos a nivel de red, no encontramos nada. Así que al seguir mirando los puertos abiertos de la máquina encontramos uno muy interesante. El puerto `3389` del servicio **Remote Desktop Protocol** de MS.
@@ -103,7 +103,7 @@ xfreerdp /v:10.129.54.191
 
 Pero la conexión es rechazada por un certificado de seguridad:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/rdp.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/rdp.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Una de las opciones que tenemos con `xfreerpd` es ignorar ese certificado usando la flag '/cert:ignore':
@@ -112,7 +112,7 @@ Una de las opciones que tenemos con `xfreerpd` es ignorar ese certificado usando
 xfreerdp /v:10.129.54.191 /cert:ignore
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/rpd2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/rpd2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Aun seguimos sin poder establecer una conexión pero, ahora ya nos pide ingresar el dominio y una contraseña. Como vimos en los ejemplos de `xfreerdp` podemos usar la flag '/u:' para intentar con usuarios comunes:
@@ -122,7 +122,7 @@ Aun seguimos sin poder establecer una conexión pero, ahora ya nos pide ingresar
 - administrator
 <br><br>
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Explosion/rpd3.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Explosion/rpd3.png" alt="under" oncontextmenu="return false;">
 </div>
 
 Nos abre una pestaña con la máquina Explosion y podemos ver la flag sin problemas. Hemos pwn3ed la máquina.
