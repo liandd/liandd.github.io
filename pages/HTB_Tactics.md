@@ -6,7 +6,7 @@ permalink: /HTB_Tactics
 
 <h2 class="amarillo">Tactics</h2>
 <div id="imgs" style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/tactics.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/tactics.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -35,13 +35,13 @@ Usando nmap haremos un escaneo rápido y sigiloso para identificar puertos abier
 nmap -p- --open -sS --min-rate 5000 -vvv -n -P 10.129.96.179
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/nmap.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/nmap.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Vemos algunos puertos abiertos, entonces para eliminar el ruido de la captura de nmap vamos a usar la herramienta extractPorts:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/extractPorts.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/extractPorts.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -51,7 +51,7 @@ Vamos a hacer un escaneo exhaustivo a los puertos abiertos con nmap para identif
 nmap -sCV -p135,139,445 10.129.96.179 -oN targeted
 ```
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/nmap2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/nmap2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -59,26 +59,26 @@ nmap -sCV -p135,139,445 10.129.96.179 -oN targeted
 
 El puerto que más llama la atención es el `445` ya que hay un servicio SMB compartido a nivel de red, al cual podemos acceder usando la herramienta `smbclient`
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/smb.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/smb.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Pero no podemos ver ningún recurso, podemos probar agregando `-U user` donde el usuario será el defecto en Windows 'Administrator':
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/smb2.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/smb2.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 Y esta vez podemos listar los recursos, probamos a conectarnos a la unidad compartida `$C`:
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/smb3.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/smb3.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
 
 Y una vez dentro encontramos la flag en el escritorio.
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/flag.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/flag.png" alt="under" oncontextmenu="return false;">
 </div>
 
 
@@ -154,7 +154,7 @@ Cuando solicite la contraseña presionar **Enter** (ya que no hay contraseña co
 Y seremos el usuario con **más altos privilegios**, es decir, el usuario **NT AUTHORITY\SYSTEM**.
 
 <div style="text-align: center;">
-  <img src="/assets/images/StartingPoint/VIP/Tactics/pwn.png" alt="under" oncontextmenu="return false;">
+  <img src="/assets/images/HTB/StartingPoint/VIP/Tactics/pwn.png" alt="under" oncontextmenu="return false;">
 </div>
 
 ---
