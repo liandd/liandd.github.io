@@ -4,7 +4,7 @@ layout: page
 permalink: /Script_evilXMLrpc
 ---
 
-<h2 id="whity">evilXMLrpc</h2>
+<h1 id="whity">evilXMLrpc</h1>
 
 Herramienta para la explotación de xmlrpc.php por método POST en un CMS WordPress
 
@@ -75,7 +75,7 @@ Implementación óptima para el problema con concurrencia aplicada. La arquitect
   <img src="/assets/images/Scripts/evilXMLrpc/4.png" alt="bandit" oncontextmenu="return false;">
 </div>
 
-**request.xml**
+<h2 id="amarillo">request.xml</h2>
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <methodCall>
@@ -84,7 +84,7 @@ Implementación óptima para el problema con concurrencia aplicada. La arquitect
 </methodCall>
 ```
 
-**file.xml**
+<h2 id="amarillo">file.xml</h2>
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <methodCall> 
@@ -96,7 +96,7 @@ Implementación óptima para el problema con concurrencia aplicada. La arquitect
 </methodCall>
 ```
 
-**Script evilXMLrpc.py**
+<h2 id="amarillo">Script evilXMLrpc.py</h2>
 ```python
 #!/usr/bin/env python3
 # Author: Juan García aka liandd

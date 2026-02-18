@@ -51,25 +51,27 @@ h6 {
   margin: 0px;
   margin-top: 22px;
   font-weight: bold;
-  color: var(--text-color);
+  color: #221ce6;
 }
 
 p,
 ul,
 ol {
-  color: var(--text-color);
+  color: #000;
 }
 
 .amarillo {
-  color: #ddb950;
+  color: #000;
   /* Este estilo reemplazará el h1 */
   text-shadow: 0 0 1px #74a7d4;
 }
 
+/*
 #whity {
   text-shadow: 0 0 3px #74a7d4;
-  /* Este estilo reemplazará el h2 */
-}
+  /* Este estilo reemplazará el h2 }*/
+ 
+
 
 .verde {
   color: #c4d5ff;
@@ -80,10 +82,12 @@ ol {
   background-color: silver;
 }
 
+/*
 a {
   text-decoration: none;
   color: #a9bbee;
 }
+*/
 
 /* publicaciones*/
 a:hover {
@@ -290,7 +294,6 @@ blockquote {
   padding-inline: 1em;
   font-style: italic;
   border-left: 0.25em solid #77c6cf;
-  background: rgb(10.5, 12, 14);
 }
 
 blockquote cite {
@@ -339,7 +342,7 @@ figcaption>code,
 td>code {
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
-  background: #233f4e;
+  background: #d0d0d0;
   border-radius: 4px;
 }
 

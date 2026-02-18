@@ -1,0 +1,204 @@
+---
+title: /
+layout: post
+permalink: /
+---
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Systems engineer" />
+  <title>webapp</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      max-width: 650px;
+      background-color: black;
+      color: white;
+      font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+      margin: auto;
+      line-height: 1.2em;
+      align-items: center;
+      text-align: center;
+      cursor: url("/assets/ico/wii-pointer-blue-ccw.cur") 10 5, auto;
+
+      #wii {
+        cursor: url("/assets/ico/wii-pointer-blue-ccw.cur") 10 5, auto;
+      }
+      a,
+      button,
+      [role="button"],
+      input[type="submit"],
+      input[type="button"] {
+        cursor: url("/assets/ico/wii-pointer-blue-ccw") 10 5, pointer;
+      }
+    }
+
+    .bio h2 {
+      margin-bottom: 0px;
+    }
+
+    h3 {
+      text-shadow: 0 0 5px #a268ff;
+    }
+
+    img {
+      pointer-events: none;
+    }
+
+    body hr {
+      border: 1.5px dotted white;
+    }
+
+    body p:not(:nth-child(2)) {
+      margin-top: 30px;
+    }
+
+    body p:nth-child(2) {
+      margin-top: 0px;
+    }
+
+    body h3:first-child {
+      margin-bottom: 5px;
+    }
+
+    body h4 {
+      font-weight: normal;
+      margin-top: 30px;
+      margin-bottom: 0px;
+    }
+
+    body h5 {
+      margin: 0px;
+      font-weight: 100;
+    }
+
+    @media only screen and (max-width: 650px) {
+
+      html,
+      body {
+        width: 90vw !important;
+      }
+    }
+
+    ul.a {
+      list-style-type: '> ';
+    }
+
+    .blink {
+      color: #a26ff;
+      margin-left: -6px;
+      vertical-align: top;
+      width: 6px;
+      height: 15px;
+      animation: blink-animation 1s steps(5, start) infinite;
+      -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    }
+
+    @keyframes blink-animation {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    @-webkit-keyframes blink-animation {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    a:link {
+      color: #a268ff;
+      background-color: transparent;
+    }
+
+    a:visited {
+      color: #a268ff;
+      text-shadow: 0 0 5px #a268ff;
+    }
+  </style>
+</head>
+
+<body oncontextmenu="return false">
+  <main>
+    <div class="container">
+
+      <div class="bio">
+
+        <h2 style="margin-bottom: 0px;"><span style="color: #a26ff;text-shadow: 0 0 5px #a268ff;">cat</span>
+          ~/liandd.md
+          <span class="blink" style="text-shadow: 0 0 5px #a268ff;">|</span>
+
+        </h2>
+      </div>
+      <hr />
+      <h4 align="left">Creé esta página para registrar mis scripts y apuntes como un pasatiempo.<br>
+        Resuelvo máquinas en HTB, THM y VulnHub, disfruto entender a bajo nivel lo que sucede en las máquinas.<br><br>
+        Certificaciones que actualmente dispongo:<br>CRTA, AD-RTS, Web-RTA, eJPT.<br><br>Próximo objetivo: eCCPT, eWPTX, OSCP, OSWE<br>
+      </h4>
+      <h4 style="text-align:left;">dm me <a href="https://crosstalk.im/profile/+lianndd" id="wii" style="font-weight: bold;">@lianndd</a><br>
+        most used socials <a href="https://www.linkedin.com/in/juan-garciaa2/" id="wii" style="font-weight: bold;">linkedin</a>,
+        <a href="https://x.com/lianndd_" style="font-weight: bold;" id="wii">twitter</a>
+      </h4><br><br>
+      <img width="295" src="/assets/images/web-images/bonzi buddy swag.gif">
+      <h3>- <a href="/dashboard" id="wii">Entrar...</a> -
+      </h3>
+
+      <hr />
+      <marquee behavior="alternate" onmouseout="this.start();" direction="left" loop="">
+        <a href="#"><img width="130" src="/assets/images/web-images/smlogo.gif"></a>
+        <a href="#"><img width="55" src="/assets/images/web-images/fin.gif" alt=""></a>
+        <a href="#"><img width="110" src="/assets/images/web-images/welcome.gif"></a>
+        <a href="#"><img width="50" src="/assets/images/web-images/gamecube.gif"></a>
+        <a href="#"><img width="50" src="/assets/images/web-images/space.gif"></a>
+        <a href="#"><img width="50" src="/assets/images/web-images/neutral.gif"></a>
+
+      </marquee>
+      <script type="text/javascript">
+        function mousehandler(e) {
+          var myevent = (isNS) ? e : event;
+          var eventbutton = (isNS) ? myevent.which : myevent.button;
+          if ((eventbutton == 2) || (eventbutton == 3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        function disableCtrlKeyCombination(e) {
+          var forbiddenKeys = new Array("a", "s", "c", "x", "u");
+          var key;
+          var isCtrl;
+          if (window.event) {
+            key = window.event.keyCode;
+            //IE
+            if (window.event.ctrlKey)
+              isCtrl = true;
+            else
+              isCtrl = false;
+          }
+          else {
+            key = e.which;
+            //firefox
+            if (e.ctrlKey)
+              isCtrl = true;
+            else
+              isCtrl = false;
+          }
+          if (isCtrl) {
+            for (i = 0; i < forbiddenKeys.length; i++) {
+              //case-insensitive comparation
+              if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                return false;
+              }
+            }
+          }
+          return true;
+        }
+      </script>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -4,12 +4,12 @@ layout: page
 permalink: /Script_SubNet
 ---
 
-<h2 id="whity">Subnet Calculator - Script</h2>
-<h1 class="amarillo">Descripción</h1>
+<h1 id="whity">Subnet Calculator - Script</h1>
+<h2 class="amarillo">Descripción</h2>
 
 El proyecto se centra en el desarrollo de un script en Bash para el cálculo de parámetros de red, incluyendo la identificación de la clase de red, el `cálculo del ID de red` y del `rango de hosts`. Además, se implementa una función para obtener la representación binaria de una dirección IP y una máscara de red.
 
-<h1 class="amarillo">Estructura del Proyecto</h1>
+<h2 class="amarillo">Estructura del Proyecto</h2>
 
 > El script de Bash consta de varias funciones clave
 
@@ -56,20 +56,20 @@ function binaryRepresentation(){
 }
 ```
 
-<h1 class="amarillo">Ejemplo de Uso</h1>
+<h2 class="amarillo">Ejemplo de Uso</h2>
 
 ```bash
 ./subNet.sh -i 192.168.1.1 -n 255.255.255.0
 ```
 Este comando calculará la información de red para la dirección IP **192.168.1.1** y la máscara de red **255.255.255.0**.
 
-<h1 class="amarillo">Problemas Resueltos</h1>
+<h2 class="amarillo">Problemas Resueltos</h2>
 
  -**Cálculo de Rango de ID de Red**: Se corrigió la función `getNetIDRange` para proporcionar el rango correcto de ID de red.
 
  -**Cálculo de Hosts por Subred**: La función `getHostsPerSubnet` se ajustó para manejar correctamente valores grandes sin errores de *desbordamiento*.
 
-<h1 class="amarillo">Conclusión</h1>
+<h2 class="amarillo">Conclusión</h2>
 
 El script de Bash ha sido mejorado y ajustado para proporcionar resultados más precisos y evitar posibles errores. Se recomienda su uso para cálculos de red a través de comandos en una terminal Bash.
 
@@ -321,11 +321,11 @@ fi
 ```
 ---
 
-<h3 class="verde">Version en C++</h3>
+<h2>Version en C++</h2>
 <div style="text-align: center;">
 <img src="/assets/images/Scripts/Subnetting-tool/c1.png" alt="Maraton" oncontextmenu="return false;">
 </div>
-<strong>Script en C++</strong>
+<h2>Script en C++</h2>
 
 ```c++
 #include<bits/stdc++.h>
@@ -744,6 +744,4 @@ while (resp == 'y') {
 ---
 
 Esta publicación ha sido creada como soporte en mi formación académica y crecimiento profesional.
-
-© Juan David Garcia Acevedo (aka liandd)
 

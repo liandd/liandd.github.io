@@ -4,12 +4,12 @@ layout: page
 permalink: /Notas_CRTA_Certified_Red_Team_Analyst
 ---
 
-<h2 id="whity">Notas/Notas-CRTA Certified Red Team Analyst</h2>
+<h2 id="whity">Notas-CRTA Certified Red Team Analyst</h2>
 
 
 <h2 class="amarillo">Introducción</h2>
 
-EL Notas/Notas-CRTA es para principiantes en seguridad de la información ofreciendo una experiencia practica. Tendremos un material de estudio, practicas de laboratorio, vídeos y manuales PDF. Este curso es centrado en desarrollar la comprensión de la mentalidad y las tácticas, técnicas y procedimientos TTP empleadas por los agentes de amenaza. Y esta dirigido a aquellos que aspiran a convertirse en profesionales Red Team. Finalizando el curso se tendrán las habilidades y conocimientos esenciales para una trayectoria exitosa en el campo.
+EL CRTA es para principiantes en seguridad de la información ofreciendo una experiencia practica. Tendremos un material de estudio, practicas de laboratorio, vídeos y manuales PDF. Este curso es centrado en desarrollar la comprensión de la mentalidad y las tácticas, técnicas y procedimientos TTP empleadas por los agentes de amenaza. Y esta dirigido a aquellos que aspiran a convertirse en profesionales Red Team. Finalizando el curso se tendrán las habilidades y conocimientos esenciales para una trayectoria exitosa en el campo.
 
 <h2 class="amarillo">Proceso de certificación</h2>
 
